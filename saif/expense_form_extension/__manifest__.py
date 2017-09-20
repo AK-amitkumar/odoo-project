@@ -9,8 +9,8 @@
         Changes in Expenses Form
     """,
 
-    'author': "Ali",
-    'website': "http://oxenlab.com",
+    'author': "Awais",
+    'website': "http://ecube.com",
 
     'category': 'Uncategorized',
     'version': '0.1',

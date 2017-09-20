@@ -21,9 +21,29 @@
         <field name="name">Sub Task</field>
         <field name="res_model">project.task</field>
         <field name="view_type">form</field>
+        <field name="context">{'default_sub_task':True}</field>
+        <field name="domain">[('sub_task','=',True)]</field>
         <field name="view_mode">tree,form</field>
     </record>
 
+    <record model="ir.actions.act_window" id="project_task1">
+        <field name="name">Task</field>
+        <field name="res_model">project.task</field>
+        <field name="view_type">form</field>
+        <field name="context">{'default_sub_task':False}</field>
+        <field name="domain">[('sub_task','=',False)]</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    
+    <record id="hide" model="res.groups">
+        <field name="name">Hide</field>
+        <field name="comment">Hide.</field>
+    </record>
+    <menuitem name="Tasks" id="project.menu_action_view_task" parent="project.menu_project_management" groups="hide" />
+
+
     <menuitem name="Sub Task" id="project_task_extension_menu_item" parent="project.menu_project_management" sequence="3" action="project_task"/>
+
+    <menuitem name="Tasks" id="project_task_extension_menu_item1" parent="project.menu_project_management" sequence="2" action="project_task1"/>
 
 </odoo> 
