@@ -26,17 +26,10 @@ class saif_extension(models.Model):
 		('arr_sal', 'Arrears Salary'),
 		('arr', 'Arrears'),
 		],default='exp',string ="Type")
-	# lone	 =fields.Boolean(string='Loan')
 	saif_tree_link = fields.One2many('saif.ext.tree','part_id')
 
 class saif_extension_tree(models.Model):
 	_name='saif.ext.tree'
 	expense_date = fields.Date(string='Expense Date', required=True)
 	expense_note = fields.Char(string='Expense Note', required=True)
-	expense_amount = 
-	# reference=fields.Char(string='Reference')
-	# unit_of_measure=fields.Many2one('product.uom',string='Unit Of Measure')
-	# unit_of_price=fields.Integer(string='Unit Of Price')
-	# quantities=fields.Integer(string='Quantities')
-	# total=fields.Integer(string='Total')
-	# part_id =fields.Many2one('saif.extension')
+	expense_amount = fields.Float("Total Amount")

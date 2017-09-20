@@ -24,8 +24,7 @@
 				            <field name="s_counter" attrs="{'invisible':[('payment_bank','=',False)]}"/>
 				            <field name="cash_book" attrs="{'invisible':[('payment_bank','=',True)]}" domain="[('journal_id.type','=','cash')]"/>				       
 				            <field name="description" />				        
-				            <field name="curency" />				        
-				            <!-- <field name="lone" domain="{'invisible':[('state','=',exp)]}"/> -->
+				            <field name="curency" />
 				            <field name="state" />
 
 				        </group>
