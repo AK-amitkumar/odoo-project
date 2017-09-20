@@ -1,0 +1,35 @@
+<?xml version="1.0"?> 
+<odoo> 
+    <record id="sale_extension" model="ir.ui.view"> 
+        <field name="name">sale_extension</field> 
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="type">tree</field> 
+        <field name="arch" type="xml">
+            <xpath expr="//form//sheet//notebook//page[2]" position="after">
+                <page name="dip_chart" string="Dip Chart">
+                    <h2>Delivered</h2>
+                    <field name="dlv_tree">
+                      <tree editable="bottom">
+                            <field name="ch_no" />
+                            <field name="qty_ltr" />
+                            <field name="dip_mm" />
+                      </tree>
+                    </field>
+                    <br></br>
+                    <br></br>
+                    <h2>Received</h2>
+                    <field name="rcv_tree">
+                      <tree editable="bottom">
+                            <field name="ch_no" />
+                            <field name="qty_ltr" />
+                            <field name="dip_mm" />
+                      </tree>
+                    </field>
+                </page>
+            </xpath>
+
+        </field>
+    </record>
+
+</odoo> 

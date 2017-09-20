@@ -1,0 +1,106 @@
+<?xml version="1.0"?> 
+<odoo> 
+
+    <record id="project_extension" model="ir.ui.view"> 
+        <field name="name">project_extension</field> 
+        <field name="model">project.project</field>
+        <field name="inherit_id" ref="project.edit_project"/>
+        <field name="type">form</field> 
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name ='partner_id']" position="replace">
+            </xpath>
+            <xpath expr="//field[@name ='user_id']" position="before">
+                <field name="proj_id"/>
+                <field name="partner_id"/>
+            </xpath>
+            <xpath expr="//field[@name ='privacy_visibility']" position="before">
+                <field name="task_type"/>
+                <field name="task_val"/>
+                <field name="start_date"/>
+                <field name="end_date"/>
+                <field name="mail"/>
+                <field name="choose_team"/>
+                <field name="fnl_by"/>
+            </xpath>            
+
+            <xpath expr="//form//sheet//notebook//page[1]" position="after">
+                <page name="other_info" string="Other Info">
+                    <group name="group_top">
+
+                    <group name="group_left">
+                        <field name="srce"/>
+                        <field name="cli_name"/>
+                        <field name="url"/>
+                    </group>
+
+                    <group name="group_right">
+                        <field name="ext_status"/>
+                        <field name="t_amount"/>
+                        <field name="proj_aletr"/>
+                        <field name="fsl_fdb"/>
+                    </group>
+
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+
+    <record id="project_team_extension" model="ir.ui.view"> 
+        <field name="name">project_team_extension</field> 
+        <field name="model">proj.team</field>
+        <field name="type">form</field> 
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group name="group_top">
+                        <group name="group_left">
+                            <field name="team_name" />
+                        </group>
+                        <group name="group_right">
+                            <field name="team_lead" />
+                        </group>
+                    </group>
+
+                    <br></br>
+                    <h2> Project Members </h2>
+
+                    <field name="team_mem_link" >
+                        <tree editable="bottom">
+
+                        <field name="name" />
+                        <field name="dep" />
+                        <field name="job" />
+
+                        </tree>
+                        
+                    </field>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="project_team_extension_tree" model="ir.ui.view">
+        <field name="name">project_team_extension_tree</field>
+        <field name="model">proj.team</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree string="Team ">
+                <field name="team_name" />
+                <field name="team_lead" />
+            </tree>
+        </field>
+    </record>
+
+
+    <record model="ir.actions.act_window" id="project_team">
+        <field name="name">Team</field>
+        <field name="res_model">proj.team</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem name="Team" id="project_team_extension_menu_item" parent="project.menu_project_management" sequence="2" action="project_team"/>
+
+</odoo> 

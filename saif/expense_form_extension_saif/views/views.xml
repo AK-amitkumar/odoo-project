@@ -1,0 +1,101 @@
+<odoo>
+	<record id="expense_form_extension_saif" model="ir.ui.view"> 
+	    <field name="name">expense_form_extension_saif</field> 
+	    <field name="model">saif.extension</field> 
+	    <field name="arch" type="xml"> 
+	        <form>
+	        	<sheet>
+				    <group name="group_top"> 
+
+					    <group name="group_left"> 
+					        <field name="date"/>
+					       	<field name="Employee"/> 
+				            <field name="proj" />
+					        <field name="department"/>
+					        <field name="amount"/>
+					        <field name="returned" attrs="{'invisible':[('state','=',exp)]}"/>
+					        <field name="net" attrs="{'invisible':[('state','=',exp)]}"/>
+
+					    </group> 
+
+				        <group name="group_right"> 
+				            <field name="payment_bank"/> 
+				            <field name="s_bank" attrs="{'invisible':[('payment_bank','=',False)]}" domain="[('type','=','bank')]"/>				        
+				            <field name="s_counter" attrs="{'invisible':[('payment_bank','=',False)]}"/>
+				            <field name="cash_book" attrs="{'invisible':[('payment_bank','=',True)]}" domain="[('journal_id.type','=','cash')]"/>				       
+				            <field name="description" />				        
+				            <field name="curency" />				        
+				            <!-- <field name="lone" domain="{'invisible':[('state','=',exp)]}"/> -->
+				            <field name="state" />
+
+				        </group>
+				    </group>
+			    	<notebook>
+			   			 <page name="des" string="Description">
+
+						    <field name="saif_tree_link" nolabel='1'>
+						    	<tree  editable="bottom">
+							      <field name="expense_date"/>
+							      <field name="expense_note"/>
+							      <field name="reference"/>
+							      <field name="unit_of_measure"/>
+							      <field name="unit_of_price"/>
+							      <field name="quantities"/>
+							      <field name="total"/>
+						  		</tree>
+
+						    </field>
+						</page>
+					</notebook>
+		  		</sheet>
+		    </form>
+	    </field> 
+
+	</record>
+	<record model="ir.actions.act_window" id="saif_expenses">
+		<field name="name">Expenses</field>
+		<field name="res_model">saif.extension</field>
+		<field name="view_type">form</field>
+		<field name="view_mode">tree,form</field>
+	</record>
+
+    <menuitem name="Expenses" id="saif_expenses_menu_item" parent="hr_expense.menu_hr_expense_my_expenses" sequence="4" action="saif_expenses"/>
+
+    <record model="ir.actions.act_window" id="payment_configuration">
+      <field name="name">Cash</field>
+      <field name="res_model">account.bank.statement</field>
+      <field name="view_type">form</field>
+      <field name="view_mode">tree,form</field>
+      <field name="domain">[('journal_id.type', '=', 'cash')]</field>
+      <field name="context">{'journal_type':'cash'}</field>
+      
+    </record>
+
+    <record model="ir.actions.act_window" id="bank_configuration">
+      <field name="name">Bank</field>
+      <field name="res_model">account.bank.statement</field>
+      <field name="view_type">form</field>
+      <field name="view_mode">tree,form</field>
+      <field name="domain">[('journal_id.type', '=', 'bank')]</field>
+      <field name="context">{'journal_type':'bank'}</field>
+
+    </record>
+
+    <menuitem name="Bank and Cash"
+      id="cash_configuration_main"
+      parent="account.menu_finance"
+      sequence="1"/>
+
+    <menuitem name="Cash"
+        id="cash_sales_configuration"
+        parent="cash_configuration_main"
+        action="payment_configuration"
+        sequence="1"/>
+
+    <menuitem name="Bank"
+        id="bank_sales_configuration"
+        parent="cash_configuration_main"
+        action="bank_configuration"
+        sequence="2"/>
+
+</odoo>

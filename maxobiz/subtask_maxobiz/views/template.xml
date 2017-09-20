@@ -1,0 +1,29 @@
+<?xml version="1.0"?> 
+<odoo> 
+
+    <record id="project_task_extension" model="ir.ui.view"> 
+        <field name="name">project_task_extension</field> 
+        <field name="model">project.task</field>
+        <field name="inherit_id" ref="project.view_task_form2"/>
+        <field name="type">form</field> 
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name ='user_id']" position="after">
+            <field name="sub_task"/>
+            </xpath>
+            <xpath expr="//field[@name ='tag_ids']" position="after">
+            <field name="task_name" domain="[('project_id','=',project_id)]" attrs="{'invisible':[('sub_task','=',False)]}"/>
+            <field name="task_val" attrs="{'invisible':[('sub_task','=',False)]}"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="project_task">
+        <field name="name">Sub Task</field>
+        <field name="res_model">project.task</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem name="Sub Task" id="project_task_extension_menu_item" parent="project.menu_project_management" sequence="3" action="project_task"/>
+
+</odoo> 
