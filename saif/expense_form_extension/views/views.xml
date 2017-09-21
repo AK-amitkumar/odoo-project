@@ -8,11 +8,14 @@
 	        		<field name="status" widget="statusbar" statusbar_visible="draft,val"/>
 	        		<button name="val" type="object" string="Validate" class = "oe_highlight" attrs="{'invisible':[('status','=','val')]}"/>
 	        		<button name="cancel" type="object" string="Cancel" class = "oe_highlight" attrs="{'invisible':[('status','=','draft')]}"/> 
+
 	        	</header>
 	        	<sheet >
 				    <group name="group_top" > 
 
 					    <group name="group_left"> 
+					    	<field name="seq"/>
+	        		  
 					        <field name="date" attrs="{'readonly':[('status','=','val')]}"/>
 					       	<field name="employee" attrs="{'readonly':[('status','=','val')]}"/> 
 				            <field name="proj" attrs="{'readonly':[('status','=','val')]}"/>
@@ -66,6 +69,24 @@
         </field>
     </record>
 
+    <record id="account_bank_extension" model="ir.ui.view"> 
+        <field name="name">account_bank_extension</field> 
+        <field name="model">account.bank.statement</field>
+        <field name="inherit_id" ref="account.view_bank_statement_form"/>
+        <field name="type">form</field> 
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name ='date']" position="after">
+            <field name="proj"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="account_bank_seq" model="ir.sequence"> 
+        <field name="name">account_bank_seq</field> 
+        <field name="code">ch.seq</field> 
+        <field name="prefix">CE</field> 
+        <field name="padding">4</field> 
+    </record>
 
 	<record model="ir.actions.act_window" id="saif_expenses">
 		<field name="name">Expenses</field>

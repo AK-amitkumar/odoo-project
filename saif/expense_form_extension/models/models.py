@@ -19,6 +19,13 @@ class saif_extension(models.Model):
 	e_currency	 = fields.Many2one('res.currency',string='Currency', required=True)
 	proj	 = fields.Many2one('project.project',string='Project', required=True)
 	saif_tree_link = fields.One2many('saif.ext.tree','part_id')
+	seq = fields.Char("CE No.",readonly=True)
+
+	@api.model 
+	def create(self, vals):
+		vals['seq'] = self.env['ir.sequence'].next_by_code('ch.seq')
+		new_record = super(saif_extension, self).create(vals) 
+		return new_record
 
 
 	state = fields.Selection([
@@ -39,34 +46,27 @@ class saif_extension(models.Model):
 	def val(self):
 		self.status = "val"
 
-		head = self.env['account.bank.statement'].search([('journal_id.type','=',self.cash_book.journal_id.type)])
-		line = self.env['account.bank.statement.line'].search([('name','=',self.description),('amount','=',self.amount)])
-		print "1111111111111111111111111111111111111111"
-		print head.name
-		print line
-		print "1111111111111111111111111111111111111111"
+		cash_enteries = self.env['account.bank.statement'].search([('journal_id.type','=',self.cash_book.journal_id.type),('proj.id','=',self.proj.id)])
+		if cash_enteries:
+			for x in cash_enteries.line_ids:
+				if x.ref == self.seq:
+					x.unlink()
 
-		# for x in self.saif_tree_link:
-		# 	if self.cash_book :
-		# 		head_list.append(x.vendor)
-		# for y in head_list:
-		# 	create_purchase = head.create({
-		# 			'partner_id':y.id,
-		# 			'date_order':self.pr_date,
-		# 			'date_planned':self.pr_date,
-		# 			})
-		# 	for x in self.saif_tree_link:
-		# 		if y == x.vendor:
-		# 			create_line = line.create({
-		# 				'product_id':x.t_p.id,
-		# 				'name': x.material_name.name,
-		# 				'date_planned':self.pr_date,
-		# 				'product_qty':x.qty_order,
-		# 				'price_unit':x.rate,
-		# 				'product_uom':x.uom.id,
-		# 				'uom':x.uom.id,
-		# 				'order_id':create_purchase.id,
-		# 				})
+		if cash_enteries:
+			inv = []
+			for invo in self.saif_tree_link:
+				inv.append({
+					'date':invo.expense_date,
+					'name':invo.expense_note,
+					'partner_id':self.employee.id,
+					'ref':self.seq,
+					'amount':invo.expense_amount,
+					'line_ids':cash_enteries.id,
+					})
+			
+			cash_enteries.line_ids = inv
+			inv=[]
+
 
 	@api.multi
 	def cancel(self):
@@ -86,3 +86,10 @@ class saif_extension_tree(models.Model):
 	expense_note = fields.Char(string='Expense Note', required=True)
 	expense_amount = fields.Float("Total Amount")
 	part_id = fields.Many2one('saif.extension')
+
+
+
+class account_bank_extension(models.Model):
+	_inherit = 'account.bank.statement'
+
+	proj	 = fields.Many2one('project.project',string='Project', required=True)
