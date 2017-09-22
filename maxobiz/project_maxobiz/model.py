@@ -5,8 +5,8 @@ class MB_Project_Extension(models.Model):
 	_inherit = 'project.project'
 
 	proj_id = fields.Char("Project Id")
-	task_type = fields.Char("Task Type")
-	task_val = fields.Char("Task Value")
+	# task_type = fields.Char("Task Type")
+	# task_val = fields.Char("Task Value")
 	start_date = fields.Date("Start Date")
 	end_date = fields.Date("End Date")
 	dep = fields.Char("Department")

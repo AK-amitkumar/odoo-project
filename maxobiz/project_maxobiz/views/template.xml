@@ -14,8 +14,8 @@
                 <field name="partner_id"/>
             </xpath>
             <xpath expr="//field[@name ='privacy_visibility']" position="before">
-                <field name="task_type"/>
-                <field name="task_val"/>
+                <!-- <field name="task_type"/> -->
+                <!-- <field name="task_val"/> -->
                 <field name="start_date"/>
                 <field name="end_date"/>
                 <field name="mail"/>
