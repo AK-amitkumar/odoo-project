@@ -25,6 +25,7 @@ class SC_Employee_Ext(models.Model):
 	e_contact = fields.Char("Contact")
 	per_address = fields.Text("Permanent Address")
 	tem_address = fields.Text("Temporary Address")
+	main = fields.Boolean("Main")
 	
 
 

@@ -71,6 +71,11 @@ class saif_extension(models.Model):
 	@api.multi
 	def cancel(self):
 		self.status = "draft"
+		cash_enteries = self.env['account.bank.statement'].search([('journal_id.type','=',self.cash_book.journal_id.type),('proj.id','=',self.proj.id)])
+		if cash_enteries:
+			for x in cash_enteries.line_ids:
+				if x.ref == self.seq:
+					x.unlink()
 
 	@api.onchange('saif_tree_link')
 	def on_change_amount(self):
