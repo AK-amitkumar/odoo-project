@@ -7,7 +7,7 @@ class MB_Project_Extension(models.Model):
 	f_name = fields.Char("Father Name")
 	cnic = fields.Char("CNIC")
 	religion = fields.Char("Religion")
-	doj = fields.Char("D.O.J")
+	doj = fields.Date("D.O.J")
 	e_contact = fields.Char("Contact")
 	per_address = fields.Text("Permanent Address")
 	tem_address = fields.Text("Temporary Address")

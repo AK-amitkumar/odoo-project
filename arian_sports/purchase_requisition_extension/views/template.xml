@@ -98,6 +98,15 @@
                     <field name="veh_no" attrs="{'invisible':[('picking_type_code','!=','incoming')]}"/>
                     <field name="driver_name" attrs="{'invisible':[('picking_type_code','!=','incoming')]}"/>
 
+                    <field name="test" attrs="{'invisible':[('picking_type_code','!=','incoming')]}">
+                            <tree editable="bottom">
+                                <field name="prod_id" />
+                                <field name="uom" />
+                                <field name="remain_qty" />
+                                <field name="reject" />
+                          </tree>
+                    </field>
+
                 </xpath>
 
 

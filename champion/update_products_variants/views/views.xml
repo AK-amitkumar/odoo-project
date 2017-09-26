@@ -35,10 +35,11 @@
         <field name="arch" type="xml">
           <header>
             <button name="%(action_wizard_products_variants)d" type='action' string="Update All Variants"/>
+            <!-- <button name="mytest" type='object' string="All Variants"/> -->
           </header>
-            <xpath expr="//field[@name='barcode']" position="after">
+            <!-- <xpath expr="//field[@name='barcode']" position="after">
               <field name="x_my_field" />
-            </xpath>
+            </xpath> -->
         </field> 
     </record>
 
