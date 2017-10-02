@@ -1,0 +1,41 @@
+<?xml version="1.0"?> 
+<odoo> 
+
+    <record id="GD_docs" model="ir.ui.view"> 
+        <field name="name">Google Docs Integration</field> 
+        <field name="model">google.inte</field>
+        <field name="type">form</field> 
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                <button name="create_doc" string="Create Google Document" type="object" class="oe_highlight" attrs="{'invisible':[('hide', '=',True)]}"/>
+
+                <button name="open_doc" string="Open Google Document" type="object" class="oe_highlight" attrs="{'invisible':[('hide', '=',False)]}"/>
+                  </header>
+
+                <sheet>
+                    <h3>User Credentials </h3>
+                    <br></br>
+                    <group name="top">
+                        <field name="username"/>
+                        <field name="password" password="True"/>
+                        <field name="doc_link" readonly="1" Widget="url"/>
+                        <field name="hide" invisible="1"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+
+    <record model="ir.actions.act_window" id="google_docs">
+        <field name="name">Google Docs</field>
+        <field name="res_model">google.inte</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem name="Google Docs" id="google_docs_id" parent="project.menu_project_management" sequence="5" action="google_docs"/>
+
+</odoo> 

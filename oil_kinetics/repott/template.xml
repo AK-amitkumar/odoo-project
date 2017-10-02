@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<openerp>
+    <data>
+        <report
+            id="Sale Invoice" 
+            model="sale.order"
+            name="repott.module_report"
+            file="repott.module_report"
+            report_type="qweb-html"
+            string="Sales Invoices"/> 
+    </data>
+</openerp>
