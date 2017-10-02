@@ -1,29 +1,11 @@
 from __future__ import print_function
 # import sqlite3
 import time
-
+import uuid
+from googleapiclient import errors
 from googleapiclient.discovery import build
 from httplib2 import Http
 from oauth2client import file, client, tools
-import psycopg2
-import webbrowser
-
-
-# SCOPES = ('https://www.googleapis.com/auth/drive')
-# store = file.Storage('storage.json')
-# creds = store.get()
-# if not creds or creds.invalid:
-#     flow = client.flow_from_clientsecrets('client_id.json', SCOPES)
-#     creds = tools.run_flow(flow, store)
-# SHEETS = discovery.build('docs', 'v4', http=creds.authorize(Http()))
-
-# data = {'properties': {'title': 'Toy orders [%s]' % time.ctime()}}
-# res = SHEETS.document().create(body=data).execute()
-# SHEET_ID = res['documentId']
-# print('Created "%s"' % res['properties']['title'])
-
-# def abc():
-	
 
 SCOPES = 'https://www.googleapis.com/auth/drive'
 store = file.Storage('/home/odoo/odoo-dev/Projects/saif/google_api_integreation/storage.json')
@@ -33,7 +15,7 @@ if not creds or creds.invalid:
     creds = tools.run_flow(flow, store)
 SHEETS = build('sheets', 'v4', http=creds.authorize(Http()))
 
-data = {'properties': {'title': 'Odoo [%s]' % time.ctime()}
+data = {'properties': {'title': 'Odoo Sheets [%s]' % time.ctime()}
 				}
 res = SHEETS.spreadsheets().create(body=data).execute()
 SHEET_ID = res['spreadsheetId']
@@ -51,8 +33,13 @@ try:
 except errors.HttpError, error:
   	print ('An error occurred: %s' % error)
 
-
-
+media_body = MediaFileUpload('Doc.txt',mimetype='text/plain',resumable=True)
+bodyy = {
+	'title':'My TEST Doc',
+	'description':'A TEST FILE',
+	'mimetype':'text/plain'
+} 
+file =  service.files().insert(body=bodyy,media_body=media_body).execute()
             
 # sheets = build('sheets', 'v4', http=creds.authorize(Http()))
 # body = {'properties': {'title': 'Odoo [%s]' % time.ctime()}}
