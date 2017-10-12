@@ -41,7 +41,7 @@
 				<field name="ref_no"/>
 			</tree> 
 			</field> 
-		</record>
+	</record>
 
 <record id="tax_withhold_report_wizard_form_view" model="ir.ui.view">
 	<field name="name">tax_withhold_report_wizard_form_view</field>

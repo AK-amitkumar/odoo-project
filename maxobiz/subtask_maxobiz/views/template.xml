@@ -55,3 +55,8 @@
     <menuitem name="Tasks" id="project_task_extension_menu_item1" parent="project.menu_project_management" sequence="2" action="project_task1"/>
 
 </odoo> 
+
+
+
+
+ 

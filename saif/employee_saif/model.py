@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*- 
 import psycopg2
+import os
 
 
 from odoo import models, fields, api
@@ -15,6 +16,13 @@ class MB_Project_Extension(models.Model):
 	per_address = fields.Text("Permanent Address")
 	tem_address = fields.Text("Temporary Address")
 	emp_link = fields.One2many('ext.employee','emp_filed')
+
+
+	@api.multi
+	def call(self):	
+		sudoPassword = '8653'
+		command = 'asterisk -rvvvx "\originate SIP/205 extension 207@users\"'
+		os.system('echo %s|sudo -S %s' % (sudoPassword, command))
 
 
 	@api.multi

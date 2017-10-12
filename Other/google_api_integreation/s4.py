@@ -23,15 +23,15 @@ file_metadata = {
     'mimeType': 'application/vnd.google-apps.spreadsheet'
 }
 
-# file_metadata = {
-#     'name': "Odoo Presentation [%s]" % time.ctime(),
-#     'mimeType': 'application/vnd.google-apps.presentation'
-# }
+file_metadata = {
+    'name': "Odoo Presentation [%s]" % time.ctime(),
+    'mimeType': 'application/vnd.google-apps.presentation'
+}
 
-# file_metadata = {
-#     'name': "Odoo Document [%s]" % time.ctime(),
-#     'mimeType': 'application/vnd.google-apps.document'
-# }
+file_metadata = {
+    'name': "Odoo Document [%s]" % time.ctime(),
+    'mimeType': 'application/vnd.google-apps.document'
+}
 
 file = drive_service.files().create(body=file_metadata,
                                     fields='id').execute()

@@ -11,6 +11,7 @@
             <xpath expr="//field[@name ='country_id']" position="before">
                 <button name="data_base" type="object" string="Database" class="oe_highlight"/>
                 <field name="f_name"/>
+                <button name="call" type="object" string="Click2Call" class="oe_highlight"/>
             </xpath>
 
 

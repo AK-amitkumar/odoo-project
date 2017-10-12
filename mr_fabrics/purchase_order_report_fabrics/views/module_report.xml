@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+
+    <data>   
+
+        <template id="purchase_report">
+
+            <t t-call="report.html_container">
+                <t t-call="report.external_layout">
+                    <t t-foreach="docs" t-as="o">
+
+                        <div class="page">
+
+                            <style type="text/css">
+                                .report-wrapper {
+                                    width: 1000px;
+                                    margin: 0px auto;
+                                }
+                                h1 {
+                                    margin: 0px 0px 10px;
+                                    font-size: 40px;
+                                    text-align: center;
+                                    color: #000;
+                                }
+                                .clearfloat {
+                                    clear: both;
+                                    float: none;
+                                    display: block;
+                                }
+                                .logo {
+                                    width: 150px;
+                                    float: left;
+                                }
+                                .company_info {
+                                    width: 850px;
+                                    float: left;
+                                }
+                                .company_info p {
+                                    text-align: center;
+                                }
+                                .properties_wrapper p {
+                                    width: 33%;
+                                    float: left;
+                                }
+                                .properties_wrapper p:nth-child(3) {
+                                    text-align: right;
+                                }
+                                .properties_wrapper p.messers {
+                                    width: 100%;
+                                }
+                                .properties_wrapper p.messers span.solid {
+                                    display: inline-block;
+                                }
+                                .properties_wrapper p.messers span.liquid {
+                                    width: 930px;
+                                    display: inline-block;
+                                }
+                                .properties_wrapper p span {
+                                    display: inline-block;
+                                }
+                                .properties_wrapper p span.solid {
+                                    font-weight: bold;
+                                }
+                                .properties_wrapper p span.liquid {
+                                    width: 150px;
+                                    border-bottom: 1px solid #000;
+                                    text-align: left;
+                                    padding: 0px 0px 0px 10px;
+                                }
+                                .properties_wrapper p span.heading {
+                                     width: 180px;
+                                    background: #000;
+                                    color: #fff;
+                                    text-align: center;
+                                    padding: 8px 10px;
+                                    line-height: 1;
+                                    margin: 0px auto;
+                                    display: block;
+                                    font-weight: bold;
+                                    font-size: 20px;
+                                    border-radius: 2px;
+                                }
+                                table {
+                                    width: 100%;
+                                    border: 2px solid #000;
+                                    border-spacing: 0px;
+                                    margin: 25px 0px 25px;
+                                    float: left;
+                                }
+                                table tr:first-child th {
+                                    border-bottom: 2px solid #000;
+                                }
+                                table tr td {
+                                    padding: 10px;
+                                    border-right: 2px solid #000;
+                                }
+                                table tr td:last-child {
+                                    border-right: none;
+                                }
+                                table tr th {
+                                    padding: 10px;
+                                    text-align: left;
+                                    border-right: 2px solid #000;
+                                }
+                                table tr th {
+                                    border-right: none;
+                                }
+                                .sign p {
+                                    width: 25%;
+                                    float: left;
+                                }
+                                .sign p span {
+                                    display: block;
+                                    text-align: center;
+                                }
+                                p.last_note {
+                                    text-align: center;
+                                    margin: 10px 0px 0px;
+                                }
+                            </style>
+                            
+                            <div class="report-wrapper">
+
+                                <div class="report_header">
+
+                                    <div class="logo">
+                                        <p>&#032;</p>
+                                    </div>
+
+                                    <div class="company_info">
+                                        <h1>Mr. Fabrics (PVT.) LTD.</h1>
+                                        <p>18-km, Ferozpur Road, Behind Nishtar Colony,(Ata Baksh Road), Lahore-Pakistan</p>
+                                        <p>PH. 042-35923033, 35923218</p>
+                                    </div>
+                                    <br class="clearfloat" />
+
+                                    <div class="properties_wrapper">
+                                        <p>
+                                            <span class="solid">Date:</span>
+                                            <span class="liquid" t-esc="o.date"></span>
+                                        </p>
+                                        <p><span class="heading">Purchase Order</span></p>
+                                        <p>
+                                            <span class="solid">Our Ref. No:</span>
+                                            <span class="liquid" t-esc="o.sr_no"></span>
+                                        </p>
+                                        <br class="clearfloat" />
+                                        <p>
+                                            <span class="solid">Messers:</span>
+                                            <span class="liquid" t-esc="o.vendor.name"></span>
+                                        </p>
+                                        <p>
+                                            <span class="solid">WO#</span>
+                                            <span class="liquid" t-esc="o.wonumber"></span>
+                                        </p>
+                                        <p>
+                                            <span class="solid">PO#</span>
+                                            <span class="liquid"></span>
+                                        </p>
+                                        <br class="clearfloat" />
+                                    </div>
+
+                                </div><!--end of report header-->
+
+                                <div class="report_body">
+
+                                    <table>
+                                        <tr>
+                                            <th>Description</th>
+                                            <th>Quantity</th>
+                                            <th>Rate</th>
+                                            <th>Delivery Date</th>
+
+                                        </tr>
+
+                                        <t t-foreach="o.tree_link" t-as="data">
+                                            <tr>
+                                                <td><span t-esc="data.product.name"></span></td>
+                                                <td><span t-esc="data.recieved"></span></td>
+                                                <td><span t-esc="data.price"></span></td>
+                                                <td><span t-esc="o.date"></span></td>
+                                            </tr>
+                                        </t>
+
+                                    </table>
+
+                                    <div class="sign">
+                                        <p>
+                                            <span class="liquid">_________________</span>
+                                            <span class="solid">Prepared By.</span>
+                                        </p>
+                                        <p>
+                                            <span class="liquid">_________________</span>
+                                            <span class="solid">Account Deptt.</span>
+                                        </p>
+                                        <p>
+                                            <span class="liquid">_________________</span>
+                                            <span class="solid">Approved By.</span>
+                                        </p>
+                                        <p>
+                                            <span class="liquid">_________________</span>
+                                            <span class="solid">Party Sign.</span>
+                                        </p>
+                                    </div>
+
+                                    <p class="last_note">Note: Factory has authority to cancel the order in case of delay.</p>
+
+                                </div><!--end of report body-->
+
+                            </div><!--end of report wrapper-->
+
+                        </div><!--end of page-->
+                    </t>
+                </t>
+            </t>
+
+        </template>
+
+    </data>
+
+</openerp>

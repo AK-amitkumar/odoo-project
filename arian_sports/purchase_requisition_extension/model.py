@@ -142,7 +142,7 @@ class GRN(models.Model):
 	sgp_no = fields.Char("Supplier Gate Pass #")
 	veh_no = fields.Char("Vehicle Reg #")
 	driver_name = fields.Char("Driver Name")
-	test = fields.One2many('stock.pack.operation','picking_id')
+	# test = fields.Many2one('stock.pack.operation',"TEST")
 
 class GRNTree(models.Model):
 	_inherit='stock.pack.operation'

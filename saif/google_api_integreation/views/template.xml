@@ -8,32 +8,64 @@
         <field name="arch" type="xml">
             <form>
                 <header>
-                <button name="create_doc" string="Create Google Document" type="object" class="oe_highlight" attrs="{'invisible':[('hide', '=',True)]}"/>
+                    <button name="create_doc" string="Create Google Document" type="object" class="oe_highlight" attrs="{'invisible':[('hide_button', '=',True)]}"/>
 
-                <button name="open_doc" string="Open Google Document" type="object" class="oe_highlight" attrs="{'invisible':[('hide', '=',False)]}"/>
-                  </header>
+                    <button name="open_doc" string="Open Google Document" type="object" class="oe_highlight" attrs="{'invisible':[('hide_button', '=',False)]}"/>
+                </header>
 
                 <sheet>
-                    <h3>User Credentials </h3>
+                    <h3>Document Details </h3>
                     <br></br>
                     <group name="top">
-                        <field name="username"/>
-                        <field name="password" password="True"/>
-                        <field name="doc_link" readonly="1" Widget="url"/>
-                        <field name="hide" invisible="1"/>
+                        <field name="doc_name" attrs="{'readonly':[('hide_button', '=',True)]}"/>
+                        <field name="doc_type" attrs="{'readonly':[('hide_button', '=',True)]}"/>
+                        <field name="proj" />
+                        <field name="doc_link" widget="url" invisible="1"/>
+                        <field name="hide_button" invisible="1"/>
                     </group>
                 </sheet>
             </form>
         </field>
     </record>
 
+    <record id="project_task_extension" model="ir.ui.view"> 
+        <field name="name">project_task_extension</field> 
+        <field name="model">project.task</field>
+        <field name="inherit_id" ref="project.view_task_form2"/>
+        <field name="type">form</field> 
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name ='name']" position="after">
+                <field name="doc" domain="[('proj','=',project_id)]"/>
+            </xpath>
+            
+        </field>
+    </record>
 
+    <record id="doc_ref_seq" model="ir.sequence"> 
+        <field name="name">doc_ref_seq</field> 
+        <field name="code">dem.seq</field> 
+        <field name="prefix"> </field> 
+        <field name="padding"> 4</field> 
+    </record>
 
     <record model="ir.actions.act_window" id="google_docs">
         <field name="name">Google Docs</field>
         <field name="res_model">google.inte</field>
         <field name="view_type">form</field>
         <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="google_docs_main_tree" model="ir.ui.view"> 
+        <field name="name">Google Docs</field> 
+        <field name="model">google.inte</field> 
+        <field name="arch" type="xml"> 
+            <tree > 
+                <field name="doc_name"/> 
+                <field name="proj"/>
+                <field name="doc_type"/> 
+                <field name="create_uid"/> 
+            </tree> 
+        </field> 
     </record>
 
     <menuitem name="Google Docs" id="google_docs_id" parent="project.menu_project_management" sequence="5" action="google_docs"/>

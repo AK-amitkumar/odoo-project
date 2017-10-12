@@ -1,0 +1,19 @@
+<?xml version="1.0"?> 
+<odoo> 
+<data>
+    <record id="click2dial" model="ir.ui.view"> 
+        <field name="name">click2dial</field> 
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/> 
+        <field name="arch" type="xml">
+            <xpath expr="//form/sheet" position="before">
+                <header>
+                    <button name="call" type="object" string="Click2Call" class="oe_highlight"/>
+                </header>
+            </xpath>
+        </field>
+    </record>
+
+
+</data>
+</odoo> 

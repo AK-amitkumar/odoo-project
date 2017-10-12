@@ -1,0 +1,569 @@
+<?xml version="1.0"?> 
+<odoo> 
+    <data>
+        <record id="purchase.purchase_order_form" model="ir.ui.view">
+            <field name="name">purchase.order.form</field>
+            <field name="model">purchase.order</field>
+            <field name="arch" type="xml">
+                <form string="Purchase Order">
+                <header>
+                    <button name="action_rfq_send" states="draft" string="Send RFQ by Email" type="object" context="{'send_rfq':True}" class="oe_highlight"/>
+                    <button name="action_rfq_send" states="sent" string="Re-Send RFQ by Email" type="object" context="{'send_rfq':True}"/>
+                    <button name="print_quotation" string="Print RFQ" type="object" states="draft" class="oe_highlight" groups="base.group_user"/>
+                    <button name="print_quotation" string="Print RFQ" type="object" states="sent" groups="base.group_user"/>
+                    <button name="button_confirm" type="object" states="draft" string="Confirm Order" id="draft_confirm"/>
+                    <button name="button_confirm" type="object" states="sent" string="Confirm Order" class="oe_highlight" id="bid_confirm"/>
+                    <button name="button_approve" type="object" states='to approve' string="Approve Order" class="oe_highlight" groups="purchase.group_purchase_manager"/>
+                    <button name="action_rfq_send" states="purchase" string="Send PO by Email" type="object" context="{'send_rfq':False}"/>
+                    <button name="action_view_picking" string="Receive Products" class="oe_highlight" type="object" attrs="{'invisible': ['|', '|' , ('is_shipped', '=', True), ('state','not in', ('purchase','done')), ('picking_count', '=', 0)]}"/>
+                    <button name="button_draft" states="cancel" string="Set to Draft" type="object" />
+                    <button name="button_cancel" states="draft,to approve,sent,purchase" string="Cancel" type="object" />
+                    <!-- <button name="button_done" type="object" string="Lock" states="purchase"/ >-->
+                    <button name="button_unlock" type="object" string="Unlock" states="done" groups="purchase.group_purchase_manager"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,sent,purchase,partial,complete" readonly="1"/>
+                </header>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button type="object"
+                            name="action_view_picking"
+                            class="oe_stat_button"
+                            icon="fa-truck" attrs="{'invisible':[('state', 'in', ('draft','sent','to approve')),('picking_ids','=',[])]}">
+                            <field name="picking_count" widget="statinfo" string="Shipment" help="Incoming Shipments"/>
+                            <field name="picking_ids" invisible="1"/>
+                        </button>
+                        <button type="object"  name="action_view_invoice"
+                            class="oe_stat_button"
+                            icon="fa-pencil-square-o" attrs="{'invisible':[('state', 'in', ('draft','sent','to approve')),('invoice_ids','=',[])]}">
+                            <field name="invoice_count" widget="statinfo" string="Vendor Bills"/>
+                            <field name='invoice_ids' invisible="1"/>
+                        </button> 
+                    </div>
+                    <div class="oe_title">
+                        <label string="Request for Quotation " attrs="{'invisible': [('state','not in',('draft','sent','bid'))]}"/>
+                        <label string="Purchase Order " attrs="{'invisible': [('state','in',('draft','sent','bid'))]}"/>
+                        <h1>
+                            <field name="name" readonly="1"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="partner_id" context="{'search_default_supplier':1, 'default_supplier':1, 'default_customer':0}" domain="[('supplier','=',True)]"/>
+                            <field name="partner_ref"/>
+                            <field name="currency_id" groups="base.group_multi_currency" widget="selection"/>
+                            <field name="is_shipped" invisible="1"/>
+                        </group>
+                        <group>
+                            <field name="date_order"/>
+                            <field name="origin" attrs="{'invisible': [('origin','=',False)]}"/>
+                            <field name="company_id" groups="base.group_multi_company" options="{'no_create': True}"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Products">
+                            <field name="order_line" attrs="{'readonly': [('state', 'in', ('done', 'cancel'))]}">
+                                 <tree string="Purchase Order Lines" editable="bottom">
+                                    <field name="currency_id" invisible="1"/>
+                                    <field name="state" invisible="1"/>
+                                    <field name="sequence" widget="handle"/>
+                                    <field name="product_id" attrs="{'readonly': [('state', 'in', ('purchase', 'to approve','done', 'cancel'))]}" context="{'partner_id':parent.partner_id, 'quantity':product_qty,'uom':product_uom, 'company_id': parent.company_id}"/>
+                                    <field name="name"/>
+                                    <field name="date_planned"/>
+                                    <field name="company_id" groups="base.group_multi_company" options="{'no_create': True}"/>
+                                    <field name="account_analytic_id" context="{'default_partner_id':parent.partner_id}" groups="purchase.group_analytic_accounting"/>
+                                    <field name="analytic_tag_ids" groups="purchase.group_analytic_accounting" widget="many2many_tags"/>
+                                    <field name="product_qty"/>
+                                    <field name="qty_received" invisible="not context.get('show_purchase', False)"/>
+                                    <field name="qty_invoiced" invisible="not context.get('show_purchase', False)"/>
+                                    <field name="product_uom" groups="product.group_uom" attrs="{'readonly': [('state', 'in', ('purchase', 'done', 'cancel'))]}"/>
+                                    <field name="price_unit"/>
+                                    <field name="taxes_id" widget="many2many_tags" domain="[('type_tax_use','=','purchase')]" context="{'default_type_tax_use': 'purchase'}"/>
+                                    <field name="price_subtotal" widget="monetary"/>
+                                </tree>
+                                <form string="Purchase Order Line">
+                                    <sheet>
+                                        <group>
+                                            <group>
+                                                <field name="product_id"
+                                                       context="{'partner_id': parent.partner_id}"/>
+                                                <label for="product_qty"/>
+                                                <div>
+                                                    <field name="product_qty" class="oe_inline"/>
+                                                    <span class="oe_inline">&#160;</span>
+                                                    <field name="product_uom" groups="product.group_uom" class="oe_inline"/>
+                                                </div>
+                                                <field name="price_unit"/>
+                                            </group>
+                                            <group>
+                                                <field name="taxes_id" widget="many2many_tags" domain="[('type_tax_use', '=', 'purchase')]"/>
+                                                <field name="date_planned" widget="date"/>
+                                                <field name="account_analytic_id" colspan="2" groups="purchase.group_analytic_accounting"/>
+                                                <field name="company_id" groups="base.group_multi_company" options="{'no_create': True}"/>
+                                            </group>
+                                        </group>
+                                        <notebook>
+                                        <page string="Notes">
+                                            <field name="name"/>
+                                        </page><page string="Invoices and Incoming Shipments">
+                                            <field name="invoice_lines"/>
+                                            <field name="move_ids"/>
+                                        </page>
+                                        </notebook>
+                                    </sheet>
+                                </form>
+                            </field>
+                            <group class="oe_subtotal_footer oe_right">
+                                <field name="amount_untaxed" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+                                <field name="amount_tax" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+                                <div class="oe_subtotal_footer_separator oe_inline">
+                                    <label for="amount_total"/>
+                                </div>
+                                <field name="amount_total" nolabel="1" class="oe_subtotal_footer_separator" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+                            </group>
+                            <field name="notes" class="oe_inline" placeholder="An administrator can set up default Terms and conditions in your Company settings."/>
+                            <div class="oe_clear"/>
+                        </page>
+                        <page name="purchase_deliveries_tab" string="Deliveries &amp; Invoices">
+                            <group>
+                                <group>
+                                    <label for="date_planned"/>
+                                    <div>
+                                        <field name="date_planned" required="1" attrs="{'readonly': [('state', 'not in', ('draft', 'sent'))]}"/>
+                                        <button name="action_set_date_planned" type="object"
+                                            states="draft,sent"
+                                            string="Set date to all order lines"
+                                            help="This changes the scheduled date of all order lines to the given date"
+                                            class="fa fa-calendar o_icon_button oe_edit_only"/>
+                                    </div>
+                                    <field name="picking_type_id" domain="[('code','=','incoming')]" options="{'no_create': True}" groups="stock.group_stock_multi_locations"/>
+                                    <field name="dest_address_id" groups="stock.group_stock_multi_locations" attrs="{'invisible': [('default_location_dest_id_usage', '!=', 'customer')], 'required': [('default_location_dest_id_usage', '=', 'customer')]}"/>
+                                    <field name="default_location_dest_id_usage" invisible="1"/>
+                                    <field name="incoterm_id"/>
+                                </group>
+                                <group>
+                                    <field name="invoice_status"/>
+                                    <field name="payment_term_id" options="{'no_open': True, 'no_create': True}" attrs="{'readonly': ['|', ('invoice_status','=', 'invoiced'), ('state', '=', 'done')]}"/>
+                                    <field name="fiscal_position_id" attrs="{'readonly': ['|', ('invoice_status','=', 'invoiced'), ('state', '=', 'done')]}"/>
+                                    <field name="date_approve" groups="base.group_no_one"/>
+                                </group>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+                </form>
+            </field>
+        </record>
+
+
+
+       <record id="purchase_order_extention_view" model="ir.ui.view">
+            <field name="name">purchase_order_extention_view</field>
+            <field name="model">purchase.order</field>
+            <field name="inherit_id" ref="purchase.purchase_order_form"/>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+
+            <header>
+                <xpath expr="//button[@name='print_quotation']" position="after">
+                    <button name="generate_wizard" string="Add Products" type="object" class="oe_highlight" context="{'default_sale_boolean': 1}"/>
+                </xpath>
+                <xpath expr="//button[@name='generate_wizard']" position="after">
+                    <button name="complete_order" string="Complete" type="object" class="oe_highlight"/>
+                </xpath>
+        
+              <!--   <xpath expr="//field[@name='state']" position="after">
+                    <field name="custom_stages" widget="statusbar" statusbar_visible="partial,complete" readonly="1"/>
+                </xpath> -->
+            </header>
+
+            <!-- Puchase Order Line -->
+
+                <xpath expr="//field[@name='order_line']/tree/field[@name='date_planned']" position="replace">
+                    <field name="date_planned" invisible="1"/>
+                </xpath>
+                <xpath expr="//field[@name='order_line']/tree/field[@name='product_qty']" position="after">
+                    <field name="carton"/>
+                    <field name="last_purchase" readonly="1"/>
+                </xpath>
+                <xpath expr="//field[@name='order_line']/tree/field[@name='product_qty']" position="replace">
+                    <field name="product_qty" string="Quantity(pcs)"/>
+                </xpath>
+                <xpath expr="//field[@name='order_line']/tree/field[@name='taxes_id']" position="replace">
+                    <field name="taxes_id" invisible="1"/>
+                </xpath>
+
+                <xpath expr="//field[@name='order_line']/tree/field[@name='price_subtotal']" position="after">
+                    <field name="pkr_unit_cost"/>
+                    <field name="qty_hand"/>
+                    <field name="avg_unit_price"/>
+                </xpath>
+                <!-- LC Costing, Shipping INfo and Document Tabs -->
+
+                <xpath expr="//page[@name='purchase_deliveries_tab']" position="replace">
+                    <page name="LC_costing" string="LC Costing">
+                         <field name="lc_costing_link" >
+                            <tree editable="bottom">
+                                <field name="date" required="1"/>
+                                <field name="money_changer" required="1"/>
+                                <field name="tt"  required="1"/>
+                                <field name="amount" required="1"/>
+                                <field name="conversion_rate" required="1"/>
+                                <field name="bank_charges" required="1"/>
+                                <field name="with_holding_tax" required="1"/>
+                                <field name="total_amount" required="1"/>
+                            </tree>
+                        </field> 
+                        <h4>Other Expense</h4>
+                        <group class="oe_subtotal_footer oe_right">
+                                <button name="submitt_expense" type="object" class="oe_highlight" string="Submitt"  />
+                        </group>   
+                        <field name="other_expense_link">
+                            <tree editable="bottom">
+                                <field name="expense_type" />
+                                <field name="amount" />
+                                <field name="bank_type" />
+                                <field name="expense_date" />
+    <!--                        <field name="haulage" />
+                                <field name="custom_duty" />
+                                <field name="sales_income_tax" />
+                                <field name="freight" />
+                                <field name="ca_bill" />
+                                <field name="labour" />
+                                <field name="wh_tax" />
+                                <field name="advertisement_budget" />
+                                <field name="dealer_incentice_budget" />
+                                <field name="bank_wh_tax" />
+                                <field name="placement_jk_land" />
+                                <field name="total_amount" /> -->
+                            </tree>
+                        </field> 
+
+                        <group class="oe_subtotal_footer oe_right">
+                              <!--   <field name="amount_untaxed" widget="monetary" options="{'currency_field': 'currency_id'}"/> -->
+                                <field name="per_dollar_cost" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+                                <div class="oe_subtotal_footer_separator oe_inline">
+                                    <label for="amount_total_footer"/>
+                                </div>
+                                <field name="amount_total_footer" nolabel="1" class="oe_subtotal_footer_separator" widget="monetary"/>
+                            </group>      
+                    </page>
+
+                </xpath>
+
+                <xpath expr="//page[@name='LC_costing']" position="after">
+                    <page name="document_attachments" string="Shipping Documents">
+                         <field name="shipping_doc_link" >
+                            <tree editable="bottom">
+                                <field name="doc_desc" required="1"/>
+                                <field name="doc_attachment" required="1"/>
+                            </tree>
+                        </field>  
+                    </page>
+
+                </xpath>                
+
+                <xpath expr="//page[@name='document_attachments']" position="after">
+                    <page string="Shipping Info" name="shipping_info">
+                                      <group name="group_top">
+                        
+                        <group name="group_right">
+                            <field name="port"/>
+                            <field name="ship_mode" />
+                            <field name="awb_no" attrs="{'invisible':['|',('ship_mode','=','bysea'),('ship_mode','=','byland')]}"/>
+                            <field name="bl_no" attrs="{'invisible':[('ship_mode','=','byair')]}"/>
+                            <field name="e_form_no"/>
+                            <field name="vessel"/>
+                            <field name="etd_khi"/>
+                            <field name="bank_account"/>
+                            <field name="gross_weight"/>
+                            <field name="performa"/>
+                        </group>
+                        
+                        <group name="group_left">
+                            <field name="loading_port"/>
+                            <field name="container"/>
+                            <field name="awb_date" attrs="{'invisible':['|',('ship_mode','=','bysea'),('ship_mode','=','byland')]}"/>
+                            <field name="bl_date" attrs="{'invisible':[('ship_mode','=','byair')]}"/>
+                            <field name="form_e_date"/>
+                            <field name="eta"/>
+                            <field name="ship_mark"/>
+                            <field name="net_weight"/>
+                            <field name="sro"/>
+                            <field name="s_tax_serial"/>
+                        </group>
+
+                    </group>
+
+                  
+                    </page>
+
+                </xpath>
+ <!-- Purchase Order Form  -->
+                <xpath expr="//field[@name='partner_id']" position="after">
+                    <field name="contact"/>
+                    <field name="adress"/>
+                </xpath>
+                 <xpath expr="//field[@name='date_order']" position="after">
+                    <field name="scheduled_date"/>
+                    <field name="departure_date"/>
+                </xpath>
+
+                <xpath expr="//field[@name='currency_id']" position="after">
+                    <field name="ship_line"/>
+                </xpath>
+
+                <xpath expr="//field[@name='departure_date']" position="after">
+                    <field name="incoterm" widget="selection" groups="base.group_user"/>
+                    <field name="payment_term_method" widget="selection" groups="base.group_user"/>
+                </xpath>
+                <xpath expr="//field[@name='partner_ref']" position="after">
+                    <field name="transporter" widget="selection" groups="base.group_user" domain="[('check_trans', '=', True)]"/>
+                    <field name="forwarder" widget="selection" groups="base.group_user" domain="[('check_forwarder', '=', True)]"/>
+                    <field name="clearing_agent"  widget="selection" groups="base.group_user" domain="[('check_clearing_agent', '=', True)]"/>
+                </xpath>
+                <xpath expr="//button[@name='action_rfq_send']" position="before">
+                    <button name="make_delivery" string="Make Delivery" type="object" class="oe_highlight"/>
+
+                </xpath>
+                <xpath expr="//field[@name='payment_term_method']" position="after">
+                    <field name="n_weight"/>
+                    <field name="g_weight"/>
+                    <field name="CBM"/>
+                    <field name="ETA"/>
+                    <field name="ETD"/>
+                </xpath>
+
+            </field>
+
+        </record>
+
+    <record id="lc_costing_form_view" model="ir.ui.view">
+        <field name="name">lc_costing_form_view</field>
+        <field name="model">tt.lc.costing</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group name="group_top">
+                        <group name="group_left">
+                            <field name="name"  />
+                            <!-- <field name="journal" widget="selection" /> -->
+                            <!-- <field name="cheque_no" /> -->
+                            <field name="amount" />
+                            <field name="amount_pkr" />
+                        </group>
+                        <group name="group_left">
+                            <field name="conversion_rate" />
+                            <field name="bank_charges" />
+                            <field name="with_holding_tax" />
+                            <!-- <field name="haulage_expense" /> -->
+                            <field name="total_amount" />
+                        </group>
+                    </group>
+                    <field name="tt_lc_costing_link">
+                        <tree editable="bottom">
+                            <field name="journal" widget="selection" domain="['|',('type','=','cash'),('type','=','bank')]"/>
+                            <field name="cheque_no" />
+                            <field name="amount" />
+                            <!-- <field name="conversion_rate" /> -->
+                            <!-- <field name="bank_charges" /> -->
+                            <!-- <field name="with_holding_tax" /> -->
+                            <!-- <field name="total_amount" /> -->
+                        </tree>
+                    </field>
+                    <!-- <field name="other_expense_link">
+                        <tree editable="bottom">
+                            <field name="haulage" />
+                            <field name="custom_duty" />
+                            <field name="sales_income_tax" />
+                            <field name="freight" />
+                            <field name="ca_bill" />
+                            <field name="labour" />
+                            <field name="wh_tax" />
+                            <field name="advertisement_budget" />
+                            <field name="dealer_incentice_budget" />
+                            <field name="bank_wh_tax" />
+                            <field name="placement_jk_land" />
+                            <field name="total_amount" />
+                        </tree>
+                    </field>      -->            
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+
+
+  <record id="purchase_order_tt_tree_view" model="ir.ui.view">
+        <field name="name">purchase_order_tt_tree_view</field>
+        <field name="model">lc.costing</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree string="Pur">
+                <field name="date" />
+                <field name="money_changer" />
+                <field name="tt" />
+                <field name="amount" />
+                <field name="conversion_rate" />
+                <field name="bank_charges" />
+                <field name="with_holding_tax" />
+                <field name="total_amount" />
+            </tree>
+        </field>
+    </record>
+
+
+
+
+  <record id="purchase_money_changer_tree_view" model="ir.ui.view">
+        <field name="name">purchase_money_changer_tree_view</field>
+        <field name="model">money.changer</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree string="Money Changer">
+                <field name="name" />
+                <field name="adress" />
+                <field name="tele_phone" />
+            </tree>
+        </field>
+    </record>
+
+
+<!--    <record id="purchase_order_tt_tree_view" model="ir.ui.view">
+        <field name="name">purchase_order_tt_tree_view</field>
+        <field name="model">tt.lc.costing</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree string="Pur">
+                <field name="name" />
+                <field name="amount" />
+                <field name="conversion_rate" />
+                <field name="bank_charges" />
+                <field name="with_holding_tax" />
+                <field name="total_amount" />
+            </tree>
+        </field>
+    </record> -->
+
+        <record id="account_journal_extention_form" model="ir.ui.view">
+            <field name="name">account_journal_extention_form</field>
+            <field name="model">account.journal</field>
+            <field name="inherit_id" ref="account.view_account_journal_form"/>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+
+                <xpath expr="//field[@name='type']" position="after">
+                    <field name="with_holding_rate"/>
+                </xpath>
+            </field>
+        </record>
+		
+
+<!-- Hidding Menuitems in Puurchase-->
+
+		<record id="y_hide_quotation" model="res.groups">
+            <field name="name">y_hide_quotations</field>
+        </record>
+
+         <menuitem action="sale.action_orders_to_invoice"
+            id="purchase.menu_procurement_partner_contact_form"
+            parent="y_hide_quotation"
+            sequence="2"/>
+
+         <menuitem action="sale.action_orders_to_invoice"
+            id="purchase.product_product_menu"
+            parent="y_hide_quotation"
+            sequence="2"/>
+
+        <record model="ir.actions.act_window" id="purchase_tt_configuration">
+            <field name="name">Purchase Order TT's</field>
+            <field name="res_model">lc.costing</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain" >[]</field>
+            <!-- <field name="context" eval="{'default_check_forwarder':1 , 'default_check_clearing_agent': 0, 'default_customer' : 0,'check_trans':0}"/> --> 
+        </record>
+
+    
+        <menuitem name="Purchase Order TT's"
+            id="tt_purchase_configuration_main"
+            parent="purchase.menu_procurement_management"
+            action="purchase_tt_configuration"
+            sequence="6"/>
+
+<!--         <menuitem name="Purchase Order TT's"
+            id="tt_purchase_configuration"
+            parent="tt_purchase_configuration_main"
+            action="purchase_tt_configuration"
+            sequence="1"/> -->
+
+        <record model="ir.actions.act_window" id="haulage_expense_details">
+            <field name="name">Other Expense Types</field>
+            <field name="res_model">haulage.expense</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain" >[]</field>
+        </record>
+
+    
+        <menuitem name="Other Expense Details"
+            id="other_expense_main"
+            parent="purchase.menu_purchase_config"
+            sequence="1"/>
+
+        <menuitem name="Other Expense Details"
+            id="other_expense_sub_menu"
+            parent="other_expense_main"
+            action="haulage_expense_details"
+            sequence="1"/>
+
+
+
+
+        <record model="ir.actions.act_window" id="money_changer_details">
+            <field name="name">Money Changer</field>
+            <field name="res_model">money.changer</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain" >[]</field>
+        </record>
+
+    
+        <menuitem name="Money Changer"
+            id="money_changer_purchase_main"
+            parent="purchase.menu_purchase_config"
+            sequence="1"/>
+
+        <menuitem name="Money Changer"
+            id="money_changer_purchase"
+            parent="money_changer_purchase_main"
+            action="money_changer_details"
+            sequence="1"/>
+
+
+        <record model="ir.actions.act_window" id="punched_tt_details">
+            <field name="name">TT Details</field>
+            <field name="res_model">tt.lc.costing</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain" >[]</field>
+        </record>
+
+    
+        <menuitem name="TT's"
+            id="TT_purchase_main"
+            parent="purchase.menu_purchase_config"
+            sequence="1"/>
+
+        <menuitem name="TT's"
+            id="TT_purchase"
+            parent="TT_purchase_main"
+            action="punched_tt_details"
+            sequence="1"/>
+
+    </data>
+</odoo>

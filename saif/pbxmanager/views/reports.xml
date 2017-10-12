@@ -1,0 +1,23 @@
+<odoo>
+<data>
+    <report
+        id="pbxmanager.report"
+        model="pbxmanager.pbxmanager"
+        string="pbxmanager Report"
+        name="pbxmanager.report_pbxmanager_view"
+        file="pbxmanager.report_pbxmanager"
+        report_type="qweb-pdf" />
+
+    <template id="report_pbxmanager_view">
+        <t t-call="report.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <t t-call="report.external_layout">
+                    <div class="page">
+                <h2>PBX Report</h2>
+            </div>
+                </t>
+            </t>
+        </t>
+    </template>
+</data>
+</odoo>

@@ -20,7 +20,7 @@ class saif_extension(models.Model):
 	proj	 = fields.Many2one('project.project',string='Project', required=True)
 	saif_tree_link = fields.One2many('saif.ext.tree','part_id')
 	seq = fields.Char("CE No.",readonly=True)
-
+	
 	@api.model 
 	def create(self, vals):
 		vals['seq'] = self.env['ir.sequence'].next_by_code('ch.seq')

@@ -1,0 +1,75 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+   
+    <record model="ir.ui.view" id="pbxmanager.list">
+      <field name="name">pbxmanager list</field>
+      <field name="model">pbxmanager.pbxmanager</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="callsubject"/>
+		   <field name="sourcenumber"/>
+		    <field name="destination"/>
+			  <field name="notes"/>
+          <field name="calldirection"/>
+		   <field name="callstatus"/>
+		   <field name="callstartdate"/>
+		    <field name="callenddate"/>
+          <field name="callduration"/>
+		   <field name="callrecord"/>
+		    <field name="calluid"/>
+			<field name="callrelate"/>
+			<field name="calldassinged"/>
+			
+			 
+			
+        </tree>
+      </field>
+    </record>
+	
+	
+	<record id="base.view_users_form_simple_pbx" model="ir.ui.view"> 
+<field name="name">res.users.preferences.form.pbx</field>
+     <field name="model">res.users</field> 
+     <field name="inherit_id" ref="base.view_users_form_simple_modif"/> 
+     <field name="arch" type="xml"> 
+          <xpath expr="//field[@name='company_id']" position="after"> 
+               <field name="x_extension"/>
+          </xpath> 
+     </field> 
+</record>
+
+
+    
+
+    <!-- actions opening views on models -->
+    
+    <record model="ir.actions.act_window" id="pbxmanager.action_window">
+      <field name="name">pbxmanager window</field>
+      <field name="res_model">pbxmanager.pbxmanager</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+   
+
+    <!-- server action to the one above -->
+    
+   
+   
+   
+
+    <!-- Top menu item -->
+    
+    <menuitem name="pbxmanager" id="pbxmanager.menu_root"/>
+    
+    <!-- menu categories -->
+    
+    <menuitem name="Records" id="pbxmanager.menu_1" parent="pbxmanager.menu_root"/>
+    
+    <!-- actions -->
+    
+    <menuitem name="List" id="pbxmanager.menu_1_list" parent="pbxmanager.menu_1"
+              action="pbxmanager.action_window"/>
+      
+    
+  </data>
+</odoo>

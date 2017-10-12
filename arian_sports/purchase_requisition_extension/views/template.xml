@@ -98,21 +98,70 @@
                     <field name="veh_no" attrs="{'invisible':[('picking_type_code','!=','incoming')]}"/>
                     <field name="driver_name" attrs="{'invisible':[('picking_type_code','!=','incoming')]}"/>
 
-                    <field name="test" attrs="{'invisible':[('picking_type_code','!=','incoming')]}">
-                            <tree editable="bottom">
-                                <field name="prod_id" />
-                                <field name="uom" />
-                                <field name="remain_qty" />
-                                <field name="reject" />
-                          </tree>
-                    </field>
-
                 </xpath>
 
+                <!-- <xpath expr="//field[@name ='pack_operation_product_ids']" position="replace">
+                    <field name="pack_operation_product_ids" nolable="1" attrs="{'invisible':[('picking_type_code','=','incoming')]}">
+                        <tree editable="bottom">
+                            <field name="product_id" />
+                            <field name="prod_id" />
+                            <field name="uom" />
+                            <field name="remain_qty" />
+                            <field name="reject" />
+                            <field name="lot_no" />
+                            <field name="remarks" />
+                            <field name="product_qty" />
+                            <field name="rcv_qty" />
+                            <field name="qty_done" />
+
+                        </tree>
+                    </field> -->
+
+                    <!-- <field name="pack_operation_product_ids" nolable="1" attrs="{'invisible':[('picking_type_code','=','incoming')]}">
+                        <tree editable="bottom">
+                            <field name="product_id" />
+                            <field name="uom" />
+                            <field name="product_qty" />
+                            <field name="qty_done" />
+                        </tree>
+                    </field> -->
+                <!-- </xpath> -->
+
+
+
+
+                <!-- <xpath expr='//page[1]' position="replace">
+                </xpath> -->
+
+               <!--  <xpath expr='//page[1]' position="replace">
+                    <page string ="Opertions" > 
+                        <field name="pack_operation_product_ids" nolable="1" attrs="{'invisible':[('picking_type_code','!=','incoming')]}">
+                            <tree editable="bottom">
+                                    <field name="product_id" />
+                                    <field name="prod_id" />
+                                    <field name="uom" />
+                                    <field name="qty_done" />
+                                    <field name="remain_qty" />
+                                    <field name="reject" />
+                                    <field name="lot_no" />
+                                    <field name="remarks" />
+                                    <field name="product_qty" />
+                                    <field name="rcv_qty" />
+                            </tree>
+                        </field>
+
+                    </page>
+                </xpath> -->
 
                  <xpath expr='//field[@name="pack_operation_product_ids"]/tree//field[@name="product_id"]' position="after">
                       <field name="prod_id"/>
                       <field name="uom"/>
+                </xpath>
+
+                <xpath expr='//field[@name="pack_operation_product_ids"]/tree/field[@name="prod_id"]' position="attributes">
+                    <attribute name="attrs">
+                        { 'invisible':[('picking_type_code','=','incoming')]}
+                    </attribute>
                 </xpath>
 
                 <xpath expr='//field[@name="pack_operation_product_ids"]/tree//field[@name="qty_done"]' position="after">

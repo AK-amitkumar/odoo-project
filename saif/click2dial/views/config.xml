@@ -1,0 +1,34 @@
+<openerp>
+    <data>
+        <record id="asterisk_configuration_view" model="ir.ui.view">
+            <field name="name">asterisk_configuration_view</field>
+            <field name="model">asterisk.config</field>
+            <field name="arch" type="xml">
+                <form string="Asterisk Configuration" class="oe_form_configuration">
+                    <header>
+                        <button string="Save" type="object"
+                            name="execute" class="oe_highlight"/>
+                        or
+                        <button string="Cancel" type="object"
+                            name="cancel" class="oe_link"/>
+                    </header>
+                    <group string="Configuration">
+                        <field name="password" password="True"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+        <record id="asterisk_configuration_action" model="ir.actions.act_window">
+            <field name="name">Asterisk Configuration</field>
+            <field name="res_model">asterisk.config</field>
+            <field name="view_id" ref="asterisk_configuration_view"/>
+            <field name="view_mode">form</field>
+            <field name="target">inline</field>
+        </record>
+
+        <menuitem id="asterisk_configuration_menu" name="Asterisk Credentials"
+            parent="google_drive.menu_google_drive_config" action="asterisk_configuration_action"/>
+
+    </data>
+</openerp>
