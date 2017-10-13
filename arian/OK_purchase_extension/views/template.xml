@@ -1,0 +1,47 @@
+<?xml version="1.0"?> 
+<odoo> 
+  
+    <!-- <template id="my_assets_id" name="website assets for my module" inherit_id="web.assets_backend">
+        <xpath expr="." position="inside">
+        <link rel="stylesheet" href="/OK_purchase_extension/static/src/css/custom.css"/>
+        </xpath>
+    </template> -->
+
+    <record id="purchase_extension" model="ir.ui.view"> 
+        <field name="name">purchase_extension</field> 
+        <field name="model">purchase.order</field>
+        <field name="inherit_id" ref="purchase.purchase_order_form"/>
+        <field name="type">form</field> 
+        <field name="arch" type="xml">
+
+            <xpath expr="//field[@name ='partner_ref']" position="after">
+                <field name="dlv_method"/>
+            </xpath>
+
+            <xpath expr="//field[@name ='origin']" position="after">
+                <field name="location"/>
+                <field name="veh_no"/>
+                <field name="ship" attrs="{'invisible':[('dlv_method','!=','dlv')]}"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="stock_tree_view_extension" model="ir.ui.view">
+        <field name="name">stock_tree_view_extension</field>
+        <field name="model">stock.picking</field>
+        <field name="inherit_id" ref="stock.view_picking_form"/>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+
+            <xpath expr="//field[@name ='pack_operation_product_ids']/tree/field[@name ='product_qty']" position="replace">
+                <field name="product_qty" string="Ordered Qty"/>
+            </xpath>
+
+            <xpath expr="//field[@name ='pack_operation_product_ids']/tree/field[@name ='qty_done']" position="replace">
+                <field name="qty_done" string="Recieved/Delivered Qty"/>
+            </xpath>
+
+        </field>
+    </record>
+
+</odoo> 

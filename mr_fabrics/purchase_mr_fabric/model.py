@@ -223,16 +223,7 @@ class YarnDyeingTree(models.Model):
     won = fields.Many2many('mrp.production',string="W/O",required = True)
     color = fields.Char("Colors")
     yarn = fields.Char("Yarn")
-
     lot = fields.Char("Lot")
-    fabric = fields.Many2one('product.product',"Fabric")
-    dia = fields.Many2one('purchase.dia' , string="Dia")
-    gauge = fields.Many2one('purchase.gauge' , string="Gauge")
-    cutting = fields.Many2one('purchase.cutting' , string="Cutting")
-    width = fields.Many2one('purchase.width' , string="Width")
-    gsm = fields.Many2one('purchase.gsm' , string="GSM")
-    process = fields.Many2one('purchase.process' , string="Process")
-
     rate = fields.Float("Rate")
     issue_qty = fields.Float("Issue Quantity")
     receive_qty = fields.Float("Received Qty")
@@ -243,6 +234,70 @@ class YarnDyeingTree(models.Model):
 
 
 
+    
+    @api.one
+    @api.depends('issue_qty','receive_qty')
+    def _blc(self):
+        self.blc = self.issue_qty - self.receive_qty
+
+    @api.one
+    @api.depends('issue_qty','receive_qty')
+    def _wastage(self):
+        if self.issue_qty > 0.0 and self.receive_qty > 0.0:
+            self.wastage = (self.receive_qty / self.issue_qty)* 100
+
+class FabricDyeing(models.Model):
+    _name = "fabric.dyeing"
+
+    name = fields.Many2one('res.partner',string="To")
+    date = fields.Date("Date")
+    subject = fields.Char("Subject")
+    buyer = fields.Char("Buyer")
+    style = fields.Char("Style No")
+    won = fields.Many2many('mrp.production',string="Work Order No",required = True)
+    delv_date = fields.Date("Delivery Date")
+    primary = fields.Char("Primary")
+    secondary = fields.Char("Secondary")
+    des = fields.Text("Note")
+    tree_link = fields.One2many('fabric.dyeing.tree','yarn_tree')
+
+    stage = fields.Selection([('draft', 'Draft'),
+        ('sent', 'Sent'),
+        ('in_house', 'In House')
+        ],default = 'draft') 
+
+    @api.multi
+    def in_draft(self):
+        self.stage = "draft"
+
+
+    @api.multi
+    def in_sent(self):
+        self.stage = "sent"
+
+    @api.multi
+    def in_house(self):
+        self.stage = "in_house"
+
+class FabricDyeingTree(models.Model):
+    _name = "fabric.dyeing.tree"
+
+    won = fields.Many2many('mrp.production',string="W/O",required = True)
+    color = fields.Char("Colors")
+    lot = fields.Char("Lot")
+    fabric = fields.Many2one('product.product',"Fabric")
+    dia = fields.Many2one('purchase.dia' , string="Dia")
+    gauge = fields.Many2one('purchase.gauge' , string="Gauge")
+    cutting = fields.Many2one('purchase.cutting' , string="Cutting")
+    width = fields.Many2one('purchase.width' , string="Width")
+    gsm = fields.Many2one('purchase.gsm' , string="GSM")
+    process = fields.Many2one('purchase.process' , string="Process")
+    rate = fields.Float("Rate")
+    issue_qty = fields.Float("Issue Quantity")
+    receive_qty = fields.Float("Received Qty")
+    blc = fields.Float("Balance" ,compute='_blc')
+    wastage = fields.Float("Wastage" ,compute='_wastage')
+    yarn_tree = fields.Many2one('fabric.dyeing')
     
     @api.one
     @api.depends('issue_qty','receive_qty')

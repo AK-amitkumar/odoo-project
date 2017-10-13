@@ -1,0 +1,21 @@
+<openerp>
+    <data>
+        <!-- Inherit quotation report (from module purchase) -->
+        <template id="report_quotation_inherit_demo" inherit_id="purchase.report_purchasequotation_document">
+	    
+	    <xpath expr="//div[@class='page']//div[2]//div[2]" position="replace">
+           
+           <div t-if="o.ship">
+	           	<span t-esc="o.ship">
+	           	</span>
+	        </div>   	
+           	<div t-if="not o.ship">
+	           	<span>
+	           		Self
+	           	</span>
+	        </div> 
+	    </xpath>
+        
+        </template>
+    </data>
+</openerp>
