@@ -159,13 +159,23 @@
                             <tree editable="bottom">
                                 <field name="product"/>
                                 <field name="unit_measurement"/>
+                                <field name="qty"/>
                                 <field name="price"/>
                                 <field name="to_recieve"/>
                                 <field name="recieved"/>
                                 <field name="rejected"/>
+                                <field name="sub_total"/>
                                 <field name="remarks"/>
                             </tree>
-                        </field> 
+                        </field>
+
+                        <group class="oe_subtotal_footer oe_right">
+
+                            <field name="total"/>
+                            <field name="tax_id"/>
+                            <field name="amt_total"/>
+                            
+                        </group> 
 
                     </page>
 
@@ -233,19 +243,18 @@
 
                         <field name="tree_link" nolabel='1'>
                             <tree editable="bottom">
-                                <field name="product"/>
+                                <field name="product" domain= "[('ttype','=','yarn')]"/>
                                 <field name="won" widget="many2many_tags"/>
-                                <field name="brand"/>
-                                <field name="ttype"/>
-                                <field name="delv_date"/>
+                                <field name="buyer" domain= "[('customer','=','True)]"/>
                                 <field name="prod_type"/>
+                                <field name="delv_date"/>
                                 <field name="qty"/>
                                 <field name="nob"/>
                                 <field name="rate" widget="many2many_tags"/>
+                                <field name="yarn"/>
                                 <field name="appr_rate" widget="many2many_tags"/>
                                 <field name="unit_price"/>
                                 <field name="broker"/>
-                                <field name="contract"/>
                             </tree>
                         </field> 
 
@@ -272,7 +281,9 @@
 
                     <button name="in_house" type="object" string="In house" class= "oe_highlight" attrs="{'invisible': ['|',('stage','=','draft'),('stage','=','in_house')]}"/>
 
-                    <field name="stage" widget="statusbar" statusbar_visible="draft,sent,in_house"/>
+                    <button name="in_complete" type="object" string="Complete" class= "oe_highlight" attrs="{'invisible': [('stage','not in','in_house')]}"/>
+
+                    <field name="stage" widget="statusbar" statusbar_visible="draft,sent,in_house,complete"/>
                 </header>
 
                 <sheet>
@@ -283,13 +294,13 @@
                         <group name="group_left">
                             <field name="name" domain= "[('supplier','=','True')]"/>
                             <field name="date"/>
+                            <field name="c_date"/>
                             <field name="style"/>
                             <field name="mf"/>
                         </group>
 
                         <group name="group_right">
-                            <field name="subject"/>
-                            <field name="buyer"/>
+                            <field name="buyer" widget="many2many_tags" domain= "[('customer','=','True')]"/>
                             <field name="won" widget="many2many_tags"/>
                             <field name="delv_date"/>
                         </group>
@@ -316,7 +327,7 @@
                             <tree editable="bottom">
                                 <field name="won" widget="many2many_tags"/>
                                 <field name="color" />
-                                <field name="yarn"/>
+                                <field name="yarn" domain= "[('ttype','=','yarn')]"/>
                                 <field name="lot" />
                                 <field name="rate" sum="total"/>
                                 <field name="issue_qty" sum="total"/>
@@ -355,7 +366,9 @@
 
                     <button name="in_house" type="object" string="In house" class= "oe_highlight" attrs="{'invisible': ['|',('stage','=','draft'),('stage','=','in_house')]}"/>
 
-                    <field name="stage" widget="statusbar" statusbar_visible="draft,sent,in_house"/>
+                    <button name="in_complete" type="object" string="Complete" class= "oe_highlight" attrs="{'invisible': [('stage','not in','in_house')]}"/>
+
+                    <field name="stage" widget="statusbar" statusbar_visible="draft,sent,in_house,complete"/>
                 </header>
 
                 <sheet>
@@ -366,13 +379,14 @@
                         <group name="group_left">
                             <field name="name" domain= "[('supplier','=','True')]"/>
                             <field name="date"/>
-                            <field name="style"/>
+                            <field name="c_date"/>
+                            <field name="subject"/>
                         </group>
 
                         <group name="group_right">
-                            <field name="subject"/>
-                            <field name="buyer"/>
+                            <field name="buyer" widget="many2many_tags" domain= "[('customer','=','True')]"/>
                             <field name="won" widget="many2many_tags"/>
+                            <field name="style"/>
                             <field name="delv_date"/>
                         </group>
                     </group>
@@ -400,7 +414,7 @@
                                 <field name="fabric" domain= "[('ttype','=','fabric')]"/>
                                 <field name="dia"/>
                                 <field name="gauge"/>
-                                <field name="cutting"/>
+                                <field name="ndl"/>
                                 <field name="width"/>
                                 <field name="gsm"/>
                                 <field name="process"/>
@@ -426,36 +440,36 @@
         </field>
     </record>
 
-    <record id="yarn_knitting_form_view" model="ir.ui.view">
-        <field name="name">yarn_knitting_form_view</field>
-        <field name="model">yarn.knitting</field>
+    <record id="fabric_knitting_form_view" model="ir.ui.view">
+        <field name="name">fabric_knitting_form_view</field>
+        <field name="model">fabric.knitting</field>
         <field name="type">form</field>
         <field name="arch" type="xml">
-            <form string="Yarn Knitting">
+            <form string="Fabric Knitting">
                 <header>
 
-                    <button name="in_draft" type="object" string="Set to Draft" attrs="{'invisible': ['|','|','|',('stage','=','sent'),('stage','=','draft'),('stage','=','complete'),('stage','=','cancel')]}" />
-                    <button name="in_sent" type="object" string="Validate" class= "oe_highlight" attrs="{'invisible': ['|','|',('stage','=','draft'),('stage','=','sent'),('stage','=','cancel')]}" />
-                    <button name="in_complete" type="object" string="Set to Draft"  attrs="{'invisible': ['|','|',('stage','=','draft'),('stage','=','sent'),('stage','=','complete')]}" />
-                    <button name="in_cancel" type="object" string="Validate" class= "oe_highlight" attrs="{'invisible': ['|','|','|',('stage','=','sent'),('stage','=','draft'),('stage','=','complete'),('stage','=','cancel')]}" />
-                    
+                    <button name="in_draft" type="object" string="Set to Draft" attrs="{'invisible': ['|','|','|','|',('stage','=','in_house'),('stage','=','sent'),('stage','=','draft'),('stage','=','complete'),('stage','=','cancel')]}" />
+                    <button name="in_sent" type="object" string="Validate" class= "oe_highlight" attrs="{'invisible': ['|','|','|',('stage','=','in_house'),('stage','=','draft'),('stage','=','sent'),('stage','=','cancel')]}" />
+                    <button name="in_complete" type="object" string="Set to Draft"  attrs="{'invisible': ['|','|','|',('stage','=','in_house'),('stage','=','draft'),('stage','=','sent'),('stage','=','complete')]}" />
+                    <button name="in_cancel" type="object" string="Validate" class= "oe_highlight" attrs="{'invisible': ['|','|','|','|',('stage','=','in_house'),('stage','=','sent'),('stage','=','draft'),('stage','=','complete'),('stage','=','cancel')]}" />
+                    <button name="in_house" type="object" string="In house" class= "oe_highlight" attrs="{'invisible': [('stage','not in','sent')]}" />
 
-
-                    <field name="stage" widget="statusbar" statusbar_visible="draft,sent,complete,cancel"/>
+                    <field name="stage" widget="statusbar" statusbar_visible="draft,sent,in_house,complete,cancel"/>
                 </header>
 
                 <sheet>
-                    <h3>Yarn Knitting</h3>
+                    <h3>Fabric Knitting</h3>
                     <separator/>
                     <group name="group_top">
 
                         <group name="group_left">
-                            <field name="name"/>
+                            <field name="name" domain= "[('supplier','=','True'),('knitting','=','True')]"/>
                             <field name="date"/>
+                            <field name="c_date"/>
                         </group>
 
                         <group name="group_right">
-                            <field name="customer" />
+                            <field name="buyer" domain= "[('customer','=','True')]"/>
                             <field name="won" widget="many2many_tags"/>
                             <field name="delv_date"  />
                         </group>
@@ -471,13 +485,13 @@
                                 <field name="won" widget="many2many_tags"/>
                                 <field name="fabric" domain= "[('ttype','=','fabric')]"/>
                                 <field name="yarn" widget="many2many_tags" domain= "[('ttype','=','yarn')]"/>
-                                <field name="uom"/>
                                 <field name="sl"/>
                                 <field name="otm"/>
                                 <field name="dia"/>
                                 <field name="gauge" />
-                                <field name="cutting" />
-                                <field name="requested"/>
+                                <field name="ndl" />
+                                <field name="required"/>
+                                <field name="a_wastage"/>
                                 <field name="received"/>
                                 <field name="balance"/>
                                 <field name="wastage"/>
@@ -651,6 +665,26 @@
         </field>
     </record>
 
+    <record id="view_work_order" model="ir.ui.view"> 
+        <field name="name">Work Order</field> 
+        <field name="model">work.order</field> 
+        <field name="arch" type="xml"> 
+            <form> 
+                <sheet>
+                    <group >
+                        <group string="">
+                            <field name="buyer"/>
+                        </group>
+                        <group string="">
+                            <field name="merchant"/>
+                            <field name="style"/>
+                        </group>
+                    </group>
+                 </sheet>
+            </form>
+        </field>
+    </record>
+
     <!-- TREE VIEWS -->
 
     <record id="accessories_tree_view" model="ir.ui.view">
@@ -700,21 +734,20 @@
             <tree string="Yarn Dyeing">
                 <field name="name" />
                 <field name="date"/>
-                <field name="subject"/>
                 <field name="buyer"/>
             </tree>
         </field>
     </record>
 
-    <record id="yarn_knitting_tree_view" model="ir.ui.view">
-        <field name="name">yarn_knitting_tree_view</field>
-        <field name="model">yarn.knitting</field>
+    <record id="fabric_knitting_tree_view" model="ir.ui.view">
+        <field name="name">fabric_knitting_tree_view</field>
+        <field name="model">fabric.knitting</field>
         <field name="type">tree</field>
         <field name="arch" type="xml">
-            <tree string="Yarn Dyeing">
+            <tree string="Fabric Knitting">
                 <field name="name" />
                 <field name="date"/>
-                <field name="customer"/>
+                <field name="buyer"/>
             </tree>
         </field>
     </record>
@@ -780,6 +813,18 @@
         </field>
     </record>
 
+    <record id="view_tree_work_order" model="ir.ui.view"> 
+        <field name="name">Rates Form</field> 
+        <field name="model">work.order</field> 
+        <field name="type">tree</field> 
+        <field name="arch" type="xml"> 
+        <tree> 
+            <field name="buyer"/>
+            <field name="merchant"/>
+            <field name="style"/>
+        </tree> 
+        </field> 
+    </record>
     <!--Modules Extentions-->
 
     <record id="purcahse_order_form_view_extension" model="ir.ui.view"> 
@@ -810,6 +855,10 @@
 
             <xpath expr="//field[@name='category_id']" position="after">
                 <field name="knitting"/>
+            </xpath>
+
+            <xpath expr="//field[@name='parent_id']" position="after">
+                <field name="ttype" attrs="{'invisible': [('supplier','=',False)]}"/>
             </xpath>
         </field>
     </record>
@@ -866,15 +915,15 @@
         <field name="view_mode">tree,form</field>
     </record>
 
-    <record model="ir.actions.act_window" id="yarn_knitting_action">
-        <field name="name">Yarn Knitting</field>
-        <field name="res_model">yarn.knitting</field>
+    <record model="ir.actions.act_window" id="fabric_knitting_action">
+        <field name="name">Fabric Knitting</field>
+        <field name="res_model">fabric.knitting</field>
         <field name="view_type">form</field>
         <field name="view_mode">tree,form</field>
     </record>
     
     <record id="purchase_form_ext_action" model="ir.actions.act_window">
-        <field name="name">Purchase Orders</field>
+        <field name="name">Purchaseing Orders</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">purchase.order</field>
         <field name="view_type">form</field>
@@ -892,6 +941,13 @@
             the products received and control the vendor bills.
           </p>
         </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="work_order">
+      <field name="name">Work Order</field>
+      <field name="res_model">work.order</field>
+      <field name="view_type">form</field>
+      <field name="view_mode">tree,form</field>
     </record>
 
     <!--SEQUENCES-->
@@ -912,16 +968,21 @@
     <!--MENUS-->
     <menuitem id="accessories_menu_item" parent="purchase.menu_procurement_management" action="accessories_action" sequence="10"/>
 
+    <menuitem id="fabrication_menu" parent="purchase.menu_purchase_root" sequence="3" name="Fabrication"/>
+
     <menuitem id="yarn_menu_item" parent="purchase.menu_procurement_management" action="yarn_action" sequence="11"/>
 
-    <menuitem id="yarn_req_menu_item" parent="purchase.menu_procurement_management" action="yarn_req_action" sequence="12"/>
+    <menuitem id="yarn_req_menu_item" parent="fabrication_menu" action="yarn_req_action" sequence="12"/>
 
-    <menuitem id="yarn_dye_menu_item" parent="purchase.menu_procurement_management" action="yarn_dye_action" sequence="13"/>
+    <menuitem id="yarn_dye_menu_item" parent="fabrication_menu" action="yarn_dye_action" sequence="13"/>
 
-    <menuitem id="fabric_dye_menu_item" parent="purchase.menu_procurement_management" action="fabric_dye_action" sequence="14"/>
+    <menuitem id="fabric_dye_menu_item" parent="fabrication_menu" action="fabric_dye_action" sequence="14"/>
 
-    <menuitem id="yarn_knitting_menu_item" parent="purchase.menu_procurement_management" action="yarn_knitting_action" sequence="15"/>
-    <menuitem action="purchase_form_ext_action" id="menu_purchase_form_ext_action" parent="purchase.menu_procurement_management" sequence="8"/>
+    <menuitem id="fabric_knitting_menu_item" parent="fabrication_menu" action="fabric_knitting_action" sequence="15"/>
+
+    <menuitem id="menu_purchase_form_ext_action" action="purchase_form_ext_action"  parent="purchase.menu_procurement_management" sequence="8"/>
+
+    <menuitem name="Work Order" id="work_order_menu_item" parent="sales_team.menu_sales" action="work_order" sequence="20"/>
 
     <record id="purchase.menu_purchase_form_action" model="ir.ui.menu">
         <field name="active">false</field>
