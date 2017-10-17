@@ -350,7 +350,7 @@ class FabricKnitting(models.Model):
     name = fields.Many2one('res.partner',string="To", required=True)
     date = fields.Date("Order Date" , required=True)
     buyer = fields.Many2one('res.partner',"Buyer")
-    won = fields.Many2many('work.order',string="W/O")
+    won = fields.Many2many('mrp.production',string="W/O")
     delv_date = fields.Date("Delivery Date")
     c_date = fields.Date("Order Completion Date")
     tree_link = fields.One2many('fabric.knitting.tree','fabric_tree')
@@ -425,16 +425,15 @@ class ProductExt(models.Model):
         ('thread', 'Thread')
         ],default='yarn', required=True, string="Type") 
 
+    accessories_type = fields.Selection([
+        ('wo', 'WO'),
+        ('thread', 'Thread'),
+        ('bag', 'Poly Bag'),
+        ('part', 'Parts')
+        ],default='wo', string="Accessories Type") 
+
     net_weight = fields.Float("Net Weight")
     # yarn = fields.Many2many('product.product',string="Yarn")
-
-class WorkOrder(models.Model):
-    _name = 'work.order'
-    _rec_name = 'buyer'
-
-    buyer = fields.Many2one('res.partner',string="Buyer",required=True)
-    merchant  = fields.Char(string="Merchant")
-    style     = fields.Char(string="Style")
 
 class PurchaseDia(models.Model):
     _name = 'purchase.dia'

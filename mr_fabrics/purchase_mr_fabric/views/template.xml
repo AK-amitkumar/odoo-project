@@ -665,26 +665,6 @@
         </field>
     </record>
 
-    <record id="view_work_order" model="ir.ui.view"> 
-        <field name="name">Work Order</field> 
-        <field name="model">work.order</field> 
-        <field name="arch" type="xml"> 
-            <form> 
-                <sheet>
-                    <group >
-                        <group string="">
-                            <field name="buyer"/>
-                        </group>
-                        <group string="">
-                            <field name="merchant"/>
-                            <field name="style"/>
-                        </group>
-                    </group>
-                 </sheet>
-            </form>
-        </field>
-    </record>
-
     <!-- TREE VIEWS -->
 
     <record id="accessories_tree_view" model="ir.ui.view">
@@ -813,18 +793,6 @@
         </field>
     </record>
 
-    <record id="view_tree_work_order" model="ir.ui.view"> 
-        <field name="name">Rates Form</field> 
-        <field name="model">work.order</field> 
-        <field name="type">tree</field> 
-        <field name="arch" type="xml"> 
-        <tree> 
-            <field name="buyer"/>
-            <field name="merchant"/>
-            <field name="style"/>
-        </tree> 
-        </field> 
-    </record>
     <!--Modules Extentions-->
 
     <record id="purcahse_order_form_view_extension" model="ir.ui.view"> 
@@ -872,6 +840,7 @@
 
             <xpath expr="//field[@name='categ_id']" position="after">
                 <field name="ttype"/>
+                <field name="accessories_type" attrs="{'invisible': [('ttype', 'not in', ('accessories'))]}"/>
                 <field name="net_weight" attrs="{'invisible': [('ttype', 'not in', ('yarn'))]}"/>
                 <!-- <field name="yarn" widget="many2many_tags" attrs="{'invisible': [('ttype', 'not in', ('fabric'))]}" domain="[('ttype','=',fabric),]" /> -->
             </xpath>
@@ -943,11 +912,40 @@
         </field>
     </record>
 
-    <record model="ir.actions.act_window" id="work_order">
-      <field name="name">Work Order</field>
-      <field name="res_model">work.order</field>
-      <field name="view_type">form</field>
-      <field name="view_mode">tree,form</field>
+    <record model="ir.actions.act_window" id="new_action_yarn_product">
+        <field name="name">Yarn Products</field>
+        <field name="res_model">product.product</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain" >[('ttype', '=','yarn')]</field>
+        <field name="context">{'default_ttype': 'yarn'}</field>
+    </record>
+
+    <record model="ir.actions.act_window" id="new_action_fabric_product">
+        <field name="name">Fabric Products</field>
+        <field name="res_model">product.product</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain" >[('ttype', '=','fabric')]</field>
+        <field name="context">{'default_ttype': 'fabric'}</field>
+    </record>
+
+    <record model="ir.actions.act_window" id="new_action_accessories_product">
+        <field name="name">Accessories Products</field>
+        <field name="res_model">product.product</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain" >[('ttype', '=','accessories')]</field>
+        <field name="context">{'default_ttype': 'accessories'}</field>
+    </record>
+
+    <record model="ir.actions.act_window" id="new_action_general_product">
+        <field name="name">General Products</field>
+        <field name="res_model">product.product</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain" >[('ttype', '=','general')]</field>
+        <field name="context">{'default_ttype': 'general'}</field>
     </record>
 
     <!--SEQUENCES-->
@@ -968,6 +966,8 @@
     <!--MENUS-->
     <menuitem id="accessories_menu_item" parent="purchase.menu_procurement_management" action="accessories_action" sequence="10"/>
 
+    <menuitem id="menu_purchase_form_ext_action" action="purchase_form_ext_action"  parent="purchase.menu_procurement_management" sequence="8"/>
+
     <menuitem id="fabrication_menu" parent="purchase.menu_purchase_root" sequence="3" name="Fabrication"/>
 
     <menuitem id="yarn_menu_item" parent="purchase.menu_procurement_management" action="yarn_action" sequence="11"/>
@@ -980,9 +980,15 @@
 
     <menuitem id="fabric_knitting_menu_item" parent="fabrication_menu" action="fabric_knitting_action" sequence="15"/>
 
-    <menuitem id="menu_purchase_form_ext_action" action="purchase_form_ext_action"  parent="purchase.menu_procurement_management" sequence="8"/>
+    <menuitem id="product_menu" parent="purchase.menu_purchase_root" name="Products" sequence="3"/>
 
-    <menuitem name="Work Order" id="work_order_menu_item" parent="sales_team.menu_sales" action="work_order" sequence="20"/>
+    <menuitem id="yarn_product_menu_item" parent="product_menu" action="new_action_yarn_product" sequence="16"/>
+
+    <menuitem id="fabric_product_menu_item" parent="product_menu" action="new_action_fabric_product" sequence="17"/>
+
+    <menuitem id="accessories_product_menu_item" parent="product_menu" action="new_action_accessories_product" sequence="18"/>
+
+    <menuitem id="general_product_menu_item" parent="product_menu" action="new_action_general_product" sequence="19"/>
 
     <record id="purchase.menu_purchase_form_action" model="ir.ui.menu">
         <field name="active">false</field>
