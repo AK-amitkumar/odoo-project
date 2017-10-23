@@ -13,7 +13,7 @@
 
                             <style type="text/css">
                                 .report-wrapper {
-                                    width: 1000px;
+                                    width: 900px;
                                     margin: 0px auto;
                                 }
                                 h1 {
@@ -38,48 +38,7 @@
                                 .company_info p {
                                     text-align: center;
                                 }
-                                .properties_wrapper p {
-                                    width: 33%;
-                                    float: left;
-                                }
-                                .properties_wrapper p:nth-child(3) {
-                                    text-align: right;
-                                }
-                                .properties_wrapper p.messers {
-                                    width: 100%;
-                                }
-                                .properties_wrapper p.messers span.solid {
-                                    display: inline-block;
-                                }
-                                .properties_wrapper p.messers span.liquid {
-                                    width: 930px;
-                                    display: inline-block;
-                                }
-                                .properties_wrapper p span {
-                                    display: inline-block;
-                                }
-                                .properties_wrapper p span.solid {
-                                    font-weight: bold;
-                                }
-                                .properties_wrapper p span.liquid {
-                                    width: 150px;
-                                    border-bottom: 1px solid #000;
-                                    text-align: left;
-                                    padding: 0px 0px 0px 10px;
-                                }
-                                .properties_wrapper p span.heading {
-                                     width: 180px;
-                                    background: #000;
-                                    color: #fff;
-                                    text-align: center;
-                                    padding: 8px 10px;
-                                    line-height: 1;
-                                    margin: 0px auto;
-                                    display: block;
-                                    font-weight: bold;
-                                    font-size: 20px;
-                                    border-radius: 2px;
-                                }
+                                
                                 table {
                                     width: 100%;
                                     border: 2px solid #000;
@@ -117,6 +76,26 @@
                                     text-align: center;
                                     margin: 10px 0px 0px;
                                 }
+
+
+                                .report_heading {
+                                        width: 100%;
+                                        float: left;
+                                        
+                                    }
+                                .report_heading h2 {
+                                        margin: 5px 0px;
+                                        text-align: center;
+                                        line-height: 1;
+                                        margin-bottom:40px;
+                                .our{
+                                    width:100%;
+                                    float: left;
+                                }
+                                .header,
+                                footer {
+                                    display: none;
+                                }
                             </style>
                             
                             <div class="report-wrapper">
@@ -132,32 +111,29 @@
                                         <p>18-km, Ferozpur Road, Behind Nishtar Colony,(Ata Baksh Road), Lahore-Pakistan</p>
                                         <p>PH. 042-35923033, 35923218</p>
                                     </div>
-                                    <br class="clearfloat" />
+                                    <div class="report_heading">
 
-                                    <div class="properties_wrapper">
-                                        <p>
-                                            <span class="solid">Date:</span>
-                                            <span class="liquid" t-esc="o.date"></span>
-                                        </p>
-                                        <p><span class="heading">Purchase Order</span></p>
-                                        <p>
-                                            <span class="solid">Our Ref. No:</span>
-                                            <span class="liquid" t-esc="o.sr_no"></span>
-                                        </p>
-                                        <br class="clearfloat" />
-                                        <p>
-                                            <span class="solid">Messers:</span>
-                                            <span class="liquid" t-esc="o.vendor.name"></span>
-                                        </p>
-                                        <p>
-                                            <span class="solid">WO#</span>
-                                            <span class="liquid" t-esc="o.wonumber"></span>
-                                        </p>
-                                        <p>
-                                            <span class="solid">PO#</span>
-                                            <span class="liquid"></span>
-                                        </p>
-                                        <br class="clearfloat" />
+                                        <h2>Purchase Order</h2>
+
+                                    </div><!--end of report heading-->
+                                    <br class="clearfloat"/>
+                                    <div class="our">
+                                        <div style="display:inline;width: 25%;float:left;">
+                                            <span style="font-weight:bold;">Date:</span>
+                                            <span t-esc="o.date_order"></span>
+                                        </div>
+                                        <div style="display:inline;width: 25%;float:left;">
+                                            <span style="font-weight:bold;">PO No:</span>
+                                            <span t-esc="o.name"></span>
+                                        </div>
+                                        <div style="display:inline;width: 25%;float:left;">
+                                            <span style="font-weight:bold;">Messers:</span>
+                                            <span t-esc="o.partner_id.name"></span>
+                                        </div>
+                                        <div style="display:inline;width: 25%;float:left;">
+                                            <span style="font-weight:bold;">WO#</span>
+                                            <span t-esc="o.won.name"></span>
+                                        </div>
                                     </div>
 
                                 </div><!--end of report header-->
@@ -170,17 +146,27 @@
                                             <th>Quantity</th>
                                             <th>Rate</th>
                                             <th>Delivery Date</th>
+                                            <th>Amount</th>
 
                                         </tr>
-
-                                        <t t-foreach="o.tree_link" t-as="data">
-                                            <tr>
-                                                <td><span t-esc="data.product.name"></span></td>
-                                                <td><span t-esc="data.recieved"></span></td>
-                                                <td><span t-esc="data.price"></span></td>
-                                                <td><span t-esc="o.date"></span></td>
+                                        <t t-set="add" t-value="0"/>
+                                        <t t-foreach="o.order_line" t-as="data">
+                                            <tr style="border-bottom:1px solid">
+                                                <td><span t-esc="data.product_id.name"></span></td>
+                                                <td><span t-esc="data.product_qty"></span></td>
+                                                <td><span t-esc="data.price_unit"></span></td>
+                                                <td><span t-esc="o.date_order"></span></td>
+                                                <td><span t-esc="data.product_qty * data.price_unit"></span>
+                                                <t t-set="add" t-value="add + data.product_qty * data.price_unit"/> </td>
                                             </tr>
                                         </t>
+                                        <tr>
+                                            <td colspan="4"><b>Total Amount</b></td>
+                                             <td>
+                                                <span t-esc="add"></span>
+                                            </td>
+                                        </tr>
+                        
 
                                     </table>
 

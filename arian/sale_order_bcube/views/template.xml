@@ -149,6 +149,5 @@
         <field name="view_id" ref="sale_order_wizard_form"/>
         <field name="context">{'default_partner_id': context.get('partner_id', True),}</field>
         <field name="target">new</field>
-
     </record> 
 </odoo> 

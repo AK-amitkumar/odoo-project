@@ -28,12 +28,12 @@ class SampleDevelopmentReport(models.AbstractModel):
     def render_html(self,docids, data=None):
         report_obj = self.env['report']
         report = report_obj._get_report_from_name('purchase_order_report_fabrics.purchase_report')
-        records = self.env['purchase.accessories'].browse(docids)
+        records = self.env['purchase.order'].browse(docids)
 
 
         docargs = {
             'doc_ids': docids,
-            'doc_model': 'purchase.accessories',
+            'doc_model': 'purchase.order',
             'docs': records,
             'data': data
             }

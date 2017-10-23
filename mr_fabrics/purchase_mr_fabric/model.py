@@ -156,9 +156,8 @@ class YarnRequirement(models.Model):
 
     date = fields.Date("Date" ,required = True)
     won = fields.Many2many('mrp.production',string="Work Order No")
-    stage = fields.Selection([('draft', 'Draft'),('val', 'Validate')],default = 'draft') 
+    stage = fields.Selection([('draft', 'Draft'),('val', 'Validate'),('wait', 'Waiting for Approval'),('approve', 'Approved')],default = 'draft') 
     tree_link = fields.One2many('yarn.requirement.tree','yarn_tree')
-
     @api.multi
     def in_draft(self):
         self.stage = "draft"
@@ -166,6 +165,19 @@ class YarnRequirement(models.Model):
     @api.multi
     def val(self):
         self.stage = "val"
+
+    @api.multi
+    def wait(self):
+        self.stage = "wait"
+
+    @api.multi
+    def approve(self):
+        self.stage = "approve"
+
+    @api.multi
+    def cancel(self):
+        self.stage = "draft"
+
 
 class YarnRequirementTree(models.Model):
     _name = "yarn.requirement.tree"
@@ -175,26 +187,31 @@ class YarnRequirementTree(models.Model):
     buyer = fields.Many2one('res.partner',string="Buyer")
     prod_type = fields.Many2one('purchase.product.type',string="Product Type")
     delv_date = fields.Date("Delivery Date")
-    qty = fields.Integer("Quantity")
-    nob = fields.Integer("No of Bags")
+    qty = fields.Float("Quantity (KG)")
+    nob = fields.Float("No of Bags")
     rate = fields.Many2many('yarn.rates',string="Rate")
     yarn = fields.Many2one('purchase.brand',string="Yarn Brand")
-    appr_rate = fields.Many2many('yarn.rates',string="Approved Rate")
+    appr_rate = fields.Many2one('yarn.rates',string="Approved Rate")
     unit_price = fields.Float("Unit Price")
     broker = fields.Many2one('res.partner',"Broker")
 
     yarn_tree = fields.Many2one('yarn.requirement')
 
-    @api.onchange('rate')
-    def rate_change(self):
-        self.appr_rate = self.rate
+    @api.onchange('appr_rate')
+    def appr_rate_change(self):
+        self.unit_price = self.appr_rate.rate
+
+    @api.onchange('qty')
+    def qty_change(self):
+        if self.product.net_weight > 0 and self.qty:
+            self.nob= self.qty / self.product.net_weight
 
 class YarnRate(models.Model):
     _name = "yarn.rates"
 
-    name = fields.Char("Name")
+    name = fields.Char("Name" ,required=True)
     partner = fields.Many2one('res.partner',"Partner")
-    rate = fields.Float("Rate")
+    rate = fields.Float("Rate",required=True)
 
 class PurchaseOrderExt(models.Model):
     _inherit = 'purchase.order'
@@ -202,6 +219,30 @@ class PurchaseOrderExt(models.Model):
     style = fields.Char("Style No")
     merchant = fields.Many2one('hr.employee',string="Merchant Name")
     won = fields.Many2many('mrp.production',string="Work Order No",required = True)
+    order_line2 = fields.One2many('purchase.order.line','order_id') 
+    ttype = fields.Selection([
+        ('yarn', 'Yarn'),
+        ('fabric', 'Fabric'),
+        ('accessories', 'Accessories'),
+        ('general', 'General')
+        ],default='yarn', required=True, string="Type")
+
+class PurchaseOrderLineExt(models.Model):
+    _inherit = 'purchase.order.line'
+
+    nob = fields.Float("No of Bags")
+
+    @api.onchange('product_qty')
+    def qty_change(self):
+        if self.product_id.net_weight > 0 and self.product_qty:
+            self.nob= self.product_qty / self.product_id.net_weight
+
+
+class StockPickingExt(models.Model):
+    _inherit = 'stock.picking'
+
+    req_code = fields.Char("Requisition Code")
+    sec_code = fields.Char("Security Code")
 
 class YarnDyeing(models.Model):
     _name = "yarn.dyeing"
@@ -217,7 +258,14 @@ class YarnDyeing(models.Model):
     secondary = fields.Many2one('purchase.secondary', string = "Secondary")
     des = fields.Text("Note")
     mf = fields.Char("MF No")
+    req_code = fields.Char("Requisition Code")
+    sec_code = fields.Char("Security Code")
     tree_link = fields.One2many('yarn.dyeing.tree','yarn_tree')
+    recharge_count = fields.Integer(string="Recharge", compute="_load_list")
+    
+    @api.one
+    def _load_list(self):
+        self.recharge_count = self.env['yarn.wizard.class'].search_count([('tree_id','=',self.id)])
 
     stage = fields.Selection([('draft', 'Draft'),
         ('sent', 'Sent'),
@@ -238,16 +286,27 @@ class YarnDyeing(models.Model):
         self.stage = "in_house"
 
     @api.multi
-    def in_complete(self):
+    def complete(self):
         self.stage = "complete"
+
+    @api.multi
+    def yarn_receiving(self):
+        return {
+        'type': 'ir.actions.act_window',
+        'name': 'Yarn Receiving',
+        'res_model': 'yarn.wizard.class',
+        'view_type': 'form',
+        'view_mode': 'form',
+        }
+
 
 class YarnDyeingTree(models.Model):
     _name = "yarn.dyeing.tree"
 
-    won = fields.Many2many('mrp.production',string="W/O",required = True)
+    won = fields.Many2one('mrp.production',string="W/O",required = True)
     color = fields.Many2one('purchase.color',string="Colors")
     yarn = fields.Many2one('product.product',string="Yarn")
-    lot = fields.Char("Lot")
+    lot = fields.Many2one('purchase.lot',string="Lot")
     rate = fields.Float("Rate")
     issue_qty = fields.Float("Issue Quantity")
     receive_qty = fields.Float("Received Qty")
@@ -281,13 +340,20 @@ class FabricDyeing(models.Model):
     primary = fields.Many2one('purchase.primary', string="Primary")
     secondary = fields.Many2one('purchase.secondary', string = "Secondary")
     des = fields.Text("Note")
+    req_code = fields.Char("Requisition Code")
+    sec_code = fields.Char("Security Code")
     tree_link = fields.One2many('fabric.dyeing.tree','yarn_tree')
+    recharge_count = fields.Integer(string="Recharge", compute="_load_list")
 
     stage = fields.Selection([('draft', 'Draft'),
         ('sent', 'Sent'),
         ('in_house', 'In House'),
         ('complete', 'Complete')
         ],default = 'draft') 
+
+    @api.one
+    def _load_list(self):
+        self.recharge_count = self.env['fabric.wizard.class'].search_count([('tree_id','=',self.id)])
 
     @api.multi
     def in_draft(self):
@@ -305,12 +371,24 @@ class FabricDyeing(models.Model):
     def in_complete(self):
         self.stage = "complete"
 
+    @api.multi
+    def fabric_receiving(self):
+
+        return {
+        'type': 'ir.actions.act_window',
+        'name': 'Fabric Receiving',
+        'res_model': 'fabric.wizard.class',
+        'view_type': 'form',
+        'view_mode': 'form',
+        'context': {'fabric_no':self.id},
+        }
+
 class FabricDyeingTree(models.Model):
     _name = "fabric.dyeing.tree"
 
-    won = fields.Many2many('mrp.production',string="W/O",required = True)
+    won = fields.Many2one('mrp.production',string="W/O",required = True)
     color = fields.Many2one('purchase.color',string="Colors")
-    lot = fields.Char("Lot")
+    lot = fields.Many2one('purchase.lot',string="Lot")
     fabric = fields.Many2one('product.product',"Fabric")
     dia = fields.Many2one('purchase.dia' , string="Dia")
     gauge = fields.Many2one('purchase.gauge' , string="Gauge")
@@ -323,7 +401,10 @@ class FabricDyeingTree(models.Model):
     receive_qty = fields.Float("Received Qty")
     blc = fields.Float("Balance" ,compute='_blc')
     wastage = fields.Float("Wastage" ,compute='_wastage')
+
     yarn_tree = fields.Many2one('fabric.dyeing')
+
+
     
     @api.one
     @api.depends('issue_qty','receive_qty')
@@ -340,6 +421,7 @@ class ResPartnerExt(models.Model):
     _inherit = "res.partner"
 
     knitting = fields.Boolean("Knitting")
+    buyer = fields.Boolean("Buyer")
     ttype = fields.Selection([('dye', 'Dyeing'),
         ('knit', 'Knitting')
         ],string = "Type") 
@@ -353,6 +435,8 @@ class FabricKnitting(models.Model):
     won = fields.Many2many('mrp.production',string="W/O")
     delv_date = fields.Date("Delivery Date")
     c_date = fields.Date("Order Completion Date")
+    req_code = fields.Char("Requisition Code")
+    sec_code = fields.Char("Security Code")
     tree_link = fields.One2many('fabric.knitting.tree','fabric_tree')
     
     stage = fields.Selection([('draft', 'Draft'),
@@ -387,7 +471,7 @@ class FabricKnittingTree(models.Model):
 
     won = fields.Many2many('mrp.production',string="W/O", required=True)
     fabric = fields.Many2one('product.product',string="Fabric")
-    yarn = fields.Many2many('product.product',string="Yarn")
+    yarn = fields.Many2many('product.template',string="Yarn")
     sl = fields.Many2one('purchase.sl' , string="S.L")
     otm = fields.Many2one('purchase.otm' , string="OTM")
     dia = fields.Many2one('purchase.dia' , string="Dia")
@@ -414,7 +498,23 @@ class FabricKnittingTree(models.Model):
             if self.received > 0.0 and self.required > 0.0:
                 self.wastage = str((-1*((self.balance) / self.required)* 100 )) + "%"
 
+    @api.onchange('fabric')
+    def get_yarn(self):
+        if self.fabric:
+            self.yarn = self.fabric.yarn
+
 class ProductExt(models.Model):
+    _inherit = 'product.template'
+
+    ttype = fields.Selection([
+        ('yarn', 'Yarn'),
+        ('fabric', 'Fabric'),
+        ('accessories', 'Accessories'),
+        ('general', 'General Products'),
+        ('thread', 'Thread')
+        ],default='yarn', required=True, string="Type")
+
+class ProductVariantsExt(models.Model):
     _inherit = 'product.product'
 
     ttype = fields.Selection([
@@ -433,7 +533,7 @@ class ProductExt(models.Model):
         ],default='wo', string="Accessories Type") 
 
     net_weight = fields.Float("Net Weight")
-    # yarn = fields.Many2many('product.product',string="Yarn")
+    yarn = fields.Many2many('product.template',string="Yarn")
 
 class PurchaseDia(models.Model):
     _name = 'purchase.dia'
@@ -504,4 +604,164 @@ class PurchaseProdcutType(models.Model):
     _name = 'purchase.product.type'
 
     name = fields.Char("Product Type",required = True)
+
+class PurchaseLot(models.Model):
+    _name = 'purchase.lot'
+
+    name = fields.Char("Lot",required = True)
+
+class PurchaseProductionUnit(models.Model):
+    _name = 'purchase.production.unit'
+
+    name = fields.Char("Production Units",required = True)
+
+class AccessoriesIssuance(models.Model):
+    _name = 'purchase.access.issue'
+
+    name = fields.Date("Date", required=True)
+    wo = fields.Many2one('mrp.production',string="WO")
+    unit = fields.Many2one('purchase.production.unit',string="Production Units")
+    issue_Person = fields.Many2one('hr.employee', string="Issued Person")
+    tree_link =fields.One2many('purchase.access.tree','access_tree')
+
+class AccessoriesIssuanceTree(models.Model):
+    _name = 'purchase.access.tree'
+
+    product_id = fields.Many2one('product.product',string="Product",required=True)
+    uom = fields.Many2one('product.uom',string="UOM")
+    qty = fields.Float("Qty Issue")
+    remark = fields.Char("Remarks")
+
+    access_tree = fields.Many2one('purchase.access.issue')
+
+    @api.onchange('product_id')
+    def get_uom(self):
+        self.uom = self.product_id.uom_id
+
+
+class Fabric_Receiving_Wizard_Tree(models.Model):
+    _name="fabric.wizard.tree"
+
+    fr_won = fields.Many2one('mrp.production',string="W/O",required = True)
+    fr_lot = fields.Many2one('purchase.lot',string="Lot")
+    fr_todo = fields.Float("To Do")
+    fr_done = fields.Float("Done")
+    fabric_tree = fields.Many2one("fabric.wizard.class")
+
+class Fabric_Receiving_Wizard(models.Model):
+    _name = "fabric.wizard.class"
+    _rec_name = 'id'
+
+    fabric_link  = fields.One2many("fabric.wizard.tree","fabric_tree")
+    get_list = fields.Boolean("Get List")
+    l_list = fields.Boolean("L List")
+    tree_id = fields.Integer("ID")
+    date = fields.Date("Date" ,required=True)
+    name = fields.Many2one('res.partner',string="Name")
+
+
+    
+    @api.onchange('get_list')
+    def get_lines(self):
+ 
+        active_class = self.env['fabric.dyeing'].browse(self._context.get('active_id'))
+        data = []
+        t = 0.0
+        if self.get_list == True:
+            self.tree_id = active_class.id
+            self.name = active_class.name
+            for x in active_class.tree_link:
+                if x.receive_qty > 0:
+                    t = x.issue_qty - x.receive_qty
+                else:
+                    t = x.issue_qty
+                data.append({
+                    'fr_won':x.won,
+                    'fr_lot':x.lot,
+                    'fr_todo':t,
+                    })
+            self.fabric_link = data
+
+    @api.multi
+    def update(self):
+        active_class = self.env['fabric.dyeing'].browse(self._context.get('active_id'))
+        if active_class:
+            self.tree_id = active_class.id
+            for x in self.fabric_link:
+                if x.fr_done > 0:
+                    for y in active_class.tree_link:
+                        if x.fr_won == y.won:
+                            y.receive_qty = x.fr_done + y.receive_qty
+                            self.l_list = 'True'
+
+    # @api.onchange('l_list')
+    # def l_lines(self):
+    #     data = []
+    #     active_class = self.env['fabric.dyeing'].browse(self._context.get('active_id'))
+    #     own_class = self.env['fabric.wizard.class'].search([('tree_id','=',active_class.id)])
+    #     for x in own_class:
+    #         for y in x.fabric_link:
+    #             data.append({
+    #                 'fr_won':y.fr_won,
+    #                 'fr_lot':y.fr_lot,
+    #                 'fr_todo':y.fr_todo,
+    #                 'fr_done':y.fr_done,
+    #                 })
+    #     self.fabric_link = data
+
+
+
+class Yarn_Receiving_Wizard_Tree(models.Model):
+    _name="yarn.wizard.tree"
+
+    fr_won = fields.Many2one('mrp.production',string="W/O",required = True)
+    fr_lot = fields.Many2one('purchase.lot',string="Lot")
+    fr_todo = fields.Float("To Do")
+    fr_done = fields.Float("Done")
+    yarn_tree = fields.Many2one("yarn.wizard.class")
+
+class Yarn_Receiving_Wizard(models.Model):
+    _name = "yarn.wizard.class"
+    _rec_name = 'id'
+
+    yarn_link  = fields.One2many("yarn.wizard.tree","yarn_tree")
+    get_list = fields.Boolean("Get List")
+    l_list = fields.Boolean("L List")
+    tree_id = fields.Integer("ID")
+    date = fields.Date("Date" ,required=True)
+    name = fields.Many2one('res.partner',string="Name")
+    
+    @api.onchange('get_list')
+    def get_lines(self):
+ 
+        active_class = self.env['yarn.dyeing'].browse(self._context.get('active_id'))
+        data = []
+        t = 0.0
+        if self.get_list == True:
+            self.tree_id = active_class.id
+            self.name = active_class.name
+            for x in active_class.tree_link:
+                if x.receive_qty > 0:
+                    t = x.issue_qty - x.receive_qty
+                else:
+                    t = x.issue_qty
+                data.append({
+                    'fr_won':x.won,
+                    'fr_lot':x.lot,
+                    'fr_todo':t,
+                    })
+            self.yarn_link = data
+
+    @api.multi
+    def update(self):
+        active_class = self.env['yarn.dyeing'].browse(self._context.get('active_id'))
+        if active_class:
+            self.tree_id = active_class.id
+            for x in self.yarn_link:
+                if x.fr_done > 0:
+                    for y in active_class.tree_link:
+                        if x.fr_won == y.won:
+                            y.lot = x.fr_lot
+                            y.receive_qty = x.fr_done + y.receive_qty
+                            self.l_list = 'True'
 

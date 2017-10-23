@@ -3,11 +3,11 @@
     <data>
         <report
             id="report_for_purchase_order" 
-            model="purchase.accessories"
+            model="purchase.order"
             name="purchase_order_report_fabrics.purchase_report"
             file="purchase_order_report_fabrics.purchase_report"
             report_type="qweb-html"
-            string="Purchase order"/> 
+            string="Purchase order Report"/> 
     </data>
 </openerp>
 
