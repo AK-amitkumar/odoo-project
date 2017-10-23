@@ -401,10 +401,7 @@ class FabricDyeingTree(models.Model):
     receive_qty = fields.Float("Received Qty")
     blc = fields.Float("Balance" ,compute='_blc')
     wastage = fields.Float("Wastage" ,compute='_wastage')
-
     yarn_tree = fields.Many2one('fabric.dyeing')
-
-
     
     @api.one
     @api.depends('issue_qty','receive_qty')
@@ -438,6 +435,7 @@ class FabricKnitting(models.Model):
     req_code = fields.Char("Requisition Code")
     sec_code = fields.Char("Security Code")
     tree_link = fields.One2many('fabric.knitting.tree','fabric_tree')
+    recharge_count = fields.Integer(string="Recharge", compute="_load_list")
     
     stage = fields.Selection([('draft', 'Draft'),
         ('sent', 'Sent'),
@@ -445,6 +443,20 @@ class FabricKnitting(models.Model):
         ('complete', 'Complete'),
         ('cancel', 'Cancel')
         ],default = 'draft') 
+
+    @api.one
+    def _load_list(self):
+        self.recharge_count = self.env['knit.wizard.class'].search_count([('tree_id','=',self.id)])
+
+    @api.multi
+    def knit_receiving(self):
+        return {
+        'type': 'ir.actions.act_window',
+        'name': 'Knitting Receiving',
+        'res_model': 'knit.wizard.class',
+        'view_type': 'form',
+        'view_mode': 'form',
+        }
 
     @api.multi
     def in_draft(self):
@@ -472,6 +484,7 @@ class FabricKnittingTree(models.Model):
     won = fields.Many2many('mrp.production',string="W/O", required=True)
     fabric = fields.Many2one('product.product',string="Fabric")
     yarn = fields.Many2many('product.template',string="Yarn")
+    lot = fields.Many2one('purchase.lot',string="Lot")
     sl = fields.Many2one('purchase.sl' , string="S.L")
     otm = fields.Many2one('purchase.otm' , string="OTM")
     dia = fields.Many2one('purchase.dia' , string="Dia")
@@ -763,5 +776,59 @@ class Yarn_Receiving_Wizard(models.Model):
                         if x.fr_won == y.won:
                             y.lot = x.fr_lot
                             y.receive_qty = x.fr_done + y.receive_qty
+                            self.l_list = 'True'
+
+class Knit_Receiving_Wizard_Tree(models.Model):
+    _name="knit.wizard.tree"
+
+    fr_won = fields.Many2one('mrp.production',string="W/O",required = True)
+    fr_lot = fields.Many2one('purchase.lot',string="Lot")
+    fr_todo = fields.Float("To Do")
+    fr_done = fields.Float("Done")
+    knit_tree = fields.Many2one("yarn.wizard.class")
+
+class Knit_Receiving_Wizard(models.Model):
+    _name = "knit.wizard.class"
+    _rec_name = 'id'
+
+    knit_link  = fields.One2many("knit.wizard.tree","knit_tree")
+    get_list = fields.Boolean("Get List")
+    l_list = fields.Boolean("L List")
+    tree_id = fields.Integer("ID")
+    date = fields.Date("Date" ,required=True)
+    name = fields.Many2one('res.partner',string="Name")
+
+    @api.onchange('get_list')
+    def get_lines(self):
+ 
+        active_class = self.env['fabric.knitting'].browse(self._context.get('active_id'))
+        data = []
+        t = 0.0
+        if self.get_list == True:
+            self.tree_id = active_class.id
+            self.name = active_class.name
+            for x in active_class.tree_link:
+                if x.received > 0:
+                    t = x.required - x.received
+                else:
+                    t = x.required
+                data.append({
+                    'fr_won':x.won,
+                    'fr_lot':x.lot,
+                    'fr_todo':t,
+                    })
+            self.knit_link = data
+
+    @api.multi
+    def update(self):
+        active_class = self.env['fabric.knitting'].browse(self._context.get('active_id'))
+        if active_class:
+            self.tree_id = active_class.id
+            for x in self.knit_link:
+                if x.fr_done > 0:
+                    for y in active_class.tree_link:
+                        if x.fr_won == y.won:
+                            y.lot = x.fr_lot
+                            y.received = x.fr_done + y.received
                             self.l_list = 'True'
 

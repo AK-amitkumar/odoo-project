@@ -1,7 +1,5 @@
 <?xml version="1.0"?> 
 <odoo>
-    <template id="assets_backend" name="custom assets" inherit_id="web.assets_backend"> <xpath expr="." position="inside"> <link rel="stylesheet" href="/purchase_mr_fabric/static/css/style.css"/> </xpath> </template>
-
     <record id="accessories_form_view" model="ir.ui.view">
         <field name="name">accessories_form_view</field>
         <field name="model">purchase.accessories</field>
@@ -246,6 +244,16 @@
         <field name="domain">[('tree_id', '=', active_ids)]</field>
     </record>
 
+    <record id="fabric_receiving_button" model="ir.actions.act_window">
+        <field name="name">Fabric Receiving</field> 
+        <field name="res_model">fabric.wizard.class</field>
+        <field name="view_id" ref="purchase_mr_fabric.fabric_wizard_tree_view"/>
+        <field name="context">{'search_default_todo':1,'l_list': True}</field> 
+        <field name="domain">[('tree_id', '=', active_ids)]</field>
+    </record>
+
+
+
     <record id="yarn_dye_form_view" model="ir.ui.view">
         <field name="name">yarn_dye_form_view</field>
         <field name="model">yarn.dyeing</field>
@@ -333,26 +341,6 @@
                 </sheet>
             </form>
         </field>
-    </record>
-
-    <record id="yarn_wizard_tree_view" model="ir.ui.view">
-        <field name="name">yarn_wizard_tree_view</field>
-        <field name="model">yarn.wizard.class</field>
-        <field name="type">tree</field>
-        <field name="arch" type="xml">
-            <tree string="Yarn Receiving">
-                <field name="name"/>
-                <field name="date"/>
-            </tree>
-        </field>
-    </record>
-
-    <record id="fabric_receiving_button" model="ir.actions.act_window">
-        <field name="name">Fabric Receiving</field> 
-        <field name="res_model">fabric.wizard.class</field>
-        <field name="view_id" ref="purchase_mr_fabric.fabric_wizard_tree_view"/>
-        <field name="context">{'search_default_todo':1,'l_list': True}</field> 
-        <field name="domain">[('tree_id', '=', active_ids)]</field>
     </record>
 
     <record id="fabric_dye_form_view" model="ir.ui.view">
@@ -445,26 +433,6 @@
         </field>
     </record>
 
-    <record id="fabric_wizard_tree_view" model="ir.ui.view">
-        <field name="name">fabric_wizard_tree_view</field>
-        <field name="model">fabric.wizard.class</field>
-        <field name="type">tree</field>
-        <field name="arch" type="xml">
-            <tree string="Fabric Receiving">
-                <field name="name"/>
-                <field name="date"/>
-            </tree>
-        </field>
-    </record>
-
-    <record id="knit_receiving_button" model="ir.actions.act_window">
-        <field name="name">Knitting Receiving</field> 
-        <field name="res_model">knit.wizard.class</field>
-        <field name="view_id" ref="purchase_mr_fabric.knit_wizard_tree_view"/>
-        <field name="context">{'search_default_todo':1,'l_list': True}</field> 
-        <field name="domain">[('tree_id', '=', active_ids)]</field>
-    </record>
-    
     <record id="fabric_knitting_form_view" model="ir.ui.view">
         <field name="name">fabric_knitting_form_view</field>
         <field name="model">fabric.knitting</field>
@@ -474,24 +442,16 @@
                 <header>
 
                     <button name="in_draft" type="object" string="Set to Draft" attrs="{'invisible': ['|','|','|','|',('stage','=','in_house'),('stage','=','sent'),('stage','=','draft'),('stage','=','complete'),('stage','=','cancel')]}" />
-
-                    <button name="in_sent" type="object" string="Sent" class= "oe_highlight" attrs="{'invisible': [('stage','not in','draft')]}"/>
-
+                    <button name="in_sent" type="object" string="Validate" class= "oe_highlight" attrs="{'invisible': ['|','|','|',('stage','=','in_house'),('stage','=','draft'),('stage','=','sent'),('stage','=','cancel')]}" />
+                    <button name="in_complete" type="object" string="Set to Draft"  attrs="{'invisible': ['|','|','|',('stage','=','in_house'),('stage','=','draft'),('stage','=','sent'),('stage','=','complete')]}" />
+                    <button name="in_cancel" type="object" string="Validate" class= "oe_highlight" attrs="{'invisible': ['|','|','|','|',('stage','=','in_house'),('stage','=','sent'),('stage','=','draft'),('stage','=','complete'),('stage','=','cancel')]}" />
                     <button name="in_house" type="object" string="In house" class= "oe_highlight" attrs="{'invisible': [('stage','not in','sent')]}" />
-
-                    <button name="in_complete" type="object" string="Complete"  attrs="{'invisible': [('stage','not in','in_house')]}"/>
-                    
-                    <button name="in_cancel" type="object" string="Validate" class= "oe_highlight" attrs="{'invisible': [('stage','not in','in_house')]}" />
-
-                    <button name="knit_receiving" type="object" string="Knitting Receiving" class= "oe_highlight" attrs="{'invisible': [('stage','not in','sent')]}"/>
 
                     <field name="stage" widget="statusbar" statusbar_visible="draft,sent,in_house,complete,cancel"/>
                 </header>
 
                 <sheet>
                     <h3>Fabric Knitting</h3>
-                     <separator/>
-                    <button name="%(knit_receiving_button)d" type="action" class="oe_stat_button trans" icon="fa-list" help="show all the receipts for this Record"> <field name="recharge_count" widget="statinfo" string="Knitting Receiving"/> </button>
                     <separator/>
                     <group name="group_top">
 
@@ -520,7 +480,6 @@
                                 <field name="won" widget="many2many_tags"/>
                                 <field name="fabric" domain= "[('ttype','=','fabric')]"/>
                                 <field name="yarn" widget="many2many_tags" domain= "[('ttype','=','yarn')]"/>
-                                <field name="lot"/>
                                 <field name="sl"/>
                                 <field name="otm"/>
                                 <field name="dia"/>
@@ -541,18 +500,6 @@
 
                 </sheet>
             </form>
-        </field>
-    </record>
-
-    <record id="knit_wizard_tree_view" model="ir.ui.view">
-        <field name="name">knit_wizard_tree_view</field>
-        <field name="model">knit.wizard.class</field>
-        <field name="type">tree</field>
-        <field name="arch" type="xml">
-            <tree string="Knitting Receiving">
-                <field name="name"/>
-                <field name="date"/>
-            </tree>
         </field>
     </record>
 
@@ -930,44 +877,6 @@
     </record>
 
 
-        <record id="knit_wizard_form" model="ir.ui.view">
-        <field name="name">knit_wizard_form</field>
-        <field name="model">knit.wizard.class</field>
-        <field name="arch" type="xml">
-            <form string="Knitting Receiving">
-                <sheet>
-                <group name="group_top">
-                    <group name="group_left">
-                        <field name="get_list" attrs="{'invisible': [('l_list','=', True)]}"/>
-                        <field name="date" />
-                        <field name="name" invisible = "1"/>
-                    </group>
-
-                    <group name="group_right">
-                        <field name="tree_id" invisible = "1"/>
-                        <field name="l_list" invisible = "1"/>
-                    </group>
-
-                </group>
-
-                <field name="knit_link">
-                    <tree editable="bottom">
-                        <field name="fr_won"/>
-                        <field name="fr_lot" />
-                        <field name="fr_todo" />
-                        <field name="fr_done"/>
-                    </tree>
-                </field>
-                <footer>
-                    <button name="update" 
-                        string="Update" type="object" 
-                        class="oe_highlight" attrs="{'invisible': [('l_list','=', True)]}"/>
-                </footer>
-            </sheet>
-            </form>
-        </field>
-    </record>
-
     <!-- TREE VIEWS -->
 
     <record id="accessories_tree_view" model="ir.ui.view">
@@ -1080,9 +989,29 @@
         </field>
     </record>
 
+    <record id="fabric_wizard_tree_view" model="ir.ui.view">
+        <field name="name">fabric_wizard_tree_view</field>
+        <field name="model">fabric.wizard.class</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree string="Fabric Receiving" readonly="1">
+                <field name="name"/>
+                <field name="date"/>
+            </tree>
+        </field>
+    </record>
 
-
-
+    <record id="yarn_wizard_tree_view" model="ir.ui.view">
+        <field name="name">yarn_wizard_tree_view</field>
+        <field name="model">yarn.wizard.class</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree string="Yarn Receiving" readonly="1">
+                <field name="name"/>
+                <field name="date"/>
+            </tree>
+        </field>
+    </record>
 
     <record id="purchase_order_ext_tree" model="ir.ui.view">
         <field name="name">purchase_order_ext_tree</field>
