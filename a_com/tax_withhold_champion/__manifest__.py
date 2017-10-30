@@ -1,16 +1,16 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "taxes_champion",
+    'name': "Tax Witholding Champion",
 
     'summary': """
-        taxes_champion""",
+        Nayyab""",
 
     'description': """
-        taxes_champion
+        Long description of module's purpose
     """,
 
-    'author': "Ehtisham Faisal",
-    'website': "http://www.oxenlab.com",
+    'author': "My Company",
+    'website': "http://www.yourcompany.com",
 
     # Categories can be used to filter modules in modules listing
     # Check https://github.com/odoo/odoo/blob/master/odoo/addons/base/module/module_data.xml
@@ -19,11 +19,11 @@
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['base','account_parent'],
+    'depends': ['base','sale'],
 
     # always loaded
     'data': [
-        # 'security/ir.model.access.csv',
-        'views/views.xml',
+        'views.xml',
     ],
+
 }

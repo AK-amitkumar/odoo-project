@@ -1,16 +1,16 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "taxes_champion",
+    'name': "tax_localization_pakistan",
 
     'summary': """
-        taxes_champion""",
+        Champion Sports""",
 
     'description': """
-        taxes_champion
+        Champion Sports
     """,
 
     'author': "Ehtisham Faisal",
-    'website': "http://www.oxenlab.com",
+    'website': "http://www.bcube.pk",
 
     # Categories can be used to filter modules in modules listing
     # Check https://github.com/odoo/odoo/blob/master/odoo/addons/base/module/module_data.xml
@@ -19,11 +19,12 @@
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['base','account_parent'],
+    'depends': ['base','account_accountant'],
 
     # always loaded
     'data': [
         # 'security/ir.model.access.csv',
-        'views/views.xml',
+        'views/templates.xml',
     ],
+    # only loaded in demonstration mode
 }

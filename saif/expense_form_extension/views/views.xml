@@ -85,13 +85,17 @@
 				<field name="padding">4</field> 
 		</record>
 
-	<record model="ir.actions.act_window" id="saif_expenses">
-		<field name="name">Expenses</field>
-		<field name="res_model">saif.extension</field>
-		<field name="view_type">form</field>
-		<field name="view_mode">tree,form</field>
-	</record>
-
+		<record model="ir.actions.act_window" id="saif_expenses">
+			<field name="name">Expenses</field>
+			<field name="res_model">saif.extension</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+		</record>
+	  
+	  	<record id="base.menu_action_res_company_form" model="ir.ui.menu">
+	        <field name="active">false</field>
+	    </record>
+	    
 		<menuitem name="Expenses" id="saif_expenses_menu_item" parent="hr_expense.menu_hr_expense_my_expenses" sequence="4" action="saif_expenses"/>
 
 		<record model="ir.actions.act_window" id="payment_configuration">

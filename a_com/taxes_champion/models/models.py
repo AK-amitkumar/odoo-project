@@ -51,6 +51,32 @@ class ItemDescBcube(models.Model):
 class AccountInvoiceBcube(models.Model):
 	_inherit            = 'account.invoice'
 
+	date_invoice = fields.Date("date_invoice", required=True, readonly=False, select=True, default=lambda self: fields.date.today())
+
+    def action_invoice_open(self):
+        new_record = super(AccountInvoiceBcube, self).action_invoice_open()
+
+        inventory = self.env['stock.picking']
+        inventory_lines = self.env['stock.move'].search([])
+
+        create_inventory = inventory.create({ 'partner_id':self.partner_id.id, 
+            'picking_type_id' : 1, 
+            'location_dest_id' : 1, 
+            'location_id' : 2, 
+            'min_date' : self.date_invoice, 
+             })
+
+        for x in self.invoice_line_ids:
+            create_inventory_lines= inventory_lines.create({ 'product_id':x.product_id.id,
+                'product_uom_qty':x.quantity,
+                'product_uom': x.product_id.uom_id.id,
+                'picking_id': create_inventory.id,
+                'name':"OK",
+                'location_dest_id': 1,
+                'location_id':2,
+                })
+            create_inventory.origin = self.name
+
 	@api.one
 	def _compute_amount(self):
 		res = super(AccountInvoiceBcube, self)._compute_amount()
@@ -71,7 +97,7 @@ class AccountInvoiceBcube(models.Model):
 					
 					records.append({
 						'name':tax.name,
-						'account_id':tax.account_id.id,
+						'account_id':taxes.account_id.id,
 						'invoice_id':self.id,
 						'tax_id':tax.id,
 						'amount': 0,
@@ -81,8 +107,7 @@ class AccountInvoiceBcube(models.Model):
 		for taxes in self.invoice_line_ids:
 			for tax in taxes.bcube_taxes_id:
 				unit_price = taxes.price_unit -(taxes.price_unit * (taxes.discount/100) )
-				assessed_Price = taxes.assessed_Price
-				amount_tax = self.invoice_line_ids.calculateTaxAmount(tax,taxes.quantity,assessed_Price)
+				amount_tax = self.invoice_line_ids.calculateTaxAmount(tax,taxes.quantity,unit_price)
 				if self.tax_line_ids:
 					for line in self.tax_line_ids:
 						if line.name == tax.name:
@@ -97,11 +122,10 @@ class AccountInvoiceLineBcube(models.Model):
 	bcube_amount_tax    = fields.Float(string = "Amount Tax")
 
 
-	@api.onchange('bcube_taxes_id','assessed_Price','price_unit','quantity','discount')
+	@api.onchange('bcube_taxes_id','price_unit','quantity','discount')
 	def onChBcubeTaxes(self):
 		unit_price = self.price_unit -(self.price_unit * (self.discount/100) )
-		assessed_Price = self.assessed_Price
-		self.bcube_amount_tax = self.calculateTaxAmount(self.bcube_taxes_id, self.quantity, assessed_Price)
+		self.bcube_amount_tax = self.calculateTaxAmount(self.bcube_taxes_id, self.quantity, unit_price)
 
 
 	@api.onchange('product_id')
@@ -112,10 +136,12 @@ class AccountInvoiceLineBcube(models.Model):
 
 		self.bcube_taxes_id = all_taxes
 		self.discount = self.invoice_id.partner_id.discount
+		
 
 	def calculateTaxAmount(self, taxes, qty, price_unit):
 		amount_tax = 0
 		child_tax = 0
+		child_tax_final=0
 		for tax in taxes:
 			if tax.enable_child_tax:
 				if tax.children_tax_ids:
@@ -125,7 +151,9 @@ class AccountInvoiceLineBcube(models.Model):
 		
 						child_tax = child_tax + child_amount_tax 
 					parent_tax = qty * price_unit * (tax.amount /100)
-					amount_tax = child_tax + parent_tax
+					child_tax_final = child_tax + parent_tax
+					amount_tax += child_tax_final
+
 			else:
 				amount_tax += qty * price_unit * (tax.amount /100)
 		
@@ -134,5 +162,3 @@ class AccountInvoiceLineBcube(models.Model):
 class DiscountAmount(models.Model):
 	_inherit  = 'res.partner'
 	discount = fields.Float(string="Discount%")
-
-

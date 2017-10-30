@@ -1080,10 +1080,6 @@
         </field>
     </record>
 
-
-
-
-
     <record id="purchase_order_ext_tree" model="ir.ui.view">
         <field name="name">purchase_order_ext_tree</field>
         <field name="model">purchase.order</field>
