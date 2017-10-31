@@ -44,6 +44,7 @@ class Hr_Employee(models.Model):
 	documents_id = fields.One2many('hr.documents', 'documents_relation', string="Documents")
 
 
+
 	# --------------------------------------------------
 
 	# title = fields.Many2one('',string="Title")
@@ -84,7 +85,7 @@ class Hr_Employee(models.Model):
 	id_prof = fields.Char("ID Profession",required=True) 
 	category = fields.Many2one('category.info',string="Category",required=True)
 	department = fields.Many2one('department.info',string="Department",required=True)
-	r_manager = fields.Many2one('he.employee',string="Reporting Manager",required=True)
+	r_manager = fields.Many2one('hr.employee',string="Reporting Manager")
 	division = fields.Many2one('division.info',string="Division",required=True)
 	mol_location = fields.Char(string="MOL Location",required=True)
 	sponsor = fields.Many2one('res.sponsor',string="Sponsor",required=True)
@@ -98,18 +99,18 @@ class Hr_Employee(models.Model):
 	reason = fields.Char(string="Reason")
 
 
-	depend = fields.Selection([(
-		'yes','Yes'),
-		('no','No'),],default='no' ,string="Dependent",required=True)
-	d_name = fields.Char("Name",required=True)
-	d_gender = fields.Char("Gender",required=True)
-	d_dob = fields.Date("DOB",required=True)
-	d_relationship = fields.Char("Relationship",required=True)
-	d_passport = fields.Char("Passport No",required=True)
-	d_issue = fields.Date("Issue Date",required=True)
-	d_expiry = fields.Date("Expiry Date",required=True)
-	d_residence = fields.Date("Residence ID No")
-	dr_expiry = fields.Date("Expiry Date")
+	# depend = fields.Selection([(
+	# 	'yes','Yes'),
+	# 	('no','No'),],default='no' ,string="Dependent",required=True)
+	# d_name = fields.Char("Name",required=True)
+	# d_gender = fields.Char("Gender",required=True)
+	# d_dob = fields.Date("DOB",required=True)
+	# d_relationship = fields.Char("Relationship",required=True)
+	# d_passport = fields.Char("Passport No",required=True)
+	# d_issue = fields.Date("Issue Date",required=True)
+	# d_expiry = fields.Date("Expiry Date",required=True)
+	# d_residence = fields.Date("Residence ID No")
+	# dr_expiry = fields.Date("Expiry Date")
 	
 	e_name = fields.Char("Name",required=True)
 	e_relationship = fields.Char("Relationship",required=True)
@@ -130,7 +131,7 @@ class Hr_Employee(models.Model):
  
  
 
- 	@api.onchange('joining_date','leaving_date')
+	@api.onchange('joining_date','leaving_date')
 	def onchange_dates(self):
 		if self.joining_date:
 			if self.leaving_date:
@@ -151,6 +152,19 @@ class Dependent(models.Model):
 	_name = 'hr.dependent'
 	_rec_name = 'name'
 
+	# d_name = fields.Char("Name",required=True)
+	# d_dob = fields.Date("DOB",required=True)
+	# d_issue = fields.Date("Issue Date",required=True)
+	# d_expiry = fields.Date("Expiry Date",required=True)
+	# d_relationship = fields.Char("Relationship",required=True)
+	# depend = fields.Selection([('yes','Yes'),('no','No'),],default='no' ,string="Dependent",required=True)
+	d_gender = fields.Selection([
+		('male','Male'),
+		('female','Female'),
+		],string="Gender",required=True)
+	d_passport = fields.Char("Passport No",required=True)
+	d_residence = fields.Date("Residence ID No")
+	dr_expiry = fields.Date("Expiry Date")
 	name = fields.Char('Name(As in Passport)')
 	employee = fields.Many2one('hr.employee')
 	arabic_name = fields.Char()
@@ -718,16 +732,16 @@ class Insurance(models.Model):
 	member_name = fields.Char(required=True)
 	dob = fields.Date('Date of Birth', required=True)
 	clas_n = fields.Char('Class')
-	gender = fields.Selection([
-		('male','Male'),
-		('femail','Femail'),
-		])
 	relation = fields.Many2one('relation.relation')
 	sponsor_id = fields.Char()
 	job = fields.Char()
 	premium = fields.Float()
 	start_date = fields.Date()
-	expiry_date = fields.Date()
+	expiry_date = fields.Date("End Date")
+	gender = fields.Selection([
+		('male','Male'),
+		('female','Female'),
+		])
 
 	insurance_relation = fields.Many2one('hr.employee')
 
@@ -751,16 +765,47 @@ class Documents(models.Model):
 	_name = 'hr.documents'
 	_rec_name = 'number'
 
+	e_name = fields.Char("Employee Name")
+	e_code = fields.Char("Employee Code")
+
+	name = fields.Char("Doc Name",required=True)
+	number = fields.Char("Doc No")
 	type_d = fields.Many2one('documents.typed','Type', required=True)
-	issue_date = fields.Date('Issue Date')
-	expiry_date = fields.Date('Expiry Date')
-	number = fields.Char(required=True)
-	profession = fields.Char()
 	date_hijri = fields.Char('Date of Expiry(Hijri)')
-	place_issue = fields.Char('Place of Issue')
 	notes = fields.Char()
+	place_issue = fields.Char("Place of Issue",required=True)
+	issue_date = fields.Date("Issue Date",required=True)
+	dor = fields.Date("Renewed Date")
+	expiry_date = fields.Date("Expiry Date",required=True)
+	nod = fields.Integer("No Of Days",required=True)
+	dfr = fields.Integer("Due for Renewal",required=True)
+	alert =fields.Char("Alert To")
+	attach = fields.Binary("Attach File")
+	remark = fields.Char("Remarks")
+	status = fields.Char("Status")
+
+	category = fields.Selection([(
+		'gernal','Gernal'),
+		('positive','Positive'),
+		('negative','Negative')], required=True,string='Category')
+	holder = fields.Selection([(
+		'self','Self'),
+		('dep','Dependent')], required=True,string='Holder')
 	
 	documents_relation = fields.Many2one('hr.employee')
+
+	@api.onchange('name')
+	def _onchange_n(self):
+		self.e_code = self.documents_relation.id
+		self.e_name = self.documents_relation.name
+		print "111111111111111111111111111"
+
+	# @api.model
+	# def create(self, vals):
+	# 	vals['number'] = self.env['ir.sequence'].next_by_code('document.com')
+	# 	new_record = super(CompanyDocument, self).create(vals)
+
+	# 	return new_record
 
 # IT Department
 class ItDepartment(models.Model):
@@ -913,50 +958,18 @@ class Sponsor(models.Model):
 	sponsor_id = fields.Integer(string='Sponsor ID', required=True)
 	partner_id = fields.Many2one('res.partner', string='Contact Person', required=True)
 	cr_no = fields.Char(string='CR_No')
-	street = fields.Char(compute='_compute_address', inverse='_inverse_street')
-	street2 = fields.Char(compute='_compute_address', inverse='_inverse_street2')
-	zip_code = fields.Char(compute='_compute_address', inverse='_inverse_zip')
-	city = fields.Char(compute='_compute_address', inverse='_inverse_city')
-	state_id = fields.Many2one('res.country.state', compute='_compute_address', inverse='_inverse_state', string="Fed. State")
-	country_id = fields.Many2one('res.country', compute='_compute_address', inverse='_inverse_country', string="Country")
+	street = fields.Char()
+	street2 = fields.Char()
+	zip_code = fields.Char()
+	city = fields.Char()
+	state_id = fields.Many2one('res.country.state',  string="Fed. State")
+	country_id = fields.Many2one('res.country',string="Country")
 	pob = fields.Char(string='P.O Box No')
 	email = fields.Char(related='partner_id.email', store=True)
 	phone = fields.Char(related='partner_id.phone', store=True)
 	website = fields.Char(related='partner_id.website')
 	fax = fields.Char(string="Fax")
 	mobile= fields.Char(string='Mobile No')
-
-
-	def _compute_address(self):
-		for company in self.filtered(lambda company: company.partner_id):
-			address_data = company.partner_id.sudo().address_get(adr_pref=['contact'])
-			if address_data['contact']:
-				partner = company.partner_id.browse(address_data['contact']).sudo()
-				company.update(company._get_company_address_fields(partner))
-
-	def _inverse_street(self):
-		for company in self:
-			company.partner_id.street = company.street
-
-	def _inverse_street2(self):
-		for company in self:
-			company.partner_id.street2 = company.street2
-
-	def _inverse_zip(self):
-		for company in self:
-			company.partner_id.zip = company.zip
-
-	def _inverse_city(self):
-		for company in self:
-			company.partner_id.city = company.city
-
-	def _inverse_state(self):
-		for company in self:
-			company.partner_id.state_id = company.state_id
-
-	def _inverse_country(self):
-		for company in self:
-			company.partner_id.country_id = company.country_id
 
 
 	@api.onchange('state_id')
@@ -1003,3 +1016,69 @@ class DesignationInfo(models.Model):
 	category = fields.Many2one('category.info',string="Category Info")
 	job = fields.Text("Job Title", required=True)
 	profession = fields.Text("ID Profession", required=True)
+
+
+class DocumentList(models.Model):
+	_name = 'document.list'
+
+	name = fields.Char("Document Name", required=True)
+	alert = fields.Char("Alert Days", required=True)
+	category = fields.Selection([(
+		'com','Company'),
+		('emp','Employee'),
+		('asst','Asset')], required=True,string='Category')
+
+
+class CompanyDocument(models.Model):
+	_name = 'document.com'
+
+	comp_name = fields.Many2one('res.company', string="Company Name",required=True)
+	bran_name = fields.Many2one('res.company', string="Branch Name",required=True)
+	bran_code = fields.Char(string="Branch Code",required=True)
+	name = fields.Char("Doc Name",required=True)
+	doc_no = fields.Char("Doc No")
+	poi = fields.Char("Place of Issue",required=True)
+	doi = fields.Date("Issue Date",required=True)
+	dor = fields.Date("Renewed Date")
+	doe = fields.Date("Expiry Date",required=True)
+	nod = fields.Integer("No Of Days",required=True)
+	dfr = fields.Integer("Due for Renewal",required=True)
+	alert =fields.Char("Alert To")
+	attach = fields.Binary("Attach File")
+	remark = fields.Char("Remarks")
+	
+	@api.onchange('bran_name')
+	def _onchange_branch(self):
+
+		self.bran_code = self.bran_name.id
+
+	@api.model
+	def create(self, vals):
+		vals['doc_no'] = self.env['ir.sequence'].next_by_code('document.com')
+		new_record = super(CompanyDocument, self).create(vals)
+
+		return new_record
+
+
+
+class AssetsDocument(models.Model):
+	_name = 'document.asset'
+	
+	name = fields.Char("Doc Name",required=True)
+	doc_no = fields.Char("Doc No")
+	doc_type = fields.Many2one('documents.typed',string="Doc Type")
+	po = fields.Char("Plate No",required=True)
+	dor = fields.Date("Renewed Date")
+	doe = fields.Date("Expiry Date",required=True)
+	nod = fields.Integer("No Of Days",required=True)
+	dfr = fields.Integer("Due for Renewal",required=True)
+	alert =fields.Char("Alert To")
+	attach = fields.Binary("Attach File")
+	remark = fields.Char("Remarks")
+	documents_relation = fields.Many2one('maintenance.equipment')
+
+class AssetsDocumentExt(models.Model):
+	_inherit = 'maintenance.equipment'
+
+	documents_id = fields.One2many('document.asset', 'documents_relation', string="Documents")
+	make = fields.Char("Make")

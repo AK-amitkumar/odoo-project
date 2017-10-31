@@ -59,24 +59,14 @@
                 <xpath expr="//page" position="after">
                     <!-- Dependent -->
                         <page string="Dependent" name="employee_dependent">
-                            <group name="group_top">
-
-                                <group name="group_left">
-                                    <field name="depend"/>
-                                    <field name="d_name" attrs="{'invisible': [('depend','not in','yes')]}"/>
-                                    <field name="d_gender"  attrs="{'invisible': [('depend','not in','yes')]}"/>
-                                    <field name="d_dob"  attrs="{'invisible': [('depend','not in','yes')]}"/>
-                                    <field name="d_relationship"  attrs="{'invisible': [('depend','not in','yes')]}"/>
-                                </group>
-
-                                <group name="group_right">
-                                    <field name="d_passport"  attrs="{'invisible': [('depend','not in','yes')]}"/>
-                                    <field name="d_issue"  attrs="{'invisible': [('depend','not in','yes')]}"/>
-                                    <field name="d_expiry"  attrs="{'invisible': [('depend','not in','yes')]}"/>
-                                    <field name="d_residence"  attrs="{'invisible': [('depend','not in','yes')]}"/>
-                                    <field name="dr_expiry"  attrs="{'invisible': [('depend','not in','yes')]}"/>
-                                </group>
-                            </group>
+                            <field name="dependent_id">
+                                <tree>
+                                    <field name="name"/>
+                                    <field name="dob"/>
+                                    <field name="relation"/> 
+                                    <field name="nationality"/> 
+                                </tree>
+                            </field>
                         </page>
                     <!-- Education and Experience -->
                         <page string="Education and Experience" name="employee_education">
@@ -117,10 +107,10 @@
                                     <field name="gender"/> 
                                     <field name="dob"/> 
                                     <field name="relation"/> 
+                                    <field name="start_date"/> 
                                     <field name="sponsor_id"/> 
                                     <field name="job"/> 
                                     <field name="premium"/> 
-                                    <field name="start_date"/> 
                                     <field name="expiry_date"/> 
                                 </tree>  
                             </field>
@@ -143,14 +133,16 @@
                         <page string="Documents" name="employee_documents">
                             <field name="documents_id">
                                 <tree>
-                                    <field name="type_d"/>
+                                    <field name="name"/>
                                     <field name="number"/>
-                                    <field name="profession"/> 
-                                    <field name="issue_date"/> 
-                                    <field name="expiry_date"/> 
+                                    <field name="type_d"/> 
                                     <field name="date_hijri"/> 
-                                    <field name="place_issue"/>  
                                     <field name="notes"/> 
+                                    <field name="place_issue"/>  
+                                    <field name="issue_date"/>
+                                    <field name="dor"/>
+                                    <field name="expiry_date"/>
+                                    <field name="holder"/> 
                                 </tree>  
                             </field>
                         </page>
@@ -317,14 +309,18 @@
                             <field name="name"/>
                             <field name="arabic_name"/>
                             <field name="dob"/>
+                            <field name="d_gender"/>
                             <field name="nationality"/>
                             <field name="relation"/>
                             <field name="religion"/>
+                            <field name="d_residence"/>
+                            <field name="dr_expiry"/>
+                            <field name="date_issue"/>
                         </group>
                         <group string='Iqama Details'>
                             <field name="iqama_num"/>
                             <field name="serial_num"/>
-                            <field name="date_issue"/>
+                            <field name="d_passport"/>
                             <field name="date_expiry"/>
                             <field name="issue_place"/>
                         </group>
@@ -351,6 +347,57 @@
                     <field name="date_issue"/>
                     <field name="date_expiry"/>
                     <field name="issue_place"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Dependent-->
+        <record id="insurance_form_view" model="ir.ui.view">
+            <field name="name">insurance_form_view</field>
+            <field name="model">hr.insurance</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group name="group_top">
+                            <group name="group_left">
+                                <field name="card_code" />
+                                <field name="member_name" />
+                                <field name="dob" />
+                                <field name="clas_n" />
+                                <field name="start_date" />
+                                <field name="relation" />
+                            </group>
+
+                            <group name="group_right">
+                                <field name="job" />
+                                <field name="premium" />
+                                <field name="gender" />
+                                <field name="sponsor_id" />
+                                <field name="expiry_date" />
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Dependent-->
+        <record id="insurance_tree_view" model="ir.ui.view">
+             <field name="name">insurance_tree_view</field>
+            <field name="model">hr.insurance</field>
+            <field name="arch" type="xml">
+                <tree string='Personal Information'>
+                    <field name="card_code" />
+                    <field name="member_name" />
+                    <field name="dob" />
+                    <field name="clas_n" />
+                    <field name="relation" />
+                    <field name="start_date" />
+                    <field name="job" />    
+                    <field name="premium" />
+                    <field name="gender" />
+                    <field name="sponsor_id" />
+                    <field name="expiry_date" />
                 </tree>
             </field>
         </record>
@@ -424,6 +471,47 @@
             </field>
         </record>
 
+        <record model="ir.ui.view" id="document_form_view">
+            <field name="name">document_form_view</field>
+            <field name="model">hr.documents</field>
+            <field name="arch" type="xml">
+                <form>
+                    <group name="group_top">
+                        <group name="group_left">
+                            <field name="name" />
+                            <field name="number" />
+                            <field name="type_d" />
+                            <field name="e_name" />
+                            <field name="date_hijri" />
+                            <field name="place_issue" />
+                            <field name="issue_date" />
+                            <field name="dor" />
+                            <field name="notes" />
+                            <field name="category" />
+                        </group>
+
+                        <group name="group_right">
+                            <field name="holder" />
+                            <field name="nod" />
+                            <field name="dfr" />
+                            <field name="e_code" />
+                            <field name="alert" />
+                            <field name="attach" />
+                            <field name="expiry_date" />
+                            <field name="remark" />
+                            <field name="status" />
+                        </group>
+                    </group>
+                </form>
+            </field>
+        </record>
+       <!--  <record id="hr_document_seq" model="ir.sequence">
+          <field name="name">hr_document_seq</field>
+          <field name="code">hr.documents</field>
+          <field name="prefix">Doc</field>
+          <field name="padding">4</field>
+        </record>
+ -->
         <!--Employee Iqama -->
         <record model="ir.ui.view" id="iqama_form_view">
             <field name="name">hr.iqama.form.view</field>
@@ -1070,8 +1158,183 @@
             </field>
         </record>
 
+
+        <record model="ir.ui.view" id="document_list_form_view">
+            <field name="name">document_list_form_view</field>
+            <field name="model">document.list</field>
+            <field name="arch" type="xml">
+                <form>
+                    <separator/>
+                    <h4>Document  List</h4>
+                    <separator/>
+                    <group name="group_top">
+
+                        <group name="group_left">
+                            
+                            <field name="name" />
+                            <field name="alert" />
+                        </group>
+
+                        <group name="group_right">
+                            <field name="category" />
+                        </group>
+
+                    </group>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="document_list_tree_view" >
+            <field name="name">document_list_tree_view</field>
+            <field name="model">document.list</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Designation Details">
+                    <field name="name"/>
+                    <field name="alert"/>
+                    <field name="category"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <record model="ir.ui.view" id="document_com_form_view">
+            <field name="name">document_com_form_view</field>
+            <field name="model">document.com</field>
+            <field name="arch" type="xml">
+                <form>
+                    <separator/>
+                    <h4>Company Document</h4>
+                    <separator/>
+                    <group name="group_top">
+
+                        <group name="group_left">
+                            
+                            <field name="comp_name" domain= "[('flip','=',False)]"/>
+                            <field name="bran_name" domain= "[('flip','=',True)]"/>
+                            <field name="bran_code" />
+                            <field name="name" />
+                            <field name="doc_no" readonly="1"/>
+                            <field name="poi" />
+                            <field name="doi" />
+                        </group>
+
+                        <group name="group_right">
+                            <field name="dor" />
+                            <field name="doe" />
+                            <field name="nod" />
+                            <field name="dfr" />
+                            <field name="alert" />
+                            <field name="attach" />
+                            <field name="remark" />
+                        </group>
+
+                    </group>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="document_com_tree_view" >
+            <field name="name">document_com_tree_view</field>
+            <field name="model">document.com</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Company Document">
+                    <field name="comp_name"/>
+                    <field name="bran_name"/>
+                    <field name="bran_code"/>
+                    <field name="nod"/>
+                    <field name="dfr"/>
+                    <field name="alert"/>
+                </tree>
+            </field>
+        </record>
+        <record id="document_com_seq" model="ir.sequence">
+          <field name="name">document_com_seq</field>
+          <field name="code">document.com</field>
+          <field name="prefix">Doc</field>
+          <field name="padding">4</field>
+        </record>
+
+        <record model="ir.ui.view" id="document_asset_form_view">
+            <field name="name">document_asset_form_view</field>
+            <field name="model">document.asset</field>
+            <field name="arch" type="xml">
+                <form>
+                    <group name="group_top">
+
+                        <group name="group_left">
+                            
+                            <field name="name"/>
+                            <field name="doc_no" />
+                            <field name="doc_type" />
+                            <field name="po" />
+                            <field name="dor"/>
+                            <field name="doe" />
+                        </group>
+
+                        <group name="group_right">
+                            <field name="nod" />
+                            <field name="dfr" />
+                            <field name="alert" />
+                            <field name="attach" />
+                            <field name="remark" />
+                        </group>
+
+                    </group>
+                </form>
+            </field>
+        </record>
+
+        <record id="maintenance_equipment_view_ext" model="ir.ui.view" >
+            <field name="name">maintenance_equipment_view_ext</field>
+            <field name="model">maintenance.equipment</field>
+            <field name="inherit_id" ref="maintenance.hr_equipment_view_form"/>
+            <field name="arch" type="xml">
+                
+                <xpath expr="//page[3]" position="after">>
+                    <page string="Asset Documents" name="employee_documents">
+                        <field name="documents_id">
+                            <tree>
+                                <field name="name"/>
+                                <field name="doc_no"/>
+                                <field name="doc_type"/> 
+                                <field name="po"/> 
+                            </tree>  
+                        </field>
+                    </page>
+                </xpath>
+                
+                <xpath expr="//field[@name='owner_user_id']" position="after">
+                    <field name="make"/>
+                </xpath>
+            </field>
+        </record>
+
+
         <!-- Dependent  ACTIONS........................................................-->
         
+        <record model="ir.actions.act_window" id="hr_insurance_act">
+            <field name="name">Insurance</field>
+            <field name="res_model">hr.insurance</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record model="ir.actions.act_window" id="document_com_act">
+            <field name="name">Company Document</field>
+            <field name="res_model">document.com</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record model="ir.actions.act_window" id="document_list_act">
+            <field name="name">Document List</field>
+            <field name="res_model">document.list</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
         <record model="ir.actions.act_window" id="designation_info_act">
             <field name="name">Designation Info</field>
             <field name="res_model">designation.info</field>
@@ -1185,6 +1448,14 @@
             <field name="active">false</field>
         </record>
 
+        <record id="hr.menu_open_view_employee_list_my" model="ir.ui.menu">
+            <field name="sequence">-12</field>
+        </record>
+
+        <record id="maintenance.menu_maintenance_title" model="ir.ui.menu">
+            <field name="name">Assets</field>
+        </record>
+
         <menuitem name="Companies" id="users_company_extension_menu_item1" parent="base.menu_users" sequence="3" action="users_company1"/>
 
         <menuitem name="Sponsor" id="res_spnsor_menu_item" parent="base.menu_users" sequence="3" action="res_sponsor_act"/>
@@ -1222,6 +1493,10 @@
               parent="hr.menu_hr_main"
               action="eos_list_action"/>
 
+        <menuitem id="hr_insurance_menu" name="Insurance"
+              parent="hr.menu_hr_main"
+              action="hr_insurance_act"/>
+
 
         <menuitem id="branch_ext_menu" name="Branch"
             parent="base.menu_users" action="res_company_branch_act"/>
@@ -1231,7 +1506,8 @@
 
         <menuitem id="hr.menu_hr_department_tree1" name="Departments"
               parent="hr.menu_hr_department_tree"
-              action="hr.open_module_tree_department"/>
+              action="hr.open_module_tree_department"
+              sequence ="1"/>
 
         <menuitem id="division_info_menu" name="Division Info"
               parent="hr.menu_hr_department_tree"
@@ -1252,6 +1528,16 @@
               parent="hr.menu_hr_department_tree"
               action="designation_info_act"
               sequence ="5"/>
+
+        <menuitem id="document_list_menu" name="Document List"
+              parent="hr.menu_hr_department_tree"
+              action="document_list_act"
+              sequence ="6"/>
+
+        <menuitem id="document_com_menu" name="Company Document"
+              parent="hr.menu_hr_department_tree"
+              action="document_com_act"
+              sequence ="7"/>
 
     </data>
 </odoo>
