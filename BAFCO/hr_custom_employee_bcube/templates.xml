@@ -458,12 +458,19 @@
                                 <field name="department"/>
                                 <field name="grade"/>
                                 <field name="job"/>
+                                <field name="c_location"/>
+                                <field name="mol_location"/>
+                                <field name="r_manager" domain= "[('manager','=',True)]"/>
                             </group>
                             <group string='To'>
                                 <field name="to_office"/>
                                 <field name="to_department"/>
                                 <field name="to_grade"/>
                                 <field name="to_job"/>
+                                <field name="n_location"/>
+                                <field name="nmol_location"/>
+                                <field name="nr_manager" domain= "[('manager','=',True)]"/>
+                                <field name="remark"/>
                             </group>
                         </group>
                     </sheet>
@@ -733,6 +740,23 @@
             <field name="priority" eval="16"/>
             <field name="inherit_id" ref="hr_contract.hr_contract_view_form"/>
             <field name="arch" type="xml">
+                
+
+                <xpath expr="//field[@name='type_id']" position="after">
+                    <field name="e_date"/>
+                    <field name="package"/>
+                    <field name="gosi"/>
+
+                </xpath>
+                <xpath expr="//field[@name='wage']" position="after">
+                    <field name="medical"/>
+                    <field name="c_accommodation"/>
+                    <field name="c_vehicle"/>
+                    <field name="c_vacation"/>
+                    <field name="nod"/>
+                    
+                </xpath>
+
                 <xpath expr="//page" position="before">
                     <page string="Allowances" name="employee_allowances">
                         <group>
@@ -741,9 +765,10 @@
                                 <field name="sign_bonous"/>
                                 <field name="loan_allow"/>
                                 <field name="incentive"/>
-                                <field name="expense_claim"/>
-                                <field name="hr_visa_ticket"/>
-                                <field name="other_allowances"/>
+                                <field name="hra"/>
+                                <field name="t_allow"/>
+                                <field name="f_allow"/>
+                                <field name="f_ot"/>
                             </group>
                             <group>
                                 <field name="air_allow"/>
@@ -751,6 +776,9 @@
                                 <field name="children"/>
                                 <field name="infants"/>
                                 <field name="vac_des"/>
+                                <field name="expense_claim"/>
+                                <field name="hr_visa_ticket"/>
+                                <field name="other_allowances"/>
                             </group>
                         </group>
                     </page>
@@ -770,16 +798,41 @@
                         </group>
                     </page>
                 </xpath>
+
+
                 <field name="employee_id" position="after">
                     <field name="employee_code"/>
-                    <field name="package"/>
-                    <field name="gosi"/>
                 </field>
                 <field name="type_id" position="after">
                     <field name="vehicle_attendance"/>
                     <field name="system_attendance"/>
                     <field name="line_manager_attendance"/>
                 </field> 
+                <xpath expr="//field[@name='employee_code']" position="after">
+                    <field name="fn"/>
+                    <field name="ln"/>
+                    <field name="dn"/>
+                    <field name="status"/>
+                </xpath>
+
+                <xpath expr="//field[@name='working_hours']" position="after">
+                    <field name="probation"/>
+                    <field name="n_period"/>
+                </xpath>
+                   
+                <xpath expr="//page[4]" position="after">
+                    <page string="Travel Details" name="employee_travel">
+                        <group>
+                            <group>
+                                <field name="dependent" attrs="{'invisible': [('status','not in', ('family',''))]}"/>
+                                <field name="incentive" attrs="{'invisible': [('department_id.name','!=', ('Sales','Marketing'))]}"/>
+                                <field name="departure"/>
+                                <field name="destination"/>
+                            </group>
+                        </group>
+                    </page>
+                </xpath>
+
             </field>
         </record>
 
@@ -1268,7 +1321,7 @@
                             <field name="name"/>
                             <field name="doc_no" />
                             <field name="doc_type" />
-                            <field name="po" />
+                            <!-- <field name="po" /> -->
                             <field name="dor"/>
                             <field name="doe" />
                         </group>
@@ -1292,22 +1345,65 @@
             <field name="inherit_id" ref="maintenance.hr_equipment_view_form"/>
             <field name="arch" type="xml">
                 
+                <xpath expr="//field[@name='model']" position="replace">
+                </xpath>
+
                 <xpath expr="//page[3]" position="after">>
-                    <page string="Asset Documents" name="employee_documents">
+                    <page string="Asset Documents" name="asset_documents">
                         <field name="documents_id">
                             <tree>
                                 <field name="name"/>
                                 <field name="doc_no"/>
                                 <field name="doc_type"/> 
-                                <field name="po"/> 
+                                <!-- <field name="po"/>  -->
                             </tree>  
                         </field>
                     </page>
                 </xpath>
-                
-                <xpath expr="//field[@name='owner_user_id']" position="after">
-                    <field name="make"/>
+
+                <xpath expr="//page[4]" position="after">>
+                    <page string="Asset Details" name="asset_page">
+                        <group name="group_top">
+
+                            <group name="group_left">
+                                <field name="model"/>
+                                <field name="color" />
+                                <field name="plate_no" />
+                                <field name="ownership" />
+                            </group>
+
+                            <group name="group_right">
+                                <field name="door_no" />
+                                <field name="chasi_no" />
+                                <field name="reg_no" />
+                                <field name="make"/>
+                            </group>
+
+                        </group>
+
+                        <group name="group_top" attrs="{'invisible': [('ownership','not in', ('own','leas'))]}">
+
+                            <group name="group_left" string="Owned"  >
+                                <field name="s_name"/>
+                                <field name="sponsor" />
+                                <field name="location" />
+                                <field name="p_price" />
+                                <field name="i_value" />
+                            </group>
+
+                            <group name="group_right" string="Leased" attrs="{'invisible': [('ownership','in', 'own')]}">
+                                <field name="sponsor_id" />
+                                <field name="c_name"  domain= "[('flip','=',False)]" />
+                                <field name="cr_no"/>
+                                <field name="lease_expiry" />
+                                <field name="remark" />
+                            </group>
+
+                        </group>
+
+                    </page>
                 </xpath>
+                
             </field>
         </record>
 

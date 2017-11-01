@@ -478,17 +478,30 @@ class Employee_Amedment(models.Model):
 	_rec_name = 'employee'
 
 	employee = fields.Many2one('hr.employee', required=True)
-	employee_code = fields.Char()
+	employee_code = fields.Char("Employee Code", required=True)
 	contract = fields.Many2one('hr.contract', required=True)
 	effective_date = fields.Date()
-	office = fields.Many2one('office.office')
-	department = fields.Many2one('hr.department')
+	office = fields.Many2one('office.office', required=True)
+	department = fields.Many2one('hr.department', required=True)
 	grade = fields.Char()
-	job = fields.Many2one('hr.job',string="Job")
-	to_office = fields.Many2one('office.office',string="To Office")
-	to_department = fields.Many2one('hr.department',string="To Department")
-	to_grade = fields.Char()
-	to_job = fields.Many2one('hr.job',string="To Job")
+	job = fields.Many2one('hr.job',string="Designation" , required=True)
+	to_office = fields.Many2one('office.office',string="To Office", required=True)
+	to_department = fields.Many2one('hr.department',string="To Department", required=True)
+	to_grade = fields.Char("To Grade")
+	to_job = fields.Many2one('hr.job',string="To Designation", required=True)
+
+	c_location = fields.Many2one('res.partner',string="Current Location", required=True)
+	mol_location = fields.Char("MOL Location", required=True)
+	r_manager = fields.Many2one('hr.employee',string="Reporting Manager", required=True)
+
+	n_location = fields.Many2one('res.partner',string="New Location", required=True)
+	nmol_location = fields.Char("MOL Location", required=True)
+	nr_manager = fields.Many2one('hr.employee',string="Reporting Manager", required=True)
+	remark = fields.Char("Remarks")
+
+
+
+
 
 	@api.onchange('employee') 
 	def onchange_employee(self):
@@ -500,8 +513,11 @@ class Employee_Amedment(models.Model):
 			self.department = self.env['hr.department'].search([('name','=',self.employee.department_id.name)])
 			self.grade = self.employee.grade
 			self.job = self.env['hr.job'].search([('name','=',self.employee.job_id.name)])
+			self.mol_location = self.employee.mol_location
+			self.c_location = self.employee.address_id
+			self.r_manager = self.employee.performance_manager
 
-			self.to_department=self.to_office=self.to_grade=self.to_job = ''
+			self.to_department=self.to_office=self.to_grade=self.to_job = self.c_location =self.mol_location =''
 
 
 	@api.multi
@@ -510,6 +526,9 @@ class Employee_Amedment(models.Model):
 		self.employee.office = self.to_office.id 
 		self.employee.grade = self.to_grade
 		self.employee.job_id = self.to_job.id 
+		self.nmol_location = self.mol_location
+		self.n_location = self.c_location 
+		self.nr_manager = self.r_manager
 
 # Employee Iqama
 class Iqama(models.Model):
@@ -715,13 +734,73 @@ class Contract(models.Model):
 	incentive = fields.Float()
 	expense_claim = fields.Float('Expense Claim')
 	hr_visa_ticket = fields.Float('HR Visa/Ticket')
-	other_allowances = fields.Float('Other Allowances')
+	other_allowances = fields.Float('Other Allowances', required=True)
 	advance_salary = fields.Float('Advance AGT Salary')
 	hr_expense = fields.Float('Hr Expense')
 	cash_sales = fields.Float('Cash Sales')
 	traffic_fine = fields.Float('Traffic Fine')
 	bk_balance = fields.Float('Bank Balance')
 	other_deductions = fields.Float('Other Deductions')
+
+	fn = fields.Text("First Name", required=True)
+	ln = fields.Char("Last Name")
+	dn = fields.Char("Display Name", required=True)
+	e_date = fields.Date("Effective Date", required=True)
+	
+	status = fields.Selection([(
+		'bachelor','Bachelor'),
+		('family','family')], required=True,string='Status')
+
+	hra = fields.Char("HRA", required=True)
+	t_allow = fields.Float("Transport Allowance", required=True)
+	f_allow = fields.Float("Food Allowance", required=True)
+	f_ot = fields.Float("Fixed OT", required=True)
+
+	departure = fields.Char("Departure Air Port", required=True)
+	destination = fields.Char("Destination Air Port", required=True)
+
+	medical = fields.Selection([(
+		'yes','Yes'),
+		('no','No')], required=True,string='Medical')
+
+	c_accommodation = fields.Selection([(
+		'yes','Yes'),
+		('no','No')], required=True,string='Company Accommodation')
+
+	c_vehicle = fields.Selection([(
+		'yes','Yes'),
+		('no','No')], required=True,string='Company Vehicle')
+
+	c_vacation = fields.Selection([(
+		'12','12 Months'),
+		('18','18 Months'),
+		('24','24 Months')], required=True,string='Contractual Vacation')
+
+	nod = fields.Selection([(
+		'12','12 Months'),
+		('18','18 Months'),
+		('24','24 Months')], required=True,string='Number of days')
+	
+	probation = fields.Selection([(
+		'3','3 Months'),
+		('6','6 Months')], required=True,string='Probation')
+
+
+	n_period = fields.Selection([(
+		'1','1 Months'),
+		('2','2 Months'),
+		('3','3 Months')], required=True,string='Notice Period')
+
+	dependent = fields.Selection([(
+		'1','1+1 '),
+		('2','1+2 '),
+		('3','1+3 '),
+		('all','All ')], required=True,string='Dependent')
+
+	incentive = fields.Selection([(
+		'yes','Yes'),
+		('no','No')], required=True,string='Incentive')
+
 
 # Insurance
 class Insurance(models.Model):
@@ -796,9 +875,9 @@ class Documents(models.Model):
 
 	@api.onchange('name')
 	def _onchange_n(self):
-		self.e_code = self.documents_relation.id
+		# self.e_code = self.documents_relation.id
 		self.e_name = self.documents_relation.name
-		print "111111111111111111111111111"
+		# print "111111111111111111111111111"
 
 	# @api.model
 	# def create(self, vals):
@@ -1067,7 +1146,7 @@ class AssetsDocument(models.Model):
 	name = fields.Char("Doc Name",required=True)
 	doc_no = fields.Char("Doc No")
 	doc_type = fields.Many2one('documents.typed',string="Doc Type")
-	po = fields.Char("Plate No",required=True)
+	# po = fields.Char("Plate No",required=True)
 	dor = fields.Date("Renewed Date")
 	doe = fields.Date("Expiry Date",required=True)
 	nod = fields.Integer("No Of Days",required=True)
@@ -1082,3 +1161,28 @@ class AssetsDocumentExt(models.Model):
 
 	documents_id = fields.One2many('document.asset', 'documents_relation', string="Documents")
 	make = fields.Char("Make")
+
+	model = fields.Char("Model",required=True)
+	color = fields.Char("Color",required=True)
+	plate_no = fields.Char("Plate No",required=True)
+	door_no  = fields.Char("Door No")
+	chasi_no = fields.Char("Chassis No",required=True)
+	reg_no = fields.Char("Registration No",required=True)
+	ownership = fields.Selection([(
+		'own','Owned'),
+		('leas','Leased')],default='own' ,required=True,string='Ownership')
+
+	s_name = fields.Many2one('res.sponsor',string="Sponsor",required=True)
+	sponsor = fields.Char(string="Sponsor Name",required=True)
+	location = fields.Char("Location",required=True)
+	p_price = fields.Char("Purchase Price")
+	i_value = fields.Char("Insured Value")
+	sponsor_id = fields.Many2one('res.sponsor',string="Sponsor ID",required=True)
+	c_name = fields.Many2one('res.company',string="Company Name",required=True)
+	cr_no = fields.Char("Insured Value")
+	lease_expiry = fields.Date(string="Lease Expiry",required=True)
+	remark = fields.Char("Remarks")
+
+	@api.onchange('s_name')
+	def _onchange_s_name(self):
+		self.sponsor = self.s_name.sponsor_id
