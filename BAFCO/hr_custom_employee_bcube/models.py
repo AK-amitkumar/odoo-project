@@ -43,6 +43,8 @@ class Hr_Employee(models.Model):
 	trainings_id = fields.One2many('hr.trainings', 'trainings_relation', string="Trainings")
 	documents_id = fields.One2many('hr.documents', 'documents_relation', string="Documents")
 
+	issue = fields.Date("Issue Date",required=True)
+	expiry = fields.Date("Expiry Date",required=True)
 
 
 	# --------------------------------------------------
@@ -77,9 +79,6 @@ class Hr_Employee(models.Model):
 	p_contact_no = fields.Char("Contact No" , required=True)
 
 
-	@api.onchange('p_state_id')
-	def _onchange_state(self):
-		self.p_country_id = self.p_state_id.country_id
 
 	designation = fields.Many2one('designation.info',string="Designation Info",required=True)
 	id_prof = fields.Char("ID Profession",required=True) 
@@ -89,7 +88,7 @@ class Hr_Employee(models.Model):
 	division = fields.Many2one('division.info',string="Division",required=True)
 	mol_location = fields.Char(string="MOL Location",required=True)
 	sponsor = fields.Many2one('res.sponsor',string="Sponsor",required=True)
-	active = fields.Char(string="Active",required=True)
+	# active = fields.Char(string="Active",required=True)
 	c_athu = fields.Selection([(
 		'yes','Yes'),
 		('no','No'),],string="Clearing Authority",required=True)
@@ -98,6 +97,9 @@ class Hr_Employee(models.Model):
 		('no','No'),],default='no',string="Final Clearing Authority",required=True)
 	reason = fields.Char(string="Reason")
 
+	@api.onchange('p_state_id')
+	def _onchange_state(self):
+		self.p_country_id = self.p_state_id.country_id
 
 	# depend = fields.Selection([(
 	# 	'yes','Yes'),
@@ -163,251 +165,21 @@ class Dependent(models.Model):
 		('female','Female'),
 		],string="Gender",required=True)
 	d_passport = fields.Char("Passport No",required=True)
-	d_residence = fields.Date("Residence ID No")
-	dr_expiry = fields.Date("Expiry Date")
 	name = fields.Char('Name(As in Passport)')
 	employee = fields.Many2one('hr.employee')
 	arabic_name = fields.Char()
 	dob = fields.Date('Date of Birth', required=True)
 	date_issue = fields.Date('Date of Issue')
 	date_expiry = fields.Date('Date of Expiry')
-	nationality = fields.Selection([
-		('US', 'United States'),
-		('AF', 'Afghanistan'),
-		('AL', 'Albania'),
-		('DZ', 'Algeria'),
-		('AS', 'American Samoa'),
-		('AD', 'Andorra'),
-		('AO', 'Angola'),
-		('AI', 'Anguilla'),
-		('AQ', 'Antarctica'),
-		('AG', 'Antigua And Barbuda'),
-		('AR', 'Argentina'),
-		('AM', 'Armenia'),
-		('AW', 'Aruba'),
-		('AU', 'Australia'),
-		('AT', 'Austria'),
-		('AZ', 'Azerbaijan'),
-		('BS', 'Bahamas'),
-		('BH', 'Bahrain'),
-		('BD', 'Bangladesh'),
-		('BB', 'Barbados'),
-		('BY', 'Belarus'),
-		('BE', 'Belgium'),
-		('BZ', 'Belize'),
-		('BJ', 'Benin'),
-		('BM', 'Bermuda'),
-		('BT', 'Bhutan'),
-		('BO', 'Bolivia'),
-		('BA', 'Bosnia And Herzegowina'),
-		('BW', 'Botswana'),
-		('BV', 'Bouvet Island'),
-		('BR', 'Brazil'),
-		('BN', 'Brunei Darussalam'),
-		('BG', 'Bulgaria'),
-		('BF', 'Burkina Faso'),
-		('BI', 'Burundi'),
-		('KH', 'Cambodia'),
-		('CM', 'Cameroon'),
-		('CA', 'Canada'),
-		('CV', 'Cape Verde'),
-		('KY', 'Cayman Islands'),
-		('CF', 'Central African Rep'),
-		('TD', 'Chad'),
-		('CL', 'Chile'),
-		('CN', 'China'),
-		('CX', 'Christmas Island'),
-		('CC', 'Cocos Islands'),
-		('CO', 'Colombia'),
-		('KM', 'Comoros'),
-		('CG', 'Congo'),
-		('CK', 'Cook Islands'),
-		('CR', 'Costa Rica'),
-		('CI', 'Cote D`ivoire'),
-		('HR', 'Croatia'),
-		('CU', 'Cuba'),
-		('CY', 'Cyprus'),
-		('CZ', 'Czech Republic'),
-		('DK', 'Denmark'),
-		('DJ', 'Djibouti'),
-		('DM', 'Dominica'),
-		('DO', 'Dominican Republic'),
-		('TP', 'East Timor'),
-		('EC', 'Ecuador'),
-		('EG', 'Egypt'),
-		('SV', 'El Salvador'),
-		('GQ', 'Equatorial Guinea'),
-		('ER', 'Eritrea'),
-		('EE', 'Estonia'),
-		('ET', 'Ethiopia'),
-		('FK', 'Falkland Islands (Malvinas)'),
-		('FO', 'Faroe Islands'),
-		('FJ', 'Fiji'),
-		('FI', 'Finland'),
-		('FR', 'France'),
-		('GF', 'French Guiana'),
-		('PF', 'French Polynesia'),
-		('TF', 'French S. Territories'),
-		('GA', 'Gabon'),
-		('GM', 'Gambia'),
-		('GE', 'Georgia'),
-		('DE', 'Germany'),
-		('GH', 'Ghana'),
-		('GI', 'Gibraltar'),
-		('GR', 'Greece'),
-		('GL', 'Greenland'),
-		('GD', 'Grenada'),
-		('GP', 'Guadeloupe'),
-		('GU', 'Guam'),
-		('GT', 'Guatemala'),
-		('GN', 'Guinea'),
-		('GW', 'Guinea-bissau'),
-		('GY', 'Guyana'),
-		('HT', 'Haiti'),
-		('HN', 'Honduras'),
-		('HK', 'Hong Kong'),
-		('HU', 'Hungary'),
-		('IS', 'Iceland'),
-		('IN', 'India'),
-		('ID', 'Indonesia'),
-		('IR', 'Iran'),
-		('IQ', 'Iraq'),
-		('IE', 'Ireland'),
-		('IL', 'Israel'),
-		('IT', 'Italy'),
-		('JM', 'Jamaica'),
-		('JP', 'Japan'),
-		('JO', 'Jordan'),
-		('KZ', 'Kazakhstan'),
-		('KE', 'Kenya'),
-		('KI', 'Kiribati'),
-		('KP', 'Korea (North)'),
-		('KR', 'Korea (South)'),
-		('KW', 'Kuwait'),
-		('KG', 'Kyrgyzstan'),
-		('LA', 'Laos'),
-		('LV', 'Latvia'),
-		('LB', 'Lebanon'),
-		('LS', 'Lesotho'),
-		('LR', 'Liberia'),
-		('LY', 'Libya'),
-		('LI', 'Liechtenstein'),
-		('LT', 'Lithuania'),
-		('LU', 'Luxembourg'),
-		('MO', 'Macau'),
-		('MK', 'Macedonia'),
-		('MG', 'Madagascar'),
-		('MW', 'Malawi'),
-		('MY', 'Malaysia'),
-		('MV', 'Maldives'),
-		('ML', 'Mali'),
-		('MT', 'Malta'),
-		('MH', 'Marshall Islands'),
-		('MQ', 'Martinique'),
-		('MR', 'Mauritania'),
-		('MU', 'Mauritius'),
-		('YT', 'Mayotte'),
-		('MX', 'Mexico'),
-		('FM', 'Micronesia'),
-		('MD', 'Moldova'),
-		('MC', 'Monaco'),
-		('MN', 'Mongolia'),
-		('MS', 'Montserrat'),
-		('MA', 'Morocco'),
-		('MZ', 'Mozambique'),
-		('MM', 'Myanmar'),
-		('NA', 'Namibia'),
-		('NR', 'Nauru'),
-		('NP', 'Nepal'),
-		('NL', 'Netherlands'),
-		('AN', 'Netherlands Antilles'),
-		('NC', 'New Caledonia'),
-		('NZ', 'New Zealand'),
-		('NI', 'Nicaragua'),
-		('NE', 'Niger'),
-		('NG', 'Nigeria'),
-		('NU', 'Niue'),
-		('NF', 'Norfolk Island'),
-		('MP', 'Northern Mariana Islands'),
-		('NO', 'Norway'),
-		('OM', 'Oman'),
-		('PK', 'Pakistan'),
-		('PW', 'Palau'),
-		('PA', 'Panama'),
-		('PG', 'Papua New Guinea'),
-		('PY', 'Paraguay'),
-		('PE', 'Peru'),
-		('PH', 'Philippines'),
-		('PN', 'Pitcairn'),
-		('PL', 'Poland'),
-		('PT', 'Portugal'),
-		('PR', 'Puerto Rico'),
-		('QA', 'Qatar'),
-		('RE', 'Reunion'),
-		('RO', 'Romania'),
-		('RU', 'Russian Federation'),
-		('RW', 'Rwanda'),
-		('KN', 'Saint Kitts And Nevis'),
-		('LC', 'Saint Lucia'),
-		('VC', 'St Vincent/Grenadines'),
-		('WS', 'Samoa'),
-		('SM', 'San Marino'),
-		('ST', 'Sao Tome'),
-		('SA', 'Saudi Arabia'),
-		('SN', 'Senegal'),
-		('SC', 'Seychelles'),
-		('SL', 'Sierra Leone'),
-		('SG', 'Singapore'),
-		('SK', 'Slovakia'),
-		('SI', 'Slovenia'),
-		('SB', 'Solomon Islands'),
-		('SO', 'Somalia'),
-		('ZA', 'South Africa'),
-		('ES', 'Spain'),
-		('LK', 'Sri Lanka'),
-		('SH', 'St. Helena'),
-		('PM', 'St.Pierre'),
-		('SD', 'Sudan'),
-		('SR', 'Suriname'),
-		('SZ', 'Swaziland'),
-		('SE', 'Sweden'),
-		('CH', 'Switzerland'),
-		('SY', 'Syrian Arab Republic'),
-		('TW', 'Taiwan'),
-		('TJ', 'Tajikistan'),
-		('TZ', 'Tanzania'),
-		('TH', 'Thailand'),
-		('TG', 'Togo'),
-		('TK', 'Tokelau'),
-		('TO', 'Tonga'),
-		('TT', 'Trinidad And Tobago'),
-		('TN', 'Tunisia'),
-		('TR', 'Turkey'),
-		('TM', 'Turkmenistan'),
-		('TV', 'Tuvalu'),
-		('UG', 'Uganda'),
-		('UA', 'Ukraine'),
-		('AE', 'United Arab Emirates'),
-		('UK', 'United Kingdom'),
-		('UY', 'Uruguay'),
-		('UZ', 'Uzbekistan'),
-		('VU', 'Vanuatu'),
-		('VA', 'Vatican City State'),
-		('VE', 'Venezuela'),
-		('VN', 'Viet Nam'),
-		('VG', 'Virgin Islands (British)'),
-		('VI', 'Virgin Islands (U.S.)'),
-		('EH', 'Western Sahara'),
-		('YE', 'Yemen'),
-		('YU', 'Yugoslavia'),
-		('ZR', 'Zaire'),
-		('ZM', 'Zambia'),
-		('ZW', 'Zimbabwe')])
+	nationality = fields.Many2one('res.country',"Nationality")
 	relation = fields.Many2one('relation.relation')
 	religion = fields.Many2one('religion.religion')
 	iqama_num = fields.Char('Iqama Number')
 	serial_num = fields.Char('Serial Number')
 	issue_place = fields.Many2one('issued_place.issued_place')
+	fn = fields.Text("First Name", required=True)
+	mn = fields.Char("Middle Name",required=True)
+	ln = fields.Char("Last Name",required=True)
 
 	dependent_relation = fields.Many2one('hr.employee')
 
@@ -499,10 +271,6 @@ class Employee_Amedment(models.Model):
 	nr_manager = fields.Many2one('hr.employee',string="Reporting Manager", required=True)
 	remark = fields.Char("Remarks")
 
-
-
-
-
 	@api.onchange('employee') 
 	def onchange_employee(self):
 		if self.employee:
@@ -535,7 +303,6 @@ class Iqama(models.Model):
 	_name = 'employee.iqama'
 	_rec_name = 'employee'
 
-	type_iqama = fields.Char('Type')
 	employee = fields.Many2one('hr.employee', required=True)
 	employee_code = fields.Char()
 	office = fields.Char()
@@ -795,7 +562,7 @@ class Contract(models.Model):
 		'1','1+1 '),
 		('2','1+2 '),
 		('3','1+3 '),
-		('all','All ')], required=True,string='Dependent')
+		('all','All ')],string='Dependent')
 
 	incentive = fields.Selection([(
 		'yes','Yes'),
@@ -974,60 +741,25 @@ class ResCompanyExt(models.Model):
 	# branch = fields.Char("Branch" ,required=True)
 	# branch_t = fields.Char("Branch Tagline")
 	flip = fields.Boolean("/ ")
-
 	sponsor_id = fields.Char(string="SponsorID",required=True)	
 	po_no = fields.Char(string="P.O Box No",required=True)	
-	location = fields.Char(string="Location Code")	
+	location = fields.Char(string="Location Code")
 
-	sagia_issue_date = fields.Date("Issue Date",required=True)
-	sagia_latest_renewal_date = fields.Date("Latest Renewal Date")
-	sagia_expiry_date = fields.Date("Expiry Date",required=True)
-	sagia_due_renewal = fields.Date("Due for Renewal",required=True)
+	company_link = fields.One2many('res.company.tree','company_tree',string="License Documents")
+	sponsor_link = fields.One2many('res.sponsor','sponsor_tree',string="Sponsors")
 
-	cr_issue_date = fields.Date("Issue Date")
-	cr_latest_renewal_date = fields.Date("Latest Renewal Date")
-	cr_expiry_date = fields.Date("Expiry Date")
-	cr_due_renewal = fields.Date("Due for Renewal")
+class ResCompanyExtTree(models.Model):
+	_name = 'res.company.tree'
 
-	cc_issue_date = fields.Date("Issue Date")
-	cc_latest_renewal_date = fields.Date("Latest Renewal Date")
-	cc_expiry_date = fields.Date("Expiry Date")
-	cc_due_renewal = fields.Date("Due for Renewal")
+	doc_type = fields.Many2one('documents.typed',string="Doc Type")
+	issue_date = fields.Date("Issue Date",required=True)
+	latest_renewal_date = fields.Date("Latest Renewal Date")
+	expiry_date = fields.Date("Expiry Date",required=True)
+	renewal = fields.Date("Due for Renewal",required=True)
 
-	b_issue_date = fields.Date("Issue Date")
-	b_latest_renewal_date = fields.Date("Latest Renewal Date")
-	b_expiry_date = fields.Date("Expiry Date")
-	b_due_renewal = fields.Date("Due for Renewal")
+	company_tree = fields.Many2one('res.company')
 
-	g_issue_date = fields.Date("Issue Date")
-	g_latest_renewal_date = fields.Date("Latest Renewal Date")
-	g_expiry_date = fields.Date("Expiry Date")
-	g_due_renewal = fields.Date("Due for Renewal")
-
-	lt_issue_date = fields.Date("Issue Date")
-	lt_latest_renewal_date = fields.Date("Latest Renewal Date")
-	lt_expiry_date = fields.Date("Expiry Date")
-	lt_due_renewal = fields.Date("Due for Renewal")
-
-	cdl_issue_date = fields.Date("Issue Date")
-	cdl_latest_renewal_date = fields.Date("Latest Renewal Date")
-	cdl_expiry_date = fields.Date("Expiry Date")
-	cdl_due_renewal = fields.Date("Due for Renewal")
-
-	zt_issue_date = fields.Date("Issue Date")
-	zt_latest_renewal_date = fields.Date("Latest Renewal Date")
-	zt_expiry_date = fields.Date("Expiry Date")
-	zt_due_renewal = fields.Date("Due for Renewal")
-
-	w_issue_date = fields.Date("Issue Date")
-	w_latest_renewal_date = fields.Date("Latest Renewal Date")
-	w_expiry_date = fields.Date("Expiry Date")
-	w_due_renewal = fields.Date("Due for Renewal")
-
-	iso_issue_date = fields.Date("Issue Date")
-	iso_latest_renewal_date = fields.Date("Latest Renewal Date")
-	iso_expiry_date = fields.Date("Expiry Date")
-	iso_due_renewal = fields.Date("Due for Renewal")
+	
 
 
 class Sponsor(models.Model):
@@ -1036,7 +768,7 @@ class Sponsor(models.Model):
 	name = fields.Many2one('res.partner', string='Sponsor Name', required=True, store=True)
 	sponsor_id = fields.Integer(string='Sponsor ID', required=True)
 	partner_id = fields.Many2one('res.partner', string='Contact Person', required=True)
-	cr_no = fields.Char(string='CR_No')
+	cr_no = fields.Char(string='CR No')
 	street = fields.Char()
 	street2 = fields.Char()
 	zip_code = fields.Char()
@@ -1049,6 +781,8 @@ class Sponsor(models.Model):
 	website = fields.Char(related='partner_id.website')
 	fax = fields.Char(string="Fax")
 	mobile= fields.Char(string='Mobile No')
+
+	sponsor_tree = fields.Many2one('res.company')
 
 
 	@api.onchange('state_id')
@@ -1186,3 +920,113 @@ class AssetsDocumentExt(models.Model):
 	@api.onchange('s_name')
 	def _onchange_s_name(self):
 		self.sponsor = self.s_name.sponsor_id
+
+
+class HRTicket(models.Model):
+	_name = 'hr.ticket'
+
+	name = fields.Many2one('hr.employee',"Employee Name",required=True)
+	emp_no = fields.Char("Employee No",required=True)
+	leave_from = fields.Date("Leave From",required=True)
+	leave_to = fields.Date("Leave To",required=True)
+	status = fields.Selection([(
+		'bachelor','Bachelor'),
+		('family','Family')], required=True,string='Status')
+
+	dependent = fields.Selection([(
+		'1','1+1 '),
+		('2','1+2 '),
+		('3','1+3 '),
+		('all','All ')], required=True,string='Dependent')
+	fn = fields.Text("First Name", required=True)
+	mn = fields.Char("Middle Name",required=True)
+	ln = fields.Char("Last Name",required=True)
+	gender = fields.Selection([
+		('male','Male'),
+		('female','Female'),
+		],string="Gender",required=True)
+	dob = fields.Date("DOB",required=True)
+	mobile = fields.Char("Mobile No",required=True)
+	contact_no = fields.Char("Contact No",required=True)
+	nationality = fields.Many2one('res.country',"Nationality",required=True)
+	passport = fields.Char("Passport No",required=True)
+	issue = fields.Date("Issue Date",required=True)
+	expiry = fields.Date("Expiry Date",required=True)
+	departure = fields.Char("Departure Air Port", required=True)
+	destination = fields.Char("Destination Air Port", required=True)
+	departure_date = fields.Date("Departure Date",required=True)
+	return_date = fields.Date("Return Date",required=True)
+	priority  = fields.Selection([(
+		'critical','Critical'),
+		('high','High'),
+		('normal','Normal')], required=True,string='Priority')
+	remarks = fields.Char("Remarks",required=True)
+
+	dependent_id = fields.One2many('hr.ticket.dependent', 'dependent_ticket', string="Dependent")
+
+
+	@api.onchange('name')
+	def _onchange_name(self):
+
+		dent= self.env['hr.contract'].search([('employee_id','=',self.name.id)])
+		
+		self.dependent = dent.dependent
+		self.status = dent.status
+
+		self.emp_no = self.name.id
+		self.fn = self.name.fn
+		self.mn = self.name.mn
+		self.ln = self.name.ln
+		self.gender = self.name.gender
+		self.dob = self.name.birthday
+		self.mobile = self.name.e_mobile
+		self.contact_no = self.name.e_phone
+		self.nationality = self.name.country_id
+		self.passport = self.name.passport_id
+		self.issue = self.name.issue
+		self.expiry = self.name.expiry
+
+		if self.name.dependent_id:
+			dependent_list = []
+			for x in self.name.dependent_id:
+				dependent_list.append({
+					'passport':x.d_passport,
+					'dob':x.dob,
+					'fn':x.fn, 
+					'mn' :x.mn,
+					'ln':x.ln,
+					'ticket_req' : 'yes',
+					'name':x.name,
+					})
+			self.dependent_id = dependent_list
+
+			dependent_list=[]
+
+
+class HRTicketDependent(models.Model):
+	_name = 'hr.ticket.dependent'
+
+	name = fields.Char('Name(As in Passport)')
+	passport = fields.Char("Passport No",required=True)
+	dob = fields.Date('Date of Birth', required=True)
+	date_issue = fields.Date('Date of Issue')
+	date_expiry = fields.Date('Date of Expiry')
+	nationality = fields.Many2one('res.country',"Nationality")
+	fn = fields.Text("First Name", required=True)
+	mn = fields.Char("Middle Name",required=True)
+	ln = fields.Char("Last Name",required=True)
+	ticket_req = fields.Selection([(
+		'yes','Yes'),
+		('no','No'),],default='yes', string="Ticket Required",required=True)
+
+	departure_date = fields.Date("Departure Date",required=True)
+	return_date = fields.Date("Return Date",required=True)
+
+	dependent_ticket = fields.Many2one('hr.employee')
+
+
+
+
+
+	 
+	

@@ -1,0 +1,57 @@
+<?xml version="1.0"?> 
+<odoo> 
+
+    <record id="dash_test" model="ir.ui.view"> 
+        <field name="name">dash_test</field> 
+        <field name="model">dash.test</field>
+        <field name="type">form</field> 
+        <field name="arch" type="xml">
+            <form string="Accessories Order">
+                <sheet>
+       
+                    <div class="oe_title">
+                        <label string="Purchase Order"/>
+                        <h1>
+                            <field name="sr_no" readonly="1"/>
+                        </h1>
+                    </div>
+
+                    <group name="group_top">
+
+                        <group name="group_left">
+                            <field name="a" />
+                            <field name="b" />
+                        </group>
+
+                        <group name="group_right">
+                            <field name="c" />
+                            <field name="d" />
+                        </group>
+
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="dash_test_tree_view" model="ir.ui.view">
+        <field name="name">dash_test_tree_view</field>
+        <field name="model">dash.test</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree string="Knitting Receiving">
+                <field name="a"/>
+                <field name="b"/>
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="dash_test_action">
+        <field name="name">Dash Test</field>
+        <field name="res_model">dash.test</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="dash_test_menu_item" parent="purchase.menu_procurement_management" action="dash_test_action" sequence="1"/>
+</odoo> 

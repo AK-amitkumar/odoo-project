@@ -7,7 +7,7 @@ class accessories(models.Model):
     _inherit = ['mail.thread', 'ir.needaction_mixin']
 
     sr_no = fields.Char(string="Sr no")
-    wonumber = fields.Char(string="WO No",)
+    wonumber = fields.Char(string="WO No")
     style = fields.Char(string="Style No")
     date = fields.Date(string="Date")
     merchant = fields.Char(string="Merchant Name")

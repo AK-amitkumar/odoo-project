@@ -7,7 +7,7 @@
     'summary': 'Hr Employee KSA loacalization',
     'website': 'bcube.pk',
     'version': '10',
-    'depends': ['base','hr','hr_contract','account','account_accountant','hr_timesheet','hr_payroll','project'],
+    'depends': ['base','hr','hr_contract','account','account_asset','account_accountant','hr_timesheet','hr_payroll','project','maintenance'],
     'data': [
         'templates.xml'
     ],
