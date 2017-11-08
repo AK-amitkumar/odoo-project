@@ -21,7 +21,7 @@ class Hr_Employee(models.Model):
 	is_head = fields.Boolean('Is Head  of Function')
 	is_line_man = fields.Boolean('Is Line Manager')
 	religion =fields.Char()
-	gosi_no =fields.Many2one('employee.grops','GOSI NO' ,required=True)
+	gosi_no =fields.Many2one('employee.grops','GOSI NO')
 	spouse_no =fields.Char('Spouse Phone No.')
 	address_ksa =fields.Char('Address in KSA')
 	joining_date = fields.Date('Joining Date',required=True)
@@ -149,6 +149,10 @@ class Hr_Employee(models.Model):
 					months = r.months
 					self.serv_year = "%s Months" % months
 
+
+
+	
+
 # Dependent
 class Dependent(models.Model):
 	_name = 'hr.dependent'
@@ -166,7 +170,7 @@ class Dependent(models.Model):
 		],string="Gender",required=True)
 	d_passport = fields.Char("Passport No",required=True)
 	name = fields.Char('Name(As in Passport)')
-	employee = fields.Many2one('hr.employee')
+	employee = fields.Char()
 	arabic_name = fields.Char()
 	dob = fields.Date('Date of Birth', required=True)
 	date_issue = fields.Date('Date of Issue')
@@ -182,6 +186,13 @@ class Dependent(models.Model):
 	ln = fields.Char("Last Name",required=True)
 
 	dependent_relation = fields.Many2one('hr.employee')
+
+
+	@api.onchange('name')
+	def _onchange_name(self):
+		self.employee = self.dependent_relation.name
+
+
 
 # Qualification
 class Qualification(models.Model):
@@ -381,7 +392,7 @@ class Gosi(models.Model):
 	department = fields.Char()
 	office = fields.Char()
 	passport_no = fields.Char()
-	nationality = fields.Char()
+	nationality = fields.Many2one('res.country')
 	iqama_no = fields.Char()
 	type_d = fields.Char('Type')
 	issue_date = fields.Date()
@@ -398,8 +409,10 @@ class Gosi(models.Model):
 			self.department = self.employee.department_id.name
 			self.office = self.employee.office.name
 			self.passport_no = self.employee.passport_id
-			self.nationality = self.employee.country_id
+			self.nationality = self.employee.country_id.id
 			self.iqama_no = self.employee.iqama_num
+			self.issue_date = self.employee.issue
+			self.dob = self.employee.birthday
 
 # Employee Leaving
 class EOSLeaving(models.Model):
@@ -963,7 +976,55 @@ class HRTicket(models.Model):
 	remarks = fields.Char("Remarks",required=True)
 
 	dependent_id = fields.One2many('hr.ticket.dependent', 'dependent_ticket', string="Dependent")
+	reissue_ticket = fields.One2many('hr.ticket.reissue', 'reissue_ticket', string="Re issue")
 
+	create_book = fields.Boolean("Create Booking")
+	conf_book = fields.Boolean("Confirm Booking")
+	re_issue = fields.Boolean("Re Issue")
+	cancel_ticket = fields.Boolean("Cancel Ticket")
+
+
+
+	req_no = fields.Char("Request No",required=True)
+	agent = fields.Char("Travel Agent",required=True)
+	book_date = fields.Date("Booking Date",required=True)
+	book_by =fields.Char("Booked By",required=True)
+	piad_amt = fields.Float("Paid Amount",required=True)
+
+	break_jun = fields.Selection([(
+		'yes','Yes'),
+		('no','No'),], string="Break Journey",required=True)
+
+	receive = fields.Selection([(
+		'yes','Yes'),
+		('no','No'),], string="Booking Received",required=True)
+
+	receive_date = fields.Date("Received Date",required=True)
+	cutt_date = fields.Date("Cutt Off Date",required=True)
+	desc= fields.Text("Description",required=True)
+	attach =fields.Binary("Attach",required=True)
+	sent_by = fields.Char("Sent for confirmation By",required=True)
+	sent_by_date = fields.Char("Sent for confirmation Date",required=True)
+
+	cancellation = fields.Selection([(
+		'full','Full Ticket'),
+		('part','Part Ticket'),], string="Cancel Ticket",required=True)
+
+	refund = fields.Selection([(
+		'yes','Yes'),
+		('no','No'),], string="Refundable",required=True)
+	cnr = fields.Char("Credit Note Number")
+
+
+	@api.onchange('conf_book')
+	def _onchange_conf_book(self):
+		if self.conf_book == True:
+			self.create_book = False
+
+	@api.onchange('create_book')
+	def _onchange_create_book(self):
+		if self.create_book == True:
+			self.conf_book = False
 
 	@api.onchange('name')
 	def _onchange_name(self):
@@ -973,7 +1034,7 @@ class HRTicket(models.Model):
 		self.dependent = dent.dependent
 		self.status = dent.status
 
-		self.emp_no = self.name.id
+		self.emp_no = self.name.employee_code
 		self.fn = self.name.fn
 		self.mn = self.name.mn
 		self.ln = self.name.ln
@@ -1022,11 +1083,74 @@ class HRTicketDependent(models.Model):
 	departure_date = fields.Date("Departure Date",required=True)
 	return_date = fields.Date("Return Date",required=True)
 
-	dependent_ticket = fields.Many2one('hr.employee')
+	dependent_ticket = fields.Many2one('hr.ticket')
 
+
+class HRTicketReissue(models.Model):
+	_name = 'hr.ticket.reissue'
+
+	departure = fields.Char("Departure Air Port", required=True)
+	destination = fields.Char("Destination Air Port", required=True)
+	departure_date = fields.Date("Departure Date",required=True)
+	return_date = fields.Date("Return Date",required=True)
+	change_sec = fields.Selection([(
+		'yes','Yes'),
+		('no','No'),],default='yes', string="Change Sector",required=True)
+	reasons = fields.Text("Reasons")
+
+	reissue_ticket = fields.Many2one('hr.ticket')
+
+
+class HRExitReentry(models.Model):
+	_name = 'hr.exit.reentry'
+
+	name = fields.Many2one('hr.employee',"Employee Name",required=True)
+	nationality = fields.Many2one('res.country',"Nationality" ,required=True)
+	department = fields.Many2one('department.info',string="Department",required=True)
+	rejoin_date = fields.Date("Rejoin Date")
+	leave_from = fields.Date("Leave From",required=True)
+	leave_to = fields.Date("Leave To",required=True)
+	govt_fee = fields.Float("Govt. Fee",required=True)
+	leave_type = fields.Selection([(
+		'contract','Contractual Leave'),
+		('emergency','Emergency Leave'),
+		('medical','Medical Leave'),
+		('others','Others'),], string="Leave Type",required=True)
+	months = fields.Selection([(
+		'1','1 Months'),
+		('2','2 Months'),
+		('3','3 Months'),
+		('4','4 Months'),
+		('5','5 Months'),
+		('6','6 Months')], required=True,string='Months')
+	paid_by = fields.Selection([(
+		'personnel','personnel'),
+		('office','Office'),], string="Paid By",required=True)
+
+	stage = fields.Selection([(
+		'new','Issue New'),
+		('wait','Waiting For Payment'),
+		('done','Done'),],default='new')
+
+
+	@api.multi
+	def in_wait(self):
+		self.stage = "wait"
+
+	@api.multi
+	def in_done(self):
+		self.stage = "done"
+
+	@api.multi
+	def cancel(self):
+		self.stage = "new"
+						
 
 
 
 
 	 
-	
+	 
+
+
+
