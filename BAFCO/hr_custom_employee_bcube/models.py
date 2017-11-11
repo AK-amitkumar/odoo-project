@@ -6,9 +6,9 @@ from dateutil import relativedelta as rd
 class Hr_Employee(models.Model):
 	_inherit = 'hr.employee'
 
-	laptop_des = fields.Many2one('account.asset.asset',string='Laptop/Desktop')
+	laptop_des = fields.Many2one('maintenance.equipment',string='Laptop/Desktop')
 	name_as_pass = fields.Char('Name(As in Passport)')
-	iqama_num = fields.Char('Iqama Number')
+	iqama_num = fields.Many2one('employee.iqama','Iqama Number')
 	employee_code = fields.Char()
 	arabic_name = fields.Char()
 	office = fields.Many2one('office.office')
@@ -23,13 +23,13 @@ class Hr_Employee(models.Model):
 	religion =fields.Char()
 	gosi_no =fields.Many2one('employee.grops','GOSI NO')
 	spouse_no =fields.Char('Spouse Phone No.')
-	address_ksa =fields.Char('Address in KSA')
+	# address_ksa =fields.Char('Address in KSA')
 	joining_date = fields.Date('Joining Date',required=True)
 	leaving_date = fields.Date()
 	serv_year = fields.Char('Total Service Year')
 	vendor_no = fields.Char("Vendor No")
 	vehiclee = fields.Many2many('vehicles.vehicles',string='Vehicle')
-	project = fields.Many2one('project.project')
+	project = fields.Many2one('projects.projects')
 	mol_no = fields.Char("MOL No")
 	iban = fields.Char("IBAN")
 	bank_code = fields.Char("Bank Code")
@@ -46,11 +46,12 @@ class Hr_Employee(models.Model):
 	issue = fields.Date("Issue Date",required=True)
 	expiry = fields.Date("Expiry Date",required=True)
 
+	job_idd = fields.Many2one('designation.info',string="Job Id")
 
 	# --------------------------------------------------
 
-	# title = fields.Many2one('',string="Title")
-	fn = fields.Text("First Name", required=True)
+	depend = fields.Boolean("Have Dependent")
+	fn = fields.Char("First Name", required=True)
 	mn = fields.Char("Middle Name")
 	ln = fields.Char("Last Name")
 	bg = fields.Char("Blood Group")
@@ -62,13 +63,21 @@ class Hr_Employee(models.Model):
 	zip_code = fields.Char("Zip Code")
 	city = fields.Char("City",required=True)
 	state_id = fields.Many2one('res.country.state', string="Fed. State")
-	country_id = fields.Many2one('res.country', string="Country",required=True)
+	country_idd = fields.Many2one('res.country', string="Country",required=True)
 	contact_no = fields.Char("Contact No")
 
 
 	@api.onchange('state_id')
 	def _onchange_state(self):
-		self.country_id = self.state_id.country_id
+		self.country_idd = self.state_id.country_id
+
+	@api.onchange('job_idd') 
+	def onchange_job_idd(self):
+		if self.job_idd:
+			self.designation = self.job_idd
+			self.r_designation = self.job_idd
+			self.id_prof  = self.job_idd.profession
+
 
 	p_street = fields.Char("Street",required=True)
 	p_street2 = fields.Char("Street2")
@@ -78,12 +87,13 @@ class Hr_Employee(models.Model):
 	p_country_id = fields.Many2one('res.country', string="Country",required=True)
 	p_contact_no = fields.Char("Contact No" , required=True)
 
+	# job_idd = fields.Many2one('designation.info',string="Job id")
 
 
 	designation = fields.Many2one('designation.info',string="Designation Info",required=True)
 	id_prof = fields.Char("ID Profession",required=True) 
 	category = fields.Many2one('category.info',string="Category",required=True)
-	department = fields.Many2one('department.info',string="Department",required=True)
+	department = fields.Many2one('hr.department',string="Department",required=True)
 	r_manager = fields.Many2one('hr.employee',string="Reporting Manager")
 	division = fields.Many2one('division.info',string="Division",required=True)
 	mol_location = fields.Char(string="MOL Location",required=True)
@@ -96,6 +106,15 @@ class Hr_Employee(models.Model):
 		'yes','Yes'),
 		('no','No'),],default='no',string="Final Clearing Authority",required=True)
 	reason = fields.Char(string="Reason")
+	
+	@api.onchange('department_id') 
+	def onchange_department_id(self):
+		if self.department_id:
+			self.department = self.department_id
+
+	@api.onchange('line_man') 
+	def onchange_line_man(self):
+		self.r_manager = self.line_man
 
 	@api.onchange('p_state_id')
 	def _onchange_state(self):
@@ -125,7 +144,7 @@ class Hr_Employee(models.Model):
 
 	r_name = fields.Char("Name")
 	rc_name = fields.Char("Company Name")
-	r_Designation = fields.Char("Designation")
+	r_designation = fields.Many2one('designation.info',"Designation")
 	r_mobile = fields.Char("Mobile No")
 	r_phone = fields.Char("Phone No")
 	r_mail = fields.Char("Email")
@@ -169,7 +188,7 @@ class Dependent(models.Model):
 		('female','Female'),
 		],string="Gender",required=True)
 	d_passport = fields.Char("Passport No",required=True)
-	name = fields.Char('Name(As in Passport)')
+	name = fields.Char('Name(As in Passport)' , required="True")
 	employee = fields.Char()
 	arabic_name = fields.Char()
 	dob = fields.Date('Date of Birth', required=True)
@@ -179,9 +198,9 @@ class Dependent(models.Model):
 	relation = fields.Many2one('relation.relation')
 	religion = fields.Many2one('religion.religion')
 	iqama_num = fields.Char('Iqama Number')
-	serial_num = fields.Char('Serial Number')
+	# serial_num = fields.Char('Serial Number')
 	issue_place = fields.Many2one('issued_place.issued_place')
-	fn = fields.Text("First Name", required=True)
+	fn = fields.Char("First Name", required=True)
 	mn = fields.Char("Middle Name",required=True)
 	ln = fields.Char("Last Name",required=True)
 
@@ -232,7 +251,7 @@ class EmployeeCard(models.Model):
 	employee = fields.Many2one('hr.employee', required=True)
 	employee_code = fields.Char(string='Employee Code')
 	department = fields.Many2one('hr.department')
-	job_title = fields.Many2one('hr.job',string='Job Title')
+	job_title = fields.Many2one('designation.info',string='Job Title')
 	office = fields.Char()
 	card_type = fields.Selection([(
 		'Acces Card','Access Card'),
@@ -251,7 +270,7 @@ class EmployeeCard(models.Model):
 	def onchange_date_id(self):
 		if self.employee:
 			self.employee_code = self.employee.employee_code
-			self.job_title = self.employee.job_id
+			self.job_title = self.employee.job_idd
 			self.department = self.employee.department_id
 			self.office = self.employee.office.name
 
@@ -267,11 +286,11 @@ class Employee_Amedment(models.Model):
 	office = fields.Many2one('office.office', required=True)
 	department = fields.Many2one('hr.department', required=True)
 	grade = fields.Char()
-	job = fields.Many2one('hr.job',string="Designation" , required=True)
+	job = fields.Many2one('designation.info',string="Designation" , required=True)
 	to_office = fields.Many2one('office.office',string="To Office", required=True)
 	to_department = fields.Many2one('hr.department',string="To Department", required=True)
 	to_grade = fields.Char("To Grade")
-	to_job = fields.Many2one('hr.job',string="To Designation", required=True)
+	to_job = fields.Many2one('designation.info',string="To Designation", required=True)
 
 	c_location = fields.Many2one('res.partner',string="Current Location", required=True)
 	mol_location = fields.Char("MOL Location", required=True)
@@ -291,7 +310,7 @@ class Employee_Amedment(models.Model):
 			self.contract = self.env['hr.contract'].search([('name','=',self.employee.name)])
 			self.department = self.env['hr.department'].search([('name','=',self.employee.department_id.name)])
 			self.grade = self.employee.grade
-			self.job = self.env['hr.job'].search([('name','=',self.employee.job_id.name)])
+			self.job = self.env['designation.info'].search([('job','=',self.employee.job_idd.job)])
 			self.mol_location = self.employee.mol_location
 			self.c_location = self.employee.address_id
 			self.r_manager = self.employee.performance_manager
@@ -304,7 +323,7 @@ class Employee_Amedment(models.Model):
 		self.employee.department_id = self.to_department.id
 		self.employee.office = self.to_office.id 
 		self.employee.grade = self.to_grade
-		self.employee.job_id = self.to_job.id 
+		self.employee.job_idd = self.to_job.id 
 		self.nmol_location = self.mol_location
 		self.n_location = self.c_location 
 		self.nr_manager = self.r_manager
@@ -312,7 +331,7 @@ class Employee_Amedment(models.Model):
 # Employee Iqama
 class Iqama(models.Model):
 	_name = 'employee.iqama'
-	_rec_name = 'employee'
+	_rec_name = 'iqama_no'
 
 	employee = fields.Many2one('hr.employee', required=True)
 	employee_code = fields.Char()
@@ -324,14 +343,14 @@ class Iqama(models.Model):
 	nationality = fields.Char()
 	relegion = fields.Char('Religion')
 	dob = fields.Date('Date of Birth')
-	profession = fields.Char()
-	iqama_no = fields.Char()
+	# profession = fields.Char()
+	iqama_no = fields.Char(required=True)
 	serial_no = fields.Char()
 	iqama_position = fields.Char()
 	place_issue = fields.Char('Place of Issue')
-	issue_date = fields.Date()
-	expiry_date = fields.Date()
-	date_hijri = fields.Char('Date of Expiry(Hijri)')
+	issue_date = fields.Date(required=True)
+	expiry_date = fields.Date(required=True)
+	# date_hijri = fields.Char('Date of Expiry(Hijri)')
 	arrival_date = fields.Date('Arrival Date in Suadi')
 	in_saudi = fields.Boolean('In Saudi?')
 
@@ -339,29 +358,31 @@ class Iqama(models.Model):
 	def onchange_employee(self):
 		if self.employee:
 			self.employee_code = self.employee.employee_code
-			self.job = self.employee.job_id.name
+			self.job = self.employee.job_idd.job
 			self.name = self.employee.name_as_pass
 			self.arabic_name = self.employee.arabic_name
 			self.department = self.employee.department_id.name
 			self.office = self.employee.office.name
 			self.dob = self.employee.birthday
 			self.relegion = self.employee.religion
-			self.profession = self.employee.documents_id.profession
 			self.serial_no = self.employee.serial_num
 			self.name = self.employee.name_as_pass
-			self.iqama_no = self.employee.iqama_num
+			self.iqama_no = self.employee.iqama_num.id
 			self.arabic_name = self.employee.arabic_name
 			self.nationality = self.employee.country_id.name
-			self.profession = self.employee.department_id.name
+			self.issue_date = self.employee.iqama_num.issue_date
+			self.expiry_date = self.employee.iqama_num.expiry_date
+			# self.profession = self.employee.documents_id.profession
+			# self.profession = self.employee.department_id.name
 
 # Employee Clearance
 class EmployeeClearance(models.Model):
 	_name = 'employee.clearance'
 	_rec_name = 'employee'
 
-	employee = fields.Many2one('hr.employee')
+	employee = fields.Many2one('hr.employee',required=True)
 	employee_code = fields.Char()
-	department = fields.Char()
+	department = fields.Many2one('hr.department')
 	office = fields.Char()
 	email = fields.Char()
 	contact_phone = fields.Char()
@@ -377,7 +398,7 @@ class EmployeeClearance(models.Model):
 	def onchange_employee(self):
 		if self.employee:
 			self.employee_code = self.employee.employee_code
-			self.department = self.employee.department_id.name
+			self.department = self.employee.department_id.id
 			self.office = self.employee.office.name
 			self.email = self.employee.work_email
 			self.contact_phone = self.employee.work_phone
@@ -385,7 +406,7 @@ class EmployeeClearance(models.Model):
 # Employee Gosi 
 class Gosi(models.Model):
 	_name = 'employee.grops'
-	_rec_name = 'employee'
+	_rec_name = 'gosi_no'
 
 	employee = fields.Many2one('hr.employee', required=True)
 	employee_code = fields.Char()
@@ -394,10 +415,10 @@ class Gosi(models.Model):
 	passport_no = fields.Char()
 	nationality = fields.Many2one('res.country')
 	iqama_no = fields.Char()
-	type_d = fields.Char('Type')
+	expiry_date = fields.Date()
 	issue_date = fields.Date()
 	dob = fields.Date('Date of Birth')
-	dob_hijri = fields.Date('Date of Birth(Hijri)')
+	# dob_hijri = fields.Date('Date of Birth(Hijri)')
 	gosi_no = fields.Char('GOSI No', required=True)
 
 	grops_id = fields.One2many('employee.payslip', 'grops_relation')
@@ -410,8 +431,9 @@ class Gosi(models.Model):
 			self.office = self.employee.office.name
 			self.passport_no = self.employee.passport_id
 			self.nationality = self.employee.country_id.id
-			self.iqama_no = self.employee.iqama_num
-			self.issue_date = self.employee.issue
+			self.iqama_no = self.employee.iqama_num.id
+			self.issue_date = self.employee.iqama_num.issue_date
+			self.expiry_date = self.employee.iqama_num.expiry_date
 			self.dob = self.employee.birthday
 
 # Employee Leaving
@@ -429,8 +451,17 @@ class EOSLeaving(models.Model):
 	end_date = fields.Date('Notice End Date')
 	interview_date = fields.Date('Exit Interview Date')
 	contact_person = fields.Char('GOSI No')
-	description = fields.Text()
+	description = fields.Char()
 	employee_clearence_ref = fields.Many2one('employee.clearance', string = "Employee Clearence Ref", readonly = True)
+
+	@api.onchange('employee') 
+	def onchange_employee(self):
+		if self.employee:
+			self.employee_code = self.employee.employee_code
+			self.department = self.employee.department_id.name
+			self.office = self.employee.office.name
+			self.contact_person = self.employee.gosi_no.gosi_no
+
 
 	@api.multi
 	def create_emp_clearence(self):
@@ -452,12 +483,6 @@ class EOSLeaving(models.Model):
 			self.employee_clearence_ref.email = self.employee.work_email
 			self.employee_clearence_ref.contact_phone = self.employee.work_phone
 
-	@api.onchange('employee') 
-	def onchange_employee(self):
-		if self.employee:
-			self.employee_code = self.employee.employee_code
-			self.department = self.employee.department_id.name
-			self.office = self.employee.office.name
 
 # EOS
 class EOS(models.Model):
@@ -490,7 +515,10 @@ class EOS(models.Model):
 	def onchange_employee(self):
 		if self.employee:
 			self.department = self.employee.department_id.name
-			self.job = self.employee.job_id.name
+			self.job = self.employee.job_idd.job
+			self.contract = self.employee.work_phone
+			self.joining_date = self.employee.joining_date
+			self.leaving_date = self.employee.leaving_date
 			self.employee_code = self.employee.employee_code
 
 # Contract
@@ -503,7 +531,8 @@ class Contract(models.Model):
 	loan_allow = fields.Boolean('Allow Loan Allowance')
 	air_allow = fields.Boolean('Air Allowance')
 	adults = fields.Integer('Adult(s)')
-	children = fields.Integer()
+	job_idd = fields.Many2one('designation.info',string="Job Id")
+	# children = fields.Integer()
 	infants = fields.Integer()
 	vac_des = fields.Many2one('vac_des.vac_des', string='Vacation Destination')
 	package = fields.Float()
@@ -522,7 +551,7 @@ class Contract(models.Model):
 	bk_balance = fields.Float('Bank Balance')
 	other_deductions = fields.Float('Other Deductions')
 
-	fn = fields.Text("First Name", required=True)
+	fn = fields.Char("First Name", required=True)
 	ln = fields.Char("Last Name")
 	dn = fields.Char("Display Name", required=True)
 	e_date = fields.Date("Effective Date", required=True)
@@ -581,6 +610,20 @@ class Contract(models.Model):
 		'yes','Yes'),
 		('no','No')], required=True,string='Incentive')
 
+	@api.onchange('employee_id')
+	def _onchange_employee_id(self):
+		if self.employee_id:
+			self.job_id = self.employee_id.job_id
+			self.department_id = self.employee_id.department_id
+			self.employee_code = self.employee_id.employee_code
+			self.fn = self.employee_id.fn
+			self.mn = self.employee_id.mn
+			self.ln = self.employee_id.ln
+			self.job_idd = self.employee_id.job_idd
+			self.dn = self.employee_id.name
+
+			if self.employee_id.gosi_no:
+				self.gosi = True
 
 # Insurance
 class Insurance(models.Model):
@@ -592,8 +635,8 @@ class Insurance(models.Model):
 	dob = fields.Date('Date of Birth', required=True)
 	clas_n = fields.Char('Class')
 	relation = fields.Many2one('relation.relation')
-	sponsor_id = fields.Char()
-	job = fields.Char()
+	# sponsor_id = fields.Many2one()
+	# job = fields.Char()
 	premium = fields.Float()
 	start_date = fields.Date()
 	expiry_date = fields.Date("End Date")
@@ -625,12 +668,12 @@ class Documents(models.Model):
 	_rec_name = 'number'
 
 	e_name = fields.Char("Employee Name")
-	e_code = fields.Char("Employee Code")
+	# e_code = fields.Char("Employee Code")
 
 	name = fields.Char("Doc Name",required=True)
 	number = fields.Char("Doc No")
 	type_d = fields.Many2one('documents.typed','Type', required=True)
-	date_hijri = fields.Char('Date of Expiry(Hijri)')
+	# date_hijri = fields.Char('Date of Expiry(Hijri)')
 	notes = fields.Char()
 	place_issue = fields.Char("Place of Issue",required=True)
 	issue_date = fields.Date("Issue Date",required=True)
@@ -655,9 +698,8 @@ class Documents(models.Model):
 
 	@api.onchange('name')
 	def _onchange_n(self):
-		# self.e_code = self.documents_relation.id
 		self.e_name = self.documents_relation.name
-		# print "111111111111111111111111111"
+		# self.e_code = self.documents_relation.employee_code
 
 	# @api.model
 	# def create(self, vals):
@@ -754,15 +796,15 @@ class ResCompanyExt(models.Model):
 	# branch = fields.Char("Branch" ,required=True)
 	# branch_t = fields.Char("Branch Tagline")
 	flip = fields.Boolean("/ ")
-	sponsor_id = fields.Char(string="SponsorID",required=True)	
+	# sponsor_id = fields.Char(string="SponsorID",required=True)	
 	po_no = fields.Char(string="P.O Box No",required=True)	
 	location = fields.Char(string="Location Code")
 
-	company_link = fields.One2many('res.company.tree','company_tree',string="License Documents")
+	company_link = fields.One2many('res.company.tree1','company_tree',string="License Documents")
 	sponsor_link = fields.One2many('res.sponsor','sponsor_tree',string="Sponsors")
 
 class ResCompanyExtTree(models.Model):
-	_name = 'res.company.tree'
+	_name = 'res.company.tree1'
 
 	doc_type = fields.Many2one('documents.typed',string="Doc Type")
 	issue_date = fields.Date("Issue Date",required=True)
@@ -778,7 +820,7 @@ class ResCompanyExtTree(models.Model):
 class Sponsor(models.Model):
 	_name = 'res.sponsor'
 	
-	name = fields.Many2one('res.partner', string='Sponsor Name', required=True, store=True)
+	name = fields.Char(string='Sponsor Name', required=True, store=True)
 	sponsor_id = fields.Integer(string='Sponsor ID', required=True)
 	partner_id = fields.Many2one('res.partner', string='Contact Person', required=True)
 	cr_no = fields.Char(string='CR No')
@@ -808,17 +850,19 @@ class DivisionInfo(models.Model):
 
 	company_name = fields.Many2one('res.company',string="Company Name", required=True)
 	branch_name = fields.Many2one('res.company',string="Branch Name")
-	division = fields.Text("Division", required=True)
+	division = fields.Char("Division", required=True)
 
 
 class DepartmentInfo(models.Model):
 	_name = 'department.info'
 	_rec_name = 'department'
 
-	company_name = fields.Many2one('res.company',string="Company Name", required=True)
+	company_name = fields.Many2one('res.company',string="Company Name")
 	branch_name = fields.Many2one('res.company',string="Branch Name")
 	division = fields.Many2one('division.info',string="Division")
-	department = fields.Text("Department", required=True)
+	department = fields.Char("Department", required=True)
+	parent_dep = fields.Many2one('hr.department',"Parent Department")
+	manager = fields.Many2one('hr.employee',"Manager", required=True)
 
 
 class CategoryInfo(models.Model):
@@ -828,8 +872,8 @@ class CategoryInfo(models.Model):
 	company_name = fields.Many2one('res.company',string="Company Name", required=True)
 	branch_name = fields.Many2one('res.company',string="Branch Name")
 	division = fields.Many2one('division.info',string="Division")
-	department = fields.Many2one('department.info',string="Division")
-	category = fields.Text("Category Info", required=True)
+	department = fields.Many2one('department.info',string="Department")
+	category = fields.Char("Category Info")
 
 class DesignationInfo(models.Model):
 	_name = 'designation.info'
@@ -838,10 +882,10 @@ class DesignationInfo(models.Model):
 	company_name = fields.Many2one('res.company',string="Company Name", required=True)
 	branch_name = fields.Many2one('res.company',string="Branch Name")
 	division = fields.Many2one('division.info',string="Division")
-	department = fields.Many2one('department.info',string="Division")
+	department = fields.Many2one('department.info',string="Department")
 	category = fields.Many2one('category.info',string="Category Info")
-	job = fields.Text("Job Title", required=True)
-	profession = fields.Text("ID Profession", required=True)
+	job = fields.Char("Job Title", required=True)
+	profession = fields.Char("ID Profession", required=True)
 
 
 class DocumentList(models.Model):
@@ -924,10 +968,10 @@ class AssetsDocumentExt(models.Model):
 	location = fields.Char("Location",required=True)
 	p_price = fields.Char("Purchase Price")
 	i_value = fields.Char("Insured Value")
-	sponsor_id = fields.Many2one('res.sponsor',string="Sponsor ID",required=True)
-	c_name = fields.Many2one('res.company',string="Company Name",required=True)
+	sponsor_id = fields.Many2one('res.sponsor',string="Sponsor ID")
+	c_name = fields.Many2one('res.company',string="Company Name")
 	cr_no = fields.Char("Insured Value")
-	lease_expiry = fields.Date(string="Lease Expiry",required=True)
+	lease_expiry = fields.Date(string="Lease Expiry")
 	remark = fields.Char("Remarks")
 
 	@api.onchange('s_name')
@@ -940,8 +984,8 @@ class HRTicket(models.Model):
 
 	name = fields.Many2one('hr.employee',"Employee Name",required=True)
 	emp_no = fields.Char("Employee No",required=True)
-	leave_from = fields.Date("Leave From",required=True)
-	leave_to = fields.Date("Leave To",required=True)
+	leave_from = fields.Char("Leave From",required=True)
+	leave_to = fields.Char("Leave To",required=True)
 	status = fields.Selection([(
 		'bachelor','Bachelor'),
 		('family','Family')], required=True,string='Status')
@@ -951,7 +995,7 @@ class HRTicket(models.Model):
 		('2','1+2 '),
 		('3','1+3 '),
 		('all','All ')], required=True,string='Dependent')
-	fn = fields.Text("First Name", required=True)
+	fn = fields.Char("First Name", required=True)
 	mn = fields.Char("Middle Name",required=True)
 	ln = fields.Char("Last Name",required=True)
 	gender = fields.Selection([
@@ -1001,7 +1045,7 @@ class HRTicket(models.Model):
 
 	receive_date = fields.Date("Received Date",required=True)
 	cutt_date = fields.Date("Cutt Off Date",required=True)
-	desc= fields.Text("Description",required=True)
+	desc= fields.Char("Description",required=True)
 	attach =fields.Binary("Attach",required=True)
 	sent_by = fields.Char("Sent for confirmation By",required=True)
 	sent_by_date = fields.Char("Sent for confirmation Date",required=True)
@@ -1040,12 +1084,13 @@ class HRTicket(models.Model):
 		self.ln = self.name.ln
 		self.gender = self.name.gender
 		self.dob = self.name.birthday
-		self.mobile = self.name.e_mobile
-		self.contact_no = self.name.e_phone
+		self.mobile = self.name.mobile_phone
+		self.contact_no = self.name.work_phone
 		self.nationality = self.name.country_id
 		self.passport = self.name.passport_id
-		self.issue = self.name.issue
-		self.expiry = self.name.expiry
+		self.issue = self.name.iqama_num.issue_date
+		self.expiry = self.name.iqama_num.expiry_date
+		self.remarks = self.name.e_remark
 
 		if self.name.dependent_id:
 			dependent_list = []
@@ -1073,7 +1118,7 @@ class HRTicketDependent(models.Model):
 	date_issue = fields.Date('Date of Issue')
 	date_expiry = fields.Date('Date of Expiry')
 	nationality = fields.Many2one('res.country',"Nationality")
-	fn = fields.Text("First Name", required=True)
+	fn = fields.Char("First Name", required=True)
 	mn = fields.Char("Middle Name",required=True)
 	ln = fields.Char("Last Name",required=True)
 	ticket_req = fields.Selection([(
@@ -1096,7 +1141,7 @@ class HRTicketReissue(models.Model):
 	change_sec = fields.Selection([(
 		'yes','Yes'),
 		('no','No'),],default='yes', string="Change Sector",required=True)
-	reasons = fields.Text("Reasons")
+	reasons = fields.Char("Reasons")
 
 	reissue_ticket = fields.Many2one('hr.ticket')
 
@@ -1106,10 +1151,11 @@ class HRExitReentry(models.Model):
 
 	name = fields.Many2one('hr.employee',"Employee Name",required=True)
 	nationality = fields.Many2one('res.country',"Nationality" ,required=True)
-	department = fields.Many2one('department.info',string="Department",required=True)
-	rejoin_date = fields.Date("Rejoin Date")
-	leave_from = fields.Date("Leave From",required=True)
-	leave_to = fields.Date("Leave To",required=True)
+	department = fields.Many2one('hr.department',string="Department",required=True)
+	rejoin_date = fields.Date("Rejoin Date",required=True)
+	leave_date = fields.Date("Leave Date",required=True)
+	leave_from = fields.Char("Leave From",required=True)
+	leave_to = fields.Char("Leave To",required=True)
 	govt_fee = fields.Float("Govt. Fee",required=True)
 	leave_type = fields.Selection([(
 		'contract','Contractual Leave'),
@@ -1144,13 +1190,60 @@ class HRExitReentry(models.Model):
 	@api.multi
 	def cancel(self):
 		self.stage = "new"
+
+
+	@api.onchange('name')
+	def _onchange_employee(self):
+		self.nationality = self.name.country_id
+		self.department = self.name.department_id
+
 						
+class HRHolidays(models.Model):
+	_inherit = 'hr.holidays'
+
+	replace_by = fields.Many2one('hr.employee',"Replace By")
+	emp_id = fields.Integer("id")
 
 
+	@api.onchange('employee_id')
+	def _onchange_employee(self):
+		self.department_id = self.employee_id.department_id
+		self.emp_id = self.employee_id.id
+
+class HRDep(models.Model):
+	_inherit = 'hr.department'
+
+	dep_link = fields.Many2one('department.info')
 
 
-	 
-	 
+	@api.model 
+	def create(self, vals): 
+		new_record = super(HRDep, self).create(vals)
+		data = self.env['department.info'].create({
+			'department':new_record.name,
+			'parent_dep':new_record.parent_id.id,
+			'manager':new_record.manager_id.id,
+
+			})
+		new_record.dep_link = data.id
+		
+		return new_record 
 
 
+	@api.multi 
+	def write(self, vals): 
+		super(HRDep, self).write(vals)
+		if self.dep_link:
+			self.dep_link.department = self.name
+			self.dep_link.parent_dep = self.parent_id.id
+			self.dep_link.manager = self.manager_id.id
+		
+		return True 
 
+
+	@api.multi 
+	def unlink(self): 
+		
+		self.dep_link.unlink() 
+		super(HRDep, self).unlink()
+		return True

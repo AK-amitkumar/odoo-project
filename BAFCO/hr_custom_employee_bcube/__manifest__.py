@@ -3,11 +3,11 @@
 
 {
     'name': 'hr_employee_extension KSA',
-    'author': 'BCUBE',
+    'author': 'Solution Founder',
     'summary': 'Hr Employee KSA loacalization',
-    'website': 'bcube.pk',
+    'website': 'http://solutionfounder.com/',
     'version': '10',
-    'depends': ['base','hr','hr_contract','account','account_asset','account_accountant','hr_timesheet','hr_payroll','project','maintenance'],
+    'depends': ['base','hr','hr_contract','hr_payroll','hr_attendance','maintenance'],
     'data': [
         'templates.xml'
     ],
