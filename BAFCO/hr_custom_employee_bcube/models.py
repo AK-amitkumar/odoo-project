@@ -8,7 +8,7 @@ class Hr_Employee(models.Model):
 
 	laptop_des = fields.Many2one('maintenance.equipment',string='Laptop/Desktop')
 	name_as_pass = fields.Char('Name(As in Passport)')
-	iqama_num = fields.Many2one('employee.iqama','Iqama Number')
+	iqama_num = fields.Many2one('employee.iqama','Iqama Number / ID Number')
 	employee_code = fields.Char()
 	arabic_name = fields.Char()
 	office = fields.Many2one('office.office')
@@ -28,7 +28,7 @@ class Hr_Employee(models.Model):
 	leaving_date = fields.Date()
 	serv_year = fields.Char('Total Service Year')
 	vendor_no = fields.Char("Vendor No")
-	vehiclee = fields.Many2many('vehicles.vehicles',string='Vehicle')
+	other_asset = fields.Many2many('maintenance.equipment',string='Other Assets')
 	project = fields.Many2one('projects.projects')
 	mol_no = fields.Char("MOL No")
 	iban = fields.Char("IBAN")
@@ -47,6 +47,7 @@ class Hr_Employee(models.Model):
 	expiry = fields.Date("Expiry Date",required=True)
 
 	job_idd = fields.Many2one('designation.info',string="Job Id")
+	passport_idd = fields.Many2one('hr.documents',string="Passport No")
 
 	# --------------------------------------------------
 
@@ -119,19 +120,6 @@ class Hr_Employee(models.Model):
 	@api.onchange('p_state_id')
 	def _onchange_state(self):
 		self.p_country_id = self.p_state_id.country_id
-
-	# depend = fields.Selection([(
-	# 	'yes','Yes'),
-	# 	('no','No'),],default='no' ,string="Dependent",required=True)
-	# d_name = fields.Char("Name",required=True)
-	# d_gender = fields.Char("Gender",required=True)
-	# d_dob = fields.Date("DOB",required=True)
-	# d_relationship = fields.Char("Relationship",required=True)
-	# d_passport = fields.Char("Passport No",required=True)
-	# d_issue = fields.Date("Issue Date",required=True)
-	# d_expiry = fields.Date("Expiry Date",required=True)
-	# d_residence = fields.Date("Residence ID No")
-	# dr_expiry = fields.Date("Expiry Date")
 	
 	e_name = fields.Char("Name",required=True)
 	e_relationship = fields.Char("Relationship",required=True)
@@ -176,18 +164,11 @@ class Hr_Employee(models.Model):
 class Dependent(models.Model):
 	_name = 'hr.dependent'
 	_rec_name = 'name'
-
-	# d_name = fields.Char("Name",required=True)
-	# d_dob = fields.Date("DOB",required=True)
-	# d_issue = fields.Date("Issue Date",required=True)
-	# d_expiry = fields.Date("Expiry Date",required=True)
-	# d_relationship = fields.Char("Relationship",required=True)
-	# depend = fields.Selection([('yes','Yes'),('no','No'),],default='no' ,string="Dependent",required=True)
 	d_gender = fields.Selection([
 		('male','Male'),
 		('female','Female'),
 		],string="Gender",required=True)
-	d_passport = fields.Char("Passport No",required=True)
+	d_passport = fields.Many2one('hr.documents',"Passport No",required=True)
 	name = fields.Char('Name(As in Passport)' , required="True")
 	employee = fields.Char()
 	arabic_name = fields.Char()
@@ -344,7 +325,7 @@ class Iqama(models.Model):
 	relegion = fields.Char('Religion')
 	dob = fields.Date('Date of Birth')
 	# profession = fields.Char()
-	iqama_no = fields.Char(required=True)
+	iqama_no = fields.Char("Iqama/ID No",required=True)
 	serial_no = fields.Char()
 	iqama_position = fields.Char()
 	place_issue = fields.Char('Place of Issue')
@@ -352,7 +333,9 @@ class Iqama(models.Model):
 	expiry_date = fields.Date(required=True)
 	# date_hijri = fields.Char('Date of Expiry(Hijri)')
 	arrival_date = fields.Date('Arrival Date in Suadi')
-	in_saudi = fields.Boolean('In Saudi?')
+	in_saudi = fields.Boolean('Is Saudi?')
+
+	t_link =fields.One2many('employee.family.iqama','link',string="Family Iqama/ID Details")
 
 	@api.onchange('employee') 
 	def onchange_employee(self):
@@ -374,6 +357,22 @@ class Iqama(models.Model):
 			self.expiry_date = self.employee.iqama_num.expiry_date
 			# self.profession = self.employee.documents_id.profession
 			# self.profession = self.employee.department_id.name
+
+class FamliyIqama(models.Model):
+	_name = 'employee.family.iqama'
+	_rec_name = 'iqama_no'
+
+	iqama_no = fields.Char("Iqama/ID No",required=True)
+	serial_no = fields.Char()
+	iqama_position = fields.Char()
+	place_issue = fields.Char('Place of Issue')
+	issue_date = fields.Date(required=True)
+	expiry_date = fields.Date(required=True)
+	# date_hijri = fields.Char('Date of Expiry(Hijri)')
+	arrival_date = fields.Date('Arrival Date in Suadi')
+	in_saudi = fields.Boolean('Is Saudi?')
+	link = fields.Many2one('employee.iqama')
+
 
 # Employee Clearance
 class EmployeeClearance(models.Model):
@@ -412,9 +411,9 @@ class Gosi(models.Model):
 	employee_code = fields.Char()
 	department = fields.Char()
 	office = fields.Char()
-	passport_no = fields.Char()
+	passport_no = fields.Many2one('hr.documents')
 	nationality = fields.Many2one('res.country')
-	iqama_no = fields.Char()
+	iqama_no = fields.Char("Iqama/ID No")
 	expiry_date = fields.Date()
 	issue_date = fields.Date()
 	dob = fields.Date('Date of Birth')
@@ -429,9 +428,9 @@ class Gosi(models.Model):
 			self.employee_code = self.employee.employee_code
 			self.department = self.employee.department_id.name
 			self.office = self.employee.office.name
-			self.passport_no = self.employee.passport_id
+			self.passport_no = self.employee.passport_idd
 			self.nationality = self.employee.country_id.id
-			self.iqama_no = self.employee.iqama_num.id
+			self.iqama_no = self.employee.iqama_num.iqama_no
 			self.issue_date = self.employee.iqama_num.issue_date
 			self.expiry_date = self.employee.iqama_num.expiry_date
 			self.dob = self.employee.birthday
@@ -665,7 +664,6 @@ class Trainings(models.Model):
 # Documents
 class Documents(models.Model):
 	_name = 'hr.documents'
-	_rec_name = 'number'
 
 	e_name = fields.Char("Employee Name")
 	# e_code = fields.Char("Employee Code")
@@ -696,9 +694,9 @@ class Documents(models.Model):
 	
 	documents_relation = fields.Many2one('hr.employee')
 
-	@api.onchange('name')
-	def _onchange_n(self):
-		self.e_name = self.documents_relation.name
+	# @api.onchange('name')
+	# def _onchange_n(self):
+	# 	self.e_name = self.documents_relation.name
 		# self.e_code = self.documents_relation.employee_code
 
 	# @api.model
@@ -775,7 +773,7 @@ class issue_place(models.Model):
 class xxdocumentstype(models.Model):
 	_name = 'documents.typed'
 	_rec_name = 'type_c'
-	type_c = fields.Char('Type')
+	type_c = fields.Char('Type',required=True)
 
 # project
 class Project(models.Model):
@@ -952,20 +950,21 @@ class AssetsDocumentExt(models.Model):
 
 	documents_id = fields.One2many('document.asset', 'documents_relation', string="Documents")
 	make = fields.Char("Make")
+	owner_user_id = fields.Many2one('hr.employee')
 
-	model = fields.Char("Model",required=True)
-	color = fields.Char("Color",required=True)
-	plate_no = fields.Char("Plate No",required=True)
+	model = fields.Char("Model")
+	color = fields.Char("Color")
+	plate_no = fields.Char("Plate No")
 	door_no  = fields.Char("Door No")
-	chasi_no = fields.Char("Chassis No",required=True)
-	reg_no = fields.Char("Registration No",required=True)
+	chasi_no = fields.Char("Chassis No")
+	reg_no = fields.Char("Registration No")
 	ownership = fields.Selection([(
 		'own','Owned'),
-		('leas','Leased')],default='own' ,required=True,string='Ownership')
+		('leas','Leased')],default='own' ,string='Ownership')
 
-	s_name = fields.Many2one('res.sponsor',string="Sponsor",required=True)
-	sponsor = fields.Char(string="Sponsor Name",required=True)
-	location = fields.Char("Location",required=True)
+	s_name = fields.Many2one('res.sponsor',string="Sponsor")
+	sponsor = fields.Char(string="Sponsor Name")
+	location = fields.Char("Location")
 	p_price = fields.Char("Purchase Price")
 	i_value = fields.Char("Insured Value")
 	sponsor_id = fields.Many2one('res.sponsor',string="Sponsor ID")
@@ -1006,7 +1005,7 @@ class HRTicket(models.Model):
 	mobile = fields.Char("Mobile No",required=True)
 	contact_no = fields.Char("Contact No",required=True)
 	nationality = fields.Many2one('res.country',"Nationality",required=True)
-	passport = fields.Char("Passport No",required=True)
+	passport = fields.Many2one('hr.documents',"Passport No",required=True)
 	issue = fields.Date("Issue Date",required=True)
 	expiry = fields.Date("Expiry Date",required=True)
 	departure = fields.Char("Departure Air Port", required=True)
@@ -1087,7 +1086,7 @@ class HRTicket(models.Model):
 		self.mobile = self.name.mobile_phone
 		self.contact_no = self.name.work_phone
 		self.nationality = self.name.country_id
-		self.passport = self.name.passport_id
+		self.passport = self.name.passport_idd
 		self.issue = self.name.iqama_num.issue_date
 		self.expiry = self.name.iqama_num.expiry_date
 		self.remarks = self.name.e_remark
@@ -1113,7 +1112,7 @@ class HRTicketDependent(models.Model):
 	_name = 'hr.ticket.dependent'
 
 	name = fields.Char('Name(As in Passport)')
-	passport = fields.Char("Passport No",required=True)
+	passport = fields.Many2one('hr.documents',"Passport No",required=True)
 	dob = fields.Date('Date of Birth', required=True)
 	date_issue = fields.Date('Date of Issue')
 	date_expiry = fields.Date('Date of Expiry')

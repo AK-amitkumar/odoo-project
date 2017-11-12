@@ -19,6 +19,10 @@
 						<attribute name="string">General Details</attribute>
 					</xpath>
 
+					<xpath expr="//notebook/page[2]/group/group[2]" position="attributes">
+						<attribute name="string">Employee Details</attribute>
+					</xpath>
+
 					<xpath expr="//field[@name='job_id']" position="replace">
 						<field name="job_idd"/>
 
@@ -28,9 +32,9 @@
 					</xpath>
 
 					<xpath expr="//field[@name='bank_account_id']" position="after">
-						<field name="passport_id"/>
+						<field name="passport_idd" options="{'no_quick_create': True, 'no_create_edit' : True}"/>
 					</xpath>
-					
+
 					 <xpath expr="//field[@name='country_id']" position="attributes">
 						<attribute name="required">True</attribute>
 					</xpath>
@@ -70,20 +74,16 @@
 						<field name="ln"/>
 						<field name="bg"/>
 						<field name="spouse_no"/>
-						
-						<!-- <field name="address_ksa"/> -->
-						<!-- <field name="issue"/> -->
-						<!-- <field name="expiry"/> -->
 					</xpath>
 
 					<xpath expr="//field[@name='country_id']" position="after">
 						<field name="employee_code"/>
-						<field name="iqama_num" context="{'default_employee': id}"/>
+						<field name="iqama_num" context="{'default_employee': id}" domain= "[('employee.name','=',name)]"/>
 						<field name="name_as_pass"/>
 						<field name="airport"/>
 						<field name="religion"/>
 						<field name="arabic_name"/>
-						<field name="gosi_no"/>
+						<field name="gosi_no" context="{'default_employee': id}" domain= "[('employee.name','=',name)]"/>
 					</xpath>
 
 					<xpath expr="//field[@name='marital']" position="after">
@@ -248,9 +248,9 @@
 					
 					<!-- Documents -->
 						<page string="Documents" name="employee_documents">
-							<field name="documents_id">
+							<field name="documents_id" context="{'default_e_name':name}">
 								<tree>
-									<field name="name"/>
+									<field name="name" />
 									<field name="number"/>
 									<field name="type_d"/> 
 									<!-- <field name="date_hijri"/>  -->
@@ -285,8 +285,8 @@
 						<page string = "Company Asset" name="asset">
 							<group>
 								<group string= "Company Asset">
-								<field name="laptop_des"/>
-								<field name="vehiclee" widget="many2many_tags"/>
+								<field name="laptop_des" domain= "[('owner_user_id.name','=',name)]" options="{'no_quick_create': True, 'no_create_edit' : True}"/>
+								<field name="other_asset" widget="many2many_tags" domain= "[('owner_user_id.name','=',name)]" options="{'no_quick_create': True, 'no_create_edit' : True}"/>
 								</group>
 								<group></group>
 							</group>
@@ -375,7 +375,7 @@
 			</field>
 		</record>
 
-		<!-- Dependent-->
+		<!-- insurance-->
 		<record id="insurance_form_view" model="ir.ui.view">
 			<field name="name">insurance_form_view</field>
 			<field name="model">hr.insurance</field>
@@ -405,9 +405,9 @@
 			</field>
 		</record>
 
-		<!-- Dependent-->
+		<!-- insurance-->
 		<record id="insurance_tree_view" model="ir.ui.view">
-			 <field name="name">insurance_tree_view</field>
+			<field name="name">insurance_tree_view</field>
 			<field name="model">hr.insurance</field>
 			<field name="arch" type="xml">
 				<tree string='Personal Information'>
@@ -502,6 +502,7 @@
 			</field>
 		</record>
 
+		<!-- Employee document -->
 		<record model="ir.ui.view" id="document_form_view">
 			<field name="name">document_form_view</field>
 			<field name="model">hr.documents</field>
@@ -549,36 +550,79 @@
 			<field name="model">employee.iqama</field>
 			<field name="arch" type="xml">
 				<form>
-					<group string='Employee Details'  name="group_top">
-						<group name="group_left">
-							<field name="employee"/>
-							<field name="employee_code"/>
-							<field name="job"/>
-							<field name="department"/>
-							<field name="office"/>
+					<sheet>
+						<group string='Employee Details'  name="group_top">
+							<group name="group_left">
+								<field name="employee"/>
+								<field name="employee_code"/>
+								<field name="job"/>
+								<field name="department"/>
+								<field name="office"/>
+							</group>
+							<group name="group_right">
+								<field name="name"/>
+								<field name="arabic_name"/>
+								<field name="nationality"/>
+								<field name="relegion"/>
+								<field name="dob"/>
+								<!-- <field name="profession"/> -->
+							</group>
 						</group>
-						<group name="group_right">
-							<field name="name"/>
-							<field name="arabic_name"/>
-							<field name="nationality"/>
-							<field name="relegion"/>
-							<field name="dob"/>
-							<!-- <field name="profession"/> -->
+						<group string='Iqama/ID Details' name="group_top">
+							<group name="group_left">
+								<field name="iqama_no"/>
+								<field name="serial_no"/>
+								<field name="issue_date"/>
+								<field name="expiry_date"/>
+							</group>
+							
+							<group name="group_right">
+								<field name="iqama_position"/>
+								<field name="place_issue"/>
+								<field name="arrival_date"/>
+								<field name="in_saudi"/>
+								<!-- <field name="date_hijri"/> -->
+							</group>
 						</group>
-					</group>
-					<group>
-						<group string='Iqama Details'>
-							<field name="iqama_no"/>
-							<field name="serial_no"/>
-							<field name="issue_date"/>
-							<field name="expiry_date"/>
-							<field name="iqama_position"/>
-							<field name="place_issue"/>
-							<!-- <field name="date_hijri"/> -->
-							<field name="arrival_date"/>
-							<field name="in_saudi"/>
+						<separator/>
+						<h4>Family Iqama/ID Details</h4>
+						<separator/>
+						<field name="t_link">
+							<tree>
+								<field name="iqama_no"/>
+								<field name="issue_date"/>
+								<field name="expiry_date"/>
+								<field name="in_saudi"/>
+							</tree>
+						</field>
+
+					</sheet>
+				</form>
+			</field>
+		</record>
+
+		<record model="ir.ui.view" id="iqama_tree_form_view">
+			<field name="name">iqama_tree_form_view</field>
+			<field name="model">employee.family.iqama</field>
+			<field name="arch" type="xml">
+				<form>
+					<sheet>
+						<group string='Iqama/ID Details' name="group_top">
+							<group name="group_left">
+								<field name="iqama_no"/>
+								<field name="serial_no"/>
+								<field name="issue_date"/>
+								<field name="expiry_date"/>
+							</group>
+							
+							<group name="group_right">
+								<field name="iqama_position"/>
+								<field name="place_issue"/>
+								<field name="arrival_date"/>
+								<field name="in_saudi"/>
+							</group>
 						</group>
-					</group>
+					</sheet>
 				</form>
 			</field>
 		</record>
@@ -655,7 +699,8 @@
 				</form>
 			</field>
 		</record>
-
+		
+		
 		<!-- Employee Leaving -->
 		<record model="ir.ui.view" id="leaving_form_view">
 			<field name="name">hr.leaving.form.view</field>
@@ -873,6 +918,22 @@
 			</field>
 		</record> 
 
+		<record model="ir.ui.view" id="res_company_tree_ext">
+			<field name="name">res_company_tree_ext</field>
+			<field name="model">res.company</field>
+			<field name="inherit_id" ref="base.view_company_tree"/>
+			<field name="arch" type="xml">
+				<xpath expr="//field[@name='name']" position="attributes">
+					<attribute name="string">Name</attribute>
+				</xpath>
+				<!-- <xpath expr="//table/thead" position="replace"> -->
+					<!-- <th data-id="name" class="o_column_sortable">
+									Name
+					</th> -->
+				<!-- </xpath> -->
+			</field>
+		</record>
+
 		<record model="ir.ui.view" id="res_company_ext">
 			<field name="name">res_company_ext</field>
 			<field name="model">res.company</field>
@@ -881,6 +942,7 @@
 				<xpath expr="//field[@name='name']" position="attributes">
 					<attribute name="string">Name</attribute>
 				</xpath>
+				
 				<xpath expr="//field[@name='website']" position="after">
 					<!-- <field name="sponsor_id"/> -->
 					<field name="po_no"/>
@@ -992,7 +1054,7 @@
 						<group>
 							<field name="name"/>
 							<field name="sponsor_id"/>
-							<field name="partner_id" groups="base.group_no_one"/>
+							<field name="partner_id"/>
 							<label for="street" string="Address"/>
 							<div class="o_address_format">
 								<field name="street" placeholder="Street..." class="o_address_street"/>
@@ -1313,7 +1375,15 @@
 				</xpath>
 				<xpath expr="//field[@name='owner_user_id']" position="attributes">
 						<attribute name="string">Employee Name</attribute>
+
 				</xpath>
+
+				<xpath expr="//field[@name='owner_user_id']" position="attributes">
+
+						<attribute name="relation">hr.employee</attribute>
+
+				</xpath>
+
 
 				<xpath expr="//page[3]" position="after">>
 					<page string="Asset Documents" name="asset_documents">
@@ -1696,10 +1766,6 @@
 						<attribute name="required">True</attribute>
 				</xpath>
 
-				<!-- <xpath expr="//field[@name='parent_id']" position="attributes">
-						<attribute name="required">True</attribute>
-				</xpath> -->
-
 				<xpath expr="//field[@name='manager_id']" position="after">
 					<field name="dep_link" invisible = "1"/>
 				</xpath>
@@ -1707,7 +1773,6 @@
 
 			</field>
 		</record>
-
 
 		<!-- Dependent  ACTIONS........................................................-->
 		
@@ -1813,7 +1878,7 @@
 		</record>
 		<!-- Employee Iqama -->
 		<record model="ir.actions.act_window" id="iqama_list_action">
-			<field name="name">Employee Iqama</field>
+			<field name="name">Employee Iqama / ID</field>
 			<field name="res_model">employee.iqama</field>
 			<field name="view_type">form</field>
 			<field name="view_mode">tree,form</field>
@@ -1848,7 +1913,7 @@
 		</record>
 
 		<record model="ir.actions.act_window" id="users_company1">
-			<field name="name">Companies</field>
+			<field name="name">Company</field>
 			<field name="res_model">res.company</field>
 			<field name="view_type">form</field>
 			<field name="context">{'default_flip':False}</field>
@@ -1885,7 +1950,7 @@
 			  parent="hr.menu_hr_main"
 			  action="amedment_list_action"/>
 		<!-- Employee Iqama -->
-		<menuitem id="contract_iqama_menu" name="Employee Iqama"
+		<menuitem id="contract_iqama_menu" name="Employee Iqama / ID"
 			  parent="hr.menu_hr_main"
 			  action="iqama_list_action"/>
 		<!-- Employee Clearance -->
@@ -1966,8 +2031,6 @@
 		<menuitem id="hr_exit_reentry_menu_child1" name="Exit Re-Entry"
 			  parent="hr_exit_reentry_menu" action="hr_exit_reentry_act"
 			  sequence ="0"/>
-
-			  
 
 	</data>
 </odoo>
