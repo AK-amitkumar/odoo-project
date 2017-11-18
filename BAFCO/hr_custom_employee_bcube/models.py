@@ -1,6 +1,7 @@
 from odoo import models, fields, api
 from datetime import datetime as dt
 from dateutil import relativedelta as rd
+from datetime import datetime, timedelta
 
 # Hr_Employee
 class Hr_Employee(models.Model):
@@ -23,7 +24,6 @@ class Hr_Employee(models.Model):
 	religion =fields.Char()
 	gosi_no =fields.Many2one('employee.grops','GOSI NO')
 	spouse_no =fields.Char('Spouse Phone No.')
-	# address_ksa =fields.Char('Address in KSA')
 	joining_date = fields.Date('Joining Date',required=True)
 	leaving_date = fields.Date()
 	serv_year = fields.Char('Total Service Year')
@@ -33,24 +33,16 @@ class Hr_Employee(models.Model):
 	mol_no = fields.Char("MOL No")
 	iban = fields.Char("IBAN")
 	bank_code = fields.Char("Bank Code")
-	emp_status = fields.Selection([(
-		'Active','Active'),
-		('Inactive','Inactive'),],'Employee Status',required=True)
 	dependent_id = fields.One2many('hr.dependent', 'dependent_relation', string="Dependent")
 	qualifiction_id = fields.One2many('hr.qualification', 'qualification_relation_name', string="Qualifications")
 	certification_id = fields.One2many('hr.certification', 'certification_relation', string="Certification")
 	insurance_id = fields.One2many('hr.insurance', 'insurance_relation', string="Insurance")
 	trainings_id = fields.One2many('hr.trainings', 'trainings_relation', string="Trainings")
 	documents_id = fields.One2many('hr.documents', 'documents_relation', string="Documents")
-
 	issue = fields.Date("Issue Date",required=True)
 	expiry = fields.Date("Expiry Date",required=True)
-
 	job_idd = fields.Many2one('designation.info',string="Job Id")
 	passport_idd = fields.Many2one('hr.documents',string="Passport No")
-
-	# --------------------------------------------------
-
 	depend = fields.Boolean("Have Dependent")
 	fn = fields.Char("First Name", required=True)
 	mn = fields.Char("Middle Name")
@@ -58,7 +50,6 @@ class Hr_Employee(models.Model):
 	bg = fields.Char("Blood Group")
 	a_email = fields.Char("Alternate Email ID")
 	airport = fields.Char("Nearest Airport")
-
 	street = fields.Char("Street",required=True)
 	street2 = fields.Char("Street2")
 	zip_code = fields.Char("Zip Code")
@@ -66,7 +57,50 @@ class Hr_Employee(models.Model):
 	state_id = fields.Many2one('res.country.state', string="Fed. State")
 	country_idd = fields.Many2one('res.country', string="Country",required=True)
 	contact_no = fields.Char("Contact No")
+	p_street = fields.Char("Street",required=True)
+	p_street2 = fields.Char("Street2")
+	p_zip_code = fields.Char("Zip Code")
+	p_city = fields.Char("City",required=True)
+	p_state_id = fields.Many2one('res.country.state', string="Fed. State")
+	p_country_id = fields.Many2one('res.country', string="Country",required=True)
+	p_contact_no = fields.Char("Contact No" , required=True)
+	designation = fields.Many2one('designation.info',string="Designation Info",required=True)
+	id_prof = fields.Char("ID Profession",required=True) 
+	category = fields.Many2one('category.info',string="Category",required=True)
+	department = fields.Many2one('hr.department',string="Department",required=True)
+	r_manager = fields.Many2one('hr.employee',string="Reporting Manager")
+	division = fields.Many2one('division.info',string="Division",required=True)
+	mol_location = fields.Char(string="MOL Location",required=True)
+	sponsor = fields.Many2one('res.sponsor',string="Sponsor",required=True)
+	e_name = fields.Char("Name",required=True)
+	e_relationship = fields.Char("Relationship",required=True)
+	e_mobile = fields.Char("Mobile No",required=True)
+	ea_mobile = fields.Char("Alternate No",required=True)
+	e_phone = fields.Char("Phone No")
+	e_mail = fields.Char("Email")
+	e_remark = fields.Char("Remarks")
+	r_name = fields.Char("Name")
+	rc_name = fields.Char("Company Name")
+	r_designation = fields.Many2one('designation.info',"Designation")
+	r_mobile = fields.Char("Mobile No")
+	r_phone = fields.Char("Phone No")
+	r_mail = fields.Char("Email")
+	r_remark = fields.Char("Remarks")
+	
+	c_athu = fields.Selection([(
+		'yes','Yes'),
+		('no','No'),],string="Clearing Authority",required=True)
+	
+	fc_athu = fields.Selection([(
+		'yes','Yes'),
+		('no','No'),],default='no',string="Final Clearing Authority",required=True)
+	
+	reason = fields.Char(string="Reason")
 
+	emp_status = fields.Selection([(
+		'Active','Active'),
+		('Inactive','Inactive'),],'Employee Status',required=True)
+	# --------------------------------------------------
 
 	@api.onchange('state_id')
 	def _onchange_state(self):
@@ -78,35 +112,6 @@ class Hr_Employee(models.Model):
 			self.designation = self.job_idd
 			self.r_designation = self.job_idd
 			self.id_prof  = self.job_idd.profession
-
-
-	p_street = fields.Char("Street",required=True)
-	p_street2 = fields.Char("Street2")
-	p_zip_code = fields.Char("Zip Code")
-	p_city = fields.Char("City",required=True)
-	p_state_id = fields.Many2one('res.country.state', string="Fed. State")
-	p_country_id = fields.Many2one('res.country', string="Country",required=True)
-	p_contact_no = fields.Char("Contact No" , required=True)
-
-	# job_idd = fields.Many2one('designation.info',string="Job id")
-
-
-	designation = fields.Many2one('designation.info',string="Designation Info",required=True)
-	id_prof = fields.Char("ID Profession",required=True) 
-	category = fields.Many2one('category.info',string="Category",required=True)
-	department = fields.Many2one('hr.department',string="Department",required=True)
-	r_manager = fields.Many2one('hr.employee',string="Reporting Manager")
-	division = fields.Many2one('division.info',string="Division",required=True)
-	mol_location = fields.Char(string="MOL Location",required=True)
-	sponsor = fields.Many2one('res.sponsor',string="Sponsor",required=True)
-	# active = fields.Char(string="Active",required=True)
-	c_athu = fields.Selection([(
-		'yes','Yes'),
-		('no','No'),],string="Clearing Authority",required=True)
-	fc_athu = fields.Selection([(
-		'yes','Yes'),
-		('no','No'),],default='no',string="Final Clearing Authority",required=True)
-	reason = fields.Char(string="Reason")
 	
 	@api.onchange('department_id') 
 	def onchange_department_id(self):
@@ -120,25 +125,6 @@ class Hr_Employee(models.Model):
 	@api.onchange('p_state_id')
 	def _onchange_state(self):
 		self.p_country_id = self.p_state_id.country_id
-	
-	e_name = fields.Char("Name",required=True)
-	e_relationship = fields.Char("Relationship",required=True)
-	e_mobile = fields.Char("Mobile No",required=True)
-	ea_mobile = fields.Char("Alternate No",required=True)
-	e_phone = fields.Char("Phone No")
-	e_mail = fields.Char("Email")
-	e_remark = fields.Char("Remarks")
-
-
-	r_name = fields.Char("Name")
-	rc_name = fields.Char("Company Name")
-	r_designation = fields.Many2one('designation.info',"Designation")
-	r_mobile = fields.Char("Mobile No")
-	r_phone = fields.Char("Phone No")
-	r_mail = fields.Char("Email")
-	r_remark = fields.Char("Remarks")
- 
- 
 
 	@api.onchange('joining_date','leaving_date')
 	def onchange_dates(self):
@@ -156,18 +142,10 @@ class Hr_Employee(models.Model):
 					months = r.months
 					self.serv_year = "%s Months" % months
 
-
-
-	
-
 # Dependent
 class Dependent(models.Model):
 	_name = 'hr.dependent'
 	_rec_name = 'name'
-	d_gender = fields.Selection([
-		('male','Male'),
-		('female','Female'),
-		],string="Gender",required=True)
 	d_passport = fields.Many2one('hr.documents',"Passport No",required=True)
 	name = fields.Char('Name(As in Passport)' , required="True")
 	employee = fields.Char()
@@ -179,20 +157,21 @@ class Dependent(models.Model):
 	relation = fields.Many2one('relation.relation')
 	religion = fields.Many2one('religion.religion')
 	iqama_num = fields.Char('Iqama Number')
-	# serial_num = fields.Char('Serial Number')
 	issue_place = fields.Many2one('issued_place.issued_place')
 	fn = fields.Char("First Name", required=True)
 	mn = fields.Char("Middle Name",required=True)
 	ln = fields.Char("Last Name",required=True)
-
 	dependent_relation = fields.Many2one('hr.employee')
 
+	d_gender = fields.Selection([
+		('male','Male'),
+		('female','Female'),
+		],string="Gender",required=True)
+	# --------------------------------------------------
 
 	@api.onchange('name')
 	def _onchange_name(self):
 		self.employee = self.dependent_relation.name
-
-
 
 # Qualification
 class Qualification(models.Model):
@@ -205,7 +184,6 @@ class Qualification(models.Model):
 	contact_name = fields.Char('Contact Name')
 	contact_phn = fields.Char('Contact Phone No')
 	contact_email = fields.Char('Contact Email')
-
 	qualification_relation_name = fields.Many2one('hr.employee',string='Qualification Relation Name')
 
 # Certification
@@ -221,7 +199,6 @@ class Certification(models.Model):
 	contact_name = fields.Char()
 	contact_phn = fields.Char('Contact Phone No')
 	contact_email = fields.Char()
-
 	certification_relation = fields.Many2one('hr.employee',string='Certification Relation')
 
 # EmployeeCard
@@ -234,10 +211,6 @@ class EmployeeCard(models.Model):
 	department = fields.Many2one('hr.department')
 	job_title = fields.Many2one('designation.info',string='Job Title')
 	office = fields.Char()
-	card_type = fields.Selection([(
-		'Acces Card','Access Card'),
-		('Business Card','Business Card'),
-		('Id Card','Id Card')], required=True,string='Card Type')
 	card_no = fields.Char(string='Card No.')
 	requested_date = fields.Char(string='Requesed Date')
 	reason = fields.Char()
@@ -246,6 +219,12 @@ class EmployeeCard(models.Model):
 	period_stay = fields.Date(string='Period of Stay')
 	issue_date = fields.Date(string='Issue Date')
 	expiry_date = fields.Date(string='Expiry Date')
+
+	card_type = fields.Selection([(
+		'Acces Card','Access Card'),
+		('Business Card','Business Card'),
+		('Id Card','Id Card')], required=True,string='Card Type')
+	# --------------------------------------------------
 
 	@api.onchange('employee') 
 	def onchange_date_id(self):
@@ -272,11 +251,9 @@ class Employee_Amedment(models.Model):
 	to_department = fields.Many2one('hr.department',string="To Department", required=True)
 	to_grade = fields.Char("To Grade")
 	to_job = fields.Many2one('designation.info',string="To Designation", required=True)
-
 	c_location = fields.Many2one('res.partner',string="Current Location", required=True)
 	mol_location = fields.Char("MOL Location", required=True)
 	r_manager = fields.Many2one('hr.employee',string="Reporting Manager", required=True)
-
 	n_location = fields.Many2one('res.partner',string="New Location", required=True)
 	nmol_location = fields.Char("MOL Location", required=True)
 	nr_manager = fields.Many2one('hr.employee',string="Reporting Manager", required=True)
@@ -294,8 +271,7 @@ class Employee_Amedment(models.Model):
 			self.job = self.env['designation.info'].search([('job','=',self.employee.job_idd.job)])
 			self.mol_location = self.employee.mol_location
 			self.c_location = self.employee.address_id
-			self.r_manager = self.employee.performance_manager
-
+			self.r_manager = self.employee.performence_manager.id
 			self.to_department=self.to_office=self.to_grade=self.to_job = self.c_location =self.mol_location =''
 
 
@@ -324,17 +300,14 @@ class Iqama(models.Model):
 	nationality = fields.Char()
 	relegion = fields.Char('Religion')
 	dob = fields.Date('Date of Birth')
-	# profession = fields.Char()
 	iqama_no = fields.Char("Iqama/ID No",required=True)
 	serial_no = fields.Char()
 	iqama_position = fields.Char()
 	place_issue = fields.Char('Place of Issue')
 	issue_date = fields.Date(required=True)
 	expiry_date = fields.Date(required=True)
-	# date_hijri = fields.Char('Date of Expiry(Hijri)')
 	arrival_date = fields.Date('Arrival Date in Suadi')
 	in_saudi = fields.Boolean('Is Saudi?')
-
 	t_link =fields.One2many('employee.family.iqama','link',string="Family Iqama/ID Details")
 
 	@api.onchange('employee') 
@@ -355,9 +328,7 @@ class Iqama(models.Model):
 			self.nationality = self.employee.country_id.name
 			self.issue_date = self.employee.iqama_num.issue_date
 			self.expiry_date = self.employee.iqama_num.expiry_date
-			# self.profession = self.employee.documents_id.profession
-			# self.profession = self.employee.department_id.name
-
+			
 class FamliyIqama(models.Model):
 	_name = 'employee.family.iqama'
 	_rec_name = 'iqama_no'
@@ -368,11 +339,9 @@ class FamliyIqama(models.Model):
 	place_issue = fields.Char('Place of Issue')
 	issue_date = fields.Date(required=True)
 	expiry_date = fields.Date(required=True)
-	# date_hijri = fields.Char('Date of Expiry(Hijri)')
 	arrival_date = fields.Date('Arrival Date in Suadi')
 	in_saudi = fields.Boolean('Is Saudi?')
 	link = fields.Many2one('employee.iqama')
-
 
 # Employee Clearance
 class EmployeeClearance(models.Model):
@@ -390,7 +359,6 @@ class EmployeeClearance(models.Model):
 	last_country_day = fields.Date()
 	last_day_work = fields.Date('Last Day of Work')
 	letter_to_client = fields.Char()
-
 	it_department = fields.One2many('it.department', 'department_relation')
 
 	@api.onchange('employee') 
@@ -417,9 +385,7 @@ class Gosi(models.Model):
 	expiry_date = fields.Date()
 	issue_date = fields.Date()
 	dob = fields.Date('Date of Birth')
-	# dob_hijri = fields.Date('Date of Birth(Hijri)')
 	gosi_no = fields.Char('GOSI No', required=True)
-
 	grops_id = fields.One2many('employee.payslip', 'grops_relation')
 
 	@api.onchange('employee') 
@@ -461,7 +427,6 @@ class EOSLeaving(models.Model):
 			self.office = self.employee.office.name
 			self.contact_person = self.employee.gosi_no.gosi_no
 
-
 	@api.multi
 	def create_emp_clearence(self):
 		clearence_recs            = self.env['employee.clearance'].search([])
@@ -481,7 +446,6 @@ class EOSLeaving(models.Model):
 			self.employee_clearence_ref.office = self.office
 			self.employee_clearence_ref.email = self.employee.work_email
 			self.employee_clearence_ref.contact_phone = self.employee.work_phone
-
 
 # EOS
 class EOS(models.Model):
@@ -531,7 +495,6 @@ class Contract(models.Model):
 	air_allow = fields.Boolean('Air Allowance')
 	adults = fields.Integer('Adult(s)')
 	job_idd = fields.Many2one('designation.info',string="Job Id")
-	# children = fields.Integer()
 	infants = fields.Integer()
 	vac_des = fields.Many2one('vac_des.vac_des', string='Vacation Destination')
 	package = fields.Float()
@@ -549,23 +512,20 @@ class Contract(models.Model):
 	traffic_fine = fields.Float('Traffic Fine')
 	bk_balance = fields.Float('Bank Balance')
 	other_deductions = fields.Float('Other Deductions')
-
 	fn = fields.Char("First Name", required=True)
 	ln = fields.Char("Last Name")
 	dn = fields.Char("Display Name", required=True)
 	e_date = fields.Date("Effective Date", required=True)
-	
-	status = fields.Selection([(
-		'bachelor','Bachelor'),
-		('family','family')], required=True,string='Status')
-
 	hra = fields.Char("HRA", required=True)
 	t_allow = fields.Float("Transport Allowance", required=True)
 	f_allow = fields.Float("Food Allowance", required=True)
 	f_ot = fields.Float("Fixed OT", required=True)
-
 	departure = fields.Char("Departure Air Port", required=True)
 	destination = fields.Char("Destination Air Port", required=True)
+	
+	status = fields.Selection([(
+		'bachelor','Bachelor'),
+		('family','family')], required=True,string='Status')
 
 	medical = fields.Selection([(
 		'yes','Yes'),
@@ -620,7 +580,7 @@ class Contract(models.Model):
 			self.ln = self.employee_id.ln
 			self.job_idd = self.employee_id.job_idd
 			self.dn = self.employee_id.name
-
+			
 			if self.employee_id.gosi_no:
 				self.gosi = True
 
@@ -634,8 +594,6 @@ class Insurance(models.Model):
 	dob = fields.Date('Date of Birth', required=True)
 	clas_n = fields.Char('Class')
 	relation = fields.Many2one('relation.relation')
-	# sponsor_id = fields.Many2one()
-	# job = fields.Char()
 	premium = fields.Float()
 	start_date = fields.Date()
 	expiry_date = fields.Date("End Date")
@@ -658,7 +616,6 @@ class Trainings(models.Model):
 	training_company = fields.Char('Training Company')
 	training_place = fields.Char('Training Place')
 	status = fields.Char()
-	
 	trainings_relation = fields.Many2one('hr.employee',string='Training Relation')
 
 # Documents
@@ -666,12 +623,9 @@ class Documents(models.Model):
 	_name = 'hr.documents'
 
 	e_name = fields.Char("Employee Name")
-	# e_code = fields.Char("Employee Code")
-
 	name = fields.Char("Doc Name",required=True)
 	number = fields.Char("Doc No")
 	type_d = fields.Many2one('documents.typed','Type', required=True)
-	# date_hijri = fields.Char('Date of Expiry(Hijri)')
 	notes = fields.Char()
 	place_issue = fields.Char("Place of Issue",required=True)
 	issue_date = fields.Date("Issue Date",required=True)
@@ -683,40 +637,26 @@ class Documents(models.Model):
 	attach = fields.Binary("Attach File")
 	remark = fields.Char("Remarks")
 	status = fields.Char("Status")
+	documents_relation = fields.Many2one('hr.employee')
 
 	category = fields.Selection([(
 		'gernal','Gernal'),
 		('positive','Positive'),
 		('negative','Negative')], required=True,string='Category')
+	
 	holder = fields.Selection([(
 		'self','Self'),
 		('dep','Dependent')], required=True,string='Holder')
 	
-	documents_relation = fields.Many2one('hr.employee')
-
-	# @api.onchange('name')
-	# def _onchange_n(self):
-	# 	self.e_name = self.documents_relation.name
-		# self.e_code = self.documents_relation.employee_code
-
-	# @api.model
-	# def create(self, vals):
-	# 	vals['number'] = self.env['ir.sequence'].next_by_code('document.com')
-	# 	new_record = super(CompanyDocument, self).create(vals)
-
-	# 	return new_record
-
 # IT Department
 class ItDepartment(models.Model):
 	_name = 'it.department'
 	_rec_name = 'item'
 
-
 	item = fields.Char()
 	status = fields.Char()
 	handled_by = fields.Char()
 	remarks = fields.Char()
-
 	department_relation = fields.Many2one('employee.clearance')
 
 # Employee Payslip
@@ -726,7 +666,6 @@ class Payslip(models.Model):
 	payslip = fields.Char()
 	date = fields.Date()
 	gosi_ammount =fields.Char('GOSI Amount')
-
 	grops_relation = fields.Many2one('employee.grops')
 
 #######################################
@@ -791,13 +730,9 @@ class Vehicle(models.Model):
 class ResCompanyExt(models.Model):
 	_inherit = 'res.company'
 
-	# branch = fields.Char("Branch" ,required=True)
-	# branch_t = fields.Char("Branch Tagline")
 	flip = fields.Boolean("/ ")
-	# sponsor_id = fields.Char(string="SponsorID",required=True)	
 	po_no = fields.Char(string="P.O Box No",required=True)	
 	location = fields.Char(string="Location Code")
-
 	company_link = fields.One2many('res.company.tree1','company_tree',string="License Documents")
 	sponsor_link = fields.One2many('res.sponsor','sponsor_tree',string="Sponsors")
 
@@ -809,11 +744,7 @@ class ResCompanyExtTree(models.Model):
 	latest_renewal_date = fields.Date("Latest Renewal Date")
 	expiry_date = fields.Date("Expiry Date",required=True)
 	renewal = fields.Date("Due for Renewal",required=True)
-
 	company_tree = fields.Many2one('res.company')
-
-	
-
 
 class Sponsor(models.Model):
 	_name = 'res.sponsor'
@@ -834,9 +765,7 @@ class Sponsor(models.Model):
 	website = fields.Char(related='partner_id.website')
 	fax = fields.Char(string="Fax")
 	mobile= fields.Char(string='Mobile No')
-
 	sponsor_tree = fields.Many2one('res.company')
-
 
 	@api.onchange('state_id')
 	def _onchange_state(self):
@@ -861,7 +790,6 @@ class DepartmentInfo(models.Model):
 	department = fields.Char("Department", required=True)
 	parent_dep = fields.Many2one('hr.department',"Parent Department")
 	manager = fields.Many2one('hr.employee',"Manager", required=True)
-
 
 class CategoryInfo(models.Model):
 	_name = 'category.info'
@@ -927,15 +855,12 @@ class CompanyDocument(models.Model):
 
 		return new_record
 
-
-
 class AssetsDocument(models.Model):
 	_name = 'document.asset'
 	
 	name = fields.Char("Doc Name",required=True)
 	doc_no = fields.Char("Doc No")
 	doc_type = fields.Many2one('documents.typed',string="Doc Type")
-	# po = fields.Char("Plate No",required=True)
 	dor = fields.Date("Renewed Date")
 	doe = fields.Date("Expiry Date",required=True)
 	nod = fields.Integer("No Of Days",required=True)
@@ -951,17 +876,12 @@ class AssetsDocumentExt(models.Model):
 	documents_id = fields.One2many('document.asset', 'documents_relation', string="Documents")
 	make = fields.Char("Make")
 	owner_user_id = fields.Many2one('hr.employee')
-
 	model = fields.Char("Model")
 	color = fields.Char("Color")
 	plate_no = fields.Char("Plate No")
 	door_no  = fields.Char("Door No")
 	chasi_no = fields.Char("Chassis No")
 	reg_no = fields.Char("Registration No")
-	ownership = fields.Selection([(
-		'own','Owned'),
-		('leas','Leased')],default='own' ,string='Ownership')
-
 	s_name = fields.Many2one('res.sponsor',string="Sponsor")
 	sponsor = fields.Char(string="Sponsor Name")
 	location = fields.Char("Location")
@@ -972,6 +892,10 @@ class AssetsDocumentExt(models.Model):
 	cr_no = fields.Char("Insured Value")
 	lease_expiry = fields.Date(string="Lease Expiry")
 	remark = fields.Char("Remarks")
+
+	ownership = fields.Selection([(
+		'own','Owned'),
+		('leas','Leased')],default='own' ,string='Ownership')
 
 	@api.onchange('s_name')
 	def _onchange_s_name(self):
@@ -985,22 +909,9 @@ class HRTicket(models.Model):
 	emp_no = fields.Char("Employee No",required=True)
 	leave_from = fields.Char("Leave From",required=True)
 	leave_to = fields.Char("Leave To",required=True)
-	status = fields.Selection([(
-		'bachelor','Bachelor'),
-		('family','Family')], required=True,string='Status')
-
-	dependent = fields.Selection([(
-		'1','1+1 '),
-		('2','1+2 '),
-		('3','1+3 '),
-		('all','All ')], required=True,string='Dependent')
 	fn = fields.Char("First Name", required=True)
 	mn = fields.Char("Middle Name",required=True)
 	ln = fields.Char("Last Name",required=True)
-	gender = fields.Selection([
-		('male','Male'),
-		('female','Female'),
-		],string="Gender",required=True)
 	dob = fields.Date("DOB",required=True)
 	mobile = fields.Char("Mobile No",required=True)
 	contact_no = fields.Char("Contact No",required=True)
@@ -1012,28 +923,30 @@ class HRTicket(models.Model):
 	destination = fields.Char("Destination Air Port", required=True)
 	departure_date = fields.Date("Departure Date",required=True)
 	return_date = fields.Date("Return Date",required=True)
-	priority  = fields.Selection([(
-		'critical','Critical'),
-		('high','High'),
-		('normal','Normal')], required=True,string='Priority')
 	remarks = fields.Char("Remarks",required=True)
-
 	dependent_id = fields.One2many('hr.ticket.dependent', 'dependent_ticket', string="Dependent")
 	reissue_ticket = fields.One2many('hr.ticket.reissue', 'reissue_ticket', string="Re issue")
-
 	create_book = fields.Boolean("Create Booking")
 	conf_book = fields.Boolean("Confirm Booking")
 	re_issue = fields.Boolean("Re Issue")
 	cancel_ticket = fields.Boolean("Cancel Ticket")
-
-
-
 	req_no = fields.Char("Request No",required=True)
 	agent = fields.Char("Travel Agent",required=True)
 	book_date = fields.Date("Booking Date",required=True)
 	book_by =fields.Char("Booked By",required=True)
 	piad_amt = fields.Float("Paid Amount",required=True)
-
+	receive_date = fields.Date("Received Date",required=True)
+	cutt_date = fields.Date("Cutt Off Date",required=True)
+	desc= fields.Char("Description",required=True)
+	attach =fields.Binary("Attach",required=True)
+	sent_by = fields.Char("Sent for confirmation By",required=True)
+	sent_by_date = fields.Char("Sent for confirmation Date",required=True)
+	
+	priority  = fields.Selection([(
+		'critical','Critical'),
+		('high','High'),
+		('normal','Normal')], required=True,string='Priority')
+	
 	break_jun = fields.Selection([(
 		'yes','Yes'),
 		('no','No'),], string="Break Journey",required=True)
@@ -1042,13 +955,19 @@ class HRTicket(models.Model):
 		'yes','Yes'),
 		('no','No'),], string="Booking Received",required=True)
 
-	receive_date = fields.Date("Received Date",required=True)
-	cutt_date = fields.Date("Cutt Off Date",required=True)
-	desc= fields.Char("Description",required=True)
-	attach =fields.Binary("Attach",required=True)
-	sent_by = fields.Char("Sent for confirmation By",required=True)
-	sent_by_date = fields.Char("Sent for confirmation Date",required=True)
+	status = fields.Selection([(
+		'bachelor','Bachelor'),
+		('family','Family')], required=True,string='Status')
 
+	dependent = fields.Selection([(
+		'1','1+1 '),
+		('2','1+2 '),
+		('3','1+3 '),
+		('all','All ')], required=True,string='Dependent')
+	gender = fields.Selection([
+		('male','Male'),
+		('female','Female'),
+		],string="Gender",required=True)
 	cancellation = fields.Selection([(
 		'full','Full Ticket'),
 		('part','Part Ticket'),], string="Cancel Ticket",required=True)
@@ -1076,7 +995,6 @@ class HRTicket(models.Model):
 		
 		self.dependent = dent.dependent
 		self.status = dent.status
-
 		self.emp_no = self.name.employee_code
 		self.fn = self.name.fn
 		self.mn = self.name.mn
@@ -1104,7 +1022,6 @@ class HRTicket(models.Model):
 					'name':x.name,
 					})
 			self.dependent_id = dependent_list
-
 			dependent_list=[]
 
 
@@ -1120,15 +1037,13 @@ class HRTicketDependent(models.Model):
 	fn = fields.Char("First Name", required=True)
 	mn = fields.Char("Middle Name",required=True)
 	ln = fields.Char("Last Name",required=True)
+	departure_date = fields.Date("Departure Date",required=True)
+	return_date = fields.Date("Return Date",required=True)
+	dependent_ticket = fields.Many2one('hr.ticket')
+	
 	ticket_req = fields.Selection([(
 		'yes','Yes'),
 		('no','No'),],default='yes', string="Ticket Required",required=True)
-
-	departure_date = fields.Date("Departure Date",required=True)
-	return_date = fields.Date("Return Date",required=True)
-
-	dependent_ticket = fields.Many2one('hr.ticket')
-
 
 class HRTicketReissue(models.Model):
 	_name = 'hr.ticket.reissue'
@@ -1137,13 +1052,12 @@ class HRTicketReissue(models.Model):
 	destination = fields.Char("Destination Air Port", required=True)
 	departure_date = fields.Date("Departure Date",required=True)
 	return_date = fields.Date("Return Date",required=True)
+	reasons = fields.Char("Reasons")
+	reissue_ticket = fields.Many2one('hr.ticket')
+
 	change_sec = fields.Selection([(
 		'yes','Yes'),
 		('no','No'),],default='yes', string="Change Sector",required=True)
-	reasons = fields.Char("Reasons")
-
-	reissue_ticket = fields.Many2one('hr.ticket')
-
 
 class HRExitReentry(models.Model):
 	_name = 'hr.exit.reentry'
@@ -1156,11 +1070,13 @@ class HRExitReentry(models.Model):
 	leave_from = fields.Char("Leave From",required=True)
 	leave_to = fields.Char("Leave To",required=True)
 	govt_fee = fields.Float("Govt. Fee",required=True)
+	
 	leave_type = fields.Selection([(
 		'contract','Contractual Leave'),
 		('emergency','Emergency Leave'),
 		('medical','Medical Leave'),
 		('others','Others'),], string="Leave Type",required=True)
+	
 	months = fields.Selection([(
 		'1','1 Months'),
 		('2','2 Months'),
@@ -1168,10 +1084,12 @@ class HRExitReentry(models.Model):
 		('4','4 Months'),
 		('5','5 Months'),
 		('6','6 Months')], required=True,string='Months')
+	
 	paid_by = fields.Selection([(
 		'personnel','personnel'),
 		('office','Office'),], string="Paid By",required=True)
 
+	
 	stage = fields.Selection([(
 		'new','Issue New'),
 		('wait','Waiting For Payment'),
@@ -1190,7 +1108,6 @@ class HRExitReentry(models.Model):
 	def cancel(self):
 		self.stage = "new"
 
-
 	@api.onchange('name')
 	def _onchange_employee(self):
 		self.nationality = self.name.country_id
@@ -1202,7 +1119,16 @@ class HRHolidays(models.Model):
 
 	replace_by = fields.Many2one('hr.employee',"Replace By")
 	emp_id = fields.Integer("id")
+	start_date = fields.Date(string="Start Date")
+	end_date = fields.Date(string="End Date")
 
+	@api.onchange('start_date','end_date')
+	def days_between(self):
+		if self.start_date and self.end_date:
+			d1 = datetime.strptime(self.start_date, "%Y-%m-%d")
+			d2 = datetime.strptime(self.end_date, "%Y-%m-%d")
+			days = abs((d2 - d1).days)
+			self.number_of_days_temp = days
 
 	@api.onchange('employee_id')
 	def _onchange_employee(self):
@@ -1213,7 +1139,6 @@ class HRDep(models.Model):
 	_inherit = 'hr.department'
 
 	dep_link = fields.Many2one('department.info')
-
 
 	@api.model 
 	def create(self, vals): 
@@ -1238,7 +1163,6 @@ class HRDep(models.Model):
 			self.dep_link.manager = self.manager_id.id
 		
 		return True 
-
 
 	@api.multi 
 	def unlink(self): 
