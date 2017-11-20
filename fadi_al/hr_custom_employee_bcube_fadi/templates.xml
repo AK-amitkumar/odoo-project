@@ -54,7 +54,7 @@
 					<field name="job_idd" position="after">
 						<field name="head"/>
 						<field name="line_man"/>
-						<field name="is_head" attrs="{'invisible': [('is_head','=', True)]}"/>
+						<field name="is_head"/>
 						<field name="performence_manager"/>
 						<field name="is_line_man"/>
 						<field name="a_email"/>
@@ -127,26 +127,8 @@
 							</field>
 						</page>
 
-						<page string="Address" name="permanent_address">
-							<group name="group_top" string = "Present Address">
-
-								<group name="group_left">
-									<field name="street"/>
-									<field name="street2"/>
-									<field name="zip_code"/>
-								</group>
-
-								<group name="group_right">
-									<field name="city"/>
-									<field name="state_id"/>
-									<field name="country_idd"/>
-									<field name="contact_no"/>
-								</group>
-							</group>
-
-							<field name="same_add"/>
-
-							<group name="group_top" string = "Permanent Address">
+						<page string="Permanent Address" name="permanent_address">
+							<group name="group_top">
 
 								<group name="group_left">
 									<field name="p_street"/>
@@ -161,23 +143,43 @@
 									<field name="p_contact_no"/>
 								</group>
 							</group>
-
 						</page>
-						<page string="Emergency Contact" name="emergency">
-							<field name="emergency_id">
 
-								<tree string='Qualifications'>
+						<page string="Present Address" name="present_address">
+							<group name="group_top">
+
+								<group name="group_left">
+									<field name="street"/>
+									<field name="street2"/>
+									<field name="zip_code"/>
+								</group>
+
+								<group name="group_right">
+									<field name="city"/>
+									<field name="state_id"/>
+									<field name="country_idd"/>
+									<field name="contact_no"/>
+								</group>
+							</group>
+						</page>
+
+						<page string="Emergency Contact" name="emergency">
+							<group name="group_top">
+
+								<group name="group_left">
 									<field name="e_name"/>
 									<field name="e_relationship"/>
 									<field name="e_mobile"/>
 									<field name="ea_mobile"/>
-									<field name="e_phone"/>	
+									
+								</group>
+
+								<group name="group_right">
+									<field name="e_phone"/>
 									<field name="e_mail"/>
 									<field name="e_remark"/>
-								</tree>
-
-							</field>
-
+								</group>
+							</group>
 						</page>
 
 					<!-- Education and Experience -->
@@ -360,32 +362,6 @@
 					<field name="date_expiry"/>
 					<field name="issue_place"/>
 				</tree>
-			</field>
-		</record>
-		
-		<record id="emergency_form_view" model="ir.ui.view">
-			<field name="name">emergency_form_view</field>
-			<field name="model">hr.emergency</field>
-			<field name="arch" type="xml">
-				<form>
-					<sheet>
-						<group name="group_top">
-							<group name="group_left">
-								<field name="e_name"/>
-								<field name="e_relationship"/>
-								<field name="e_mobile"/>
-								<field name="ea_mobile"/>
-								
-							</group>
-
-							<group name="group_right">
-								<field name="e_phone"/>
-								<field name="e_mail"/>
-								<field name="e_remark"/>
-							</group>
-						</group>
-					</sheet>
-				</form>
 			</field>
 		</record>
 

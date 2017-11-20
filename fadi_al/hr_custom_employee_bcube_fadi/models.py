@@ -41,7 +41,6 @@ class Hr_Employee(models.Model):
 	insurance_id = fields.One2many('hr.insurance', 'insurance_relation', string="Insurance")
 	trainings_id = fields.One2many('hr.trainings', 'trainings_relation', string="Trainings")
 	documents_id = fields.One2many('hr.documents', 'documents_relation', string="Documents")
-	emergency_id = fields.One2many('hr.emergency', 'relation', string="Emergency Contact")
 	issue = fields.Date("Issue Date",required=True)
 	expiry = fields.Date("Expiry Date",required=True)
 	job_idd = fields.Many2one('designation.info',string="Job Id")
@@ -66,16 +65,22 @@ class Hr_Employee(models.Model):
 	p_city = fields.Char("City",required=True)
 	p_state_id = fields.Many2one('res.country.state', string="Fed. State")
 	p_country_id = fields.Many2one('res.country', string="Country",required=True)
-	p_contact_no = fields.Char("Contact No")
+	p_contact_no = fields.Char("Contact No" , required=True)
 	designation = fields.Many2one('designation.info',string="Designation Info",required=True)
 	id_prof = fields.Char("ID Profession",required=True) 
-	category = fields.Many2one('category.info',string="Category")
+	category = fields.Many2one('category.info',string="Category",required=True)
 	department = fields.Many2one('hr.department',string="Department",required=True)
 	r_manager = fields.Many2one('hr.employee',string="Reporting Manager")
 	division = fields.Many2one('division.info',string="Division",required=True)
 	mol_location = fields.Char(string="MOL Location",required=True)
 	sponsor = fields.Many2one('res.sponsor',string="Sponsor",required=True)
-	
+	e_name = fields.Char("Name",required=True)
+	e_relationship = fields.Char("Relationship",required=True)
+	e_mobile = fields.Char("Mobile No",required=True)
+	ea_mobile = fields.Char("Alternate No",required=True)
+	e_phone = fields.Char("Phone No")
+	e_mail = fields.Char("Email")
+	e_remark = fields.Char("Remarks")
 	r_name = fields.Char("Name")
 	rc_name = fields.Char("Company Name")
 	r_designation = fields.Many2one('designation.info',"Designation")
@@ -84,7 +89,6 @@ class Hr_Employee(models.Model):
 	r_mail = fields.Char("Email")
 	r_remark = fields.Char("Remarks")
 	reason = fields.Char(string="Reason")
-	same_add = fields.Boolean("Same Address")
 	
 	c_athu = fields.Selection([(
 		'yes','Yes'),
@@ -98,18 +102,6 @@ class Hr_Employee(models.Model):
 		'Active','Active'),
 		('Inactive','Inactive'),],'Employee Status',required=True)
 	# --------------------------------------------------
-
-	@api.onchange('same_add')
-	def _onchange_same_add(self):
-		if self.same_add == True:
-
-			self.p_street = self.street
-			self.p_street2 = self.street2
-			self.p_zip_code = self.zip_code
-			self.p_city = self.city
-			self.p_state_id = self.state_id
-			self.p_country_id = self.country_idd
-			self.p_contact_no = self.contact_no
 
 	@api.onchange('state_id')
 	def _onchange_state(self):
@@ -150,20 +142,6 @@ class Hr_Employee(models.Model):
 					years = r.years
 					months = r.months
 					self.serv_year = "%s Months" % months
-
-# Dependent
-class Emergency(models.Model):
-	_name = 'hr.emergency'
-	_rec_name = 'e_name'
-
-	e_name = fields.Char("Name",required=True)
-	e_relationship = fields.Char("Relationship",required=True)
-	e_mobile = fields.Char("Mobile No",required=True)
-	ea_mobile = fields.Char("Alternate No",required=True)
-	e_phone = fields.Char("Phone No")
-	e_mail = fields.Char("Email")
-	e_remark = fields.Char("Remarks")
-	relation = fields.Many2one('hr.employee')
 
 # Dependent
 class Dependent(models.Model):
