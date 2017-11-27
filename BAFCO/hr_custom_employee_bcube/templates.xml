@@ -134,6 +134,7 @@
 									<field name="street"/>
 									<field name="street2"/>
 									<field name="zip_code"/>
+									<field name="same_add" string="Same Permanent Address"/>
 								</group>
 
 								<group name="group_right">
@@ -144,7 +145,6 @@
 								</group>
 							</group>
 
-							<field name="same_add"/>
 
 							<group name="group_top" string = "Permanent Address">
 

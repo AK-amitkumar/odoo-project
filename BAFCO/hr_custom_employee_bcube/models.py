@@ -75,7 +75,6 @@ class Hr_Employee(models.Model):
 	division = fields.Many2one('division.info',string="Division",required=True)
 	mol_location = fields.Char(string="MOL Location",required=True)
 	sponsor = fields.Many2one('res.sponsor',string="Sponsor",required=True)
-	
 	r_name = fields.Char("Name")
 	rc_name = fields.Char("Company Name")
 	r_designation = fields.Many2one('designation.info',"Designation")
@@ -84,7 +83,7 @@ class Hr_Employee(models.Model):
 	r_mail = fields.Char("Email")
 	r_remark = fields.Char("Remarks")
 	reason = fields.Char(string="Reason")
-	same_add = fields.Boolean("Same Address")
+	same_add = fields.Boolean(string="Same Address")
 	
 	c_athu = fields.Selection([(
 		'yes','Yes'),

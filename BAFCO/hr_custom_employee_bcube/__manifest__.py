@@ -4,7 +4,7 @@
 {
     'name': 'HR Employee Extension K S A',
     'author': 'Solution Founder',
-    'summary': 'Hr Employee KSA loacalization BAFO',
+    'summary': 'Hr Employee KSA loacalization BAFCO',
     'website': 'http://solutionfounder.com/',
     'version': '10',
     'depends': ['base','hr','hr_contract','hr_payroll','hr_attendance','maintenance'],

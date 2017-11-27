@@ -2,9 +2,9 @@
 # See LICENSE file for full copyright and licensing details.
 
 {
-    'name': 'hr_employee_extension KSA',
+    'name': 'HR Employee Extension K S A',
     'author': 'Solution Founder',
-    'summary': 'Hr Employee KSA loacalization',
+    'summary': 'Hr Employee KSA loacalization Fadi Al Hashdi',
     'website': 'http://solutionfounder.com/',
     'version': '10',
     'depends': ['base','hr','hr_contract','hr_payroll','hr_attendance','maintenance'],
