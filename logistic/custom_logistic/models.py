@@ -1,6 +1,7 @@
 from odoo import models, fields, api
 from datetime import datetime,date,timedelta
 import xlsxwriter
+import os
 
 class Exportlogic(models.Model):
 	_name = 'export.logic'
@@ -171,7 +172,7 @@ class Exportlogic(models.Model):
 
 	@api.multi
 	def xlsx_report(self):
-		with xlsxwriter.Workbook("/home/odoo/odoo-dev/Projects/logistic/custom_logistic/Test.xlsx") as workbook:
+		with xlsxwriter.Workbook("/home/odoo/odoo-dev/Projects/logistic/custom_logistic/static/src/lib/DAILY_SHIPMENT_STATUS_REPORT.xlsx") as workbook:
 			main_heading = workbook.add_format({
 				"bold": 1,
 				"align": 'center',
@@ -181,13 +182,13 @@ class Exportlogic(models.Model):
 				})
 			# Create a format to use in the merged range.
 			merge_format = workbook.add_format({
-			    'bold': 1,
-			    'border': 1,
-			    'align': 'left',
-			    'valign': 'vcenter',
-			    'font_size': '20',
+				'bold': 1,
+				'border': 1,
+				'align': 'left',
+				'valign': 'vcenter',
+				'font_size': '20',
 				"font_color":'white',
-			    'fg_color': '7030a0'})
+				'fg_color': '7030a0'})
 
 
 			
@@ -200,7 +201,7 @@ class Exportlogic(models.Model):
 			worksheet = workbook.add_worksheet(self.customer.name)
 
 			# Merge 3 cells.
-			worksheet.merge_range('A1:AF3', 'DAILY SHIPMENT STATUS REPORT'+str(date.today())+' - '+str(self.customer.name), merge_format)
+			worksheet.merge_range('A1:AF3', 'DAILY SHIPMENT STATUS REPORT  '+str(date.today())+' - '+str(self.customer.name), merge_format)
 
 			worksheet.set_column('A4:AF4', 20)
 
@@ -297,6 +298,11 @@ class Exportlogic(models.Model):
 				worksheet.write_string (row, col+31,' ',main_data)
 
 				row += 1
+		return {
+			'type': 'ir.actions.act_url',
+			'url': 'custom_logistic/static/src/lib/DAILY_SHIPMENT_STATUS_REPORT.xlsx',
+			'target': 'blank',}
+
 
 	@api.multi
 	def create_sale(self):

@@ -26,6 +26,7 @@
         'views.xml',
         'quote.xml',
         'supplier.xml',
+        'report.xml',
     ],
     'installable': True,
     'auto_install': False

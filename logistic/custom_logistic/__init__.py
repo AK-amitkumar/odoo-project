@@ -3,3 +3,4 @@
 from . import models
 from . import quote
 from . import supplier
+from . import report
