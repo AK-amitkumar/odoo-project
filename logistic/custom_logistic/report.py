@@ -1,7 +1,8 @@
-from odoo import models, fields, api
-from datetime import datetime,date,timedelta
-import xlsxwriter
 import os
+import xlsxwriter
+from datetime import datetime,date,timedelta
+from odoo import models, fields, api
+from odoo.exceptions import Warning,ValidationError
 
 
 class XlsxReport(models.Model):
@@ -17,11 +18,51 @@ class XlsxReport(models.Model):
 					 ],default='export',string="Report Type",required=True) 
 	total = fields.Boolean("Total Report" ,default=False)
 
+	@api.onchange('total')
+	def onchange_total(self):
+		if self.total == True:
+			self.s_date = ''
+			self.e_date = ''
+
 	@api.multi
-	def xlsx_report(self):
+	def print_report(self):
+		if self.total == True:
+			if self.ttype == 'export':
+				data=self.env['export.logic'].search([('customer','=',self.customer.id)])
+				if data:
+						return self.xlsx_report(data,ttype='export')
+				else:
+					raise  ValidationError('Report Does Not Exist According To Given Data')
+			elif self.ttype == 'import':
+				data=self.env['import.logic'].search([('customer','=',self.customer.id)])
+				if data:
+						return self.xlsx_report(data,ttype='import')
+				else:
+					raise  ValidationError('Report Does Not Exist According To Given Data')
+			else:
+				raise  ValidationError('Report Does Not Exist According To Given Data')
+		else:
+			if self.ttype == 'export' and self.e_date and self.s_date :
+				data=self.env['export.logic'].search([('customer','=',self.customer.id),('date','>=',self.s_date),('date','<=',self.e_date)])
+				if data:
+					return self.xlsx_report(data,ttype='export')
+				else:
+					raise  ValidationError('Report Does Not Exist According To Given Data')
+
+			elif self.ttype == 'import' and self.e_date and self.s_date :
+				data=self.env['import.logic'].search([('customer','=',self.customer.id),('date','>=',self.s_date),('date','<=',self.e_date)])
+				if data:
+					return self.xlsx_report(data,ttype='import')
+				else:
+					raise  ValidationError('Report Does Not Exist According To Given Data')
+			else:
+				raise  ValidationError('Report Does Not Exist According To Given Data')
+	
+	@api.multi
+	def xlsx_report(self,input_records,ttype):
 		with xlsxwriter.Workbook("/home/odoo/odoo-dev/Projects/logistic/custom_logistic/static/src/lib/DAILY_SHIPMENT_STATUS_REPORT.xlsx") as workbook:
 			main_heading = workbook.add_format({
-				"bold": 1,
+				"bold": 1, 
 				"align": 'center',
 				"valign": 'vcenter',
 				"font_color":'white',
@@ -87,64 +128,107 @@ class XlsxReport(models.Model):
 
 			row = 4
 			col = 0	
-			records = self.env['export.logic'].search([('customer','=',self.customer.id)])
+			records = input_records
 			def check_false(data):
 				if data:
 					return data
 				else:
 					return ' '
 
-			for x in records:
-				worksheet.write_string (row, col,str(check_false(x.sr_no)),main_data)
-				worksheet.write_string (row, col+1,str(check_false(x.our_job_no)),main_data)
-				worksheet.write_string (row, col+2,str(check_false(x.customer.name)),main_data)
-				worksheet.write_string (row, col+3,str(check_false(x.cust_ref_inv)),main_data)
-				worksheet.write_string (row, col+4,str(check_false(x.shipper_date)),main_data)
-				worksheet.write_string (row, col+5,str(check_false(x.bill_no)),main_data)
-				worksheet.write_string (row, col+6,str(len(x.export_link)),main_data)
-				worksheet.write_string (row, col+7,' ',main_data)
-				worksheet.write_string (row, col+8,str(check_false(x.s_supplier.name)),main_data)
-				worksheet.write_string (row, col+9,str(check_false(x.vessel_name)),main_data)
-				worksheet.write_string (row, col+10,str(check_false(x.eta)),main_data)
-				worksheet.write_string (row, col+11,str(check_false(x.etd)),main_data)
-				if x.eta and x.shipper_date:
-					k_e = (datetime.date(datetime.strptime(x.eta,'%Y-%m-%d')) - datetime.date(datetime.strptime(x.shipper_date,'%Y-%m-%d'))).days
-				else:
-					k_e = ''
-				worksheet.write_string (row, col+12,str(k_e),main_data)
-				worksheet.write_string (row, col+13,str(check_false(x.mani_date)),main_data)
-				worksheet.write_string (row, col+14,str(check_false(x.bayan_no)),main_data)
-				worksheet.write_string (row, col+15,str(check_false(x.rot_no)),main_data)
-				worksheet.write_string (row, col+16,str(check_false(x.bayan_date)),main_data)
-				worksheet.write_string (row, col+17,str(check_false(x.pre_bayan)),main_data)
-				if x.pre_bayan and x.mani_date:
-					r_o = (datetime.date(datetime.strptime(x.pre_bayan,'%Y-%m-%d')) - datetime.date(datetime.strptime(x.mani_date,'%Y-%m-%d'))).days
-				else:
-					r_o = ''
-				worksheet.write_string (row, col+18,str(r_o),main_data)
-				if x.pre_bayan and x.shipper_date:
-					s_r = (datetime.date(datetime.strptime(x.pre_bayan,'%Y-%m-%d')) - datetime.date(datetime.strptime(x.bayan_date,'%Y-%m-%d'))).days
-				else:
-					s_r = ''
-				worksheet.write_string (row, col+19,str(s_r),main_data)
-				worksheet.write_string (row, col+20,str(check_false(x.shutl_start_date)),main_data)
-				worksheet.write_string (row, col+21,str(check_false(x.shutl_end_date)),main_data)
-				worksheet.write_string (row, col+22,str(check_false(x.fin_bayan_date)),main_data)
-				if x.fin_bayan_date and x.shutl_start_date:
-					x_v = (datetime.date(datetime.strptime(x.fin_bayan_date,'%Y-%m-%d')) - datetime.date(datetime.strptime(x.shutl_start_date,'%Y-%m-%d'))).days
-				else:
-					x_v = ''
-				worksheet.write_string (row, col+23,str(x_v),main_data)
-				worksheet.write_string (row, col+24,' ',main_data)
-				worksheet.write_string (row, col+25,'N/A',main_data)
-				worksheet.write_string (row, col+26,' - ',main_data)
-				worksheet.write_string (row, col+27,' ',main_data)
-				worksheet.write_string (row, col+28,' ',main_data)
-				worksheet.write_string (row, col+29,str(check_false(x.status.comment)),main_data)
-				worksheet.write_string (row, col+30,str(check_false(x.remarks)),main_data)
-				worksheet.write_string (row, col+31,' ',main_data)
+			if ttype == 'export':
+				for x in records:
+					worksheet.write_string (row, col,str(check_false(x.sr_no)),main_data)
+					worksheet.write_string (row, col+1,str(check_false(x.our_job_no)),main_data)
+					worksheet.write_string (row, col+2,str(check_false(x.customer.name)),main_data)
+					worksheet.write_string (row, col+3,str(check_false(x.cust_ref_inv)),main_data)
+					worksheet.write_string (row, col+4,str(check_false(x.shipper_date)),main_data)
+					worksheet.write_string (row, col+5,str(check_false(x.bill_no)),main_data)
+					worksheet.write_string (row, col+6,str(len(x.export_link)),main_data)
+					worksheet.write_string (row, col+7,' ',main_data)
+					worksheet.write_string (row, col+8,str(check_false(x.s_supplier.name)),main_data)
+					worksheet.write_string (row, col+9,str(check_false(x.vessel_name)),main_data)
+					worksheet.write_string (row, col+10,str(check_false(x.eta)),main_data)
+					worksheet.write_string (row, col+11,str(check_false(x.etd)),main_data)
+					if x.eta and x.shipper_date:
+						k_e = (datetime.date(datetime.strptime(x.eta,'%Y-%m-%d')) - datetime.date(datetime.strptime(x.shipper_date,'%Y-%m-%d'))).days
+					else:
+						k_e = ''
+					worksheet.write_string (row, col+12,str(k_e),main_data)
+					worksheet.write_string (row, col+13,str(check_false(x.mani_date)),main_data)
+					worksheet.write_string (row, col+14,str(check_false(x.bayan_no)),main_data)
+					worksheet.write_string (row, col+15,str(check_false(x.rot_no)),main_data)
+					worksheet.write_string (row, col+16,str(check_false(x.bayan_date)),main_data)
+					worksheet.write_string (row, col+17,str(check_false(x.pre_bayan)),main_data)
+					if x.pre_bayan and x.mani_date:
+						r_o = (datetime.date(datetime.strptime(x.pre_bayan,'%Y-%m-%d')) - datetime.date(datetime.strptime(x.mani_date,'%Y-%m-%d'))).days
+					else:
+						r_o = ''
+					worksheet.write_string (row, col+18,str(r_o),main_data)
+					if x.pre_bayan and x.shipper_date:
+						s_r = (datetime.date(datetime.strptime(x.pre_bayan,'%Y-%m-%d')) - datetime.date(datetime.strptime(x.bayan_date,'%Y-%m-%d'))).days
+					else:
+						s_r = ''
+					worksheet.write_string (row, col+19,str(s_r),main_data)
+					worksheet.write_string (row, col+20,str(check_false(x.shutl_start_date)),main_data)
+					worksheet.write_string (row, col+21,str(check_false(x.shutl_end_date)),main_data)
+					worksheet.write_string (row, col+22,str(check_false(x.fin_bayan_date)),main_data)
+					if x.fin_bayan_date and x.shutl_start_date:
+						x_v = (datetime.date(datetime.strptime(x.fin_bayan_date,'%Y-%m-%d')) - datetime.date(datetime.strptime(x.shutl_start_date,'%Y-%m-%d'))).days
+					else:
+						x_v = ''
+					worksheet.write_string (row, col+23,str(x_v),main_data)
+					worksheet.write_string (row, col+24,' ',main_data)
+					worksheet.write_string (row, col+25,'N/A',main_data)
+					worksheet.write_string (row, col+26,' - ',main_data)
+					worksheet.write_string (row, col+27,' ',main_data)
+					worksheet.write_string (row, col+28,' ',main_data)
+					worksheet.write_string (row, col+29,str(check_false(x.status.comment)),main_data)
+					worksheet.write_string (row, col+30,str(check_false(x.remarks)),main_data)
+					worksheet.write_string (row, col+31,' ',main_data)
 
-				row += 1
+					row += 1
+			
+			elif ttype == 'import':
+				for x in records:
+					worksheet.write_string (row, col,str(check_false(x.s_no)),main_data)
+					worksheet.write_string (row, col+1,str(check_false(x.job_no)),main_data)
+					worksheet.write_string (row, col+2,str(check_false(x.customer.name)),main_data)
+					worksheet.write_string (row, col+3,str(check_false(x.cust_ref_inv)),main_data)
+					worksheet.write_string (row, col+4,str(check_false(x.shipper_date)),main_data)
+					worksheet.write_string (row, col+5,str(check_false(x.bill_no)),main_data)
+					worksheet.write_string (row, col+6,str(len(x.import_id)),main_data)
+					worksheet.write_string (row, col+7,' ',main_data)
+					worksheet.write_string (row, col+8,str(check_false(x.s_supplier.name)),main_data)
+					worksheet.write_string (row, col+9,str(check_false(x.vessel_name)),main_data)
+					worksheet.write_string (row, col+10,str(check_false(x.eta)),main_data)
+					worksheet.write_string (row, col+11,str(check_false(x.etd)),main_data)
+					if x.eta and x.shipper_date:
+						k_e = (datetime.date(datetime.strptime(x.eta,'%Y-%m-%d')) - datetime.date(datetime.strptime(x.shipper_date,'%Y-%m-%d'))).days
+					else:
+						k_e = ''
+					worksheet.write_string (row, col+12,str(k_e),main_data)
+					worksheet.write_string (row, col+13,' ',main_data)
+					worksheet.write_string (row, col+14,str(check_false(x.bayan_no)),main_data)
+					worksheet.write_string (row, col+15,str(check_false(x.rot_no)),main_data)
+					worksheet.write_string (row, col+16,str(check_false(x.bayan_date)),main_data)
+					worksheet.write_string (row, col+17,' ',main_data)
+					worksheet.write_string (row, col+18,' ',main_data)
+					worksheet.write_string (row, col+19,' ',main_data)
+					worksheet.write_string (row, col+20,' ',main_data)
+					worksheet.write_string (row, col+21,' ',main_data)
+					worksheet.write_string (row, col+22,str(check_false(x.fin_bayan_date)),main_data)
+					worksheet.write_string (row, col+23,' ',main_data)
+					worksheet.write_string (row, col+24,' ',main_data)
+					worksheet.write_string (row, col+25,'N/A',main_data)
+					worksheet.write_string (row, col+26,' - ',main_data)
+					worksheet.write_string (row, col+27,' ',main_data)
+					worksheet.write_string (row, col+28,' ',main_data)
+					worksheet.write_string (row, col+29,str(check_false(x.status.comment)),main_data)
+					worksheet.write_string (row, col+30,str(check_false(x.remarks)),main_data)
+					worksheet.write_string (row, col+31,' ',main_data)
+
+					row += 1
+
 		return {
 			'type': 'ir.actions.act_url',
 			'url': 'custom_logistic/static/src/lib/DAILY_SHIPMENT_STATUS_REPORT.xlsx',

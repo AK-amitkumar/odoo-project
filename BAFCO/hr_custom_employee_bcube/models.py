@@ -173,6 +173,7 @@ class Dependent(models.Model):
 	employee = fields.Char()
 	arabic_name = fields.Char()
 	dob = fields.Date('Date of Birth', required=True)
+	pob = fields.Char('Place of Birth')
 	date_issue = fields.Date('Date of Issue')
 	date_expiry = fields.Date('Date of Expiry')
 	nationality = fields.Many2one('res.country',"Nationality")
@@ -322,6 +323,7 @@ class Iqama(models.Model):
 	nationality = fields.Char()
 	relegion = fields.Char('Religion')
 	dob = fields.Date('Date of Birth')
+	pob = fields.Char('Place of Birth')
 	iqama_no = fields.Char("Iqama/ID No",required=True)
 	serial_no = fields.Char()
 	iqama_position = fields.Char()
@@ -342,6 +344,7 @@ class Iqama(models.Model):
 			self.department = self.employee.department_id.name
 			self.office = self.employee.office.name
 			self.dob = self.employee.birthday
+			self.pob = self.employee.place_of_birth
 			self.relegion = self.employee.religion
 			self.serial_no = self.employee.serial_num
 			self.name = self.employee.name_as_pass
@@ -407,6 +410,7 @@ class Gosi(models.Model):
 	expiry_date = fields.Date()
 	issue_date = fields.Date()
 	dob = fields.Date('Date of Birth')
+	pob = fields.Char('Place of Birth')
 	gosi_no = fields.Char('GOSI No', required=True)
 	grops_id = fields.One2many('employee.payslip', 'grops_relation')
 
@@ -422,6 +426,7 @@ class Gosi(models.Model):
 			self.issue_date = self.employee.iqama_num.issue_date
 			self.expiry_date = self.employee.iqama_num.expiry_date
 			self.dob = self.employee.birthday
+			self.pob = self.employee.place_of_birth
 
 # Employee Leaving
 class EOSLeaving(models.Model):
@@ -614,6 +619,7 @@ class Insurance(models.Model):
 	card_code = fields.Char(required=True)
 	member_name = fields.Char(required=True)
 	dob = fields.Date('Date of Birth', required=True)
+	pob = fields.Char('Place of Birth')
 	clas_n = fields.Char('Class')
 	relation = fields.Many2one('relation.relation')
 	premium = fields.Float()
@@ -937,6 +943,7 @@ class HRTicket(models.Model):
 	mn = fields.Char("Middle Name",required=True)
 	ln = fields.Char("Last Name",required=True)
 	dob = fields.Date("DOB",required=True)
+	pob = fields.Char('Place of Birth')
 	mobile = fields.Char("Mobile No",required=True)
 	contact_no = fields.Char("Contact No",required=True)
 	nationality = fields.Many2one('res.country',"Nationality",required=True)
@@ -1025,6 +1032,7 @@ class HRTicket(models.Model):
 		self.ln = self.name.ln
 		self.gender = self.name.gender
 		self.dob = self.name.birthday
+		self.pob = self.name.pob
 		self.mobile = self.name.mobile_phone
 		self.contact_no = self.name.work_phone
 		self.nationality = self.name.country_id
@@ -1055,6 +1063,7 @@ class HRTicketDependent(models.Model):
 	name = fields.Char('Name(As in Passport)')
 	passport = fields.Many2one('hr.documents',"Passport No",required=True)
 	dob = fields.Date('Date of Birth', required=True)
+	pob = fields.Char('Place of Birth')
 	date_issue = fields.Date('Date of Issue')
 	date_expiry = fields.Date('Date of Expiry')
 	nationality = fields.Many2one('res.country',"Nationality")

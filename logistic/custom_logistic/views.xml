@@ -292,7 +292,6 @@
             <button name="initialbay" type="object" string="Initial Bayan " class="oe_highlight" attrs="{'invisible':[('state','!=','pre')]}"/>
             <button name="finalbay" type="object" string="Final Bayan" class="oe_highlight" attrs="{'invisible':[('state','!=','initial')]}"/>
             <button name="over" type="object" string="Done" class="oe_highlight" attrs="{'invisible':[('state','!=','custom_exam')]}"/>
-            <button name="xlsx_report" type="object" string="DAILY SHIPMENT STATUS REPORT" class="oe_highlight"/>
             <field name="state" widget="statusbar" clickable="True" statusbar_visible="pre,initial,final,custom_exam,done"/>
           </header>
           <sheet>

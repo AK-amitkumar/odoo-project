@@ -121,6 +121,7 @@
 								<tree>
 									<field name="name"/>
 									<field name="dob"/>
+									<field name="pob"/>
 									<field name="relation"/> 
 									<field name="nationality"/> 
 								</tree>
@@ -233,6 +234,7 @@
 									<field name="clas_n"/> 
 									<field name="gender"/> 
 									<field name="dob"/> 
+									<field name="pob"/>
 									<field name="relation"/> 
 									<field name="start_date"/> 
 									<field name="premium"/> 
@@ -325,6 +327,7 @@
 							<field name="mn"/>
 							<field name="ln"/>
 							<field name="dob"/>
+							<field name="pob"/>
 							<field name="d_gender"/>
 							<field name="nationality"/>
 						</group>
@@ -352,6 +355,7 @@
 					<field name="name"/>
 					<field name="arabic_name"/>
 					<field name="dob"/>
+					<field name="pob"/>
 					<field name="nationality"/>
 					<field name="relation"/>
 					<field name="religion"/>
@@ -401,6 +405,7 @@
 								<field name="card_code" />
 								<field name="member_name" />
 								<field name="dob" />
+								<field name="pob"/>
 								<field name="clas_n" />
 								<field name="start_date" />
 							</group>
@@ -426,6 +431,7 @@
 					<field name="card_code" />
 					<field name="member_name" />
 					<field name="dob" />
+					<field name="pob"/>
 					<field name="clas_n" />
 					<field name="relation" />
 					<field name="start_date" />
@@ -567,6 +573,8 @@
 								<field name="nationality"/>
 								<field name="relegion"/>
 								<field name="dob"/>
+								<field name="pob"/>
+
 							</group>
 						</group>
 						<group string='Iqama/ID Details' name="group_top">
@@ -685,6 +693,7 @@
 							<field name="issue_date"/>
 							<field name="expiry_date"/>
 							<field name="dob"/>
+							<field name="pob"/>
 							<field name="gosi_no"/>
 						</group>
 					</group>
@@ -1452,6 +1461,7 @@
 								<field name="ln" />
 								<field name="gender" />
 								<field name="dob"/>
+								<field name="pob"/>
 								<field name="mobile" />
 								<field name="remarks" />
 							</group>
@@ -1482,6 +1492,7 @@
 										<field name="name"/>
 										<field name="passport" invisible="1"/>
 										<field name="dob" invisible="1"/>
+										<field name="pob"/>
 										<field name="date_issue" invisible="1"/>
 										<field name="date_expiry" invisible="1"/>
 										<field name="nationality" invisible="1"/>
@@ -1609,6 +1620,7 @@
 								<field name="name"/>
 								<field name="passport" />
 								<field name="dob" />
+								<field name="pob"/>
 								<field name="date_issue" />
 								<field name="date_expiry"/>
 								<field name="nationality" />

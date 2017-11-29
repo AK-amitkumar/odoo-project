@@ -13,7 +13,7 @@
 		<field name="arch" type="xml">
 			<form>
 				<header>
-					<button name="xlsx_report" type="object" string="SHIPMENT STATUS REPORT" class="oe_highlight"/>
+					<button name="print_report" type="object" string="Download Report" class="oe_highlight"/>
 				</header>
 				<sheet>
 					<group name="top">  
