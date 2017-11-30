@@ -70,13 +70,13 @@
 									<p class="no-margin"><strong>Web:</strong> info@logistic-vision.com</p>
 								</div>
 								<div class="heading">
-									<p class="no-margin"><span class="solid">INVOICE NO:</span><span class="liquid">1748</span></p>
+									<p class="no-margin"><span class="solid">INVOICE NO:</span><span class="liquid" t-esc="o.number"></span></p>
 								</div>
 								<div class="heading">
-									<p class="no-margin"><span class="solid">DATED:</span><span class="liquid">19/08/2017</span></p>
+									<p class="no-margin"><span class="solid">DATED:</span><span class="liquid" t-esc="o.date_invoice"></span></p>
 								</div>
 								<div class="heading" style="width:40%; margin-right: 50px; border: 2px solid;border-color:#b4b4b4; padding: 20px;">
-									<p class="no-margin"><span class="solid">TO:</span><span class="liquid">JEDDAH KINGDOM SAUDI ARABIA</span></p>
+									<p class="no-margin"><span class="solid">TO:</span><span class="liquid" t-esc="o.partner_id.name"></span></p>
 								</div>
 								<table style=" width:50%; float:right;">
 									<tr>
