@@ -61,6 +61,7 @@ class Exportlogic(models.Model):
 	('customer_ref', 'unique(customer_ref)','This customer reference already esixts!')
 	]
 	
+	tick  = fields.Boolean()
 	
 
 	@api.onchange('custom_exam')

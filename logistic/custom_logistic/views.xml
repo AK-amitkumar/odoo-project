@@ -321,6 +321,7 @@
                   <field name="acc_link"/>
                   <field name="eta"/>
                   <field name="etd"/>
+                  <field name="tick" invisible="1"/>
                 </group>
                 <group>
                   <field name="mani_date" attrs="{'invisible':[('state','in','draft')]}"/>
