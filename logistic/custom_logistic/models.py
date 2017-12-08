@@ -461,6 +461,8 @@ class Importlogic(models.Model):
 	('customer_ref', 'unique(customer_ref)','This customer reference already esixts!')
 	]
 
+	tick  = fields.Boolean()
+
 	@api.model
 	def create(self, vals):
 		vals['s_no'] = self.env['ir.sequence'].next_by_code('import.logics')
@@ -475,6 +477,12 @@ class Importlogic(models.Model):
 		records = self.env['res.partner'].search([('id','=',self.customer.id)])
 		if self.customer:
 			self.bill_types = records.bill_type
+
+		reocrd = self.env['res.partner'].search([])
+		for x in reocrd:
+			print x.parent_id
+		print "-----------------------------"
+
 
 	@api.onchange('bill_types')
 	def get_bl(self):

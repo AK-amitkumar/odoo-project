@@ -3,7 +3,7 @@
     'name': "Import/Export Logistic",
 
     'summary': """
-        Nayyab""",
+        Nayyab & Muhammad Awais""",
 
     'description': """
         Long description of module's purpose

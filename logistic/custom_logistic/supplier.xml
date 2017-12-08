@@ -30,7 +30,7 @@
 							<field name="types" attrs="{'invisible':[('customer','!=',False)]}"/>
 							
 						</xpath>
-
+						
 						<xpath expr="//page[5]" position="before">
 
 							<page string="B/L Number" attrs="{'invisible':['|',('bl_num','=',False),('customer','=',False)]}">
@@ -186,7 +186,7 @@
 								<field name="smart" invisible="1"/>
 								<field name="types"/>
 								<field name="s_supplier" domain="[('types','=','ship_line'),('supplier','=',True)]" context="{'default_supplier':True,'default_customer':False,'default_types':'ship_line'}"/>
-								<field name="customer" domain="[('customer','=',True)]"/> 
+								<field name="customer" domain="[('parent_id','=',False),('supplier','=',False),('customer','=',True)]"/> 
 								<field name="eta_date"/>
 								<field name="etd_date"/>						
 					

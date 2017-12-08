@@ -77,7 +77,7 @@
             <group name="top">
                 <group >
                   <field name="site"/>        
-                  <field name="customer" domain="[('supplier','=',False)]"/>
+                  <field name="customer" domain="[('parent_id','=',False),('supplier','=',False),('customer','=',True)]"/>
                   <field name="bill_bol" invisible="1"/>
                   <field name="contt_bol" invisible="1"/>
                   <field name="bill_types"/>      
@@ -92,6 +92,7 @@
                   <field name="rot_no"/>
                   <field name="fri_id"/>
                   <field name="acc_link"/>
+                  <field name="tick" invisible="1"/>
                 </group>
                 <group>
                   <field class="bill_1" name="do_no" attrs="{'invisible':['|',('stages','in','pre'),('stages','in','draft')]}"/>
@@ -307,7 +308,7 @@
               <group name="top">
                 <group >
                   <field name="site"/>
-                  <field name="customer" domain="[('supplier','=',False)]"/>
+                  <field name="customer" domain="[('parent_id','=',False),('supplier','=',False),('customer','=',True)]"/>
                   <field name="bill_bol" invisible="1"/>
                   <field name="cont_bol" invisible="1"/>
                   <field name="bill_types"/>
