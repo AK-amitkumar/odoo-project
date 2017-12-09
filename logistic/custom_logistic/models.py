@@ -147,7 +147,6 @@ class Exportlogic(models.Model):
 	def create(self, vals):
 		vals['sr_no'] = self.env['ir.sequence'].next_by_code('export.logics')
 		vals['our_job_no'] = self.env['ir.sequence'].next_by_code('export.job.num')
-		print "Something"
 		new_record = super(Exportlogic, self).create(vals)
 
 		return new_record

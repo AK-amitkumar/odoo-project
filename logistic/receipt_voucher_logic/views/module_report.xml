@@ -18,7 +18,7 @@
 									width: 100%;
 								}
 								.center-data {
-									width: 1000px;
+									width: 100%;
 									margin: 0px auto;
 								}
 								table {
@@ -88,16 +88,15 @@
 									<table width="100%">
 										<tr>
 											<td class="solid">
-												<span>No:  رقم  </span>
-												<span>123</span>
+												<span>No:  <span t-esc="o.number"></span> رقم  </span>
 											</td>
 											<td class="solid2">
 												<span>Date:  التاريخ  </span>
-												<span>456</span>
+												<span t-esc="o.date"></span>
 											</td>
 											<td class="solid1">
 												<span>Amount:  المبلغ  </span>
-												<span>789</span>
+												<span t-esc="o.total"></span>
 											</td>							
 										</tr>
 										<tr>

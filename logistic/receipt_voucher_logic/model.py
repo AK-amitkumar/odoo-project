@@ -29,11 +29,6 @@ class SampleDevelopmentReport(models.AbstractModel):
         report = report_obj._get_report_from_name('receipt_voucher_logic.module_report')
         records = self.env['customer.payment.bcube'].browse(docids)
 
-        
-        
-             
-                           
-
         docargs = {
             'doc_ids': docids,
             'doc_model': 'customer.payment.bcube',

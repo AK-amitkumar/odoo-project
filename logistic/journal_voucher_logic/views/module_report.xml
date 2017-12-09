@@ -117,12 +117,12 @@
 										</t>
 										<tr>
 											<td>-</td>
-											<td><span class="solid">Prepaid by:  <span class="liquid" t-esc="getname()"></span>__________اعد بواسطة</span></td>
-											<td colspan="2"><span class="solid">Approved by: ___________________________ تصديق</span><span class="liquid"></span></td>
+											<td><span class="solid">Prepaid by:  <span class="liquid" t-esc="getname()"></span>______________اعد بواسطة</span></td>
+											<td colspan="2"><span class="solid">Approved by: _______________________________ تصديق</span><span class="liquid"></span></td>
 										</tr>
 										<tr>
 											<td>-</td>
-											<td colspan="3"><span class="solid">BEING ___________________________________________________________________________ عبارة عن</span></td>
+											<td colspan="3"><span class="solid">BEING _______________________________________________________________________________ عبارة عن</span></td>
 
 										</tr>
 									</table>

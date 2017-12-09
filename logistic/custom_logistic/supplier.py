@@ -13,7 +13,7 @@ class AccountMoveLineInher(models.Model):
 	charge_id = fields.One2many('charg.vender','charge_tree')
 	brooker   = fields.Boolean(string="Broker")
 	bl_num    = fields.Boolean(string="B/l Number")
-	checks     = fields.Boolean(string="check")
+	checks    = fields.Boolean(string="check")
 	cont_num  = fields.Boolean(string="Cont Wise")
 	bill_type = fields.Selection([('B/L Number','B/L Number'),('Container Wise','Container Wise')],string="Billing Type")
 	types     = fields.Selection([('trnas','Transporter'),('freight_fwd','Freight Forwarder'),('ship_line','Shipping Line'),('storage','Storage')],string="Type")

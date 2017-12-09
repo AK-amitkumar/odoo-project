@@ -9,6 +9,7 @@ class CustomerPayment(models.Model):
 	_rec_name = 'number'
 
 	number              = fields.Char()
+	number1              = fields.Char(string="Number")
 	amount              = fields.Float(string="Paid Amount" )
 	date                = fields.Date(string="Date", required = True ,default=fields.Date.context_today) 
 	e_amount            = fields.Float(string="Advance Amount")
@@ -203,7 +204,7 @@ class CustomerPayment(models.Model):
 		for line in journal_entries.line_ids:
 			if line.identify=='d':
 				line.credit = 0
-				line.debit = debit_amount
+				# line.debit = debit_amount
 			elif line.identify=='c':
 				line.debit = 0
 				line.credit = credit_amount
@@ -277,7 +278,13 @@ class CustomerPayment(models.Model):
 			if x.reconcile == True:
 				x.invoice_id.write({'state':"open"})
 
-		
+	@api.model
+	def create(self, vals):
+		vals['number'] = self.env['ir.sequence'].next_by_code('customer.payment')
+		vals['number1'] = self.env['ir.sequence'].next_by_code('supplier.payment')
+		new_record = super(CustomerPayment, self).create(vals)
+		return new_record
+
 class AccountMoveRemoveValidation(models.Model):
 	_inherit = "account.move"
 	@api.multi
