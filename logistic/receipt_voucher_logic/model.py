@@ -19,21 +19,36 @@
 #
 ###################################################
 from openerp import models, fields, api
+from num2words import num2words
 
 class SampleDevelopmentReport(models.AbstractModel):
-    _name = 'report.receipt_voucher_logic.module_report'
+	_name = 'report.receipt_voucher_logic.module_report'
 
-    @api.model
-    def render_html(self,docids, data=None):
-        report_obj = self.env['report']
-        report = report_obj._get_report_from_name('receipt_voucher_logic.module_report')
-        records = self.env['customer.payment.bcube'].browse(docids)
+	@api.model
+	def render_html(self,docids, data=None):
+		report_obj = self.env['report']
+		report = report_obj._get_report_from_name('receipt_voucher_logic.module_report')
+		records = self.env['customer.payment.bcube'].browse(docids)
 
-        docargs = {
-            'doc_ids': docids,
-            'doc_model': 'customer.payment.bcube',
-            'docs': records,
-            'data': data,
-            }
+		users = self.env['res.users'].search([]) 
+		def getname(): 
+			active_user = self._uid 
+			for x in users: 
+				if active_user == x.id: 
+					return x.name
 
-        return report_obj.render('receipt_voucher_logic.module_report', docargs)
+		def convert_amount(attrs):
+			word = num2words(attrs)
+			word = word.title() + " " + "SAR Only"
+			return word
+
+		docargs = {
+			'doc_ids': docids,
+			'doc_model': 'customer.payment.bcube',
+			'docs': records,
+			'data': data,
+			'getname':getname,
+			'convert_amount':convert_amount,
+			}
+
+		return report_obj.render('receipt_voucher_logic.module_report', docargs)

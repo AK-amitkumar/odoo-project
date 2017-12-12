@@ -32,6 +32,7 @@
 								}
 								table tr td:last-child {
 									border-right: none;
+									width: 250px;
 								}
 								table tr:last-child td,
 								table tr.second-one td {
@@ -96,7 +97,7 @@
 											</td>
 											<td class="solid1">
 												<span>Amount:  المبلغ  </span>
-												<span t-esc="o.total"></span>
+												<span t-esc="o.t_amount"></span>
 											</td>							
 										</tr>
 										<tr>
@@ -104,7 +105,7 @@
 												<span class="solid">Received from</span>
 											</td>
 											<td class="solid2">
-												<span>789</span>
+												<span t-esc="o.partner_id.name"></span>
 											</td>
 											<td class="solid1">
 												<span>مستلم من</span>
@@ -113,10 +114,10 @@
 
 										<tr>
 											<td>
-												<span class="solid">Amount In Word:  SAR  ONLY</span>
+												<span class="solid">Amount In Word:</span>
 											</td>
 											<td class="solid2">
-												<span>789</span>
+												<span t-esc="convert_amount(o.t_amount)"></span>
 											</td>
 											<td class="solid1">
 												<span>المبلغ   ريال لاغير</span>
@@ -128,7 +129,7 @@
 												<span class="solid">Cash - نقدا</span>
 											</td>
 											<td class="solid2">
-												<span> شيك رقم / Yes </span>
+												<span t-esc="o.journal_id.name"></span>
 											</td>
 											<td class="solid1">
 												<span>Bank - بنك</span>
@@ -139,7 +140,7 @@
 												<span class="solid">Being:</span>
 											</td>
 											<td class="solid2">
-												<span></span>
+												<span>_____________________</span>
 											</td>
 											<td class="solid1">
 												<span>عبارة عن</span>
@@ -151,7 +152,7 @@
 												<span class="solid">Sig Received </span>
 											</td>
 											<td class="solid2">
-												<span>789</span>
+												<span t-esc="getname()"></span>
 											</td>
 											<td class="solid1">
 												<span>توقيع المستلم</span>

@@ -18,7 +18,7 @@
 									width: 100%;
 								}
 								.center-data {
-									width: 1000px;
+									width: 100%;
 									margin: 0px auto;
 								}
 								table {
@@ -66,6 +66,11 @@
 								table tr td:first-child {
 									width: 325px;
 								}
+								.liquid1 {
+									text-align: center;
+									padding : 0px 15px;
+									font-weight: bold;
+								}
 
 							</style>
 
@@ -81,23 +86,23 @@
 									<h4 style="text-align: center;">اذن دفع</h4>
 									<table width="100%">
 										<tr>
-											<td><span class="solid">Date: التاريخ </span><span class="liquid"> 13/11/2017</span></td>
+											<td><span class="solid">Date التاريخ </span><span class="liquid1" t-esc="o.date"></span></td>
 											<td colspan="2"  class="solid1" >
 												<span>Amount:  المبلغ  </span>
-												<span>789</span>
+												<span class="liquid1" t-esc="o.t_amount"></span>
 											</td>
 										</tr>
 										<tr>
-											<td><span class="solid">Pay to:</span></td>
-											<td  class="solid2"><span>789</span></td>
+											<td><span class="solid">Pay to</span></td>
+											<td  class="solid2"><span t-esc="o.partner_id.name"></span></td>
 											<td class="solid1"><span>ادفعوا للسيد</span></td>
 										</tr>
 										<tr>
 											<td>
-												<span class="solid">Amount In Word:  SAR  ONLY</span>
+												<span class="solid">Amount In Word</span>
 											</td>
 											<td  class="solid2">
-												<span>789</span>
+												<span t-esc="convert_amount(o.t_amount)"> </span>
 											</td>
 											<td class="solid1" >
 												<span>المبلغ   ريال لاغير</span>
@@ -108,7 +113,7 @@
 												<span class="solid">Cash - نقدا</span>
 											</td>
 											<td class="solid2">
-												<span> شيك رقم / Yes </span>
+												<span t-esc="o.journal_id.name"></span>
 											</td>
 											<td class="solid1">
 												<span>Bank - بنك</span>
@@ -119,7 +124,7 @@
 												<span class="solid">Being:</span>
 											</td>
 											<td class="solid2">
-												<span></span>
+												<span class="solid1">_________________________</span>
 											</td>
 											<td class="solid1">
 												<span>عبارة عن</span>
@@ -131,7 +136,7 @@
 											<td class="solid1"><span>Receiver توقيع المدير</span></td>
 										</tr>
 										<tr>
-											<td>----------------------------------</td>
+											<td class="solid">----------------------------------</td>
 											<td class="solid2">----------------------------------</td>
 											<td class="solid1">----------------------------------</td>
 										</tr>

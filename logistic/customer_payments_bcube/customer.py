@@ -6,10 +6,10 @@ from openerp.exceptions import ValidationError
 
 class CustomerPayment(models.Model): 
 	_name = 'customer.payment.bcube' 
-	_rec_name = 'number'
+	_rec_name = 'partner_id'
 
 	number              = fields.Char()
-	number1              = fields.Char(string="Number")
+	number1             = fields.Char(string="Number")
 	amount              = fields.Float(string="Paid Amount" )
 	date                = fields.Date(string="Date", required = True ,default=fields.Date.context_today) 
 	e_amount            = fields.Float(string="Advance Amount")
@@ -281,7 +281,7 @@ class CustomerPayment(models.Model):
 	@api.model
 	def create(self, vals):
 		vals['number'] = self.env['ir.sequence'].next_by_code('customer.payment')
-		vals['number1'] = self.env['ir.sequence'].next_by_code('supplier.payment')
+		vals['number1'] = self.env['ir.sequence'].next_by_code('vendor.payment')
 		new_record = super(CustomerPayment, self).create(vals)
 		return new_record
 

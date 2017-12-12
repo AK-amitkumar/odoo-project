@@ -88,13 +88,19 @@
 </record>
 
 
+<record id="violation_seq_id" model="ir.sequence">
+  	<field name="name">violation_seq_id</field>
+  	<field name="code">recrod.number</field>
+  	<field name="prefix">Trafic Case</field>
+  	<field name="padding">4</field>
+</record> 
+
 <record id="police_seq_id" model="ir.sequence">
   	<field name="name">police_seq_id</field>
   	<field name="code">rec.number</field>
   	<field name="prefix">Case</field>
   	<field name="padding">4</field>
-</record> 
-
+</record>
 
 
 <record id="party_view_form" model="ir.ui.view"> 
@@ -106,7 +112,6 @@
 				<h3>Case Information</h3>
 				<group name="group_top">
 					<group name="group_left">
-						<field name="party"/> 
 						<field name="name"/>
 						<field name="id_num"/> 
 						<field name="what_found"/> 
@@ -133,7 +138,7 @@
 					</group>
 
 					<group name="group_right">
-						<field name="complaint_detail"/> 
+						<field name="companion_detail"/> 
 					</group>
 				</group>
 				<field name="previous_record_link" attrs="{'invisible': [('previous_record','=',False)]}">
@@ -141,14 +146,14 @@
 	                <tree>
 	                    <field name="ministry_name"/>
 	                    <field name="no_complaint"/>
-	                    <field name="no_complaint"/>
+	                    <field name="complaint_time"/>
 	                    <field name="date"/>
 	                    <field name="day"/>
 	                </tree>
 	            </field> 
 
-	            <field name="complaint_detail_link" attrs="{'invisible': [('complaint_detail','=',False)]}">
-				<h3>Complaints Details</h3>
+	            <field name="companion_detail_link" attrs="{'invisible': [('companion_detail','=',False)]}">
+				<h3>Companion Details</h3>
 	                <tree>
 	                    <field name="name"/>
 	                    <field name="country"/>
@@ -156,18 +161,22 @@
 	                    <field name="id_type"/>
 	                    <field name="relation"/>
 	                </tree>
-	            </field> 
-                    <field name="additional"/>
+	            </field>
+				<h3>Remarks</h3>
+                <field name="remark"/>
+                <br></br>
+				<h3>Additional Details</h3>
+                <field name="additional"/>
 			</sheet> 
 		</form> 
 	</field> 
 </record>
 
-<record id="complaint_detail_view_form" model="ir.ui.view"> 
-	<field name="name">Complaints Details</field> 
-	<field name="model">complaint.detail</field> 
+<record id="companion_detail_view_form" model="ir.ui.view"> 
+	<field name="name">Companion Details</field> 
+	<field name="model">companion.detail</field> 
 	<field name="arch" type="xml"> 
-		<form string="Complaints Details">
+		<form string="Companion Details">
 			<sheet>
 				<group name="group_top">
 					<group name="group_left">
@@ -187,6 +196,8 @@
 						<field name="mean_trans"/> 
 					</group>
 				</group>
+				<h3>Remarks</h3>
+                <field name="remark"/>
 			</sheet> 
 		</form> 
 	</field> 
@@ -203,7 +214,7 @@
 					<group name="group_left">
 						<field name="ministry_name"/> 
 						<field name="no_complaint"/> 
-						<field name="no_complaint"/> 
+						<field name="complaint_time"/> 
 					</group>
 
 					<group name="group_right">
@@ -211,9 +222,167 @@
 						<field name="day"/> 
 					</group>
 				</group>
+				<h3>Remarks</h3>
+                <field name="remark"/>
 			</sheet> 
 		</form> 
 	</field> 
+</record>
+
+<record id="trafic_violation_view_form" model="ir.ui.view"> 
+	<field name="name">Trafic Violation Records</field> 
+	<field name="model">violation.detail</field> 
+	<field name="arch" type="xml"> 
+		<form string="Trafic Violation Records">
+			<header>
+                <button name="confirm" type="object" class= "oe_highlight" string="confirmed"/>
+            </header>
+			<sheet>
+				<h3>Trafic Violation Details</h3>
+				<group name="group_top">
+					<group name="group_left">
+						<field name="number" readonly="1"/> 
+						<field name="day"/> 
+						<field name="road_name"/> 
+						<field name="location_name"/> 
+						<field name="direction_name"/> 
+						<field name="police_officer"/> 
+						<field name="name_officer_2"/> 
+						<field name="receiving_party"/> 
+						<field name="type_case"/> 
+						<field name="case_detail"/> 
+					</group>
+
+					<group name="group_right">
+						<field name="date" default_focus="1"/> 
+						<field name="time"/>
+						<field name="center_name"/> 
+						<field name="digital_tag"/> 
+						<field name="Violation"/> 
+						<field name="Code"/> 
+						<field name="rank_officer"/> 
+						<field name="rank_officer_2"/> 
+						<field name="receiving_party_rank"/> 
+					</group>
+				</group>
+				<h3>Violation Information</h3>
+				<field name="party_link">
+	                <tree>
+	                    <field name="party"/>
+	                    <field name="car_name"/>
+	                    <field name="driver_country"/>
+	                    <field name="id_type"/>
+	                    <field name="oftc"/>
+	                </tree>
+	            </field> 
+
+			</sheet> 
+		</form> 
+	</field> 
+</record>
+
+<record id="trafic_violation_tree_view" model="ir.ui.view">
+    <field name="name">trafic_violation_tree_view</field>
+    <field name="model">violation.detail</field>
+    <field name="type">tree</field>
+    <field name="arch" type="xml">
+        <tree string="Trafic Violation Details">
+			<field name="number"/> 
+			<field name="date"/> 
+            <field name="day"/> 
+			<field name="time"/>
+			<field name="road_name"/> 
+			<field name="location_name"/> 
+			<field name="direction_name"/> 
+			<field name="digital_tag"/> 
+			<field name="Violation"/> 
+			<field name="center_name"/> 
+			<field name="Code"/> 
+			<field name="police_officer"/> 
+			<field name="rank_officer"/> 
+        </tree>
+    </field>
+</record>
+
+<record id="trafic_violation_party_view_form" model="ir.ui.view"> 
+	<field name="name">Party  Records</field> 
+	<field name="model">trafic.party.detail</field> 
+	<field name="arch" type="xml"> 
+		<form string="Party  Records">
+			<sheet>
+				<h3>Case Information</h3>
+				<group name="group_top">
+					<group name="group_left">
+						<field name="party"/> 
+						<field name="name"/>
+						<field name="driver_country"/> 
+						<field name="id_num"/> 
+						<field name="dln"/> 
+					</group>
+
+					<group name="group_right">
+						<field name="car_name"/>
+						<field name="car_plate"/>
+						<field name="id_type"/> 
+						<field name="oftc"/> 
+						<field name="remark"/> 
+					</group>
+				</group>
+
+				<group name="group_top">
+					<group name="group_left">
+						<field name="other_onwer"/> 
+					</group>
+
+					<group name="group_right">
+					</group>
+				</group>
+				<field name="owner_detail" attrs="{'invisible': [('other_onwer','=',False)]}">
+				<h3>Owner Details</h3>
+	                <tree>
+	                    <field name="name"/>
+	                    <field name="country"/>
+	                    <field name="id_num"/>
+	                    <field name="id_type"/>
+	                    <field name="mobile"/>
+	                </tree>
+	            </field>
+
+			</sheet> 
+		</form> 
+	</field> 
+</record>
+
+<record id="owner_detail_view_form" model="ir.ui.view"> 
+	<field name="name">Owner Detail</field> 
+	<field name="model">owner.detail</field> 
+	<field name="arch" type="xml"> 
+		<form string="Owner Detail">
+			<sheet>
+				<group name="group_top">
+					<group name="group_left">
+						<field name="name"/> 
+						<field name="country"/> 
+						<field name="mobile"/> 
+					</group>
+
+					<group name="group_right">
+						<field name="id_num"/> 
+						<field name="id_type"/> 
+						<field name="remark"/> 
+					</group>
+				</group>
+			</sheet> 
+		</form> 
+	</field> 
+</record>
+
+<record id="violation_act_id" model="ir.actions.act_window">
+	<field name="name">Trafic Voilation Record</field>
+	<field name="type">ir.actions.act_window</field>
+	<field name="res_model">violation.detail</field>
+	<field name="view_type">form</field>
+	<field name="view_mode">tree,form</field>
 </record>
 
 <menuitem id="police_main_menu_id" 
@@ -222,6 +391,11 @@
 <menuitem id="police_menu_id" 
   	name="Police Record" 
   	action="police_act_id" 
+  	parent="police_main_menu_id"/>
+
+<menuitem id="violation_menu_id" 
+  	name="Trafic Violation Record" 
+  	action="violation_act_id" 
   	parent="police_main_menu_id"/>
 
 

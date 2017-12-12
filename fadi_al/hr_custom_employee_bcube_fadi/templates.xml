@@ -1933,7 +1933,7 @@
 		<menuitem id="branch_ext_menu" name="Branch"
 			parent="hr.menu_hr_department_tree" sequence="-2" action="res_company_branch_act"/>
 
-		<menuitem id="hr.menu_hr_department_tree" name="Departments"
+		<menuitem id="hr.menu_hr_department_tree" name="Department"
 			  action="hr.open_module_tree_department"/>
 
 		<menuitem id="division_info_menu" name="Division Info"
@@ -1941,7 +1941,7 @@
 			  action="division_info_act"
 			  sequence ="1"/>
 
-		<menuitem id="hr.menu_hr_department_tree1" name="Departments"
+		<menuitem id="hr.menu_hr_department_tree1" name="Department"
 			  parent="hr.menu_hr_department_tree"
 			  action="hr.open_module_tree_department"
 			  sequence ="2"/>

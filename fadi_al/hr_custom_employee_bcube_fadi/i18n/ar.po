@@ -1,13 +1,13 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-# 	* hr_custom_employee_bcube_fadi_fadi
+# 	* hr_custom_employee_bcube_fadi
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-11-04 06:37+0000\n"
-"PO-Revision-Date: 2017-11-04 14:33+0300\n"
+"POT-Creation-Date: 2017-12-11 10:12+0000\n"
+"PO-Revision-Date: 2017-12-11 15:49+0300\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,24 +18,24 @@ msgstr ""
 "Language: ar\n"
 
 #. module: hr_custom_employee_bcube_fadi
-#: selection:hr.contract,n_period:0
+#: selection:hr.contract,n_period:0 selection:hr.exit.reentry,months:0
 msgid "1 Months"
 msgstr "1 شهر"
 
 #. module: hr_custom_employee_bcube_fadi
-#: selection:hr.contract,dependent:0
+#: selection:hr.contract,dependent:0 selection:hr.ticket,dependent:0
 msgid "1+1 "
-msgstr "1  1"
+msgstr "1  +1"
 
 #. module: hr_custom_employee_bcube_fadi
-#: selection:hr.contract,dependent:0
+#: selection:hr.contract,dependent:0 selection:hr.ticket,dependent:0
 msgid "1+2 "
-msgstr ""
+msgstr "1  +2"
 
 #. module: hr_custom_employee_bcube_fadi
-#: selection:hr.contract,dependent:0
+#: selection:hr.contract,dependent:0 selection:hr.ticket,dependent:0
 msgid "1+3 "
-msgstr ""
+msgstr "(13)"
 
 #. module: hr_custom_employee_bcube_fadi
 #: selection:hr.contract,c_vacation:0 selection:hr.contract,nod:0
@@ -48,7 +48,7 @@ msgid "18 Months"
 msgstr "18 شهرا"
 
 #. module: hr_custom_employee_bcube_fadi
-#: selection:hr.contract,n_period:0
+#: selection:hr.contract,n_period:0 selection:hr.exit.reentry,months:0
 msgid "2 Months"
 msgstr "أشهر"
 
@@ -59,11 +59,22 @@ msgstr "24 شهر"
 
 #. module: hr_custom_employee_bcube_fadi
 #: selection:hr.contract,n_period:0 selection:hr.contract,probation:0
+#: selection:hr.exit.reentry,months:0
 msgid "3 Months"
 msgstr "3 أشهر"
 
 #. module: hr_custom_employee_bcube_fadi
-#: selection:hr.contract,probation:0
+#: selection:hr.exit.reentry,months:0
+msgid "4 Months"
+msgstr "4 اشهر"
+
+#. module: hr_custom_employee_bcube_fadi
+#: selection:hr.exit.reentry,months:0
+msgid "5 Months"
+msgstr "5 اشهر"
+
+#. module: hr_custom_employee_bcube_fadi
+#: selection:hr.contract,probation:0 selection:hr.exit.reentry,months:0
 msgid "6 Months"
 msgstr "6 اشهر"
 
@@ -93,11 +104,6 @@ msgid "Address"
 msgstr "العنوان"
 
 #. module: hr_custom_employee_bcube_fadi
-#: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_employee_address_ksa
-msgid "Address in KSA"
-msgstr "العنوان في المملكة العربية السعودية"
-
-#. module: hr_custom_employee_bcube_fadi
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_contract_adults
 msgid "Adult(s)"
 msgstr "اشخاص بالغين"
@@ -125,7 +131,7 @@ msgid "Alert To"
 msgstr "تنبيه إلى"
 
 #. module: hr_custom_employee_bcube_fadi
-#: selection:hr.contract,dependent:0
+#: selection:hr.contract,dependent:0 selection:hr.ticket,dependent:0
 msgid "All "
 msgstr "الكل"
 
@@ -162,6 +168,7 @@ msgid "Arabic name"
 msgstr "اسم عربي"
 
 #. module: hr_custom_employee_bcube_fadi
+#: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_employee_family_iqama_arrival_date
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_employee_iqama_arrival_date
 msgid "Arrival Date in Suadi"
 msgstr "تاريخ الدخول"
@@ -182,6 +189,11 @@ msgid "Asset Documents"
 msgstr "وثائق الأصول"
 
 #. module: hr_custom_employee_bcube_fadi
+#: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_ticket_attach
+msgid "Attach"
+msgstr "ارفاق / الحاق"
+
+#. module: hr_custom_employee_bcube_fadi
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_document_asset_attach
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_document_com_attach
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_documents_attach
@@ -189,7 +201,7 @@ msgid "Attach File"
 msgstr "أرفق ملف"
 
 #. module: hr_custom_employee_bcube_fadi
-#: selection:hr.contract,status:0
+#: selection:hr.contract,status:0 selection:hr.ticket,status:0
 msgid "Bachelor"
 msgstr "حامل بكالوريا"
 
@@ -207,6 +219,21 @@ msgstr "رمز المصرف"
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_employee_bg
 msgid "Blood Group"
 msgstr "فصيلة الدم"
+
+#. module: hr_custom_employee_bcube_fadi
+#: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_ticket_book_by
+msgid "Booked By"
+msgstr "حجز بواسطة"
+
+#. module: hr_custom_employee_bcube_fadi
+#: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_ticket_book_date
+msgid "Booking Date"
+msgstr "وقت الحجز"
+
+#. module: hr_custom_employee_bcube_fadi
+#: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_ticket_receive
+msgid "Booking Received"
+msgstr "تم استلام الحجز"
 
 #. module: hr_custom_employee_bcube_fadi
 #: model:ir.actions.act_window,name:hr_custom_employee_bcube_fadi.res_company_branch_act
@@ -235,6 +262,11 @@ msgid "Branch Tagline"
 msgstr "فرع تاجلين"
 
 #. module: hr_custom_employee_bcube_fadi
+#: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_ticket_break_jun
+msgid "Break Journey"
+msgstr "رحلة كسر"
+
+#. module: hr_custom_employee_bcube_fadi
 #: selection:employee.card,card_type:0
 msgid "Business Card"
 msgstr "بطاقة العمل"
@@ -243,6 +275,17 @@ msgstr "بطاقة العمل"
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_res_sponsor_cr_no
 msgid "CR No"
 msgstr "رقم CR"
+
+#. module: hr_custom_employee_bcube_fadi
+#: model:ir.ui.view,arch_db:hr_custom_employee_bcube_fadi.exit_reentry_form_view
+msgid "Cancel"
+msgstr "إلغاء"
+
+#. module: hr_custom_employee_bcube_fadi
+#: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_ticket_cancel_ticket
+#: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_ticket_cancellation
+msgid "Cancel Ticket"
+msgstr "إلغاء التذاكر"
 
 #. module: hr_custom_employee_bcube_fadi
 #: model:ir.ui.view,arch_db:hr_custom_employee_bcube_fadi.cards_form_view
@@ -307,14 +350,14 @@ msgid "Certification Relation"
 msgstr "علاقة التصديق"
 
 #. module: hr_custom_employee_bcube_fadi
+#: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_ticket_reissue_change_sec
+msgid "Change Sector"
+msgstr "تغيير القطاع"
+
+#. module: hr_custom_employee_bcube_fadi
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_maintenance_equipment_chasi_no
 msgid "Chassis No"
 msgstr "رقم الهيكل"
-
-#. module: hr_custom_employee_bcube_fadi
-#: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_contract_children
-msgid "Children"
-msgstr "الأطفال"
 
 #. module: hr_custom_employee_bcube_fadi
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_employee_p_city
@@ -334,14 +377,14 @@ msgid "Clearing Authority"
 msgstr "سلطة المقاصة"
 
 #. module: hr_custom_employee_bcube_fadi
-#: model:ir.actions.act_window,name:hr_custom_employee_bcube_fadi.users_company1
 #: model:ir.model,name:hr_custom_employee_bcube_fadi.model_res_company
-#: model:ir.ui.menu,name:hr_custom_employee_bcube_fadi.users_company_extension_menu_item1
 msgid "Companies"
 msgstr "شركات"
 
 #. module: hr_custom_employee_bcube_fadi
 #: selection:document.list,category:0
+#: model:ir.actions.act_window,name:hr_custom_employee_bcube_fadi.users_company1
+#: model:ir.ui.menu,name:hr_custom_employee_bcube_fadi.users_company_extension_menu_item1
 #: model:ir.ui.view,arch_db:hr_custom_employee_bcube_fadi.res_company_ext
 msgid "Company"
 msgstr "الشركة"
@@ -350,6 +393,11 @@ msgstr "الشركة"
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_contract_c_accommodation
 msgid "Company Accommodation"
 msgstr "شركة الإقامة"
+
+#. module: hr_custom_employee_bcube_fadi
+#: model:ir.ui.view,arch_db:hr_custom_employee_bcube_fadi.hr_extension_form_view
+msgid "Company Asset"
+msgstr "أصول الشركة"
 
 #. module: hr_custom_employee_bcube_fadi
 #: model:ir.actions.act_window,name:hr_custom_employee_bcube_fadi.document_com_act
@@ -381,7 +429,7 @@ msgid "Company Vehicle"
 msgstr "سيارة من الشركة للاستخدام الشخصي"
 
 #. module: hr_custom_employee_bcube_fadi
-#: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_res_company_tree_company_tree
+#: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_res_company_tree1_company_tree
 msgid "Company tree"
 msgstr "شجرة الشركة"
 
@@ -389,6 +437,17 @@ msgstr "شجرة الشركة"
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_qualification_comp_date
 msgid "Completion Date"
 msgstr "تاريخ الإنجاز"
+
+#. module: hr_custom_employee_bcube_fadi
+#: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_ticket_conf_book
+#: model:ir.ui.view,arch_db:hr_custom_employee_bcube_fadi.ticket_form_view
+msgid "Confirm Booking"
+msgstr "تأكيد الحجز"
+
+#. module: hr_custom_employee_bcube_fadi
+#: model:ir.ui.view,arch_db:hr_custom_employee_bcube_fadi.ticket_form_view
+msgid "Confirm Booking Details"
+msgstr "تأكيد تفاصيل الحجز"
 
 #. module: hr_custom_employee_bcube_fadi
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_qualification_contact_email
@@ -403,6 +462,7 @@ msgstr "اسم جهة الاتصال"
 #. module: hr_custom_employee_bcube_fadi
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_employee_contact_no
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_employee_p_contact_no
+#: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_ticket_contact_no
 msgid "Contact No"
 msgstr "رقم جهة الاتصال"
 
@@ -444,16 +504,38 @@ msgid "Contract Information"
 msgstr "معلومات العقد"
 
 #. module: hr_custom_employee_bcube_fadi
+#: selection:hr.exit.reentry,leave_type:0
+msgid "Contractual Leave"
+msgstr "إجازة تعاقدية"
+
+#. module: hr_custom_employee_bcube_fadi
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_contract_c_vacation
 msgid "Contractual Vacation"
 msgstr "عطلة تعاقدية"
 
 #. module: hr_custom_employee_bcube_fadi
+#: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_employee_country_idd
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_employee_p_country_id
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_res_sponsor_country_id
 #: model:ir.ui.view,arch_db:hr_custom_employee_bcube_fadi.sponsor_form_view
 msgid "Country"
 msgstr "البلد"
+
+#. module: hr_custom_employee_bcube_fadi
+#: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_ticket_create_book
+#: model:ir.ui.view,arch_db:hr_custom_employee_bcube_fadi.ticket_form_view
+msgid "Create Booking"
+msgstr "إنشاء الحجز"
+
+#. module: hr_custom_employee_bcube_fadi
+#: model:ir.ui.view,arch_db:hr_custom_employee_bcube_fadi.ticket_form_view
+msgid "Create Booking Details"
+msgstr "إنشاء تفاصيل الحجز"
+
+#. module: hr_custom_employee_bcube_fadi
+#: model:ir.ui.view,arch_db:hr_custom_employee_bcube_fadi.leaving_form_view
+msgid "Create Clearence"
+msgstr "إنشاء كلارنس"
 
 #. module: hr_custom_employee_bcube_fadi
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_category_info_create_uid
@@ -468,6 +550,7 @@ msgstr "البلد"
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_employee_card_create_uid
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_employee_clearance_create_uid
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_employee_eos_create_uid
+#: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_employee_family_iqama_create_uid
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_employee_grops_create_uid
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_employee_iqama_create_uid
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_employee_payslip_create_uid
@@ -475,8 +558,12 @@ msgstr "البلد"
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_certification_create_uid
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_dependent_create_uid
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_documents_create_uid
+#: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_exit_reentry_create_uid
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_insurance_create_uid
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_qualification_create_uid
+#: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_ticket_create_uid
+#: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_ticket_dependent_create_uid
+#: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_ticket_reissue_create_uid
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_trainings_create_uid
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_issued_place_issued_place_create_uid
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_it_department_create_uid
@@ -484,7 +571,7 @@ msgstr "البلد"
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_projects_projects_create_uid
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_relation_relation_create_uid
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_religion_religion_create_uid
-#: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_res_company_tree_create_uid
+#: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_res_company_tree1_create_uid
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_res_sponsor_create_uid
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_uni_name_uni_name_create_uid
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_vac_des_vac_des_create_uid
@@ -505,6 +592,7 @@ msgstr "تم إنشاء من قبل"
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_employee_card_create_date
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_employee_clearance_create_date
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_employee_eos_create_date
+#: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_employee_family_iqama_create_date
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_employee_grops_create_date
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_employee_iqama_create_date
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_employee_payslip_create_date
@@ -512,8 +600,12 @@ msgstr "تم إنشاء من قبل"
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_certification_create_date
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_dependent_create_date
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_documents_create_date
+#: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_exit_reentry_create_date
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_insurance_create_date
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_qualification_create_date
+#: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_ticket_create_date
+#: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_ticket_dependent_create_date
+#: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_ticket_reissue_create_date
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_trainings_create_date
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_issued_place_issued_place_create_date
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_it_department_create_date
@@ -521,13 +613,23 @@ msgstr "تم إنشاء من قبل"
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_projects_projects_create_date
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_relation_relation_create_date
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_religion_religion_create_date
-#: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_res_company_tree_create_date
+#: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_res_company_tree1_create_date
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_res_sponsor_create_date
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_uni_name_uni_name_create_date
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_vac_des_vac_des_create_date
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_vehicles_vehicles_create_date
 msgid "Created on"
 msgstr "أنشئ في"
+
+#. module: hr_custom_employee_bcube_fadi
+#: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_ticket_cnr
+msgid "Credit Note Number"
+msgstr "رقم ملاحظة الائتمان"
+
+#. module: hr_custom_employee_bcube_fadi
+#: selection:hr.ticket,priority:0
+msgid "Critical"
+msgstr "خطيرة"
 
 #. module: hr_custom_employee_bcube_fadi
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_employee_eos_currency
@@ -540,6 +642,16 @@ msgid "Current Location"
 msgstr "الموقع الحالي"
 
 #. module: hr_custom_employee_bcube_fadi
+#: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_ticket_cutt_date
+msgid "Cutt Off Date"
+msgstr "كوت إيقاف التاريخ"
+
+#. module: hr_custom_employee_bcube_fadi
+#: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_ticket_dob
+msgid "DOB"
+msgstr "تاريخ الميلاد"
+
+#. module: hr_custom_employee_bcube_fadi
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_employee_eos_date
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_employee_payslip_date
 msgid "Date"
@@ -550,29 +662,21 @@ msgstr "التاريخ"
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_employee_iqama_dob
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_dependent_dob
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_insurance_dob
+#: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_ticket_dependent_dob
 msgid "Date of Birth"
 msgstr "تاريخ الميلاد"
 
 #. module: hr_custom_employee_bcube_fadi
-#: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_employee_grops_dob_hijri
-msgid "Date of Birth(Hijri)"
-msgstr "تاريخ الميلاد (هجري)"
-
-#. module: hr_custom_employee_bcube_fadi
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_certification_exp_date
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_dependent_date_expiry
+#: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_ticket_dependent_date_expiry
 msgid "Date of Expiry"
 msgstr "تاريخ الانتهاء"
 
 #. module: hr_custom_employee_bcube_fadi
-#: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_employee_iqama_date_hijri
-#: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_documents_date_hijri
-msgid "Date of Expiry(Hijri)"
-msgstr "تاريخ انتهاء الصلاحية (هجري)"
-
-#. module: hr_custom_employee_bcube_fadi
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_certification_issue_date
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_dependent_date_issue
+#: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_ticket_dependent_date_issue
 msgid "Date of Issue"
 msgstr "تاريخ الإصدار"
 
@@ -582,8 +686,15 @@ msgid "Deductions"
 msgstr "الخصومات"
 
 #. module: hr_custom_employee_bcube_fadi
+#: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_department_dep_link
+msgid "Dep link"
+msgstr "الرابط"
+
+#. module: hr_custom_employee_bcube_fadi
+#: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_category_info_department
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_contract_amedment_department
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_department_info_department
+#: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_designation_info_department
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_employee_card_department
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_employee_clearance_department
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_employee_eos_department
@@ -591,6 +702,7 @@ msgstr "الخصومات"
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_employee_iqama_department
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_eos_leaving_department
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_employee_department
+#: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_exit_reentry_department
 msgid "Department"
 msgstr "قسم"
 
@@ -613,23 +725,45 @@ msgstr "قسم العلاقة"
 
 #. module: hr_custom_employee_bcube_fadi
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_contract_departure
+#: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_ticket_departure
+#: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_ticket_reissue_departure
 msgid "Departure Air Port"
 msgstr "مطار المغادرة"
+
+#. module: hr_custom_employee_bcube_fadi
+#: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_ticket_departure_date
+#: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_ticket_dependent_departure_date
+#: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_ticket_reissue_departure_date
+msgid "Departure Date"
+msgstr "تاريخ الإنطلاق"
 
 #. module: hr_custom_employee_bcube_fadi
 #: selection:hr.documents,holder:0
 #: model:ir.actions.act_window,name:hr_custom_employee_bcube_fadi.dependent_list_action
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_contract_dependent
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_employee_dependent_id
+#: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_ticket_dependent
+#: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_ticket_dependent_id
 #: model:ir.ui.menu,name:hr_custom_employee_bcube_fadi.ddependent_menu
 #: model:ir.ui.view,arch_db:hr_custom_employee_bcube_fadi.hr_extension_form_view
+#: model:ir.ui.view,arch_db:hr_custom_employee_bcube_fadi.ticket_form_view
 msgid "Dependent"
 msgstr "توابع"
+
+#. module: hr_custom_employee_bcube_fadi
+#: model:ir.ui.view,arch_db:hr_custom_employee_bcube_fadi.ticket_dependent_form_view
+msgid "Dependent Details"
+msgstr "التفاصيل التابعة"
 
 #. module: hr_custom_employee_bcube_fadi
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_dependent_dependent_relation
 msgid "Dependent relation"
 msgstr "علاقة تابعة"
+
+#. module: hr_custom_employee_bcube_fadi
+#: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_ticket_dependent_dependent_ticket
+msgid "Dependent ticket"
+msgstr "تذاكر التابعين"
 
 #. module: hr_custom_employee_bcube_fadi
 #: model:ir.ui.view,arch_db:hr_custom_employee_bcube_fadi.hr_extension_form_view
@@ -638,13 +772,14 @@ msgstr "نشر"
 
 #. module: hr_custom_employee_bcube_fadi
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_eos_leaving_description
+#: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_ticket_desc
 #: model:ir.ui.view,arch_db:hr_custom_employee_bcube_fadi.leaving_form_view
 msgid "Description"
 msgstr "وصف"
 
 #. module: hr_custom_employee_bcube_fadi
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_contract_amedment_job
-#: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_employee_r_Designation
+#: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_employee_r_designation
 msgid "Designation"
 msgstr "المسمى الوظيفي"
 
@@ -652,7 +787,6 @@ msgstr "المسمى الوظيفي"
 #: model:ir.ui.view,arch_db:hr_custom_employee_bcube_fadi.designation_form_view
 #: model:ir.ui.view,arch_db:hr_custom_employee_bcube_fadi.designation_tree_view
 #: model:ir.ui.view,arch_db:hr_custom_employee_bcube_fadi.document_list_tree_view
-
 msgid "Designation Details"
 msgstr "تفاصيل التعيين"
 
@@ -660,15 +794,15 @@ msgstr "تفاصيل التعيين"
 #: model:ir.actions.act_window,name:hr_custom_employee_bcube_fadi.designation_info_act
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_employee_designation
 #: model:ir.ui.menu,name:hr_custom_employee_bcube_fadi.designation_info_menu
-
 msgid "Designation Info"
-msgstr "معلومات التعيين"
+msgstr "المنصب"
 
 #. module: hr_custom_employee_bcube_fadi
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_contract_destination
-
+#: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_ticket_destination
+#: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_ticket_reissue_destination
 msgid "Destination Air Port"
-msgstr "الوجهة الجوية الميناء"
+msgstr "الوجهة الجوية "
 
 #. module: hr_custom_employee_bcube_fadi
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_category_info_display_name
@@ -683,6 +817,7 @@ msgstr "الوجهة الجوية الميناء"
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_employee_card_display_name
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_employee_clearance_display_name
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_employee_eos_display_name
+#: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_employee_family_iqama_display_name
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_employee_grops_display_name
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_employee_iqama_display_name
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_employee_payslip_display_name
@@ -691,8 +826,12 @@ msgstr "الوجهة الجوية الميناء"
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_contract_dn
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_dependent_display_name
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_documents_display_name
+#: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_exit_reentry_display_name
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_insurance_display_name
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_qualification_display_name
+#: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_ticket_dependent_display_name
+#: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_ticket_display_name
+#: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_ticket_reissue_display_name
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_trainings_display_name
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_issued_place_issued_place_display_name
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_it_department_display_name
@@ -700,7 +839,7 @@ msgstr "الوجهة الجوية الميناء"
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_projects_projects_display_name
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_relation_relation_display_name
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_religion_religion_display_name
-#: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_res_company_tree_display_name
+#: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_res_company_tree1_display_name
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_res_sponsor_display_name
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_uni_name_uni_name_display_name
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_vac_des_vac_des_display_name
@@ -710,10 +849,8 @@ msgid "Display Name"
 msgstr "الاسم الذي يعرض"
 
 #. module: hr_custom_employee_bcube_fadi
-#: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_category_info_department
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_category_info_division
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_department_info_division
-#: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_designation_info_department
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_designation_info_division
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_division_info_division
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_employee_division
@@ -723,22 +860,19 @@ msgstr "القطاع"
 #. module: hr_custom_employee_bcube_fadi
 #: model:ir.ui.view,arch_db:hr_custom_employee_bcube_fadi.division_form_view
 #: model:ir.ui.view,arch_db:hr_custom_employee_bcube_fadi.division_tree_view
-
 msgid "Division Details"
-msgstr "تفاصيل الشعبة"
+msgstr "تفاصيل القطاع"
 
 #. module: hr_custom_employee_bcube_fadi
 #: model:ir.actions.act_window,name:hr_custom_employee_bcube_fadi.division_info_act
 #: model:ir.ui.menu,name:hr_custom_employee_bcube_fadi.division_info_menu
-
 msgid "Division Info"
-msgstr "معلومات الشعبة"
+msgstr "معلومات القطاع"
 
 #. module: hr_custom_employee_bcube_fadi
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_document_asset_name
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_document_com_name
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_documents_name
-
 msgid "Doc Name"
 msgstr "اسم المستند"
 
@@ -751,23 +885,20 @@ msgstr "الوثيقة، رقم"
 
 #. module: hr_custom_employee_bcube_fadi
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_document_asset_doc_type
-#: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_res_company_tree_doc_type
-
+#: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_res_company_tree1_doc_type
 msgid "Doc Type"
 msgstr "نوع المستند"
 
 #. module: hr_custom_employee_bcube_fadi
 #: model:ir.ui.view,arch_db:hr_custom_employee_bcube_fadi.document_list_form_view
-
 msgid "Document  List"
-msgstr "لائحة المستندات"
+msgstr "قائمة المستندات"
 
 #. module: hr_custom_employee_bcube_fadi
 #: model:ir.actions.act_window,name:hr_custom_employee_bcube_fadi.document_list_act
 #: model:ir.ui.menu,name:hr_custom_employee_bcube_fadi.document_list_menu
-
 msgid "Document List"
-msgstr "لائحة المستندات"
+msgstr "قائمة المستندات"
 
 #. module: hr_custom_employee_bcube_fadi
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_document_list_name
@@ -784,13 +915,17 @@ msgstr "الوثائق"
 #. module: hr_custom_employee_bcube_fadi
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_document_asset_documents_relation
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_documents_documents_relation
-
 msgid "Documents relation"
-msgstr "علاقة الوثائق"
+msgstr "علاقة المستند"
+
+#. module: hr_custom_employee_bcube_fadi
+#: selection:hr.exit.reentry,stage:0
+#: model:ir.ui.view,arch_db:hr_custom_employee_bcube_fadi.exit_reentry_form_view
+msgid "Done"
+msgstr "انتهى"
 
 #. module: hr_custom_employee_bcube_fadi
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_maintenance_equipment_door_no
-
 msgid "Door No"
 msgstr "الباب رقم"
 
@@ -798,8 +933,7 @@ msgstr "الباب رقم"
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_document_asset_dfr
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_document_com_dfr
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_documents_dfr
-#: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_res_company_tree_renewal
-
+#: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_res_company_tree1_renewal
 msgid "Due for Renewal"
 msgstr "بسبب التجديد"
 
@@ -807,17 +941,15 @@ msgstr "بسبب التجديد"
 #: model:ir.actions.act_window,name:hr_custom_employee_bcube_fadi.eos_list_action
 #: model:ir.ui.menu,name:hr_custom_employee_bcube_fadi.employee_eos_menu
 msgid "EOS"
-msgstr "الهيئة المصرية العامة للمواصفات والجودة"
+msgstr "تصفية نهاية الخدمة"
 
 #. module: hr_custom_employee_bcube_fadi
 #: model:ir.ui.view,arch_db:hr_custom_employee_bcube_fadi.eos_form_view
-
 msgid "EOS Details"
-msgstr "تفاصيل يوس"
+msgstr "تفاصيل تصفية نهاية الخدمة"
 
 #. module: hr_custom_employee_bcube_fadi
 #: model:ir.ui.view,arch_db:hr_custom_employee_bcube_fadi.hr_extension_form_view
-
 msgid "Education and Experience"
 msgstr "المؤهلات العلمية والخبرات"
 
@@ -845,6 +977,11 @@ msgid "Emergency Contact"
 msgstr "جهة الاتصال في حالة  الطوارئ"
 
 #. module: hr_custom_employee_bcube_fadi
+#: selection:hr.exit.reentry,leave_type:0
+msgid "Emergency Leave"
+msgstr "الإجازة الطارئة"
+
+#. module: hr_custom_employee_bcube_fadi
 #: selection:document.list,category:0
 #: model:ir.model,name:hr_custom_employee_bcube_fadi.model_hr_employee
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_contract_amedment_employee
@@ -860,47 +997,39 @@ msgstr "الموظف"
 
 #. module: hr_custom_employee_bcube_fadi
 #: model:ir.actions.act_window,name:hr_custom_employee_bcube_fadi.amedment_list_action
-
 msgid "Employee Amedment"
-msgstr "موظف الموظف"
+msgstr "نقل الموظف"
 
 #. module: hr_custom_employee_bcube_fadi
 #: model:ir.ui.menu,name:hr_custom_employee_bcube_fadi.contract_amedment_menu
-
 msgid "Employee Amendment"
-msgstr "تعديل الموظف"
+msgstr "نقل الموظف"
 
 #. module: hr_custom_employee_bcube_fadi
 #: model:ir.actions.act_window,name:hr_custom_employee_bcube_fadi.card_list_action
 #: model:ir.ui.menu,name:hr_custom_employee_bcube_fadi.cards_menu
-
 msgid "Employee Cards"
 msgstr "بطاقات الموظف"
 
 #. module: hr_custom_employee_bcube_fadi
 #: model:ir.actions.act_window,name:hr_custom_employee_bcube_fadi.it_department_list_action
 #: model:ir.ui.menu,name:hr_custom_employee_bcube_fadi.employee_clearance_menu
-
 msgid "Employee Clearance"
-msgstr "تخليص الموظف"
+msgstr "مخالصة الموظف"
 
 #. module: hr_custom_employee_bcube_fadi
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_eos_leaving_employee_clearence_ref
-
 msgid "Employee Clearence Ref"
-msgstr "الموظف كلارنس الرقم المرجعي"
+msgstr "الرقم المرجعي للمخالصة"
 
 #. module: hr_custom_employee_bcube_fadi
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_contract_amedment_employee_code
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_employee_card_employee_code
-#: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_documents_e_code
-
 msgid "Employee Code"
 msgstr "رمز الموظف"
 
 #. module: hr_custom_employee_bcube_fadi
 #: model:ir.model,name:hr_custom_employee_bcube_fadi.model_hr_contract
-
 msgid "Employee Contract"
 msgstr "عقد الموظف"
 
@@ -908,17 +1037,16 @@ msgstr "عقد الموظف"
 #: model:ir.ui.view,arch_db:hr_custom_employee_bcube_fadi.clearance_form_view
 #: model:ir.ui.view,arch_db:hr_custom_employee_bcube_fadi.eos_form_view
 #: model:ir.ui.view,arch_db:hr_custom_employee_bcube_fadi.grops_form_view
+#: model:ir.ui.view,arch_db:hr_custom_employee_bcube_fadi.hr_extension_form_view
 #: model:ir.ui.view,arch_db:hr_custom_employee_bcube_fadi.iqama_form_view
-
 msgid "Employee Details"
 msgstr "تفاصيل الموظف"
 
 #. module: hr_custom_employee_bcube_fadi
 #: model:ir.actions.act_window,name:hr_custom_employee_bcube_fadi.grops_list_action
 #: model:ir.ui.menu,name:hr_custom_employee_bcube_fadi.employee_grops_menu
-
 msgid "Employee GOSI"
-msgstr "موظف غوسي"
+msgstr "التامينات الاجتماعية للموظف"
 
 #. module: hr_custom_employee_bcube_fadi
 #: model:ir.ui.view,arch_db:hr_custom_employee_bcube_fadi.amedment_form_view
@@ -930,21 +1058,27 @@ msgstr "معلومات الموظف"
 #. module: hr_custom_employee_bcube_fadi
 #: model:ir.actions.act_window,name:hr_custom_employee_bcube_fadi.iqama_list_action
 #: model:ir.ui.menu,name:hr_custom_employee_bcube_fadi.contract_iqama_menu
-
-msgid "Employee Iqama"
-msgstr "موظف الإقامة"
+msgid "Employee Iqama / ID"
+msgstr " ID إقامة الموظف "
 
 #. module: hr_custom_employee_bcube_fadi
 #: model:ir.actions.act_window,name:hr_custom_employee_bcube_fadi.leaving_list_action
 #: model:ir.ui.menu,name:hr_custom_employee_bcube_fadi.employee_leaving_menu
-
 msgid "Employee Leaving"
 msgstr "مغادرة الموظف"
 
 #. module: hr_custom_employee_bcube_fadi
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_documents_e_name
+#: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_exit_reentry_name
+#: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_ticket_name
+#: model:ir.ui.view,arch_db:hr_custom_employee_bcube_fadi.maintenance_equipment_view_ext
 msgid "Employee Name"
 msgstr "اسم الموظف"
+
+#. module: hr_custom_employee_bcube_fadi
+#: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_ticket_emp_no
+msgid "Employee No"
+msgstr "رقم الموظف"
 
 #. module: hr_custom_employee_bcube_fadi
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_employee_emp_status
@@ -959,16 +1093,11 @@ msgstr "حالة الموظف"
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_eos_leaving_employee_code
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_contract_employee_code
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_employee_employee_code
-
 msgid "Employee code"
 msgstr "رمز الموظف"
 
 #. module: hr_custom_employee_bcube_fadi
-#: model:ir.ui.view,arch_db:hr_custom_employee_bcube_fadi.hr_extension_form_view
-msgid "Employment"
-msgstr "التوظيف"
-
-#. module: hr_custom_employee_bcube_fadi
+#: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_holidays_end_date
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_insurance_expiry_date
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_trainings_end_date
 msgid "End Date"
@@ -981,26 +1110,40 @@ msgstr "المعدات"
 
 #. module: hr_custom_employee_bcube_fadi
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_eos_leaving_interview_date
-
 msgid "Exit Interview Date"
-msgstr "مقابلة المغادرة"
+msgstr "تاريخ مقابلة المغادرة"
+
+#. module: hr_custom_employee_bcube_fadi
+#: model:ir.actions.act_window,name:hr_custom_employee_bcube_fadi.hr_exit_reentry_act
+#: model:ir.ui.menu,name:hr_custom_employee_bcube_fadi.hr_exit_reentry_menu
+#: model:ir.ui.menu,name:hr_custom_employee_bcube_fadi.hr_exit_reentry_menu_child1
+msgid "Exit Re-Entry"
+msgstr "تأشيرة روج والعودة"
+
+#. module: hr_custom_employee_bcube_fadi
+#: model:ir.ui.view,arch_db:hr_custom_employee_bcube_fadi.exit_reentry_form_view
+msgid "Exit Re-Entry Details"
+msgstr "قم بإنهاء تفاصيل عودة"
 
 #. module: hr_custom_employee_bcube_fadi
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_contract_expense_claim
-
 msgid "Expense Claim"
-msgstr "المطالبة النفقات"
+msgstr "مطالبة المصروفات"
 
 #. module: hr_custom_employee_bcube_fadi
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_document_asset_doe
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_document_com_doe
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_employee_card_expiry_date
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_documents_expiry_date
-#: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_res_company_tree_expiry_date
+#: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_employee_expiry
+#: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_ticket_expiry
+#: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_res_company_tree1_expiry_date
 msgid "Expiry Date"
 msgstr "تاريخ الانتهاء"
 
 #. module: hr_custom_employee_bcube_fadi
+#: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_employee_family_iqama_expiry_date
+#: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_employee_grops_expiry_date
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_employee_iqama_expiry_date
 msgid "Expiry date"
 msgstr "تاريخ الانتهاء"
@@ -1010,6 +1153,17 @@ msgstr "تاريخ الانتهاء"
 #: model:ir.ui.view,arch_db:hr_custom_employee_bcube_fadi.leaving_form_view
 msgid "Extra Information"
 msgstr "معلومات اضافية"
+
+#. module: hr_custom_employee_bcube_fadi
+#: selection:hr.ticket,status:0
+msgid "Family"
+msgstr "أسرة"
+
+#. module: hr_custom_employee_bcube_fadi
+#: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_employee_iqama_t_link
+#: model:ir.ui.view,arch_db:hr_custom_employee_bcube_fadi.iqama_form_view
+msgid "Family Iqama/ID Details"
+msgstr "تفاصيل الإقامة الأسرية/معرف"
 
 #. module: hr_custom_employee_bcube_fadi
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_res_sponsor_fax
@@ -1025,37 +1179,43 @@ msgstr "الولاية"
 
 #. module: hr_custom_employee_bcube_fadi
 #: selection:hr.dependent,d_gender:0 selection:hr.insurance,gender:0
+#: selection:hr.ticket,gender:0
 msgid "Female"
 msgstr "أنثى"
 
 #. module: hr_custom_employee_bcube_fadi
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_employee_fc_athu
-
 msgid "Final Clearing Authority"
 msgstr "سلطة المقاصة النهائية"
 
 #. module: hr_custom_employee_bcube_fadi
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_contract_fn
+#: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_dependent_fn
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_employee_fn
+#: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_ticket_dependent_fn
+#: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_ticket_fn
 msgid "First Name"
 msgstr "الاسم الأول"
 
 #. module: hr_custom_employee_bcube_fadi
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_contract_f_ot
-
 msgid "Fixed OT"
-msgstr "ثابت أوت"
+msgstr "عمل اضافي ثابت"
 
 #. module: hr_custom_employee_bcube_fadi
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_contract_f_allow
-
 msgid "Food Allowance"
-msgstr "بدل الغذاء"
+msgstr "بدل الطعام"
 
 #. module: hr_custom_employee_bcube_fadi
 #: model:ir.ui.view,arch_db:hr_custom_employee_bcube_fadi.amedment_form_view
 msgid "From"
 msgstr "من"
+
+#. module: hr_custom_employee_bcube_fadi
+#: selection:hr.ticket,cancellation:0
+msgid "Full Ticket"
+msgstr "تذكرة كاملة"
 
 #. module: hr_custom_employee_bcube_fadi
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_contract_gosi
@@ -1064,15 +1224,13 @@ msgstr "المؤسسة العامة للتأمينات الاجتماعية"
 
 #. module: hr_custom_employee_bcube_fadi
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_employee_payslip_gosi_ammount
-
 msgid "GOSI Amount"
-msgstr "مبلغ الـتأمينات الاجتماعية"
+msgstr "التأمينات الاجتماعية"
 
 #. module: hr_custom_employee_bcube_fadi
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_employee_gosi_no
-
 msgid "GOSI NO"
-msgstr "رقم  الـتأمينات الاجتماعية"
+msgstr "التأمينات الاجتماعية"
 
 #. module: hr_custom_employee_bcube_fadi
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_employee_grops_gosi_no
@@ -1083,8 +1241,14 @@ msgstr "رقم  الـتأمينات الاجتماعية"
 #. module: hr_custom_employee_bcube_fadi
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_dependent_d_gender
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_insurance_gender
+#: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_ticket_gender
 msgid "Gender"
-msgstr "جنس"
+msgstr "النوع"
+
+#. module: hr_custom_employee_bcube_fadi
+#: model:ir.ui.view,arch_db:hr_custom_employee_bcube_fadi.hr_extension_form_view
+msgid "General Details"
+msgstr "تفاصيل عامة"
 
 #. module: hr_custom_employee_bcube_fadi
 #: selection:hr.documents,category:0
@@ -1093,9 +1257,13 @@ msgstr "الفئة العامة"
 
 #. module: hr_custom_employee_bcube_fadi
 #: model:ir.ui.view,arch_db:hr_custom_employee_bcube_fadi.grops_form_view
-
 msgid "Gosi Details"
-msgstr "تفاصيل غوسي"
+msgstr "تفاصيل التأمينات الاجتماعية"
+
+#. module: hr_custom_employee_bcube_fadi
+#: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_exit_reentry_govt_fee
+msgid "Govt. Fee"
+msgstr "رسوم حكومي."
 
 #. module: hr_custom_employee_bcube_fadi
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_contract_amedment_grade
@@ -1125,15 +1293,23 @@ msgstr "HRA"
 
 #. module: hr_custom_employee_bcube_fadi
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_it_department_handled_by
-
 msgid "Handled by"
 msgstr "أنجز من قبل"
 
 #. module: hr_custom_employee_bcube_fadi
-#: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_employee_head
+#: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_employee_depend
+msgid "Have Dependent"
+msgstr "التابع"
 
+#. module: hr_custom_employee_bcube_fadi
+#: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_employee_head
 msgid "Head of Function"
-msgstr "رئيس وظيفة"
+msgstr "رئيس الوظيفة"
+
+#. module: hr_custom_employee_bcube_fadi
+#: selection:hr.ticket,priority:0
+msgid "High"
+msgstr "مرتفعة"
 
 #. module: hr_custom_employee_bcube_fadi
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_documents_holder
@@ -1141,8 +1317,12 @@ msgid "Holder"
 msgstr "الحامل"
 
 #. module: hr_custom_employee_bcube_fadi
-#: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_contract_hr_expense
+#: model:ir.model,name:hr_custom_employee_bcube_fadi.model_hr_department
+msgid "Hr Department"
+msgstr "إدارة الموارد البشرية"
 
+#. module: hr_custom_employee_bcube_fadi
+#: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_contract_hr_expense
 msgid "Hr Expense"
 msgstr "مصروف الموارد البشرية"
 
@@ -1164,6 +1344,7 @@ msgstr "IBAN"
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_employee_card_id
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_employee_clearance_id
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_employee_eos_id
+#: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_employee_family_iqama_id
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_employee_grops_id
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_employee_iqama_id
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_employee_payslip_id
@@ -1171,8 +1352,12 @@ msgstr "IBAN"
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_certification_id
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_dependent_id
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_documents_id
+#: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_exit_reentry_id
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_insurance_id
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_qualification_id
+#: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_ticket_dependent_id_4770
+#: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_ticket_id
+#: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_ticket_reissue_id
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_trainings_id
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_issued_place_issued_place_id
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_it_department_id
@@ -1180,7 +1365,7 @@ msgstr "IBAN"
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_projects_projects_id
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_relation_relation_id
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_religion_religion_id
-#: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_res_company_tree_id
+#: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_res_company_tree1_id
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_res_sponsor_id
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_uni_name_uni_name_id
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_vac_des_vac_des_id
@@ -1191,21 +1376,13 @@ msgstr "التعرف"
 #. module: hr_custom_employee_bcube_fadi
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_designation_info_profession
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_employee_id_prof
-
 msgid "ID Profession"
-msgstr "إد مهنة"
+msgstr "المهنة"
 
 #. module: hr_custom_employee_bcube_fadi
 #: selection:employee.card,card_type:0
-
 msgid "Id Card"
 msgstr "بطاقة شخصية"
-
-#. module: hr_custom_employee_bcube_fadi
-#: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_employee_iqama_in_saudi
-
-msgid "In Saudi?"
-msgstr "في السعودية؟"
 
 #. module: hr_custom_employee_bcube_fadi
 #: selection:hr.employee,emp_status:0
@@ -1228,68 +1405,86 @@ msgstr "رضع"
 #: model:ir.ui.menu,name:hr_custom_employee_bcube_fadi.hr_insurance_menu
 #: model:ir.ui.view,arch_db:hr_custom_employee_bcube_fadi.hr_extension_form_view
 msgid "Insurance"
-msgstr "الشركة"
+msgstr "التأمين "
 
 #. module: hr_custom_employee_bcube_fadi
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_insurance_insurance_relation
-
 msgid "Insurance relation"
 msgstr "علاقة التأمين"
 
 #. module: hr_custom_employee_bcube_fadi
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_maintenance_equipment_cr_no
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_maintenance_equipment_i_value
-
 msgid "Insured Value"
 msgstr "القيمة المؤمن عليها"
 
 #. module: hr_custom_employee_bcube_fadi
 #: model:ir.ui.view,arch_db:hr_custom_employee_bcube_fadi.dependent_form_view
-#: model:ir.ui.view,arch_db:hr_custom_employee_bcube_fadi.iqama_form_view
-
 msgid "Iqama Details"
 msgstr "تفاصيل الإقامة"
 
 #. module: hr_custom_employee_bcube_fadi
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_dependent_iqama_num
-#: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_employee_iqama_num
 msgid "Iqama Number"
 msgstr "رقم الإقامة"
 
 #. module: hr_custom_employee_bcube_fadi
-#: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_employee_grops_iqama_no
-#: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_employee_iqama_iqama_no
-
-msgid "Iqama no"
-msgstr "رقم الإقامة"
+#: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_employee_iqama_num
+msgid "Iqama Number / ID Number"
+msgstr "رقم الإقامة/رقم المعرف"
 
 #. module: hr_custom_employee_bcube_fadi
+#: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_employee_family_iqama_iqama_position
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_employee_iqama_iqama_position
-
 msgid "Iqama position"
-msgstr "المعرف الوظيفي في الإقامة"
+msgstr "المسمى الوظيفي في الإقامة"
+
+#. module: hr_custom_employee_bcube_fadi
+#: model:ir.ui.view,arch_db:hr_custom_employee_bcube_fadi.iqama_form_view
+#: model:ir.ui.view,arch_db:hr_custom_employee_bcube_fadi.iqama_tree_form_view
+msgid "Iqama/ID Details"
+msgstr " ID إقامة الموظف "
+
+#. module: hr_custom_employee_bcube_fadi
+#: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_employee_family_iqama_iqama_no
+#: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_employee_grops_iqama_no
+#: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_employee_iqama_iqama_no
+msgid "Iqama/ID No"
+msgstr "رقم الهوية:"
 
 #. module: hr_custom_employee_bcube_fadi
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_employee_is_head
-
 msgid "Is Head  of Function"
-msgstr "هو رئيس وظيفة"
+msgstr "رئيس الوظيفة"
 
 #. module: hr_custom_employee_bcube_fadi
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_employee_is_line_man
-
 msgid "Is Line Manager"
-msgstr "إدارة تنفيذية مباشرة"
+msgstr "المدير المباشر"
+
+#. module: hr_custom_employee_bcube_fadi
+#: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_employee_family_iqama_in_saudi
+#: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_employee_iqama_in_saudi
+msgid "Is Saudi?"
+msgstr "هو موظف السعودي؟"
 
 #. module: hr_custom_employee_bcube_fadi
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_document_com_doi
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_employee_card_issue_date
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_documents_issue_date
-#: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_res_company_tree_issue_date
+#: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_employee_issue
+#: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_ticket_issue
+#: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_res_company_tree1_issue_date
 msgid "Issue Date"
 msgstr "تاريخ الإستعارة"
 
 #. module: hr_custom_employee_bcube_fadi
+#: selection:hr.exit.reentry,stage:0
+msgid "Issue New"
+msgstr "إصدار جديد"
+
+#. module: hr_custom_employee_bcube_fadi
+#: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_employee_family_iqama_issue_date
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_employee_grops_issue_date
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_employee_iqama_issue_date
 msgid "Issue date"
@@ -1297,19 +1492,16 @@ msgstr "تاريخ الإصدار"
 
 #. module: hr_custom_employee_bcube_fadi
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_dependent_issue_place
-
 msgid "Issue place"
-msgstr "مكان القضية"
+msgstr "مكان لإصدار"
 
 #. module: hr_custom_employee_bcube_fadi
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_certification_issue_org
-
 msgid "Issuing Organization"
 msgstr "منظمة الإصدار"
 
 #. module: hr_custom_employee_bcube_fadi
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_employee_clearance_it_department
-
 msgid "It department"
 msgstr "قسم تكنولوجيا المعلومات"
 
@@ -1320,9 +1512,14 @@ msgstr "عنصر"
 
 #. module: hr_custom_employee_bcube_fadi
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_employee_eos_job
-#: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_insurance_job
 msgid "Job"
 msgstr "عمل"
+
+#. module: hr_custom_employee_bcube_fadi
+#: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_contract_job_idd
+#: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_employee_job_idd
+msgid "Job Id"
+msgstr "معرف فرصة التطوع (ID)"
 
 #. module: hr_custom_employee_bcube_fadi
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_employee_iqama_job
@@ -1343,13 +1540,11 @@ msgstr "تاريخ الالتحاق"
 
 #. module: hr_custom_employee_bcube_fadi
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_employee_laptop_des
-
 msgid "Laptop/Desktop"
-msgstr "حاسوب مكتبي"
+msgstr "أجهزة الكمبيوتر المحمول / سطح المكتب"
 
 #. module: hr_custom_employee_bcube_fadi
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_employee_clearance_last_day_work
-
 msgid "Last Day of Work"
 msgstr "آخر يوم عمل"
 
@@ -1366,6 +1561,7 @@ msgstr "آخر يوم عمل"
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_employee_card___last_update
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_employee_clearance___last_update
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_employee_eos___last_update
+#: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_employee_family_iqama___last_update
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_employee_grops___last_update
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_employee_iqama___last_update
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_employee_payslip___last_update
@@ -1373,8 +1569,12 @@ msgstr "آخر يوم عمل"
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_certification___last_update
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_dependent___last_update
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_documents___last_update
+#: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_exit_reentry___last_update
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_insurance___last_update
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_qualification___last_update
+#: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_ticket___last_update
+#: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_ticket_dependent___last_update
+#: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_ticket_reissue___last_update
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_trainings___last_update
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_issued_place_issued_place___last_update
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_it_department___last_update
@@ -1382,7 +1582,7 @@ msgstr "آخر يوم عمل"
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_projects_projects___last_update
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_relation_relation___last_update
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_religion_religion___last_update
-#: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_res_company_tree___last_update
+#: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_res_company_tree1___last_update
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_res_sponsor___last_update
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_uni_name_uni_name___last_update
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_vac_des_vac_des___last_update
@@ -1392,7 +1592,10 @@ msgstr "آخر تعديل في"
 
 #. module: hr_custom_employee_bcube_fadi
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_contract_ln
+#: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_dependent_ln
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_employee_ln
+#: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_ticket_dependent_ln
+#: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_ticket_ln
 msgid "Last Name"
 msgstr "الاسم الاخير"
 
@@ -1409,6 +1612,7 @@ msgstr "الاسم الاخير"
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_employee_card_write_uid
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_employee_clearance_write_uid
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_employee_eos_write_uid
+#: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_employee_family_iqama_write_uid
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_employee_grops_write_uid
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_employee_iqama_write_uid
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_employee_payslip_write_uid
@@ -1416,8 +1620,12 @@ msgstr "الاسم الاخير"
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_certification_write_uid
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_dependent_write_uid
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_documents_write_uid
+#: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_exit_reentry_write_uid
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_insurance_write_uid
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_qualification_write_uid
+#: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_ticket_dependent_write_uid
+#: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_ticket_reissue_write_uid
+#: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_ticket_write_uid
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_trainings_write_uid
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_issued_place_issued_place_write_uid
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_it_department_write_uid
@@ -1425,7 +1633,7 @@ msgstr "الاسم الاخير"
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_projects_projects_write_uid
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_relation_relation_write_uid
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_religion_religion_write_uid
-#: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_res_company_tree_write_uid
+#: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_res_company_tree1_write_uid
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_res_sponsor_write_uid
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_uni_name_uni_name_write_uid
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_vac_des_vac_des_write_uid
@@ -1446,6 +1654,7 @@ msgstr "آخر تحديث بواسطة"
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_employee_card_write_date
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_employee_clearance_write_date
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_employee_eos_write_date
+#: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_employee_family_iqama_write_date
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_employee_grops_write_date
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_employee_iqama_write_date
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_employee_payslip_write_date
@@ -1453,8 +1662,12 @@ msgstr "آخر تحديث بواسطة"
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_certification_write_date
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_dependent_write_date
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_documents_write_date
+#: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_exit_reentry_write_date
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_insurance_write_date
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_qualification_write_date
+#: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_ticket_dependent_write_date
+#: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_ticket_reissue_write_date
+#: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_ticket_write_date
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_trainings_write_date
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_issued_place_issued_place_write_date
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_it_department_write_date
@@ -1462,7 +1675,7 @@ msgstr "آخر تحديث بواسطة"
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_projects_projects_write_date
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_relation_relation_write_date
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_religion_religion_write_date
-#: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_res_company_tree_write_date
+#: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_res_company_tree1_write_date
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_res_sponsor_write_date
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_uni_name_uni_name_write_date
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_vac_des_vac_des_write_date
@@ -1472,19 +1685,16 @@ msgstr "آخر تحديث في"
 
 #. module: hr_custom_employee_bcube_fadi
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_employee_clearance_last_country_day
-
 msgid "Last country day"
 msgstr "آخر يوم"
 
 #. module: hr_custom_employee_bcube_fadi
-#: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_res_company_tree_latest_renewal_date
-
+#: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_res_company_tree1_latest_renewal_date
 msgid "Latest Renewal Date"
-msgstr "آخر تجديد التاريخ"
+msgstr "تاريخ التجديد"
 
 #. module: hr_custom_employee_bcube_fadi
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_maintenance_equipment_lease_expiry
-
 msgid "Lease Expiry"
 msgstr "انتهاء مدة الإيجار"
 
@@ -1495,27 +1705,50 @@ msgid "Leased"
 msgstr "مؤجر"
 
 #. module: hr_custom_employee_bcube_fadi
-#: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_employee_eos_leave_balance
+#: model:ir.model,name:hr_custom_employee_bcube_fadi.model_hr_holidays
+msgid "Leave"
+msgstr "الاجازات"
 
+#. module: hr_custom_employee_bcube_fadi
+#: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_exit_reentry_leave_date
+msgid "Leave Date"
+msgstr "تاريخ المغادرة"
+
+#. module: hr_custom_employee_bcube_fadi
+#: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_exit_reentry_leave_from
+#: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_ticket_leave_from
+msgid "Leave From"
+msgstr "غادر من"
+
+#. module: hr_custom_employee_bcube_fadi
+#: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_exit_reentry_leave_to
+#: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_ticket_leave_to
+msgid "Leave To"
+msgstr "المغادرة إلى"
+
+#. module: hr_custom_employee_bcube_fadi
+#: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_exit_reentry_leave_type
+msgid "Leave Type"
+msgstr "نوع الإجازة"
+
+#. module: hr_custom_employee_bcube_fadi
+#: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_employee_eos_leave_balance
 msgid "Leave balance"
 msgstr "رصيد الاجازات"
 
 #. module: hr_custom_employee_bcube_fadi
 #: model:ir.ui.view,arch_db:hr_custom_employee_bcube_fadi.leaving_form_view
-
 msgid "Leaving Information"
-msgstr "ترك المعلومات"
+msgstr "معلومات المغادرة"
 
 #. module: hr_custom_employee_bcube_fadi
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_employee_eos_leaving_date
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_employee_leaving_date
-
 msgid "Leaving date"
 msgstr "تاريخ المغادرة"
 
 #. module: hr_custom_employee_bcube_fadi
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_employee_clearance_letter_to_client
-
 msgid "Letter to client"
 msgstr "رسالة إلى العميل"
 
@@ -1526,41 +1759,40 @@ msgstr "ترخيص"
 
 #. module: hr_custom_employee_bcube_fadi
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_res_company_company_link
-
 msgid "License Documents"
-msgstr "وثائق الترخيص"
+msgstr "مستندات الترخيص"
 
 #. module: hr_custom_employee_bcube_fadi
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_employee_line_man
-
 msgid "Line Manager"
-msgstr "إدارة تنفيذية مباشرة"
+msgstr "المدير المباشر"
 
 #. module: hr_custom_employee_bcube_fadi
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_contract_line_manager_attendance
-
 msgid "Line Manager Attendance"
-msgstr "مدير خط الحضور"
+msgstr "المدير المباشر للحضور"
+
+#. module: hr_custom_employee_bcube_fadi
+#: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_employee_family_iqama_link
+msgid "Link"
+msgstr "رابط"
 
 #. module: hr_custom_employee_bcube_fadi
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_res_company_location
-
 msgid "Location Code"
-msgstr "كود الموقع"
+msgstr "رمز الموقع"
 
 #. module: hr_custom_employee_bcube_fadi
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_contract_amedment_mol_location
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_contract_amedment_nmol_location
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_employee_mol_location
-
 msgid "MOL Location"
-msgstr "مول الموقع"
+msgstr "موقع ملف مكتب العمل"
 
 #. module: hr_custom_employee_bcube_fadi
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_employee_mol_no
-
 msgid "MOL No"
-msgstr "مول رقم"
+msgstr "رقم ملف مكتب العمل"
 
 #. module: hr_custom_employee_bcube_fadi
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_maintenance_equipment_make
@@ -1569,8 +1801,14 @@ msgstr "صانع السيارة"
 
 #. module: hr_custom_employee_bcube_fadi
 #: selection:hr.dependent,d_gender:0 selection:hr.insurance,gender:0
+#: selection:hr.ticket,gender:0
 msgid "Male"
 msgstr "الذكر"
+
+#. module: hr_custom_employee_bcube_fadi
+#: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_department_info_manager
+msgid "Manager"
+msgstr "مدير"
 
 #. module: hr_custom_employee_bcube_fadi
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_contract_medical
@@ -1578,22 +1816,35 @@ msgid "Medical"
 msgstr "الطبي"
 
 #. module: hr_custom_employee_bcube_fadi
-#: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_insurance_member_name
+#: selection:hr.exit.reentry,leave_type:0
+msgid "Medical Leave"
+msgstr "إجازة الطبية"
 
+#. module: hr_custom_employee_bcube_fadi
+#: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_insurance_member_name
 msgid "Member name"
 msgstr "اسم العضو"
 
 #. module: hr_custom_employee_bcube_fadi
+#: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_dependent_mn
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_employee_mn
+#: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_ticket_dependent_mn
+#: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_ticket_mn
 msgid "Middle Name"
 msgstr "الاسم الأوسط"
 
 #. module: hr_custom_employee_bcube_fadi
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_employee_e_mobile
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_employee_r_mobile
+#: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_ticket_mobile
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_res_sponsor_mobile
 msgid "Mobile No"
 msgstr "الجوال"
+
+#. module: hr_custom_employee_bcube_fadi
+#: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_exit_reentry_months
+msgid "Months"
+msgstr "أشهر"
 
 #. module: hr_custom_employee_bcube_fadi
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_employee_e_name
@@ -1605,6 +1856,8 @@ msgstr "الجوال"
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_religion_religion_name
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_uni_name_uni_name_name
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_vac_des_vac_des_name
+#: model:ir.ui.view,arch_db:hr_custom_employee_bcube_fadi.res_company_ext
+#: model:ir.ui.view,arch_db:hr_custom_employee_bcube_fadi.res_company_tree_ext
 msgid "Name"
 msgstr "الاسم"
 
@@ -1612,20 +1865,22 @@ msgstr "الاسم"
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_employee_iqama_name
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_dependent_name
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_employee_name_as_pass
-
+#: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_ticket_dependent_name
 msgid "Name(As in Passport)"
-msgstr "الاسم (كما هو الحال في جواز السفر)"
+msgstr "الاسم (كما هو في جواز السفر)"
 
 #. module: hr_custom_employee_bcube_fadi
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_employee_grops_nationality
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_employee_iqama_nationality
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_dependent_nationality
+#: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_exit_reentry_nationality
+#: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_ticket_dependent_nationality
+#: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_ticket_nationality
 msgid "Nationality"
 msgstr "جنسية"
 
 #. module: hr_custom_employee_bcube_fadi
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_employee_airport
-
 msgid "Nearest Airport"
 msgstr "إلى أقرب مطار ؟"
 
@@ -1643,6 +1898,9 @@ msgstr "إضافة مكان جديد"
 #: selection:hr.contract,c_accommodation:0 selection:hr.contract,c_vehicle:0
 #: selection:hr.contract,incentive:0 selection:hr.contract,medical:0
 #: selection:hr.employee,c_athu:0 selection:hr.employee,fc_athu:0
+#: selection:hr.ticket,break_jun:0 selection:hr.ticket,receive:0
+#: selection:hr.ticket,refund:0 selection:hr.ticket.dependent,ticket_req:0
+#: selection:hr.ticket.reissue,change_sec:0
 msgid "No"
 msgstr "لا"
 
@@ -1650,27 +1908,28 @@ msgstr "لا"
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_document_asset_nod
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_document_com_nod
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_documents_nod
-
 msgid "No Of Days"
 msgstr "عدد الأيام"
 
 #. module: hr_custom_employee_bcube_fadi
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_employee_eos_no_days
-
 msgid "No of Days"
-msgstr "عدد أيام التحضير"
+msgstr "عدد اﻷيام"
 
 #. module: hr_custom_employee_bcube_fadi
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_employee_eos_no_month
-
 msgid "No of Months"
 msgstr "عدد الشهور"
 
 #. module: hr_custom_employee_bcube_fadi
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_employee_eos_no_year
-
 msgid "No of Years"
 msgstr "عدد السنوات"
+
+#. module: hr_custom_employee_bcube_fadi
+#: selection:hr.ticket,priority:0
+msgid "Normal"
+msgstr "عادي"
 
 #. module: hr_custom_employee_bcube_fadi
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_documents_notes
@@ -1698,6 +1957,7 @@ msgid "Number of days"
 msgstr "عدد الايام"
 
 #. module: hr_custom_employee_bcube_fadi
+#: selection:hr.exit.reentry,paid_by:0
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_contract_amedment_office
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_employee_card_office
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_employee_clearance_office
@@ -1710,17 +1970,21 @@ msgstr "المكتب"
 
 #. module: hr_custom_employee_bcube_fadi
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_contract_other_allowances
-
 msgid "Other Allowances"
-msgstr "الإعانات الأخرى"
+msgstr "البدلات الأخرى"
+
+#. module: hr_custom_employee_bcube_fadi
+#: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_employee_other_asset
+msgid "Other Assets"
+msgstr "أصول أخرى"
 
 #. module: hr_custom_employee_bcube_fadi
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_contract_other_deductions
-
 msgid "Other Deductions"
 msgstr "أي استقطاعات أخرى."
 
 #. module: hr_custom_employee_bcube_fadi
+#: selection:hr.exit.reentry,leave_type:0
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_employee_eos_others
 msgid "Others"
 msgstr "الآخرين"
@@ -1739,9 +2003,8 @@ msgstr "الملكية"
 #. module: hr_custom_employee_bcube_fadi
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_res_company_po_no
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_res_sponsor_pob
-
 msgid "P.O Box No"
-msgstr "ص.ب. 1234"
+msgstr "صندوق البريد ص.ب."
 
 #. module: hr_custom_employee_bcube_fadi
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_contract_package
@@ -1749,7 +2012,30 @@ msgid "Package"
 msgstr "الباقة"
 
 #. module: hr_custom_employee_bcube_fadi
+#: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_ticket_piad_amt
+msgid "Paid Amount"
+msgstr "المبلغ المدفوع"
+
+#. module: hr_custom_employee_bcube_fadi
+#: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_exit_reentry_paid_by
+msgid "Paid By"
+msgstr "مدفوع"
+
+#. module: hr_custom_employee_bcube_fadi
+#: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_department_info_parent_dep
+msgid "Parent Department"
+msgstr "القسم الأعلي"
+
+#. module: hr_custom_employee_bcube_fadi
+#: selection:hr.ticket,cancellation:0
+msgid "Part Ticket"
+msgstr "التذاكر"
+
+#. module: hr_custom_employee_bcube_fadi
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_dependent_d_passport
+#: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_employee_passport_idd
+#: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_ticket_dependent_passport
+#: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_ticket_passport
 msgid "Passport No"
 msgstr "رقم جواز السفر"
 
@@ -1766,15 +2052,13 @@ msgstr "مسير الراتب"
 
 #. module: hr_custom_employee_bcube_fadi
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_employee_performence_manager
-
 msgid "Performance Manager"
 msgstr "مدير الأداء"
 
 #. module: hr_custom_employee_bcube_fadi
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_employee_card_period_stay
-
 msgid "Period of Stay"
-msgstr "الفترة"
+msgstr "مدة الاقامة"
 
 #. module: hr_custom_employee_bcube_fadi
 #: model:ir.ui.view,arch_db:hr_custom_employee_bcube_fadi.hr_extension_form_view
@@ -1801,6 +2085,7 @@ msgstr "رقم الهاتف"
 
 #. module: hr_custom_employee_bcube_fadi
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_document_com_poi
+#: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_employee_family_iqama_place_issue
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_employee_iqama_place_issue
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_documents_place_issue
 msgid "Place of Issue"
@@ -1808,7 +2093,6 @@ msgstr "مكان لإصدار"
 
 #. module: hr_custom_employee_bcube_fadi
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_maintenance_equipment_plate_no
-
 msgid "Plate No"
 msgstr "رقم اللوحة"
 
@@ -1819,7 +2103,6 @@ msgstr "إيجابية"
 
 #. module: hr_custom_employee_bcube_fadi
 #: model:ir.ui.view,arch_db:hr_custom_employee_bcube_fadi.sponsor_form_view
-
 msgid "Postal /Zip Code"
 msgstr "الرمز البريدي"
 
@@ -1834,18 +2117,17 @@ msgid "Present Address"
 msgstr ":: العنوان الحالي"
 
 #. module: hr_custom_employee_bcube_fadi
+#: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_ticket_priority
+msgid "Priority"
+msgstr "الأولوية"
+
+#. module: hr_custom_employee_bcube_fadi
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_contract_probation
 msgid "Probation"
 msgstr "1-  إثبات / دليل مثبت فترة اختبار للموظف في العمل الحكم مع وقف التنفيذ ووضع المحكوم عليه تحت المراقبة"
 
 #. module: hr_custom_employee_bcube_fadi
-#: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_employee_iqama_profession
-msgid "Profession"
-msgstr "المهنة"
-
-#. module: hr_custom_employee_bcube_fadi
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_qualification_prg_status
-
 msgid "Program Status"
 msgstr "حالة البرنامج"
 
@@ -1861,15 +2143,25 @@ msgstr "قیمت خرید"
 
 #. module: hr_custom_employee_bcube_fadi
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_qualification_qualification_relation_name
-
 msgid "Qualification Relation Name"
-msgstr "اسم العلاقة المؤهل"
+msgstr "اسم المؤهل"
 
 #. module: hr_custom_employee_bcube_fadi
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_employee_qualifiction_id
 #: model:ir.ui.view,arch_db:hr_custom_employee_bcube_fadi.hr_extension_form_view
 msgid "Qualifications"
 msgstr "المؤهلات"
+
+#. module: hr_custom_employee_bcube_fadi
+#: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_ticket_re_issue
+#: model:ir.ui.view,arch_db:hr_custom_employee_bcube_fadi.ticket_form_view
+msgid "Re Issue"
+msgstr "اعادة اصدار"
+
+#. module: hr_custom_employee_bcube_fadi
+#: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_ticket_reissue_ticket
+msgid "Re issue"
+msgstr "اعادة اصدار"
 
 #. module: hr_custom_employee_bcube_fadi
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_employee_card_reason
@@ -1879,9 +2171,24 @@ msgid "Reason"
 msgstr "السبب"
 
 #. module: hr_custom_employee_bcube_fadi
+#: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_ticket_reissue_reasons
+msgid "Reasons"
+msgstr "أسباب"
+
+#. module: hr_custom_employee_bcube_fadi
+#: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_ticket_receive_date
+msgid "Received Date"
+msgstr "تاريخ الوصول"
+
+#. module: hr_custom_employee_bcube_fadi
 #: model:ir.ui.view,arch_db:hr_custom_employee_bcube_fadi.hr_extension_form_view
 msgid "References"
 msgstr "مراجع"
+
+#. module: hr_custom_employee_bcube_fadi
+#: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_ticket_refund
+msgid "Refundable"
+msgstr "مستردة"
 
 #. module: hr_custom_employee_bcube_fadi
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_maintenance_equipment_reg_no
@@ -1892,6 +2199,16 @@ msgstr "رقم التسجيل"
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_certification_regis_no
 msgid "Registration No."
 msgstr "رقم التسجيل."
+
+#. module: hr_custom_employee_bcube_fadi
+#: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_ticket_reissue_reissue_ticket
+msgid "Reissue ticket"
+msgstr "إعادة إصدار التذكرة"
+
+#. module: hr_custom_employee_bcube_fadi
+#: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_exit_reentry_rejoin_date
+msgid "Rejoin Date"
+msgstr "العودة إلى التاريخ"
 
 #. module: hr_custom_employee_bcube_fadi
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_dependent_relation
@@ -1913,7 +2230,6 @@ msgstr "الدين"
 
 #. module: hr_custom_employee_bcube_fadi
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_employee_eos_remaining_leave
-
 msgid "Remaining leave"
 msgstr "الإجازة المتبقية"
 
@@ -1924,6 +2240,7 @@ msgstr "الإجازة المتبقية"
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_documents_remark
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_employee_e_remark
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_employee_r_remark
+#: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_ticket_remarks
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_it_department_remarks
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_maintenance_equipment_remark
 msgid "Remarks"
@@ -1937,18 +2254,26 @@ msgid "Renewed Date"
 msgstr "تاريخ التجديد"
 
 #. module: hr_custom_employee_bcube_fadi
+#: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_holidays_replace_by
+msgid "Replace By"
+msgstr "استبدال ~بـ:"
+
+#. module: hr_custom_employee_bcube_fadi
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_contract_amedment_nr_manager
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_contract_amedment_r_manager
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_employee_r_manager
-
 msgid "Reporting Manager"
-msgstr "مدير التقارير"
+msgstr "المدير المباشر"
 
 #. module: hr_custom_employee_bcube_fadi
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_employee_card_requested_date
-
 msgid "Requesed Date"
 msgstr "التاريخ المطلوب"
+
+#. module: hr_custom_employee_bcube_fadi
+#: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_ticket_req_no
+msgid "Request No"
+msgstr "رقم الطلب"
 
 #. module: hr_custom_employee_bcube_fadi
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_eos_leaving_requested_date
@@ -1957,13 +2282,18 @@ msgstr "تاريخ الطلب"
 
 #. module: hr_custom_employee_bcube_fadi
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_employee_clearance_res_date
-
 msgid "Resignation/Term Date"
 msgstr "استقالة / تاريخ الأجل"
 
 #. module: hr_custom_employee_bcube_fadi
-#: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_employee_eos_salary
+#: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_ticket_dependent_return_date
+#: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_ticket_reissue_return_date
+#: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_ticket_return_date
+msgid "Return Date"
+msgstr "تاريخ العودة"
 
+#. module: hr_custom_employee_bcube_fadi
+#: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_employee_eos_salary
 msgid "Salary of Current Month"
 msgstr "راتب الشهر الحالي"
 
@@ -1974,9 +2304,18 @@ msgstr "ذاتي"
 
 #. module: hr_custom_employee_bcube_fadi
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_employee_clearance_seniority_date
-
 msgid "Seniority date"
 msgstr "تاريخ الأقدمية"
+
+#. module: hr_custom_employee_bcube_fadi
+#: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_ticket_sent_by
+msgid "Sent for confirmation By"
+msgstr "أرسلت للتأكيد من قبل"
+
+#. module: hr_custom_employee_bcube_fadi
+#: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_ticket_sent_by_date
+msgid "Sent for confirmation Date"
+msgstr "تم إرسالها لتأكيد التاريخ"
 
 #. module: hr_custom_employee_bcube_fadi
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_employee_serial_num
@@ -1984,34 +2323,27 @@ msgid "Serial No."
 msgstr "الرقم المتسلسل"
 
 #. module: hr_custom_employee_bcube_fadi
-#: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_dependent_serial_num
-msgid "Serial Number"
-msgstr "الرقم التسلسلي"
-
-#. module: hr_custom_employee_bcube_fadi
+#: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_employee_family_iqama_serial_no
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_employee_iqama_serial_no
-
 msgid "Serial no"
 msgstr "الرقم المتسلسل"
 
 #. module: hr_custom_employee_bcube_fadi
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_contract_sign_bonous
-
 msgid "Sign on Bounus"
-msgstr "وقع على بونوس"
+msgstr "وقع على المكافأة"
 
 #. module: hr_custom_employee_bcube_fadi
 #: model:ir.actions.act_window,name:hr_custom_employee_bcube_fadi.res_sponsor_act
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_employee_sponsor
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_maintenance_equipment_s_name
 msgid "Sponsor"
-msgstr "الراعى"
+msgstr "الكفيل"
 
 #. module: hr_custom_employee_bcube_fadi
 #: model:ir.ui.view,arch_db:hr_custom_employee_bcube_fadi.sponsor_form_view
-
 msgid "Sponsor Details"
-msgstr "تفاصيل الراعي"
+msgstr "تفاصيل الكفيل"
 
 #. module: hr_custom_employee_bcube_fadi
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_maintenance_equipment_sponsor_id
@@ -2026,22 +2358,9 @@ msgid "Sponsor Name"
 msgstr "اسم الجهة الراعية"
 
 #. module: hr_custom_employee_bcube_fadi
-#: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_insurance_sponsor_id
-
-msgid "Sponsor id"
-msgstr "معرف الكفيل"
-
-#. module: hr_custom_employee_bcube_fadi
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_res_sponsor_sponsor_tree
-
 msgid "Sponsor tree"
-msgstr "الراعي شجرة"
-
-#. module: hr_custom_employee_bcube_fadi
-#: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_res_company_sponsor_id
-
-msgid "SponsorID"
-msgstr "هوية الكفيل"
+msgstr "وصف هيكل الشركة"
 
 #. module: hr_custom_employee_bcube_fadi
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_res_company_sponsor_link
@@ -2051,11 +2370,16 @@ msgstr "الرعاة"
 
 #. module: hr_custom_employee_bcube_fadi
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_employee_spouse_no
-
 msgid "Spouse Phone No."
 msgstr "رقم هاتف الزوج"
 
 #. module: hr_custom_employee_bcube_fadi
+#: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_exit_reentry_stage
+msgid "Stage"
+msgstr "المرحلة"
+
+#. module: hr_custom_employee_bcube_fadi
+#: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_holidays_start_date
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_trainings_start_date
 msgid "Start Date"
 msgstr "تاريخ البداية"
@@ -2074,6 +2398,7 @@ msgstr "الحالة"
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_employee_card_status
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_contract_status
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_documents_status
+#: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_ticket_status
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_trainings_status
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_it_department_status
 msgid "Status"
@@ -2105,42 +2430,70 @@ msgstr "الشارع 2"
 
 #. module: hr_custom_employee_bcube_fadi
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_contract_system_attendance
-
 msgid "System Attendance"
 msgstr "نظام الحضور"
 
 #. module: hr_custom_employee_bcube_fadi
+#: model:ir.actions.act_window,name:hr_custom_employee_bcube_fadi.hr_ticket_act
+#: model:ir.ui.menu,name:hr_custom_employee_bcube_fadi.hr_ticket_menu
+#: model:ir.ui.menu,name:hr_custom_employee_bcube_fadi.hr_ticket_menu_child1
+msgid "Ticket"
+msgstr "طلب"
+
+#. module: hr_custom_employee_bcube_fadi
+#: model:ir.ui.view,arch_db:hr_custom_employee_bcube_fadi.ticket_form_view
+msgid "Ticket Cancellation"
+msgstr "إلغاء التذاكر"
+
+#. module: hr_custom_employee_bcube_fadi
+#: model:ir.ui.view,arch_db:hr_custom_employee_bcube_fadi.ticket_form_view
+msgid "Ticket Cancellation Details"
+msgstr "تفاصيل إلغاء التذاكر"
+
+#. module: hr_custom_employee_bcube_fadi
+#: model:ir.ui.view,arch_db:hr_custom_employee_bcube_fadi.ticket_reissue_form_view
+msgid "Ticket ReIssue Details"
+msgstr "تفاصيل إعادة اصدار التذكرة"
+
+#. module: hr_custom_employee_bcube_fadi
+#: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_ticket_dependent_ticket_req
+msgid "Ticket Required"
+msgstr "التذكرة المطلوبة"
+
+#. module: hr_custom_employee_bcube_fadi
+#: model:ir.ui.view,arch_db:hr_custom_employee_bcube_fadi.exit_reentry_tree_view
+#: model:ir.ui.view,arch_db:hr_custom_employee_bcube_fadi.ticket_form_view
+#: model:ir.ui.view,arch_db:hr_custom_employee_bcube_fadi.ticket_tree_view
+msgid "Ticketing Details"
+msgstr "تفاصيل التذاكر"
+
+#. module: hr_custom_employee_bcube_fadi
 #: model:ir.ui.view,arch_db:hr_custom_employee_bcube_fadi.amedment_form_view
 msgid "To"
-msgstr "الى"
+msgstr "إلى"
 
 #. module: hr_custom_employee_bcube_fadi
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_contract_amedment_to_department
-
 msgid "To Department"
-msgstr "إلى الإدارة"
+msgstr "إلى قسم"
 
 #. module: hr_custom_employee_bcube_fadi
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_contract_amedment_to_job
-
 msgid "To Designation"
-msgstr "إلى التعيين"
+msgstr "إلى المسمى الوظيفي"
 
 #. module: hr_custom_employee_bcube_fadi
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_contract_amedment_to_grade
-
 msgid "To Grade"
-msgstr "إلى الصف"
+msgstr "إلى الدرجة"
 
 #. module: hr_custom_employee_bcube_fadi
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_contract_amedment_to_office
-
 msgid "To Office"
-msgstr "إلى أوفيس"
+msgstr "إلى مكتب"
 
 #. module: hr_custom_employee_bcube_fadi
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_employee_serv_year
-
 msgid "Total Service Year"
 msgstr "إجمالي سنة الخدمة"
 
@@ -2151,15 +2504,13 @@ msgstr "المبلغ الكلي"
 
 #. module: hr_custom_employee_bcube_fadi
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_employee_eos_total_award
-
 msgid "Total award"
-msgstr "مجموع الجائزة"
+msgstr "مجموع المكافأة"
 
 #. module: hr_custom_employee_bcube_fadi
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_contract_traffic_fine
-
 msgid "Traffic Fine"
-msgstr "حركة المرور الجميلة"
+msgstr "المخالفات المرورية"
 
 #. module: hr_custom_employee_bcube_fadi
 #: model:ir.ui.view,arch_db:hr_custom_employee_bcube_fadi.hr_extension_form_view
@@ -2168,21 +2519,18 @@ msgstr "الدورات"
 
 #. module: hr_custom_employee_bcube_fadi
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_trainings_training_company
-
 msgid "Training Company"
 msgstr "شركة التدريب"
 
 #. module: hr_custom_employee_bcube_fadi
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_trainings_training_place
-
 msgid "Training Place"
-msgstr "مكان التدريب"
+msgstr "مكان الدورة"
 
 #. module: hr_custom_employee_bcube_fadi
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_trainings_trainings_relation
-
 msgid "Training Relation"
-msgstr "علاقة التدريب"
+msgstr "علاقة الدورة"
 
 #. module: hr_custom_employee_bcube_fadi
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_trainings_training_sum
@@ -2200,6 +2548,11 @@ msgid "Transport Allowance"
 msgstr "بدل النقل"
 
 #. module: hr_custom_employee_bcube_fadi
+#: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_ticket_agent
+msgid "Travel Agent"
+msgstr "وكالة سفر"
+
+#. module: hr_custom_employee_bcube_fadi
 #: model:ir.ui.view,arch_db:hr_custom_employee_bcube_fadi.hr_contract_form_view
 msgid "Travel Details"
 msgstr "تفاصيل السفر"
@@ -2207,7 +2560,6 @@ msgstr "تفاصيل السفر"
 #. module: hr_custom_employee_bcube_fadi
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_documents_typed_type_c
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_employee_eos_type_d
-#: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_employee_grops_type_d
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_documents_type_d
 msgid "Type"
 msgstr "النوع"
@@ -2216,11 +2568,6 @@ msgstr "النوع"
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_trainings_type_training
 msgid "Type of Training"
 msgstr "نوع التدريب"
-
-#. module: hr_custom_employee_bcube_fadi
-#: selection:hr.dependent,nationality:0
-msgid "United States"
-msgstr "الولايات المتحدة الأمريكية"
 
 #. module: hr_custom_employee_bcube_fadi
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_qualification_uni_name
@@ -2236,11 +2583,6 @@ msgstr "تحديث"
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_contract_vac_des
 msgid "Vacation Destination"
 msgstr "المقصد"
-
-#. module: hr_custom_employee_bcube_fadi
-#: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_employee_vehiclee
-msgid "Vehicle"
-msgstr "السيارات"
 
 #. module: hr_custom_employee_bcube_fadi
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_contract_vehicle_attendance
@@ -2261,6 +2603,12 @@ msgstr "السيارة رقم"
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_employee_vendor_no
 msgid "Vendor No"
 msgstr "المورد رقم"
+
+#. module: hr_custom_employee_bcube_fadi
+#: selection:hr.exit.reentry,stage:0
+#: model:ir.ui.view,arch_db:hr_custom_employee_bcube_fadi.exit_reentry_form_view
+msgid "Waiting For Payment"
+msgstr "في انتظار الدفع"
 
 #. module: hr_custom_employee_bcube_fadi
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_res_sponsor_website
@@ -2286,6 +2634,9 @@ msgstr "سنة"
 #: selection:hr.contract,c_accommodation:0 selection:hr.contract,c_vehicle:0
 #: selection:hr.contract,incentive:0 selection:hr.contract,medical:0
 #: selection:hr.employee,c_athu:0 selection:hr.employee,fc_athu:0
+#: selection:hr.ticket,break_jun:0 selection:hr.ticket,receive:0
+#: selection:hr.ticket,refund:0 selection:hr.ticket.dependent,ticket_req:0
+#: selection:hr.ticket.reissue,change_sec:0
 msgid "Yes"
 msgstr "نعم"
 
@@ -2303,87 +2654,92 @@ msgstr "الرمز البريدي"
 #. module: hr_custom_employee_bcube_fadi
 #: model:ir.model,name:hr_custom_employee_bcube_fadi.model_category_info
 msgid "category.info"
-msgstr ""
+msgstr "معلومات الفئة"
 
 #. module: hr_custom_employee_bcube_fadi
 #: model:ir.model,name:hr_custom_employee_bcube_fadi.model_contract_amedment
 msgid "contract.amedment"
-msgstr ""
+msgstr "تعديل العقد"
 
 #. module: hr_custom_employee_bcube_fadi
 #: model:ir.model,name:hr_custom_employee_bcube_fadi.model_department_info
 msgid "department.info"
-msgstr ""
+msgstr "معلومات القسم"
 
 #. module: hr_custom_employee_bcube_fadi
 #: model:ir.model,name:hr_custom_employee_bcube_fadi.model_designation_info
 msgid "designation.info"
-msgstr ""
+msgstr "معلومات المسمى الوظيفي"
 
 #. module: hr_custom_employee_bcube_fadi
 #: model:ir.model,name:hr_custom_employee_bcube_fadi.model_division_info
 msgid "division.info"
-msgstr ""
+msgstr "معلومات الشعبة"
 
 #. module: hr_custom_employee_bcube_fadi
 #: model:ir.model,name:hr_custom_employee_bcube_fadi.model_document_asset
 msgid "document.asset"
-msgstr ""
+msgstr "مستندات الاصل"
 
 #. module: hr_custom_employee_bcube_fadi
 #: model:ir.model,name:hr_custom_employee_bcube_fadi.model_document_com
 msgid "document.com"
-msgstr ""
+msgstr "document.com"
 
 #. module: hr_custom_employee_bcube_fadi
 #: model:ir.model,name:hr_custom_employee_bcube_fadi.model_document_list
 msgid "document.list"
-msgstr ""
+msgstr "قائمة المستندات"
 
 #. module: hr_custom_employee_bcube_fadi
 #: model:ir.model,name:hr_custom_employee_bcube_fadi.model_documents_typed
 msgid "documents.typed"
-msgstr ""
+msgstr "نوع المستندات"
 
 #. module: hr_custom_employee_bcube_fadi
 #: model:ir.ui.view,arch_db:hr_custom_employee_bcube_fadi.sponsor_form_view
 msgid "e.g. www.odoo.com"
-msgstr ""
+msgstr "مثال www.dekkan.online"
 
 #. module: hr_custom_employee_bcube_fadi
 #: model:ir.model,name:hr_custom_employee_bcube_fadi.model_employee_card
 msgid "employee.card"
-msgstr ""
+msgstr "بطاقة الموظف"
 
 #. module: hr_custom_employee_bcube_fadi
 #: model:ir.model,name:hr_custom_employee_bcube_fadi.model_employee_clearance
 msgid "employee.clearance"
-msgstr ""
+msgstr "مخالصة الموظف"
 
 #. module: hr_custom_employee_bcube_fadi
 #: model:ir.model,name:hr_custom_employee_bcube_fadi.model_employee_eos
 msgid "employee.eos"
-msgstr ""
+msgstr "نهاية الخدمة للموظف"
+
+#. module: hr_custom_employee_bcube_fadi
+#: model:ir.model,name:hr_custom_employee_bcube_fadi.model_employee_family_iqama
+msgid "employee.family.iqama"
+msgstr "إقامة الموظف"
 
 #. module: hr_custom_employee_bcube_fadi
 #: model:ir.model,name:hr_custom_employee_bcube_fadi.model_employee_grops
 msgid "employee.grops"
-msgstr ""
+msgstr " مجموعة الموظفين"
 
 #. module: hr_custom_employee_bcube_fadi
 #: model:ir.model,name:hr_custom_employee_bcube_fadi.model_employee_iqama
 msgid "employee.iqama"
-msgstr ""
+msgstr "إقامة الموظف"
 
 #. module: hr_custom_employee_bcube_fadi
 #: model:ir.model,name:hr_custom_employee_bcube_fadi.model_employee_payslip
 msgid "employee.payslip"
-msgstr ""
+msgstr "مسير رواتب الموظف"
 
 #. module: hr_custom_employee_bcube_fadi
 #: model:ir.model,name:hr_custom_employee_bcube_fadi.model_eos_leaving
 msgid "eos.leaving"
-msgstr ""
+msgstr "eos.leaving"
 
 #. module: hr_custom_employee_bcube_fadi
 #: selection:hr.contract,status:0
@@ -2393,84 +2749,114 @@ msgstr "عائلة"
 #. module: hr_custom_employee_bcube_fadi
 #: model:ir.model,name:hr_custom_employee_bcube_fadi.model_hr_certification
 msgid "hr.certification"
-msgstr ""
+msgstr "شهادة الموارد البشرية"
 
 #. module: hr_custom_employee_bcube_fadi
 #: model:ir.model,name:hr_custom_employee_bcube_fadi.model_hr_dependent
 msgid "hr.dependent"
-msgstr ""
+msgstr "hr.dependent"
 
 #. module: hr_custom_employee_bcube_fadi
 #: model:ir.model,name:hr_custom_employee_bcube_fadi.model_hr_documents
 msgid "hr.documents"
-msgstr ""
+msgstr "مستندات الموارد البشرية"
+
+#. module: hr_custom_employee_bcube_fadi
+#: model:ir.model,name:hr_custom_employee_bcube_fadi.model_hr_exit_reentry
+msgid "hr.exit.reentry"
+msgstr "hr.exit.reentry"
 
 #. module: hr_custom_employee_bcube_fadi
 #: model:ir.model,name:hr_custom_employee_bcube_fadi.model_hr_insurance
 msgid "hr.insurance"
-msgstr ""
+msgstr "تامين الطبي. الموارد البشرية"
 
 #. module: hr_custom_employee_bcube_fadi
 #: model:ir.model,name:hr_custom_employee_bcube_fadi.model_hr_qualification
 msgid "hr.qualification"
-msgstr ""
+msgstr "مؤهل. الموارد البشرية"
+
+#. module: hr_custom_employee_bcube_fadi
+#: model:ir.model,name:hr_custom_employee_bcube_fadi.model_hr_ticket
+msgid "hr.ticket"
+msgstr "تذاكر. الموارد البشرية"
+
+#. module: hr_custom_employee_bcube_fadi
+#: model:ir.model,name:hr_custom_employee_bcube_fadi.model_hr_ticket_dependent
+msgid "hr.ticket.dependent"
+msgstr "تذاكر التابع. الموارد البشرية"
+
+#. module: hr_custom_employee_bcube_fadi
+#: model:ir.model,name:hr_custom_employee_bcube_fadi.model_hr_ticket_reissue
+msgid "hr.ticket.reissue"
+msgstr "إعادة اصدار. التذكرة الموارد البشرية"
 
 #. module: hr_custom_employee_bcube_fadi
 #: model:ir.model,name:hr_custom_employee_bcube_fadi.model_hr_trainings
 msgid "hr.trainings"
-msgstr ""
+msgstr "الدورات. الموارد البشرية"
+
+#. module: hr_custom_employee_bcube_fadi
+#: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_holidays_emp_id
+msgid "id"
+msgstr "كود "
 
 #. module: hr_custom_employee_bcube_fadi
 #: model:ir.model,name:hr_custom_employee_bcube_fadi.model_issued_place_issued_place
 msgid "issued_place.issued_place"
-msgstr ""
+msgstr "مكان_الإصدار.مكان_الاصدار"
 
 #. module: hr_custom_employee_bcube_fadi
 #: model:ir.model,name:hr_custom_employee_bcube_fadi.model_it_department
 msgid "it.department"
-msgstr ""
+msgstr "قسم تكنولوجيا المعلومات"
 
 #. module: hr_custom_employee_bcube_fadi
 #: model:ir.model,name:hr_custom_employee_bcube_fadi.model_office_office
 msgid "office.office"
-msgstr ""
+msgstr "المكتب.المكتب"
+
+#. module: hr_custom_employee_bcube_fadi
+#: selection:hr.exit.reentry,paid_by:0
+msgid "personnel"
+msgstr "العاملون المختصون"
 
 #. module: hr_custom_employee_bcube_fadi
 #: model:ir.model,name:hr_custom_employee_bcube_fadi.model_projects_projects
 msgid "projects.projects"
-msgstr ""
+msgstr "المشاريع.المشاريع"
 
 #. module: hr_custom_employee_bcube_fadi
 #: model:ir.model,name:hr_custom_employee_bcube_fadi.model_relation_relation
 msgid "relation.relation"
-msgstr ""
+msgstr "العلاقة. العلاقة"
 
 #. module: hr_custom_employee_bcube_fadi
 #: model:ir.model,name:hr_custom_employee_bcube_fadi.model_religion_religion
 msgid "religion.religion"
-msgstr ""
+msgstr " الديانة. الديانة"
 
 #. module: hr_custom_employee_bcube_fadi
-#: model:ir.model,name:hr_custom_employee_bcube_fadi.model_res_company_tree
-msgid "res.company.tree"
-msgstr ""
+#: model:ir.model,name:hr_custom_employee_bcube_fadi.model_res_company_tree1
+msgid "res.company.tree1"
+msgstr "وصف هيكل الشركة"
 
 #. module: hr_custom_employee_bcube_fadi
 #: model:ir.model,name:hr_custom_employee_bcube_fadi.model_res_sponsor
 msgid "res.sponsor"
-msgstr ""
+msgstr "الكفيل"
 
 #. module: hr_custom_employee_bcube_fadi
 #: model:ir.model,name:hr_custom_employee_bcube_fadi.model_uni_name_uni_name
 msgid "uni_name.uni_name"
-msgstr ""
+msgstr "uni_name.uni_name"
 
 #. module: hr_custom_employee_bcube_fadi
 #: model:ir.model,name:hr_custom_employee_bcube_fadi.model_vac_des_vac_des
 msgid "vac_des.vac_des"
-msgstr ""
+msgstr "vac_des.vac_des"
 
 #. module: hr_custom_employee_bcube_fadi
 #: model:ir.model,name:hr_custom_employee_bcube_fadi.model_vehicles_vehicles
 msgid "vehicles.vehicles"
-msgstr ""
+msgstr "vehicles.vehicles"

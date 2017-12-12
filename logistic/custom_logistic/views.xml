@@ -156,6 +156,49 @@
         </form> 
       </field> 
     </record>
+  
+  <record model="ir.ui.view" id="logistic_import_calendar">
+      <field name="name">logistic_import_calendar</field>
+      <field name="model">import.logic</field>
+      <field name="priority" eval="2"/>
+      <field name="arch" type="xml">
+          <calendar string="Calendar View" date_start="date" color="customer">
+              <field name="customer"/>
+              <field name="customer_ref"/>
+              <field name="bill_no"/>
+              <field name="bayan_no"/>
+              <field name="status"/>
+          </calendar>
+      </field>
+  </record>
+  <record model="ir.ui.view" id="logistic_import_graph">
+   <field name="name">logistic_import_graph</field>
+   <field name="model">import.logic</field>
+   <field name="type">graph</field>
+   <field name="arch" type="xml">
+         <graph string="Graph View">
+              <field name="customer" group="True"/>
+              <field name="customer_ref"/>
+              <field name="bill_no"/>
+              <field name="bayan_no"/>
+              <field name="status"/>
+        </graph>
+    </field>
+  </record>
+
+  <record model="ir.ui.view" id="logistic_import_pivot">
+      <field name="name">logistic_import_pivot</field>
+      <field name="model">import.logic</field>
+      <field name="arch" type="xml">
+          <pivot string="Pivot" display_quantity="True">
+              <field name="customer" type="row"/>
+              <field name="customer_ref" type="dimension"/>
+              <field name="bill_no" type="dimension"/>
+              <field name="bayan_no" type="measure"/>
+              <field name="status" type="measure"/>
+          </pivot>
+      </field>
+  </record> 
 
     <record id="sales_import_logics" model="ir.sequence">
       <field name="name">sales_import_logics</field>
@@ -178,8 +221,10 @@
       <field name="arch" type="xml"> 
       <tree> 
         <field name="customer"/>
+        <field name="customer_ref"/>
         <field name="bill_no"/>
-        <field name="shipper_date"/>
+        <field name="bayan_no"/>
+        <field name="status"/>
       </tree> 
       </field> 
     </record>
@@ -187,7 +232,7 @@
     <act_window id="action_import_logic" 
     name="Import" 
     res_model="import.logic" 
-    view_mode="tree,form" />
+    view_mode="tree,form,graph,gantt,pivot,calendar" />
 
     <act_window id="action_import_clearence" 
     name="Import" 
