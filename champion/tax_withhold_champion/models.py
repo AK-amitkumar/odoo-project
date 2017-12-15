@@ -30,7 +30,6 @@ class TaxWitholdWizard(models.Model):
 	def punch(self):
 		active_class = self.env['tax.withold'].browse(self._context.get('active_ids'))
 		if active_class:
-			print "Active"
 			for x in active_class:
 				x.challan_no = self.challan_no ; x.paid = self.paid
 

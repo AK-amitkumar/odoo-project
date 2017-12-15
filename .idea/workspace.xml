@@ -1,0 +1,482 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="edc8016b-0d2f-4646-a7c7-c432b1960e34" name="Default" comment="">
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/saif/structure_module/test.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/saif/structure_module/views/v.xml" />
+      <change beforePath="$PROJECT_DIR$/champion/tax_withhold_champion/models.py" afterPath="$PROJECT_DIR$/champion/tax_withhold_champion/models.py" />
+      <change beforePath="$PROJECT_DIR$/fadi al hashdi data/Fadi Al Hashdi Est_2017-12-11_06-16-37.zip" afterPath="$PROJECT_DIR$/fadi al hashdi data/Fadi Al Hashdi Est_2017-12-11_06-16-37.zip" />
+      <change beforePath="$PROJECT_DIR$/fadi_al/hr_custom_employee_bcube_fadi/i18n/ar.po" afterPath="$PROJECT_DIR$/fadi_al/hr_custom_employee_bcube_fadi/i18n/ar.po" />
+      <change beforePath="$PROJECT_DIR$/fadi_al/hr_custom_employee_bcube_fadi/templates.xml" afterPath="$PROJECT_DIR$/fadi_al/hr_custom_employee_bcube_fadi/templates.xml" />
+      <change beforePath="$PROJECT_DIR$/fadi_al/islamic_datepicker_v9/i18n/ar.po" afterPath="$PROJECT_DIR$/fadi_al/islamic_datepicker_v9/i18n/ar.po" />
+      <change beforePath="$PROJECT_DIR$/logistic data/Daily Shipment Status Report NATPET Dated 26th Nov 2017 - Copy.xlsx" afterPath="$PROJECT_DIR$/logistic data/Daily Shipment Status Report NATPET Dated 26th Nov 2017 - Copy.xlsx" />
+      <change beforePath="$PROJECT_DIR$/logistic data/Journal Voutcher - Copy.xlsx" afterPath="$PROJECT_DIR$/logistic data/Journal Voutcher - Copy.xlsx" />
+      <change beforePath="$PROJECT_DIR$/logistic data/Journal Voutcher - Copy1.xlsx" afterPath="$PROJECT_DIR$/logistic data/Journal Voutcher - Copy1.xlsx" />
+      <change beforePath="$PROJECT_DIR$/logistic data/Logistic Invoice.pdf" afterPath="$PROJECT_DIR$/logistic data/Logistic Invoice.pdf" />
+      <change beforePath="$PROJECT_DIR$/logistic data/Receipt Voucher 2.xlsx" afterPath="$PROJECT_DIR$/logistic data/Receipt Voucher 2.xlsx" />
+      <change beforePath="$PROJECT_DIR$/logistic data/Receipt Voucher 21.xlsx" afterPath="$PROJECT_DIR$/logistic data/Receipt Voucher 21.xlsx" />
+      <change beforePath="$PROJECT_DIR$/logistic data/journal.voucher.html/images/logo.png" afterPath="$PROJECT_DIR$/logistic data/journal.voucher.html/images/logo.png" />
+      <change beforePath="$PROJECT_DIR$/logistic data/journal.voucher.html/journal.voucher.html" afterPath="$PROJECT_DIR$/logistic data/journal.voucher.html/journal.voucher.html" />
+      <change beforePath="$PROJECT_DIR$/logistic data/payment voucher form.xlsx" afterPath="$PROJECT_DIR$/logistic data/payment voucher form.xlsx" />
+      <change beforePath="$PROJECT_DIR$/logistic data/payment voucher form1.xlsx" afterPath="$PROJECT_DIR$/logistic data/payment voucher form1.xlsx" />
+      <change beforePath="$PROJECT_DIR$/logistic data/receipt.voucher/images/Logistic.png" afterPath="$PROJECT_DIR$/logistic data/receipt.voucher/images/Logistic.png" />
+      <change beforePath="$PROJECT_DIR$/logistic data/receipt.voucher/images/logo.png" afterPath="$PROJECT_DIR$/logistic data/receipt.voucher/images/logo.png" />
+      <change beforePath="$PROJECT_DIR$/logistic data/receipt.voucher/receipt.voucher.html" afterPath="$PROJECT_DIR$/logistic data/receipt.voucher/receipt.voucher.html" />
+      <change beforePath="$PROJECT_DIR$/logistic data/sample invoice.pdf" afterPath="$PROJECT_DIR$/logistic data/sample invoice.pdf" />
+      <change beforePath="$PROJECT_DIR$/logistic data/sample invoice.xlsx" afterPath="$PROJECT_DIR$/logistic data/sample invoice.xlsx" />
+      <change beforePath="$PROJECT_DIR$/logistic data/vocher/images/Logistic.png" afterPath="$PROJECT_DIR$/logistic data/vocher/images/Logistic.png" />
+      <change beforePath="$PROJECT_DIR$/logistic data/vocher/images/logo.png" afterPath="$PROJECT_DIR$/logistic data/vocher/images/logo.png" />
+      <change beforePath="$PROJECT_DIR$/logistic data/vocher/payment.voucher.html" afterPath="$PROJECT_DIR$/logistic data/vocher/payment.voucher.html" />
+      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/README.rst" afterPath="$PROJECT_DIR$/logistic/bi_view_editor/README.rst" />
+      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/__init__.py" afterPath="$PROJECT_DIR$/logistic/bi_view_editor/__init__.py" />
+      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/__manifest__.py" afterPath="$PROJECT_DIR$/logistic/bi_view_editor/__manifest__.py" />
+      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/hooks.py" afterPath="$PROJECT_DIR$/logistic/bi_view_editor/hooks.py" />
+      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/am.po" afterPath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/am.po" />
+      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/ar.po" afterPath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/ar.po" />
+      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/bg.po" afterPath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/bg.po" />
+      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/bs.po" afterPath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/bs.po" />
+      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/ca.po" afterPath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/ca.po" />
+      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/cs.po" afterPath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/cs.po" />
+      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/da.po" afterPath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/da.po" />
+      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/de.po" afterPath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/de.po" />
+      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/el_GR.po" afterPath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/el_GR.po" />
+      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/en_GB.po" afterPath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/en_GB.po" />
+      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/es.po" afterPath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/es.po" />
+      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/es_AR.po" afterPath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/es_AR.po" />
+      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/es_CL.po" afterPath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/es_CL.po" />
+      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/es_CO.po" afterPath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/es_CO.po" />
+      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/es_CR.po" afterPath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/es_CR.po" />
+      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/es_DO.po" afterPath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/es_DO.po" />
+      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/es_EC.po" afterPath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/es_EC.po" />
+      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/es_ES.po" afterPath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/es_ES.po" />
+      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/es_MX.po" afterPath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/es_MX.po" />
+      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/es_PE.po" afterPath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/es_PE.po" />
+      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/es_PY.po" afterPath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/es_PY.po" />
+      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/es_VE.po" afterPath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/es_VE.po" />
+      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/et.po" afterPath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/et.po" />
+      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/eu.po" afterPath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/eu.po" />
+      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/fa.po" afterPath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/fa.po" />
+      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/fi.po" afterPath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/fi.po" />
+      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/fr.po" afterPath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/fr.po" />
+      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/fr_CA.po" afterPath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/fr_CA.po" />
+      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/fr_CH.po" afterPath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/fr_CH.po" />
+      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/gl.po" afterPath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/gl.po" />
+      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/gl_ES.po" afterPath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/gl_ES.po" />
+      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/he.po" afterPath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/he.po" />
+      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/hr.po" afterPath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/hr.po" />
+      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/hr_HR.po" afterPath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/hr_HR.po" />
+      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/hu.po" afterPath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/hu.po" />
+      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/id.po" afterPath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/id.po" />
+      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/it.po" afterPath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/it.po" />
+      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/ja.po" afterPath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/ja.po" />
+      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/ko.po" afterPath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/ko.po" />
+      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/lt.po" afterPath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/lt.po" />
+      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/lt_LT.po" afterPath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/lt_LT.po" />
+      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/lv.po" afterPath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/lv.po" />
+      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/mk.po" afterPath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/mk.po" />
+      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/mn.po" afterPath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/mn.po" />
+      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/nb.po" afterPath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/nb.po" />
+      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/nb_NO.po" afterPath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/nb_NO.po" />
+      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/nl_BE.po" afterPath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/nl_BE.po" />
+      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/pl.po" afterPath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/pl.po" />
+      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/pt.po" afterPath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/pt.po" />
+      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/pt_BR.po" afterPath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/pt_BR.po" />
+      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/pt_PT.po" afterPath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/pt_PT.po" />
+      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/ro.po" afterPath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/ro.po" />
+      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/ru.po" afterPath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/ru.po" />
+      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/sk.po" afterPath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/sk.po" />
+      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/sl.po" afterPath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/sl.po" />
+      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/sr.po" afterPath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/sr.po" />
+      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/sr@latin.po" afterPath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/sr@latin.po" />
+      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/sv.po" afterPath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/sv.po" />
+      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/th.po" afterPath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/th.po" />
+      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/tr.po" afterPath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/tr.po" />
+      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/tr_TR.po" afterPath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/tr_TR.po" />
+      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/uk.po" afterPath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/uk.po" />
+      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/vi.po" afterPath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/vi.po" />
+      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/vi_VN.po" afterPath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/vi_VN.po" />
+      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/zh_CN.po" afterPath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/zh_CN.po" />
+      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/zh_TW.po" afterPath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/zh_TW.po" />
+      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/models/__init__.py" afterPath="$PROJECT_DIR$/logistic/bi_view_editor/models/__init__.py" />
+      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/models/bve_view.py" afterPath="$PROJECT_DIR$/logistic/bi_view_editor/models/bve_view.py" />
+      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/models/ir_model.py" afterPath="$PROJECT_DIR$/logistic/bi_view_editor/models/ir_model.py" />
+      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/models/models.py" afterPath="$PROJECT_DIR$/logistic/bi_view_editor/models/models.py" />
+      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/security/ir.model.access.csv" afterPath="$PROJECT_DIR$/logistic/bi_view_editor/security/ir.model.access.csv" />
+      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/security/rules.xml" afterPath="$PROJECT_DIR$/logistic/bi_view_editor/security/rules.xml" />
+      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/static/description/icon.png" afterPath="$PROJECT_DIR$/logistic/bi_view_editor/static/description/icon.png" />
+      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/static/description/main_screenshot.png" afterPath="$PROJECT_DIR$/logistic/bi_view_editor/static/description/main_screenshot.png" />
+      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/static/src/css/bve.css" afterPath="$PROJECT_DIR$/logistic/bi_view_editor/static/src/css/bve.css" />
+      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/static/src/js/bve.js" afterPath="$PROJECT_DIR$/logistic/bi_view_editor/static/src/js/bve.js" />
+      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/templates/assets_template.xml" afterPath="$PROJECT_DIR$/logistic/bi_view_editor/templates/assets_template.xml" />
+      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/templates/qweb_template.xml" afterPath="$PROJECT_DIR$/logistic/bi_view_editor/templates/qweb_template.xml" />
+      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/tests/__init__.py" afterPath="$PROJECT_DIR$/logistic/bi_view_editor/tests/__init__.py" />
+      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/tests/test_bi_view.py" afterPath="$PROJECT_DIR$/logistic/bi_view_editor/tests/test_bi_view.py" />
+      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/views/bve_view.xml" afterPath="$PROJECT_DIR$/logistic/bi_view_editor/views/bve_view.xml" />
+      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/wizard/__init__.py" afterPath="$PROJECT_DIR$/logistic/bi_view_editor/wizard/__init__.py" />
+      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/wizard/wizard_ir_model_menu_create.py" afterPath="$PROJECT_DIR$/logistic/bi_view_editor/wizard/wizard_ir_model_menu_create.py" />
+      <change beforePath="$PROJECT_DIR$/logistic/custom_logistic/report.py" afterPath="$PROJECT_DIR$/logistic/custom_logistic/report.py" />
+      <change beforePath="$PROJECT_DIR$/logistic/custom_logistic/report.xml" afterPath="$PROJECT_DIR$/logistic/custom_logistic/report.xml" />
+      <change beforePath="$PROJECT_DIR$/logistic/custom_logistic/views.xml" afterPath="$PROJECT_DIR$/logistic/custom_logistic/views.xml" />
+      <change beforePath="$PROJECT_DIR$/logistic/filter_wizard/static/src/js/javascriptfile.js" afterPath="$PROJECT_DIR$/logistic/filter_wizard/static/src/js/javascriptfile.js" />
+      <change beforePath="$PROJECT_DIR$/logistic/logistic_invoice/static/src/img/Logistic.png" afterPath="$PROJECT_DIR$/logistic/logistic_invoice/static/src/img/Logistic.png" />
+      <change beforePath="$PROJECT_DIR$/logistic/logistic_invoice/static/src/img/logo.png" afterPath="$PROJECT_DIR$/logistic/logistic_invoice/static/src/img/logo.png" />
+      <change beforePath="$PROJECT_DIR$/logistic/logistic_invoice/views/module_report.xml" afterPath="$PROJECT_DIR$/logistic/logistic_invoice/views/module_report.xml" />
+      <change beforePath="$PROJECT_DIR$/police project data/.~lock.Forms.docx#" afterPath="$PROJECT_DIR$/police project data/.~lock.Forms.docx#" />
+      <change beforePath="$PROJECT_DIR$/police project data/Forms.docx" afterPath="$PROJECT_DIR$/police project data/Forms.docx" />
+      <change beforePath="$PROJECT_DIR$/police/police_project/model.py" afterPath="$PROJECT_DIR$/police/police_project/model.py" />
+      <change beforePath="$PROJECT_DIR$/police/police_project/templates.xml" afterPath="$PROJECT_DIR$/police/police_project/templates.xml" />
+      <change beforePath="$PROJECT_DIR$/saif/base_module_record/LICENSE/LICENSE" afterPath="$PROJECT_DIR$/saif/base_module_record/LICENSE/LICENSE" />
+      <change beforePath="$PROJECT_DIR$/saif/base_module_record/README.rst" afterPath="$PROJECT_DIR$/saif/base_module_record/README.rst" />
+      <change beforePath="$PROJECT_DIR$/saif/base_module_record/__init__.py" afterPath="$PROJECT_DIR$/saif/base_module_record/__init__.py" />
+      <change beforePath="$PROJECT_DIR$/saif/base_module_record/__manifest__.py" afterPath="$PROJECT_DIR$/saif/base_module_record/__manifest__.py" />
+      <change beforePath="$PROJECT_DIR$/saif/base_module_record/images/base_module_record1.jpeg" afterPath="$PROJECT_DIR$/saif/base_module_record/images/base_module_record1.jpeg" />
+      <change beforePath="$PROJECT_DIR$/saif/base_module_record/images/base_module_record1.png" afterPath="$PROJECT_DIR$/saif/base_module_record/images/base_module_record1.png" />
+      <change beforePath="$PROJECT_DIR$/saif/base_module_record/images/base_module_record2.jpeg" afterPath="$PROJECT_DIR$/saif/base_module_record/images/base_module_record2.jpeg" />
+      <change beforePath="$PROJECT_DIR$/saif/base_module_record/images/base_module_record2.png" afterPath="$PROJECT_DIR$/saif/base_module_record/images/base_module_record2.png" />
+      <change beforePath="$PROJECT_DIR$/saif/base_module_record/images/base_module_record3.jpeg" afterPath="$PROJECT_DIR$/saif/base_module_record/images/base_module_record3.jpeg" />
+      <change beforePath="$PROJECT_DIR$/saif/base_module_record/images/base_module_record3.png" afterPath="$PROJECT_DIR$/saif/base_module_record/images/base_module_record3.png" />
+      <change beforePath="$PROJECT_DIR$/saif/base_module_record/models/__init__.py" afterPath="$PROJECT_DIR$/saif/base_module_record/models/__init__.py" />
+      <change beforePath="$PROJECT_DIR$/saif/base_module_record/models/base_module_record.py" afterPath="$PROJECT_DIR$/saif/base_module_record/models/base_module_record.py" />
+      <change beforePath="$PROJECT_DIR$/saif/base_module_record/security/ir.model.access.csv" afterPath="$PROJECT_DIR$/saif/base_module_record/security/ir.model.access.csv" />
+      <change beforePath="$PROJECT_DIR$/saif/base_module_record/static/description/base_module_record1.jpeg" afterPath="$PROJECT_DIR$/saif/base_module_record/static/description/base_module_record1.jpeg" />
+      <change beforePath="$PROJECT_DIR$/saif/base_module_record/static/description/base_module_record1.png" afterPath="$PROJECT_DIR$/saif/base_module_record/static/description/base_module_record1.png" />
+      <change beforePath="$PROJECT_DIR$/saif/base_module_record/static/description/base_module_record2.jpeg" afterPath="$PROJECT_DIR$/saif/base_module_record/static/description/base_module_record2.jpeg" />
+      <change beforePath="$PROJECT_DIR$/saif/base_module_record/static/description/base_module_record2.png" afterPath="$PROJECT_DIR$/saif/base_module_record/static/description/base_module_record2.png" />
+      <change beforePath="$PROJECT_DIR$/saif/base_module_record/static/description/base_module_record3.jpeg" afterPath="$PROJECT_DIR$/saif/base_module_record/static/description/base_module_record3.jpeg" />
+      <change beforePath="$PROJECT_DIR$/saif/base_module_record/static/description/base_module_record3.png" afterPath="$PROJECT_DIR$/saif/base_module_record/static/description/base_module_record3.png" />
+      <change beforePath="$PROJECT_DIR$/saif/base_module_record/static/description/fb.jpg" afterPath="$PROJECT_DIR$/saif/base_module_record/static/description/fb.jpg" />
+      <change beforePath="$PROJECT_DIR$/saif/base_module_record/static/description/icon.png" afterPath="$PROJECT_DIR$/saif/base_module_record/static/description/icon.png" />
+      <change beforePath="$PROJECT_DIR$/saif/base_module_record/static/description/in.jpg" afterPath="$PROJECT_DIR$/saif/base_module_record/static/description/in.jpg" />
+      <change beforePath="$PROJECT_DIR$/saif/base_module_record/static/description/index.html" afterPath="$PROJECT_DIR$/saif/base_module_record/static/description/index.html" />
+      <change beforePath="$PROJECT_DIR$/saif/base_module_record/static/description/insta.jpg" afterPath="$PROJECT_DIR$/saif/base_module_record/static/description/insta.jpg" />
+      <change beforePath="$PROJECT_DIR$/saif/base_module_record/static/description/odooqa32.png" afterPath="$PROJECT_DIR$/saif/base_module_record/static/description/odooqa32.png" />
+      <change beforePath="$PROJECT_DIR$/saif/base_module_record/static/description/record.png" afterPath="$PROJECT_DIR$/saif/base_module_record/static/description/record.png" />
+      <change beforePath="$PROJECT_DIR$/saif/base_module_record/static/description/record1.png" afterPath="$PROJECT_DIR$/saif/base_module_record/static/description/record1.png" />
+      <change beforePath="$PROJECT_DIR$/saif/base_module_record/static/description/record2.png" afterPath="$PROJECT_DIR$/saif/base_module_record/static/description/record2.png" />
+      <change beforePath="$PROJECT_DIR$/saif/base_module_record/static/description/record3.png" afterPath="$PROJECT_DIR$/saif/base_module_record/static/description/record3.png" />
+      <change beforePath="$PROJECT_DIR$/saif/base_module_record/static/description/record4.png" afterPath="$PROJECT_DIR$/saif/base_module_record/static/description/record4.png" />
+      <change beforePath="$PROJECT_DIR$/saif/base_module_record/static/description/record_banner.png" afterPath="$PROJECT_DIR$/saif/base_module_record/static/description/record_banner.png" />
+      <change beforePath="$PROJECT_DIR$/saif/base_module_record/static/description/serpent32.png" afterPath="$PROJECT_DIR$/saif/base_module_record/static/description/serpent32.png" />
+      <change beforePath="$PROJECT_DIR$/saif/base_module_record/static/description/serpent_logo.png" afterPath="$PROJECT_DIR$/saif/base_module_record/static/description/serpent_logo.png" />
+      <change beforePath="$PROJECT_DIR$/saif/base_module_record/static/description/twitter.jpg" afterPath="$PROJECT_DIR$/saif/base_module_record/static/description/twitter.jpg" />
+      <change beforePath="$PROJECT_DIR$/saif/base_module_record/static/description/youtube.jpg" afterPath="$PROJECT_DIR$/saif/base_module_record/static/description/youtube.jpg" />
+      <change beforePath="$PROJECT_DIR$/saif/base_module_record/tests/__init__.py" afterPath="$PROJECT_DIR$/saif/base_module_record/tests/__init__.py" />
+      <change beforePath="$PROJECT_DIR$/saif/base_module_record/tests/test_base_module_record.py" afterPath="$PROJECT_DIR$/saif/base_module_record/tests/test_base_module_record.py" />
+      <change beforePath="$PROJECT_DIR$/saif/base_module_record/wizard/__init__.py" afterPath="$PROJECT_DIR$/saif/base_module_record/wizard/__init__.py" />
+      <change beforePath="$PROJECT_DIR$/saif/base_module_record/wizard/base_module_record_data.py" afterPath="$PROJECT_DIR$/saif/base_module_record/wizard/base_module_record_data.py" />
+      <change beforePath="$PROJECT_DIR$/saif/base_module_record/wizard/base_module_record_data_view.xml" afterPath="$PROJECT_DIR$/saif/base_module_record/wizard/base_module_record_data_view.xml" />
+      <change beforePath="$PROJECT_DIR$/saif/base_module_record/wizard/base_module_record_object_view.xml" afterPath="$PROJECT_DIR$/saif/base_module_record/wizard/base_module_record_object_view.xml" />
+      <change beforePath="$PROJECT_DIR$/saif/base_module_record/wizard/base_module_record_objects.py" afterPath="$PROJECT_DIR$/saif/base_module_record/wizard/base_module_record_objects.py" />
+      <change beforePath="$PROJECT_DIR$/saif/base_module_record/wizard/base_module_save.py" afterPath="$PROJECT_DIR$/saif/base_module_record/wizard/base_module_save.py" />
+      <change beforePath="$PROJECT_DIR$/turkina" afterPath="$PROJECT_DIR$/turkina" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="test.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/saif/structure_module/test.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="684">
+              <caret line="38" column="0" lean-forward="false" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
+              <folding>
+                <element signature="e#24#39#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="v.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/saif/structure_module/views/v.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="450">
+              <caret line="25" column="29" lean-forward="true" selection-start-line="25" selection-start-column="29" selection-end-line="25" selection-end-column="29" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="template.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/saif/structure_module/views/template.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Odoo.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$APPLICATION_CONFIG_DIR$/templates/Odoo.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="698">
+              <caret line="237" column="7" lean-forward="true" selection-start-line="237" selection-start-column="7" selection-end-line="237" selection-end-column="7" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="model.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/saif/structure_module/model.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding>
+                <element signature="e#25#40#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>class</find>
+    </findStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/structure/reg_form/models.py" />
+        <option value="$PROJECT_DIR$/saif/TEST/model.py" />
+        <option value="$PROJECT_DIR$/saif/structure_module/views/v.xml" />
+        <option value="$PROJECT_DIR$/saif/structure_module/test.py" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6" fullScreen="true">
+    <option name="x" value="173" />
+    <option name="y" value="47" />
+    <option name="width" value="1400" />
+    <option name="height" value="983" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+      <manualOrder />
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scratches" />
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="Projects" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Projects" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Projects" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Projects" type="462c0819:PsiDirectoryNode" />
+              <item name="saif" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Projects" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Projects" type="462c0819:PsiDirectoryNode" />
+              <item name="saif" type="462c0819:PsiDirectoryNode" />
+              <item name="structure_module" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Projects" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Projects" type="462c0819:PsiDirectoryNode" />
+              <item name="saif" type="462c0819:PsiDirectoryNode" />
+              <item name="structure_module" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PythonContentEntriesConfigurable" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false">
+    <option name="remove_strategy" value="false" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="edc8016b-0d2f-4646-a7c7-c432b1960e34" name="Default" comment="" />
+      <created>1513320181041</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1513320181041</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="0" y="-30" width="1680" height="1080" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20833333" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3293348" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+    </layout>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager />
+    <watches-manager />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/saif/structure_module/test.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#24#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/structure/reg_form/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/structure/reg_form/templates.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2736">
+          <caret line="152" column="27" lean-forward="false" selection-start-line="152" selection-start-column="27" selection-end-line="152" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/structure/reg_form/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/structure/reg_form/templates.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2736">
+          <caret line="152" column="27" lean-forward="false" selection-start-line="152" selection-start-column="27" selection-end-line="152" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/saif/TEST/model.py" />
+    <entry file="file://$PROJECT_DIR$/structure/reg_form/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="522">
+          <caret line="68" column="29" lean-forward="false" selection-start-line="68" selection-start-column="29" selection-end-line="68" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/structure/reg_form/templates.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="18">
+          <caret line="152" column="27" lean-forward="false" selection-start-line="152" selection-start-column="27" selection-end-line="152" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/saif/structure_module/model.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#25#40#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/saif/structure_module/views/template.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/saif/structure_module/views/v.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="25" column="29" lean-forward="true" selection-start-line="25" selection-start-column="29" selection-end-line="25" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/templates/Odoo.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="698">
+          <caret line="237" column="7" lean-forward="true" selection-start-line="237" selection-start-column="7" selection-end-line="237" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/saif/structure_module/test.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="684">
+          <caret line="38" column="0" lean-forward="false" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
+          <folding>
+            <element signature="e#24#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>

@@ -153,7 +153,7 @@ class ViolationDetail(models.Model):
 class TraficPartyDetail(models.Model): 
 	_name = 'trafic.party.detail' 
 
-	party = fields.Text("Party")
+	# party = fields.Text("Party")
 	car_name = fields.Char("Name of Car")
 	car_plate = fields.Char("Plate Number")
 	name  = fields.Char("Driver Name")

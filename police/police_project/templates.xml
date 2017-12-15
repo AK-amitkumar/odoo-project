@@ -268,7 +268,7 @@
 				<h3>Violation Information</h3>
 				<field name="party_link">
 	                <tree>
-	                    <field name="party"/>
+	                    <!-- <field name="party"/> -->
 	                    <field name="car_name"/>
 	                    <field name="driver_country"/>
 	                    <field name="id_type"/>
@@ -313,7 +313,7 @@
 				<h3>Case Information</h3>
 				<group name="group_top">
 					<group name="group_left">
-						<field name="party"/> 
+						<!-- <field name="party"/>  -->
 						<field name="name"/>
 						<field name="driver_country"/> 
 						<field name="id_num"/> 

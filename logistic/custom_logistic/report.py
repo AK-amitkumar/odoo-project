@@ -176,7 +176,7 @@ class XlsxReport(models.Model):
 							worksheet.write_string (row, col+1,str(check_false(x.our_job_no)),main_data)
 							worksheet.write_string (row, col+2,str(check_false(x.customer.name)),main_data)
 							worksheet.write_string (row, col+3,str(check_false(x.cust_ref_inv)),main_data)
-							worksheet.write_string (row, col+3,str(check_false(x.shipper_date)),main_data)
+							worksheet.write_string (row, col+4,str(check_false(x.shipper_date)),main_data)
 							worksheet.write_string (row, col+5,str(check_false(x.bill_no)),main_data)
 							
 							if y.types == '20 ft':

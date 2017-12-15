@@ -30,8 +30,10 @@
       <field name="arch" type="xml"> 
       <tree> 
         <field name="customer"/>
+        <field name="customer_ref"/>
         <field name="bill_no"/>
-        <field name="shipper_date"/>
+        <field name="bayan_no"/>
+        <field name="status"/>
       </tree> 
       </field> 
     </record>
@@ -157,7 +159,7 @@
       </field> 
     </record>
   
-  <record model="ir.ui.view" id="logistic_import_calendar">
+  <!-- <record model="ir.ui.view" id="logistic_import_calendar">
       <field name="name">logistic_import_calendar</field>
       <field name="model">import.logic</field>
       <field name="priority" eval="2"/>
@@ -198,7 +200,7 @@
               <field name="status" type="measure"/>
           </pivot>
       </field>
-  </record> 
+  </record>  -->
 
     <record id="sales_import_logics" model="ir.sequence">
       <field name="name">sales_import_logics</field>
@@ -232,7 +234,7 @@
     <act_window id="action_import_logic" 
     name="Import" 
     res_model="import.logic" 
-    view_mode="tree,form,graph,gantt,pivot,calendar" />
+    view_mode="tree,form" />
 
     <act_window id="action_import_clearence" 
     name="Import" 
