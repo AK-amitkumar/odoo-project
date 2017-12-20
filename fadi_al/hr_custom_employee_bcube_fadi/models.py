@@ -12,7 +12,7 @@ class Hr_Employee(models.Model):
 
     laptop_des = fields.Many2one('maintenance.equipment', string='Laptop/Desktop')
     name_as_pass = fields.Char('Name(As in Passport)')
-    iqama_num = fields.Many2one('employee.iqama', 'Iqama Number / ID Number')
+    iqama_num = fields.Many2one('employee.iqama', 'Iqama Number / Saudi ID Number')
     employee_code = fields.Char()
     arabic_name = fields.Char()
     office = fields.Many2one('office.office')

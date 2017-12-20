@@ -1083,8 +1083,8 @@ msgstr "معلومات الموظف"
 #. module: hr_custom_employee_bcube_fadi
 #: model:ir.actions.act_window,name:hr_custom_employee_bcube_fadi.iqama_list_action
 #: model:ir.ui.menu,name:hr_custom_employee_bcube_fadi.contract_iqama_menu
-msgid "Employee Iqama / ID"
-msgstr " ID إقامة الموظف "
+msgid "Employee Iqama / Saudi ID"
+msgstr "موظف الإقامة / الهوية السعودية"
 
 #. module: hr_custom_employee_bcube_fadi
 #: model:ir.actions.act_window,name:hr_custom_employee_bcube_fadi.leaving_list_action

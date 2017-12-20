@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="edc8016b-0d2f-4646-a7c7-c432b1960e34" name="Default" comment="Pycharm Git Test">
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" />
       <change beforePath="" afterPath="$PROJECT_DIR$/champion/champ_sales_invoice/__init__.py" />
       <change beforePath="" afterPath="$PROJECT_DIR$/champion/champ_sales_invoice/__manifest__.py" />
       <change beforePath="" afterPath="$PROJECT_DIR$/champion/champ_sales_invoice/model.py" />
@@ -353,207 +352,11 @@
       <change beforePath="" afterPath="$PROJECT_DIR$/champion/working_161_champion/static/src/Test_Pass.xlsx" />
       <change beforePath="" afterPath="$PROJECT_DIR$/champion/working_161_champion/static/src/css/styles.css" />
       <change beforePath="" afterPath="$PROJECT_DIR$/champion/working_161_champion/views.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/police/police_project/i18n/ar_SY.po" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/saif/mytemp/__init__.py.template" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/saif/mytemp/__manifest__.py.template" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/saif/mytemp/models/__init__.py.template" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/saif/mytemp/models/models.py.template" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/saif/mytemp/security/ir.model.access.csv.template" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/saif/mytemp/views/templates.xml.template" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/saif/mytemp/views/views.xml.template" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/saif_n/bi_view_editor/README.rst" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/saif_n/bi_view_editor/__init__.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/saif_n/bi_view_editor/__manifest__.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/saif_n/bi_view_editor/hooks.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/saif_n/bi_view_editor/i18n/am.po" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/saif_n/bi_view_editor/i18n/ar.po" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/saif_n/bi_view_editor/i18n/bg.po" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/saif_n/bi_view_editor/i18n/bs.po" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/saif_n/bi_view_editor/i18n/ca.po" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/saif_n/bi_view_editor/i18n/cs.po" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/saif_n/bi_view_editor/i18n/da.po" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/saif_n/bi_view_editor/i18n/de.po" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/saif_n/bi_view_editor/i18n/el_GR.po" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/saif_n/bi_view_editor/i18n/en_GB.po" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/saif_n/bi_view_editor/i18n/es.po" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/saif_n/bi_view_editor/i18n/es_AR.po" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/saif_n/bi_view_editor/i18n/es_CL.po" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/saif_n/bi_view_editor/i18n/es_CO.po" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/saif_n/bi_view_editor/i18n/es_CR.po" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/saif_n/bi_view_editor/i18n/es_DO.po" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/saif_n/bi_view_editor/i18n/es_EC.po" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/saif_n/bi_view_editor/i18n/es_ES.po" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/saif_n/bi_view_editor/i18n/es_MX.po" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/saif_n/bi_view_editor/i18n/es_PE.po" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/saif_n/bi_view_editor/i18n/es_PY.po" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/saif_n/bi_view_editor/i18n/es_VE.po" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/saif_n/bi_view_editor/i18n/et.po" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/saif_n/bi_view_editor/i18n/eu.po" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/saif_n/bi_view_editor/i18n/fa.po" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/saif_n/bi_view_editor/i18n/fi.po" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/saif_n/bi_view_editor/i18n/fr.po" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/saif_n/bi_view_editor/i18n/fr_CA.po" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/saif_n/bi_view_editor/i18n/fr_CH.po" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/saif_n/bi_view_editor/i18n/gl.po" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/saif_n/bi_view_editor/i18n/gl_ES.po" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/saif_n/bi_view_editor/i18n/he.po" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/saif_n/bi_view_editor/i18n/hr.po" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/saif_n/bi_view_editor/i18n/hr_HR.po" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/saif_n/bi_view_editor/i18n/hu.po" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/saif_n/bi_view_editor/i18n/id.po" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/saif_n/bi_view_editor/i18n/it.po" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/saif_n/bi_view_editor/i18n/ja.po" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/saif_n/bi_view_editor/i18n/ko.po" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/saif_n/bi_view_editor/i18n/lt.po" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/saif_n/bi_view_editor/i18n/lt_LT.po" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/saif_n/bi_view_editor/i18n/lv.po" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/saif_n/bi_view_editor/i18n/mk.po" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/saif_n/bi_view_editor/i18n/mn.po" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/saif_n/bi_view_editor/i18n/nb.po" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/saif_n/bi_view_editor/i18n/nb_NO.po" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/saif_n/bi_view_editor/i18n/nl.po" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/saif_n/bi_view_editor/i18n/nl_BE.po" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/saif_n/bi_view_editor/i18n/pl.po" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/saif_n/bi_view_editor/i18n/pt.po" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/saif_n/bi_view_editor/i18n/pt_BR.po" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/saif_n/bi_view_editor/i18n/pt_PT.po" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/saif_n/bi_view_editor/i18n/ro.po" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/saif_n/bi_view_editor/i18n/ru.po" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/saif_n/bi_view_editor/i18n/sk.po" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/saif_n/bi_view_editor/i18n/sl.po" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/saif_n/bi_view_editor/i18n/sr.po" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/saif_n/bi_view_editor/i18n/sr@latin.po" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/saif_n/bi_view_editor/i18n/sv.po" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/saif_n/bi_view_editor/i18n/th.po" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/saif_n/bi_view_editor/i18n/tr.po" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/saif_n/bi_view_editor/i18n/tr_TR.po" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/saif_n/bi_view_editor/i18n/uk.po" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/saif_n/bi_view_editor/i18n/vi.po" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/saif_n/bi_view_editor/i18n/vi_VN.po" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/saif_n/bi_view_editor/i18n/zh_CN.po" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/saif_n/bi_view_editor/i18n/zh_TW.po" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/saif_n/bi_view_editor/models/__init__.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/saif_n/bi_view_editor/models/bve_view.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/saif_n/bi_view_editor/models/ir_model.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/saif_n/bi_view_editor/models/models.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/saif_n/bi_view_editor/security/ir.model.access.csv" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/saif_n/bi_view_editor/security/rules.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/saif_n/bi_view_editor/static/description/icon.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/saif_n/bi_view_editor/static/description/main_screenshot.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/saif_n/bi_view_editor/static/src/css/bve.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/saif_n/bi_view_editor/static/src/js/bve.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/saif_n/bi_view_editor/templates/assets_template.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/saif_n/bi_view_editor/templates/qweb_template.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/saif_n/bi_view_editor/tests/__init__.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/saif_n/bi_view_editor/tests/test_bi_view.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/saif_n/bi_view_editor/views/bve_view.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/saif_n/bi_view_editor/wizard/__init__.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/saif_n/bi_view_editor/wizard/wizard_ir_model_menu_create.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/turkina/account_parent/COPYRIGHT" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/turkina/account_parent/LICENSE" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/turkina/account_parent/README.md" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/turkina/account_parent/__init__.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/turkina/account_parent/__manifest__.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/turkina/account_parent/data/account_type_data.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/turkina/account_parent/models/__init__.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/turkina/account_parent/models/account.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/turkina/account_parent/models/chart_template.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/turkina/account_parent/security/account_parent_security.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/turkina/account_parent/security/ir.model.access.csv" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/turkina/account_parent/static/description/icon.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/turkina/account_parent/static/description/logo.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/turkina/account_parent/views/account_view.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/turkina/account_parent/views/open_chart.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/turkina/account_parent/wizard/__init__.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/turkina/account_parent/wizard/account_chart.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/turkina/balance_sheet_turkina/__init__.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/turkina/balance_sheet_turkina/__manifest__.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/turkina/balance_sheet_turkina/model.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/turkina/balance_sheet_turkina/static/src/css/report.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/turkina/balance_sheet_turkina/static/src/img/logo.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/turkina/balance_sheet_turkina/template.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/turkina/balance_sheet_turkina/views/module_report.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/turkina/balance_sheet_turkina/wizard.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/turkina/expense_Bcube/__init__.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/turkina/expense_Bcube/__manifest__.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/turkina/expense_Bcube/base_report_to_printer/README.rst" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/turkina/expense_Bcube/base_report_to_printer/__init__.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/turkina/expense_Bcube/base_report_to_printer/__manifest__.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/turkina/expense_Bcube/base_report_to_printer/data/printing_data.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/turkina/expense_Bcube/base_report_to_printer/i18n/am.po" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/turkina/expense_Bcube/base_report_to_printer/i18n/base_report_to_printer.pot" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/turkina/expense_Bcube/base_report_to_printer/i18n/bg.po" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/turkina/expense_Bcube/base_report_to_printer/i18n/ca.po" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/turkina/expense_Bcube/base_report_to_printer/i18n/de.po" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/turkina/expense_Bcube/base_report_to_printer/i18n/el_GR.po" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/turkina/expense_Bcube/base_report_to_printer/i18n/es.po" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/turkina/expense_Bcube/base_report_to_printer/i18n/es_ES.po" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/turkina/expense_Bcube/base_report_to_printer/i18n/fi.po" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/turkina/expense_Bcube/base_report_to_printer/i18n/fr.po" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/turkina/expense_Bcube/base_report_to_printer/i18n/gl.po" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/turkina/expense_Bcube/base_report_to_printer/i18n/hr.po" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/turkina/expense_Bcube/base_report_to_printer/i18n/hr_HR.po" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/turkina/expense_Bcube/base_report_to_printer/i18n/it.po" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/turkina/expense_Bcube/base_report_to_printer/i18n/nl.po" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/turkina/expense_Bcube/base_report_to_printer/i18n/nl_NL.po" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/turkina/expense_Bcube/base_report_to_printer/i18n/pt.po" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/turkina/expense_Bcube/base_report_to_printer/i18n/pt_BR.po" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/turkina/expense_Bcube/base_report_to_printer/i18n/pt_PT.po" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/turkina/expense_Bcube/base_report_to_printer/i18n/sl.po" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/turkina/expense_Bcube/base_report_to_printer/i18n/tr.po" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/turkina/expense_Bcube/base_report_to_printer/i18n/zh_CN.po" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/turkina/expense_Bcube/base_report_to_printer/migrations/9.0.2.0.0/post-10-create_server_record.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/turkina/expense_Bcube/base_report_to_printer/models/__init__.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/turkina/expense_Bcube/base_report_to_printer/models/ir_actions_report_xml.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/turkina/expense_Bcube/base_report_to_printer/models/printing_action.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/turkina/expense_Bcube/base_report_to_printer/models/printing_job.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/turkina/expense_Bcube/base_report_to_printer/models/printing_printer.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/turkina/expense_Bcube/base_report_to_printer/models/printing_report_xml_action.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/turkina/expense_Bcube/base_report_to_printer/models/printing_server.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/turkina/expense_Bcube/base_report_to_printer/models/report.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/turkina/expense_Bcube/base_report_to_printer/models/res_users.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/turkina/expense_Bcube/base_report_to_printer/report_service.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/turkina/expense_Bcube/base_report_to_printer/security/security.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/turkina/expense_Bcube/base_report_to_printer/static/src/js/qweb_action_manager.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/turkina/expense_Bcube/base_report_to_printer/tests/__init__.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/turkina/expense_Bcube/base_report_to_printer/tests/test_ir_actions_report_xml.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/turkina/expense_Bcube/base_report_to_printer/tests/test_printing_job.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/turkina/expense_Bcube/base_report_to_printer/tests/test_printing_printer.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/turkina/expense_Bcube/base_report_to_printer/tests/test_printing_printer_wizard.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/turkina/expense_Bcube/base_report_to_printer/tests/test_printing_report_xml_action.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/turkina/expense_Bcube/base_report_to_printer/tests/test_printing_server.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/turkina/expense_Bcube/base_report_to_printer/tests/test_report.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/turkina/expense_Bcube/base_report_to_printer/tests/test_res_users.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/turkina/expense_Bcube/base_report_to_printer/views/assets.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/turkina/expense_Bcube/base_report_to_printer/views/ir_actions_report_xml_view.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/turkina/expense_Bcube/base_report_to_printer/views/printing_job.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/turkina/expense_Bcube/base_report_to_printer/views/printing_printer_view.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/turkina/expense_Bcube/base_report_to_printer/views/printing_report_view.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/turkina/expense_Bcube/base_report_to_printer/views/printing_server.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/turkina/expense_Bcube/base_report_to_printer/views/res_users_view.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/turkina/expense_Bcube/base_report_to_printer/wizards/__init__.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/turkina/expense_Bcube/base_report_to_printer/wizards/printing_printer_update_wizard.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/turkina/expense_Bcube/base_report_to_printer/wizards/printing_printer_update_wizard_view.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/turkina/expense_Bcube/models.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/turkina/expense_Bcube/templates.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/turkina/turkina_invoice_extend/__init__.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/turkina/turkina_invoice_extend/__manifest__.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/turkina/turkina_invoice_extend/models/__init__.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/turkina/turkina_invoice_extend/models/models.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/turkina/turkina_invoice_extend/views/views.xml" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/champion/working_161_champion/models.py" afterPath="$PROJECT_DIR$/champion/working_161_champion/models.py" />
       <change beforePath="$PROJECT_DIR$/fadi_al/hr_custom_employee_bcube_fadi/i18n/ar.po" afterPath="$PROJECT_DIR$/fadi_al/hr_custom_employee_bcube_fadi/i18n/ar.po" />
       <change beforePath="$PROJECT_DIR$/fadi_al/hr_custom_employee_bcube_fadi/i18n/ar_SY.po" afterPath="$PROJECT_DIR$/fadi_al/hr_custom_employee_bcube_fadi/i18n/ar_SY.po" />
       <change beforePath="$PROJECT_DIR$/fadi_al/hr_custom_employee_bcube_fadi/models.py" afterPath="$PROJECT_DIR$/fadi_al/hr_custom_employee_bcube_fadi/models.py" />
       <change beforePath="$PROJECT_DIR$/fadi_al/hr_custom_employee_bcube_fadi/templates.xml" afterPath="$PROJECT_DIR$/fadi_al/hr_custom_employee_bcube_fadi/templates.xml" />
-      <change beforePath="$PROJECT_DIR$/saif/structure_module/__manifest__.py" afterPath="$PROJECT_DIR$/saif/structure_module/__manifest__.py" />
-      <change beforePath="$PROJECT_DIR$/saif/structure_module/test.py" afterPath="$PROJECT_DIR$/saif/structure_module/test.py" />
-      <change beforePath="$PROJECT_DIR$/saif/structure_module/views/v.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/saif/template.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/structure/reg_form/models.py" afterPath="$PROJECT_DIR$/structure/reg_form/models.py" />
-      <change beforePath="$PROJECT_DIR$/tamplate/Odoo.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/turkina" afterPath="$PROJECT_DIR$/turkina" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -566,7 +369,60 @@
     <favorites_list name="Projects" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="templates.xml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/fadi_al/hr_custom_employee_bcube_fadi/templates.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="199">
+              <caret line="534" column="51" lean-forward="false" selection-start-line="534" selection-start-column="35" selection-end-line="534" selection-end-column="51" />
+              <folding>
+                <element signature="n#group#1;n#page#1;n#xpath#16;n#field#4;n#record#0;n#data#0;n#odoo#0;n#!!top" expanded="false" />
+                <element signature="n#record#2;n#data#0;n#odoo#0;n#!!top" expanded="false" />
+                <element signature="n#record#4;n#data#0;n#odoo#0;n#!!top" expanded="false" />
+                <element signature="n#record#5;n#data#0;n#odoo#0;n#!!top" expanded="false" />
+                <element signature="n#record#6;n#data#0;n#odoo#0;n#!!top" expanded="false" />
+                <element signature="n#record#7;n#data#0;n#odoo#0;n#!!top" expanded="false" />
+                <element signature="n#record#9;n#data#0;n#odoo#0;n#!!top" expanded="false" />
+                <element signature="n#record#10;n#data#0;n#odoo#0;n#!!top" expanded="false" />
+                <element signature="n#record#11;n#data#0;n#odoo#0;n#!!top" expanded="false" />
+                <element signature="n#record#17;n#data#0;n#odoo#0;n#!!top" expanded="false" />
+                <element signature="n#record#18;n#data#0;n#odoo#0;n#!!top" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/fadi_al/hr_custom_employee_bcube_fadi/models.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="198">
+              <caret line="14" column="71" lean-forward="false" selection-start-line="14" selection-start-column="71" selection-end-line="14" selection-end-column="71" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ar_SY.po" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/fadi_al/hr_custom_employee_bcube_fadi/i18n/ar_SY.po">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="310">
+              <caret line="1108" column="0" lean-forward="true" selection-start-line="1108" selection-start-column="0" selection-end-line="1108" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ar.po" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/fadi_al/hr_custom_employee_bcube_fadi/i18n/ar.po">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="148">
+              <caret line="1184" column="13" lean-forward="true" selection-start-line="1184" selection-start-column="13" selection-end-line="1184" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -577,24 +433,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>train</find>
-      <find>hr.trainings</find>
-      <find>t</find>
-      <find>experience_relation</find>
-      <find>اسم جهة الاتصال</find>
-      <find>Certification</find>
-      <find>Registration No.</find>
-      <find>Registration No</find>
-      <find>hr.view_employee_form</find>
-      <find>hr_view_employee_form</find>
-      <find>model:ir.ui.view,arch_db:</find>
-      <find>Completion Date</find>
-      <find>Qualifications</find>
-      <find>الدورات</find>
-      <find>experience</find>
-      <find>pin</find>
-      <find>vehi</find>
-      <find>vendor_no</find>
       <find>vehicle_d</find>
       <find>Deployment</find>
       <find>mol_location</find>
@@ -607,6 +445,24 @@
       <find>Departments</find>
       <find>model:ir.actions.act_window,name:hr_custom_employee_bcube_fadi.</find>
       <find>hr.open_module_tree_department</find>
+      <find>Identification</find>
+      <find>serial_num</find>
+      <find>state_id</find>
+      <find>join</find>
+      <find>bank_code</find>
+      <find>iban</find>
+      <find>bar</find>
+      <find>barcode</find>
+      <find>Vehicle</find>
+      <find>iqama /</find>
+      <find>Iqama Number / ID Number</find>
+      <find>iqama_num</find>
+      <find>/</find>
+      <find>إقامة الموظف</find>
+      <find>موظف الإقامة / الهوية السعودية</find>
+      <find>تفاصيل الموظف</find>
+      <find>أصول الشركة</find>
+      <find>Iqama/ID Details</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -626,15 +482,15 @@
         <option value="$PROJECT_DIR$/saif/structure_module/__manifest__.py" />
         <option value="$PROJECT_DIR$/saif/mytemp/models/models.py.template" />
         <option value="$PROJECT_DIR$/fadi_al/hr_custom_employee_bcube_fadi/i18n/hr_custom_employee_bcube_fadi.pot" />
-        <option value="$PROJECT_DIR$/fadi_al/hr_custom_employee_bcube_fadi/i18n/ar.po" />
+        <option value="$PROJECT_DIR$/structure/reg_form/models.py" />
         <option value="$PROJECT_DIR$/fadi_al/hr_custom_employee_bcube_fadi/models.py" />
+        <option value="$PROJECT_DIR$/fadi_al/hr_custom_employee_bcube_fadi/i18n/ar.po" />
         <option value="$PROJECT_DIR$/fadi_al/hr_custom_employee_bcube_fadi/i18n/ar_SY.po" />
         <option value="$PROJECT_DIR$/fadi_al/hr_custom_employee_bcube_fadi/templates.xml" />
-        <option value="$PROJECT_DIR$/structure/reg_form/models.py" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="173" />
     <option name="y" value="47" />
     <option name="width" value="1400" />
@@ -668,7 +524,20 @@
             <path>
               <item name="Projects" type="b2602c69:ProjectViewProjectNode" />
               <item name="Projects" type="462c0819:PsiDirectoryNode" />
-              <item name="turkina" type="462c0819:PsiDirectoryNode" />
+              <item name="fadi_al" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Projects" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Projects" type="462c0819:PsiDirectoryNode" />
+              <item name="fadi_al" type="462c0819:PsiDirectoryNode" />
+              <item name="hr_custom_employee_bcube_fadi" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Projects" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Projects" type="462c0819:PsiDirectoryNode" />
+              <item name="fadi_al" type="462c0819:PsiDirectoryNode" />
+              <item name="hr_custom_employee_bcube_fadi" type="462c0819:PsiDirectoryNode" />
+              <item name="i18n" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -720,9 +589,9 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="173" y="47" width="1613" height="1025" extended-state="6" />
+    <frame x="67" y="25" width="1613" height="1025" extended-state="7" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21949686" sideWeight="0.49552572" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21949686" sideWeight="0.49552572" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32997763" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3293348" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -730,7 +599,7 @@
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295688" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24968554" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23825504" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.5" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22012578" sideWeight="0.5044743" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -1072,41 +941,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/fadi_al/hr_custom_employee_bcube_fadi/i18n/ar.po">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="278">
-          <caret line="2155" column="22" lean-forward="false" selection-start-line="2155" selection-start-column="22" selection-end-line="2155" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/fadi_al/hr_custom_employee_bcube_fadi/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="33" column="42" lean-forward="true" selection-start-line="33" selection-start-column="42" selection-end-line="33" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/fadi_al/hr_custom_employee_bcube_fadi/templates.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="28296">
-          <caret line="1950" column="67" lean-forward="false" selection-start-line="1950" selection-start-column="67" selection-end-line="1950" selection-end-column="67" />
-          <folding>
-            <element signature="n#group#1;n#page#1;n#xpath#16;n#field#4;n#record#0;n#data#0;n#odoo#0;n#!!top" expanded="false" />
-            <element signature="n#record#2;n#data#0;n#odoo#0;n#!!top" expanded="false" />
-            <element signature="n#record#4;n#data#0;n#odoo#0;n#!!top" expanded="false" />
-            <element signature="n#record#5;n#data#0;n#odoo#0;n#!!top" expanded="false" />
-            <element signature="n#record#6;n#data#0;n#odoo#0;n#!!top" expanded="false" />
-            <element signature="n#record#7;n#data#0;n#odoo#0;n#!!top" expanded="false" />
-            <element signature="n#record#8;n#data#0;n#odoo#0;n#!!top" expanded="false" />
-            <element signature="n#record#9;n#data#0;n#odoo#0;n#!!top" expanded="false" />
-            <element signature="n#record#10;n#data#0;n#odoo#0;n#!!top" expanded="false" />
-            <element signature="n#record#11;n#data#0;n#odoo#0;n#!!top" expanded="false" />
-            <element signature="n#record#17;n#data#0;n#odoo#0;n#!!top" expanded="false" />
-            <element signature="n#record#18;n#data#0;n#odoo#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/structure/reg_form/models.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="736">
@@ -1115,11 +949,47 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/fadi_al/hr_custom_employee_bcube_fadi/i18n/ar.po">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="148">
+          <caret line="1184" column="13" lean-forward="true" selection-start-line="1184" selection-start-column="13" selection-end-line="1184" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/fadi_al/hr_custom_employee_bcube_fadi/i18n/ar_SY.po">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="666">
-          <caret line="37" column="58" lean-forward="false" selection-start-line="37" selection-start-column="58" selection-end-line="37" selection-end-column="58" />
+        <state relative-caret-position="310">
+          <caret line="1108" column="0" lean-forward="true" selection-start-line="1108" selection-start-column="0" selection-end-line="1108" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fadi_al/hr_custom_employee_bcube_fadi/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="14" column="71" lean-forward="false" selection-start-line="14" selection-start-column="71" selection-end-line="14" selection-end-column="71" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fadi_al/hr_custom_employee_bcube_fadi/templates.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="199">
+          <caret line="534" column="51" lean-forward="false" selection-start-line="534" selection-start-column="35" selection-end-line="534" selection-end-column="51" />
+          <folding>
+            <element signature="n#group#1;n#page#1;n#xpath#16;n#field#4;n#record#0;n#data#0;n#odoo#0;n#!!top" expanded="false" />
+            <element signature="n#record#2;n#data#0;n#odoo#0;n#!!top" expanded="false" />
+            <element signature="n#record#4;n#data#0;n#odoo#0;n#!!top" expanded="false" />
+            <element signature="n#record#5;n#data#0;n#odoo#0;n#!!top" expanded="false" />
+            <element signature="n#record#6;n#data#0;n#odoo#0;n#!!top" expanded="false" />
+            <element signature="n#record#7;n#data#0;n#odoo#0;n#!!top" expanded="false" />
+            <element signature="n#record#9;n#data#0;n#odoo#0;n#!!top" expanded="false" />
+            <element signature="n#record#10;n#data#0;n#odoo#0;n#!!top" expanded="false" />
+            <element signature="n#record#11;n#data#0;n#odoo#0;n#!!top" expanded="false" />
+            <element signature="n#record#17;n#data#0;n#odoo#0;n#!!top" expanded="false" />
+            <element signature="n#record#18;n#data#0;n#odoo#0;n#!!top" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>

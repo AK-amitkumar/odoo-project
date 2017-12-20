@@ -13,7 +13,7 @@
 					<field name="mobile_phone" position="after">
 						<field name="office"/>
 						<field name="work_fax"/>
-						<field name="serial_num"/>
+						<!--<field name="serial_num"/>-->
 					</field>
 					<xpath expr="//notebook/page/group/group[1]" position="attributes">
 						<attribute name="string">General Details</attribute>
@@ -108,7 +108,7 @@
 
 								<group name="group_right">
 									<field name="p_city"/>
-									<field name="p_state_id"/>
+									<!--<field name="p_state_id"/>-->
 									<field name="p_country_id"/>
 									<field name="p_contact_no"/>
 								</group>
@@ -125,7 +125,7 @@
 
 								<group name="group_right">
 									<field name="city"/>
-									<field name="state_id"/>
+									<!--<field name="state_id"/>-->
 									<field name="country_idd"/>
 									<field name="contact_no"/>
 								</group>
@@ -257,11 +257,11 @@
 					<xpath expr="//field[@name='user_id']" position="after">
 
 						<field name="joining_date"/>
-						<field name="leaving_date"/>
-						<field name="serv_year"/>
+						<!--<field name="leaving_date"/>-->
+						<!--<field name="serv_year"/>-->
 						<field name="emp_status"/>
-						<field name="iban"/>
-						<field name="bank_code"/>
+						<!--<field name="iban"/>-->
+						<!--<field name="bank_code"/>-->
 
 					</xpath>
 
@@ -269,6 +269,11 @@
                     <xpath expr="//page[@name='hr_settings']" position="attributes">
                     <attribute name="string">Deployment and HR Settings</attribute>
                     </xpath>
+				<xpath expr="//field[@name='identification_id']" position="replace"> </xpath>
+				<xpath expr="//field[@name='barcode']" position="replace"> </xpath>
+
+				<!--<xpath expr="//field[@name='pin']" position="replace"> </xpath>-->
+				<!--<xpath expr="//field[@name='pin']" position="replace"> </xpath>-->
 
 
 			</field>
@@ -511,7 +516,7 @@
 								<field name="dob"/>
 							</group>
 						</group>
-						<group string='Iqama/ID Details' name="group_top">
+						<group string='Iqama/ Saudi ID Details' name="group_top">
 							<group name="group_left">
 								<field name="iqama_no"/>
 								<field name="serial_no"/>
@@ -549,7 +554,7 @@
 			<field name="arch" type="xml">
 				<form>
 					<sheet>
-						<group string='Iqama/ID Details' name="group_top">
+						<group string='Iqama/ Saudi ID Details' name="group_top">
 							<group name="group_left">
 								<field name="iqama_no"/>
 								<field name="serial_no"/>
@@ -652,6 +657,13 @@
 		        </xpath>
                 <xpath expr="//field[@name='vehicle_distance']" position="replace">
 		        </xpath>
+				<xpath expr="//field[@name='vehicle']" position="replace"> </xpath>
+				<xpath expr="//field[@name='emp_status']" position="after">
+					<field name="medic_exam"/>
+				</xpath>
+				<xpath expr="//notebook/page[@name='hr_settings']/group/group[2]" position="replace">
+				</xpath>
+
                 <xpath expr="//group[@name='active_group']" position="after">
                     <group name="group_top" string="Deployment">
                         <field name="designation"/>
@@ -1851,7 +1863,7 @@
 		</record>
 		<!-- Employee Iqama -->
 		<record model="ir.actions.act_window" id="iqama_list_action">
-			<field name="name">Employee Iqama / ID</field>
+			<field name="name">Employee Iqama / Saudi ID</field>
 			<field name="res_model">employee.iqama</field>
 			<field name="view_type">form</field>
 			<field name="view_mode">tree,form</field>
@@ -1921,7 +1933,7 @@
 			  parent="hr.menu_hr_main"
 			  action="amedment_list_action"/>
 		<!-- Employee Iqama -->
-		<menuitem id="contract_iqama_menu" name="Employee Iqama / ID"
+		<menuitem id="contract_iqama_menu" name="Employee Iqama / Saudi ID"
 			  parent="hr.menu_hr_main"
 			  action="iqama_list_action"/>
 		<!-- Employee Clearance -->
