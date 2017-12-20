@@ -182,14 +182,14 @@ class TaxWork(models.Model):
 	# 			""", (tuple(self.ids), 10 ** (-max(5, prec))))
 
 
-	# 	cr = self.env.cr
-	# 	self.env.cr.execute("SELECT amount_total,partner_id FROM  account_invoice AS a WHERE a.date_invoice >= %s AND a.date_invoice <= %s",(self.date_from,self.date_to))
-	# 	self.env.cr.execute("SELECT price_subtotal,amount_total, a.partner_id FROM  account_invoice AS a ,account_invoice_line As b WHERE a.id = b.invoice_id" )
-	# 	print "--------------------------------------------"
-	# 	print self.env.cr.fetchall()
-	# 	pprint (self.env.cr.dictfetchall())
-	# 	ddict = self.env.cr.dictfetchall()
-	# 	print type(self.env.cr.dictfetchall())
+		# cr = self.env.cr
+		# self.env.cr.execute("SELECT amount_total,partner_id FROM  account_invoice AS a WHERE a.date_invoice >= %s AND a.date_invoice <= %s",(self.date_from,self.date_to))
+		# self.env.cr.execute("SELECT price_subtotal,amount_total, a.partner_id FROM  account_invoice AS a ,account_invoice_line As b WHERE a.id = b.invoice_id" )
+		# print "--------------------------------------------"
+		# print self.env.cr.fetchall()
+		# pprint (self.env.cr.dictfetchall())
+		# ddict = self.env.cr.dictfetchall()
+		# print type(self.env.cr.dictfetchall())
 	# 	d= {}
 	# 	d = ddict[0:]
 	# 	print json.dumps(ddict, indent=2)

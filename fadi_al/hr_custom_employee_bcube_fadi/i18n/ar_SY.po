@@ -33,10 +33,36 @@ msgstr "العقود"
 msgid "Employee Iqama / ID"
 msgstr "إقامات الموظفين"
 
-#.
-#:
+#. module: hr_custom_employee_bcube_fadi
+#: model:ir.actions.act_window,name:hr_custom_employee_bcube_fadi.hr_open_module_tree_department
+#: model:ir.ui.menu,name:hr_custom_employee_bcube_fadi.hr_menu_hr_department_tree1"
 msgid "Departments"
 msgstr "قسم"
+
+#. module: hr_custom_employee_bcube_fadi
+#: model:ir.ui.view,arch_db:hr_custom_employee_bcube_fadi.hr_extension_form_view
+msgid "Experience"
+msgstr "تجربة"
+
+#. module: hr_custom_employee_bcube_fadi
+#:model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_experience_comp
+msgid "Company"
+msgstr "شركة"
+
+#. module: hr_custom_employee_bcube_fadi
+#:model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_experience_s_date
+msgid "Start Date"
+msgstr "تاريخ البدء"
+
+#. module: hr_custom_employee_bcube_fadi
+#:model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_experience_e_date
+msgid "End Date"
+msgstr "تاريخ الانتهاء"
+
+#. module: hr_custom_employee_bcube_fadi
+#:model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_experience_detail
+msgid "Details"
+msgstr "تفاصيل"
 
 #. module: hr_custom_employee_bcube_fadi
 #: selection:hr.contract,n_period:0 selection:hr.exit.reentry,months:0
@@ -787,7 +813,7 @@ msgid "Dependent ticket"
 msgstr "تذاكر التابعين"
 
 #. module: hr_custom_employee_bcube_fadi
-#: model:ir.ui.view,arch_db:hr_custom_employee_bcube_fadi.hr_extension_form_view
+#: model:ir.ui.view,arch_db:hr_custom_employee_bcube_fadi.test_form
 msgid "Deployment"
 msgstr "نشر"
 
@@ -1190,6 +1216,19 @@ msgstr "تفاصيل الإقامة الأسرية/معرف"
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_res_sponsor_fax
 msgid "Fax"
 msgstr "فاكس"
+
+#. module: hr_custom_employee_bcube_fadi
+#: model:ir.ui.view,arch_db:hr_custom_employee_bcube_fadi.iqama_form_view
+#: model:ir.ui.view,arch_db:hr_custom_employee_bcube_fadi.iqama_tree_form_view
+msgid "Iqama/Saudi ID Details"
+msgstr "الإقامة / تفاصيل الهوية السعودية "
+
+#. module: hr_custom_employee_bcube_fadi
+#: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_employee_family_iqama_iqama_no
+#: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_employee_grops_iqama_no
+#: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_employee_iqama_iqama_no
+msgid "Iqama/Saudi ID No"
+msgstr "الإقامة / رقم الهوية السعودية"
 
 #. module: hr_custom_employee_bcube_fadi
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_employee_p_state_id
@@ -2070,8 +2109,8 @@ msgstr "مدة الاقامة"
 
 #. module: hr_custom_employee_bcube_fadi
 #: model:ir.ui.view,arch_db:hr_custom_employee_bcube_fadi.hr_extension_form_view
-msgid "Permanent Address"
-msgstr "العنوان الدائم:"
+msgid "Addresses"
+msgstr "عناوين"
 
 #. module: hr_custom_employee_bcube_fadi
 #: model:ir.ui.view,arch_db:hr_custom_employee_bcube_fadi.dependent_form_view
@@ -2192,6 +2231,11 @@ msgstr "تاريخ الوصول"
 #: model:ir.ui.view,arch_db:hr_custom_employee_bcube_fadi.hr_extension_form_view
 msgid "References"
 msgstr "مراجع"
+
+#. module: hr_custom_employee_bcube_fadi
+#: model:ir.ui.view,arch_db:hr_custom_employee_bcube_fadi.hr_extension_form_view
+msgid "Deployment and HR Settings"
+msgstr "النشر وإعدادات الموارد البشرية"
 
 #. module: hr_custom_employee_bcube_fadi
 #: model:ir.model.fields,field_description:hr_custom_employee_bcube_fadi.field_hr_ticket_refund
