@@ -1,22 +1,22 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "Import/Export Logistic",
+    'name': "Import / Export Logistic",
 
-    'summary': """
-        Nayyab & Muhammad Awais""",
+    'summary': """Provides The Import and Export Logistics Facility
+        """,
 
     'description': """
-        Long description of module's purpose
+       Provides The Import and Export Logistics Facility  
     """,
 
-    'author': "My Company",
-    'website': "http://www.yourcompany.com",
+    'author': "Nayyab & Muhammad Awais",
+    'website': "http://www.bcuube.com",
 
     # Categories can be used to filter modules in modules listing
     # Check https://github.com/odoo/odoo/blob/master/odoo/addons/base/module/module_data.xml
     # for the full list
     'category': 'Uncategorized',
-    'version': '0.1',
+    'version': '0.7',
 
     # any module necessary for this one to work correctly
     'depends': ['base','sale','account','sale_stock'],

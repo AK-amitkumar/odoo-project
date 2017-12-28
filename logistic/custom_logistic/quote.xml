@@ -71,7 +71,8 @@
 
             <xpath expr="//field[@name='partner_id']" position="after">
 
-                <field name="bill_type"/>        
+                <field name="by_customer"/>       
+                <field name="bill_type"/>       
                 <field name="freight_link"/>             
                 <field name="trans_link"/>                       
                 <field name="acc_link"/>                       

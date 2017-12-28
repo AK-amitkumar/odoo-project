@@ -17,6 +17,7 @@ class XlsxReport(models.Model):
 					 ('import', 'Import'),
 					 ],default='export',string="Report Type",required=True) 
 	total = fields.Boolean("Total Report" ,default=False)
+	b_name = fields.Many2one('by.customer',"By Customer",required=True)
 
 	@api.onchange('total')
 	def onchange_total(self):
@@ -28,13 +29,13 @@ class XlsxReport(models.Model):
 	def print_report(self):
 		if self.total == True:
 			if self.ttype == 'export':
-				data=self.env['export.logic'].search([('customer','=',self.customer.id)])
+				data=self.env['export.logic'].search([('customer','=',self.customer.id),('by_customer','=',self.b_name.id)])
 				if data:
 						return self.xlsx_report(data,ttype='export')
 				else:
 					raise  ValidationError('Report Does Not Exist According To Given Data')
 			elif self.ttype == 'import':
-				data=self.env['import.logic'].search([('customer','=',self.customer.id)])
+				data=self.env['import.logic'].search([('customer','=',self.customer.id),('by_customer','=',self.b_name.id)])
 				if data:
 						return self.xlsx_report(data,ttype='import')
 				else:
@@ -42,15 +43,15 @@ class XlsxReport(models.Model):
 			else:
 				raise  ValidationError('Report Does Not Exist According To Given Data')
 		else:
-			if self.ttype == 'export' and self.e_date and self.s_date :
-				data=self.env['export.logic'].search([('customer','=',self.customer.id),('date','>=',self.s_date),('date','<=',self.e_date)])
+			if self.ttype == 'export' and self.e_date and self.s_date:
+				data=self.env['export.logic'].search([('customer','=',self.customer.id),('by_customer','=',self.b_name.id),('date','>=',self.s_date),('date','<=',self.e_date)])
 				if data:
 					return self.xlsx_report(data,ttype='export')
 				else:
 					raise  ValidationError('Report Does Not Exist According To Given Data')
 
-			elif self.ttype == 'import' and self.e_date and self.s_date :
-				data=self.env['import.logic'].search([('customer','=',self.customer.id),('date','>=',self.s_date),('date','<=',self.e_date)])
+			elif self.ttype == 'import' and self.e_date and self.s_date:
+				data=self.env['import.logic'].search([('customer','=',self.customer.id),('by_customer','=',self.b_name.id),('date','>=',self.s_date),('date','<=',self.e_date)])
 				if data:
 					return self.xlsx_report(data,ttype='import')
 				else:
@@ -60,7 +61,7 @@ class XlsxReport(models.Model):
 	
 	@api.multi
 	def xlsx_report(self,input_records,ttype):
-		with xlsxwriter.Workbook("/home/odoo/odoo-dev/Projects/logistic/custom_logistic/static/src/lib/DAILY_SHIPMENT_STATUS_REPORT.xlsx") as workbook:
+		with xlsxwriter.Workbook("/home/nayyab/odoo10/projects/logistic/custom_logistic/static/src/lib/DAILY_SHIPMENT_STATUS_REPORT.xlsx") as workbook:
 			main_heading = workbook.add_format({
 				"bold": 1, 
 				"border": 1,
@@ -89,7 +90,7 @@ class XlsxReport(models.Model):
 
 			for row in range(1, 2):
 				worksheet.set_row(row, 30)
-			worksheet.merge_range('A1:AJ2', 'DAILY SHIPMENT STATUS REPORT  '+str(date.today())+' - '+str(self.customer.name), merge_format)
+			worksheet.merge_range('A1:AJ2', 'DAILY SHIPMENT STATUS REPORT  '+str(date.today())+' - '+str(self.customer.name)+ str(self.b_name.name), merge_format)
 
 			worksheet.set_column('A3:AJ3', 20)
 
@@ -163,6 +164,7 @@ class XlsxReport(models.Model):
 			row = 4
 			col = 0	
 			records = input_records
+
 			def check_false(data):
 				if data:
 					return data

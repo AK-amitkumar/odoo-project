@@ -758,8 +758,6 @@ class Vehicle(models.Model):
 class ResCompanyExt(models.Model):
     _inherit = 'res.company'
 
-    _rec_name = 'location'
-
     flip = fields.Boolean("/ ")
     po_no = fields.Char(string="P.O Box No", required=True)
     location = fields.Char(string="Location Code")

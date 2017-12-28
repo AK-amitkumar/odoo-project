@@ -40,11 +40,13 @@
 										
 										<field name="charges_serv"/>
 										<field name="charges_type"/>
+										<field name="by_customer" domain="[('customer.id','=',parent.id)]"/>
 
 									</tree>
 								</field> 
 
 							</page>
+
 
 						</xpath>
 
@@ -60,6 +62,7 @@
 										<field name="charges_type"/>
 										<field name="service_type"/>
 										<field name="cont_type"/>
+										<field name="by_customer" domain="[('customer.id','=',parent.id)]"/>
 
 									</tree>
 								</field> 
@@ -72,17 +75,18 @@
 
 								<page string="Route Management" attrs="{'invisible':[('checks','=',True)]}">
 										
-										<field name="route_id" nolabel='1'>
-												<tree editable="bottom">
-													
-													<field name="form"/>
-													<field name="to"/>
-													<field name="fleet_type"/>
-													<field name="service_type"/>
-													<field name="trans_charges"/>
+									<field name="route_id" nolabel='1'>
+											<tree editable="bottom">
+												
+												<field name="form"/>
+												<field name="to"/>
+												<field name="fleet_type"/>
+												<field name="service_type"/>
+												<field name="trans_charges"/>
+												<field name="by_customer" domain="[('customer.id','=',parent.id)]"/>
 
-												</tree>
-										</field>                    
+											</tree>
+									</field>                    
 										
 								</page>
 
@@ -104,11 +108,44 @@
 										</field>                    
 										
 								</page>
+								
+
+						</xpath>
+
+						<xpath expr="//page[8]" position="after">
+							<page string="By Customers">
+
+								<field name="by_customer" nolabel='1'>
+										<tree>
+
+											<field name="name"/>
+											<field name="customer" domain="[('parent_id','=',False),('supplier','=',False),('customer','=',True)]"/>
+
+										</tree>
+
+								</field>
+
+							</page>
 
 						</xpath>
 
 				</field> 
 		</record>
+
+	<record id="by_customer_from" model="ir.ui.view">
+	    <field name="name">by_customer_from</field>
+	    <field name="model">by.customer</field>
+	    <field name="arch" type="xml">
+	        <form string="By Customer">
+	            <sheet>
+	                <group>
+	                    <field name="name"/>
+	                    <field name="customer"/>
+	                </group>
+	            </sheet>
+	        </form>
+	    </field>
+	</record>
 
 		<record id="account_form_view"   model="ir.ui.view"> 
 
@@ -119,6 +156,7 @@
 
 				<xpath expr="//field[@name='partner_id']" position="after">
 
+					<field name="by_customer" />
 					<field name="billng_type" />
 					
 				</xpath>

@@ -47,7 +47,7 @@
 	                <tree>
 	                    <field name="case_type"/>
 	                    <field name="cate_case"/>
-	                    <field name="qty"/>
+	                    <field name="vio_code"/>
 	                </tree>
 	            </field>
 
@@ -75,6 +75,8 @@
 	    <field name="arch" type="xml">
 	        <form string="Hajj and Umrah">
 	            <sheet>
+					<h3>Hajj Umrah Violation Record</h3>
+					<br></br>
 	                <group>
 	                    <field name="number" readonly="1"/>
 						<field name="case_id" default_focus="1"/>
@@ -84,7 +86,7 @@
 						<field name="road_name"/>
 						<field name="center_name"/>
 	                </group>
-					<h3>Case information</h3>
+					<h3>Violation Information</h3>
 					<field name="violation_type">
 	                <tree>
 	                    <field name="violation"/>
@@ -140,7 +142,7 @@
 	                <group>
 	                    <field name="case_type"/>
 	                    <field name="cate_case"/>
-	                    <field name="qty"/>
+	                    <field name="vio_code"/>
 	                </group>
 	            </sheet>
 	        </form>
@@ -180,7 +182,7 @@
 <record id="violation_seq_id" model="ir.sequence">
   	<field name="name">violation_seq_id</field>
   	<field name="code">recrod.number</field>
-  	<field name="prefix">Traffic Case</field>
+  	<field name="prefix">Traffic Violation Case</field>
   	<field name="padding">4</field>
 </record> 
 
@@ -342,11 +344,11 @@
 						<field name="center_name"/>
 						<field name="location_name"/>
 						<field name="digital_tag"/>
-						<field name="direction_name"/>
-						<field name="violation"/>
 					</group>
 
 					<group name="group_right">
+						<field name="direction_name"/>
+						<field name="violation"/>
 						<field name="code"/>
 						<field name="police_officer"/>
 						<field name="rank_officer"/>
@@ -355,18 +357,25 @@
 						<field name="rank_officer_2"/>
 						<field name="sex_of2"/>
 						<field name="tosc"/>
-						<field name="receiving_party"/>
-						<field name="receiving_name"/>
-						<field name="receiving_party_rank"/>
+
 					</group>
 				</group>
 
-				<h3>Case Type</h3>
+				<h3>Block The Car</h3>
+				<field name="receive_link">
+	                <tree>
+	                    <field name="receiving_party"/>
+						<field name="receiving_name"/>
+						<field name="receiving_party_rank"/>
+	                </tree>
+	            </field>
+
+				<h3>Violation Type</h3>
 				<field name="case_type">
 	                <tree>
 	                    <field name="case_type"/>
 	                    <field name="cate_case"/>
-	                    <field name="qty"/>
+	                    <field name="vio_code"/>
 	                </tree>
 	            </field>
 				<h3>Violation Information</h3>
@@ -384,6 +393,21 @@
 		</form> 
 	</field> 
 </record>
+	<record id="receive_party_form" model="ir.ui.view">
+	    <field name="name">receive_party_form</field>
+	    <field name="model">traffic.receive</field>
+	    <field name="arch" type="xml">
+	        <form string="Receiving Party">
+	            <sheet>
+	                <group>
+	                    <field name="receiving_party"/>
+						<field name="receiving_name"/>
+						<field name="receiving_party_rank"/>
+	                </group>
+	            </sheet>
+	        </form>
+	    </field>
+	</record>
 
 <record id="traffic_violation_tree_view" model="ir.ui.view">
     <field name="name">traffic_violation_tree_view</field>
@@ -412,7 +436,7 @@
 	<field name="arch" type="xml"> 
 		<form string="Party  Records">
 			<sheet>
-				<h3>Case Information</h3>
+				<h3>Violation Information</h3>
 				<group name="group_top">
 					<group name="group_left">
 						<field name="name"/>
@@ -426,6 +450,7 @@
 						<field name="car_name"/>
 						<field name="car_plate"/>
 						<field name="oftc"/>
+						<field name="vio_id"/>
 					</group>
 				</group>
 
@@ -505,8 +530,6 @@
   	name="Traffic Violation Record"
   	action="violation_act_id" 
   	parent="police_main_menu_id"/>
-
-
 
 	<menuitem id="umrah_violation_menu_id"
   	name="Hajj Umrah Violation Record"

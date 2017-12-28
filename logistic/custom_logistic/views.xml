@@ -80,6 +80,7 @@
                 <group >
                   <field name="site"/>        
                   <field name="customer" domain="[('parent_id','=',False),('supplier','=',False),('customer','=',True)]"/>
+                  <field name="by_customer" domain="[('customer.id','=',customer)]"/>
                   <field name="bill_bol" invisible="1"/>
                   <field name="contt_bol" invisible="1"/>
                   <field name="bill_types"/>      
@@ -356,6 +357,7 @@
                 <group >
                   <field name="site"/>
                   <field name="customer" domain="[('parent_id','=',False),('supplier','=',False),('customer','=',True)]"/>
+                  <field name="by_customer" domain="[('customer.id','=',customer)]"/>
                   <field name="bill_bol" invisible="1"/>
                   <field name="cont_bol" invisible="1"/>
                   <field name="bill_types"/>

@@ -55,7 +55,7 @@ class CaseType(models.Model):
 	_rec_name = 'case_type'
 	case_type = fields.Many2one(comodel_name="type.case", string="Case Type", required=False, )
 	cate_case = fields.Many2one(comodel_name="cate.case", string="Case Category", required=False, )
-	qty = fields.Float(string="Qty",  required=False, )
+	vio_code = fields.Float(string="Violation Code",  required=False, )
 
 	main_class = fields.Many2one(comodel_name="police.detail", string="Case Type", required=False, )
 
@@ -190,12 +190,11 @@ class ViolationDetail(models.Model):
 	name_officer_2 = fields.Char(string='Name of Police officer 2')
 	rank_officer_2 = fields.Char(string='Rank of police officer 2')
 	tosc = fields.Char(string="Case submitting Time", required=False, )
-	receiving_party = fields.Many2one('receiving.party', string="Receiving Party")
-	receiving_party_rank = fields.Many2one('receiving.party.rank', string="Receiving Party Rank")
-	receiving_name = fields.Char(string="Receiving Party Name", required=False, )
+
 	case_detail = fields.Text(string='Case details ')
 	case_type = fields.One2many('case.type', "main_class", string="Case Type")
 	party_link = fields.One2many('traffic.party.detail', "main_class", string="Party Detail")
+	receive_link = fields.One2many('traffic.receive', "main_class", string="Receiving Party")
 
 	def confirm(self):
 		pass
@@ -212,6 +211,16 @@ class ViolationDetail(models.Model):
 			self.day = datetime.datetime.strptime(self.date,'%Y-%m-%d').strftime('%A')
 			self.time = (datetime.datetime.now() + timedelta(hours=5)).strftime("%I:%M:%S %p")
 
+class TrafficReceive(models.Model):
+	_name = 'traffic.receive'
+	_rec_name = 'receiving_party'
+
+	receiving_party = fields.Many2one('receiving.party', string="Receiving Party")
+	receiving_party_rank = fields.Many2one('receiving.party.rank', string="Receiving Party Rank")
+	receiving_name = fields.Char(string="Receiving Party Name", required=False, )
+
+	main_class = fields.Many2one(comodel_name="violation.detail", string="Receiving Party", required=False, )
+
 
 class trafficPartyDetail(models.Model):
 	_name = 'traffic.party.detail'
@@ -227,6 +236,7 @@ class trafficPartyDetail(models.Model):
 	oftc = fields.Char("Owner of the car")
 	remark = fields.Text("Remarks")
 	other_onwer = fields.Boolean("Owner Is Someone Else ?")
+	vio_id = fields.Char("Violation Id")
 
 	main_class = fields.Many2one('violation.detail')
 	owner_detail = fields.One2many('owner.detail', 'main_class', string="Owner Detail")
