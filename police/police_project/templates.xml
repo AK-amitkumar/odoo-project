@@ -42,7 +42,7 @@
 					</group>
 				</group>
 
-				<h3>Case Type</h3>
+				<h3>Violation Type</h3>
 				<field name="case_type">
 	                <tree>
 	                    <field name="case_type"/>
@@ -59,7 +59,7 @@
 	                    <field name="driver_country"/>
 	                    <field name="id_type"/>
 	                    <field name="what_found"/>
-	                    <field name="qty"/>
+	                    <!--<field name="qty"/>-->
 	                    <field name="accident_reason"/>
 	                </tree>
 	            </field> 
@@ -137,7 +137,7 @@
 	    <field name="name">case_type_form</field>
 	    <field name="model">case.type</field>
 	    <field name="arch" type="xml">
-	        <form string="Case Type">
+	        <form string="Violation Type">
 	            <sheet>
 	                <group>
 	                    <field name="case_type"/>
@@ -207,7 +207,7 @@
 	<field name="arch" type="xml"> 
 		<form string="Party  Records">
 			<sheet>
-				<h3>Case Information</h3>
+				<h3>Violation Information</h3>
 				<group name="group_top">
 					<group name="group_left">
 						<field name="name"/>
@@ -223,7 +223,7 @@
 						<field name="car_model"/>
 						<field name="car_plate"/>
 						<field name="what_found"/>
-						<field name="qty"/>
+						<!--<field name="qty"/>-->
 						<field name="accident_reason"/>
 						<field name="result"/>
 						<field name="mean_trans"/>
@@ -346,6 +346,7 @@
 						<field name="digital_tag"/>
 					</group>
 
+
 					<group name="group_right">
 						<field name="direction_name"/>
 						<field name="violation"/>
@@ -361,14 +362,14 @@
 					</group>
 				</group>
 
-				<h3>Block The Car</h3>
-				<field name="receive_link">
-	                <tree>
-	                    <field name="receiving_party"/>
-						<field name="receiving_name"/>
-						<field name="receiving_party_rank"/>
-	                </tree>
-	            </field>
+				<!--<h3>Block The Car</h3>-->
+				<!--<field name="receive_link">-->
+	                <!--<tree>-->
+	                    <!--<field name="receiving_party"/>-->
+						<!--<field name="receiving_name"/>-->
+						<!--<field name="receiving_party_rank"/>-->
+	                <!--</tree>-->
+	            <!--</field>-->
 
 				<h3>Violation Type</h3>
 				<field name="case_type">

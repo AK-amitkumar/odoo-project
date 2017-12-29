@@ -3,7 +3,6 @@ import datetime
 from datetime import timedelta
 from openerp import models, fields, api
 
-
 class PoliceDetail(models.Model):
 	_name = 'police.detail'
 	_rec_name = 'number'
@@ -32,7 +31,7 @@ class PoliceDetail(models.Model):
 	receiving_name = fields.Char(string="Receiving Party Name", required=False, )
 	case_detail = fields.Text(string='Case details ')
 	party_link = fields.One2many('party.detail', "main_class", string="Party Detail")
-	case_type = fields.One2many('case.type', "main_class", string="Case Type")
+	case_type = fields.One2many('case.type', "main_class", string="Violation Type")
 
 
 	def confirm(self):
@@ -53,11 +52,11 @@ class PoliceDetail(models.Model):
 class CaseType(models.Model):
 	_name = 'case.type'
 	_rec_name = 'case_type'
-	case_type = fields.Many2one(comodel_name="type.case", string="Case Type", required=False, )
+	case_type = fields.Many2one(comodel_name="type.case", string="Violation Type", required=False, )
 	cate_case = fields.Many2one(comodel_name="cate.case", string="Case Category", required=False, )
 	vio_code = fields.Float(string="Violation Code",  required=False, )
 
-	main_class = fields.Many2one(comodel_name="police.detail", string="Case Type", required=False, )
+	main_class = fields.Many2one(comodel_name="police.detail", string="Violation Type", required=False, )
 
 
 class HajjUmrah(models.Model):
@@ -115,7 +114,7 @@ class PartyDetail(models.Model):
 	sex = fields.Selection(string="Sex", selection=[('m', 'Male'), ('f', 'Female'), ], required=False, )
 	id_type = fields.Many2one('id.type', "ID Type")
 	what_found = fields.Many2one('what.found', "What we found")
-	qty = fields.Float(string="Qty",  required=False, )
+	# qty = fields.Float(string="Qty",  required=False, )
 	accident_reason = fields.Char("Reason of accident ")
 	result = fields.Char("Results")
 	mean_trans = fields.Many2one('mean.trans', "Means of Transportation")
@@ -189,10 +188,10 @@ class ViolationDetail(models.Model):
 							   required=False, )
 	name_officer_2 = fields.Char(string='Name of Police officer 2')
 	rank_officer_2 = fields.Char(string='Rank of police officer 2')
-	tosc = fields.Char(string="Case submitting Time", required=False, )
+	tosc = fields.Char(string="Violation submitting Time", required=False, )
 
-	case_detail = fields.Text(string='Case details ')
-	case_type = fields.One2many('case.type', "main_class", string="Case Type")
+	case_detail = fields.Text(string='Violation details ')
+	case_type = fields.One2many('case.type', "main_class", string="Violation Type")
 	party_link = fields.One2many('traffic.party.detail', "main_class", string="Party Detail")
 	receive_link = fields.One2many('traffic.receive', "main_class", string="Receiving Party")
 

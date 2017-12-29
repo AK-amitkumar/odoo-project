@@ -41,7 +41,7 @@ class turkina_extend(models.Model):
 class AccInvLineExt(models.Model):
 	_inherit = 'account.invoice.line'
 
-	afterTaxAmt = fields.Float(string='Tax Included Amount', required=False, digits=(6,3))
+	afterTaxAmt = fields.Float(string='Tax Amount', required=False, digits=(6,3))
 
 	@api.onchange('price_subtotal','quantity','price_unit','invoice_line_tax_ids')
 	def onchange_price_subtotal(self):
@@ -50,12 +50,12 @@ class AccInvLineExt(models.Model):
 			for x in self.invoice_line_tax_ids:
 				tax = x.amount / 100
 				amt =  amt + (tax * self.price_subtotal)
-			self.afterTaxAmt = amt + self.price_subtotal
+			self.afterTaxAmt = amt
 
 class SaleLineExt(models.Model):
 	_inherit = 'sale.order.line'
 
-	afterTaxAmt = fields.Float(string='Tax Included Amount', required=False, digits=(6,3))
+	afterTaxAmt = fields.Float(string='Tax Amount', required=False, digits=(6,3))
 
 	@api.onchange('price_subtotal','product_uon_qty','price_unit','tax_id')
 	def onchange_price_subtotal(self):

@@ -33,20 +33,20 @@ msgstr " تفاصيل الحالة"
 #: model:ir.ui.view,arch_db:police_project.police_view_form
 #: model:ir.ui.view,arch_db:police_project.traffic_violation_party_view_form
 #: model:ir.ui.view,arch_db:police_project.hajj_umrah
-msgid "Case Information"
-msgstr "معلومات الحالة"
+msgid "Violation Information"
+msgstr "نوع الانتهاك"
 
 #. module: police_project
 #: model:ir.ui.view,arch_db:police_project.party_view_form
 #: model:ir.ui.view,arch_db:police_project.police_view_form
 #: model:ir.ui.view,arch_db:police_project.traffic_violation_party_view_form
-msgid "Case Type"
-msgstr "نوع القضية"
+msgid "Violation Type"
+msgstr "نوع الانتهاك"
 
 #. module: police_project
 #: model:ir.model.fields,field_description:police_project.field_police_detail_type_case
 #: model:ir.model.fields,field_description:police_project.field_violation_detail
-msgid "Case Type"
+msgid "Violation Type"
 msgstr "نوع القضية"
 
 #. module: police_project
@@ -775,7 +775,7 @@ msgstr "نوع المخالفة"
 #: model:ir.ui.view,arch_db:police_project.traffic_violation_view_form
 #: model:ir.ui.view,arch_db:police_project.hajj_umrah
 msgid "Violation Information"
-msgstr "معلومات المخالفة"
+msgstr "نوع الانتهاك"
 
 #. module: police_project
 #: model:ir.ui.view,arch_db:police_project.traffic_violation_view_form
