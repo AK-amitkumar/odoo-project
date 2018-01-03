@@ -19,7 +19,6 @@
 #
 ##############################################################################
 from openerp import models, fields, api
-from datetime import date
 
 class PacificCommercialInvoice(models.AbstractModel):
     _name = 'report.vat_invoice.vat_invoice_id'
@@ -29,12 +28,16 @@ class PacificCommercialInvoice(models.AbstractModel):
         report_obj = self.env['report']
         report = report_obj._get_report_from_name('vat_invoice.vat_invoice_id')
         records = self.env['account.invoice'].browse(docids)
+        amt = 0.0
+        for x in records.invoice_line_ids:
+            amt = amt + ((x.discount/100) * x.price_unit * x.quantity)
 
         docargs = {
             'doc_ids': docids,
             'doc_model': 'account.invoice',
             'docs': records,
             'data': data,
+            'amt': amt,
             }
 
         return report_obj.render('vat_invoice.vat_invoice_id', docargs)

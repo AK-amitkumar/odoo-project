@@ -64,7 +64,7 @@ class SaleLineExt(models.Model):
 			for x in self.tax_id:
 				tax = x.amount / 100
 				amt =  amt + (tax * self.price_subtotal)
-			self.afterTaxAmt = amt + self.price_subtotal
+			self.afterTaxAmt = amt
 
 
 class ResPartnerExt(models.Model):

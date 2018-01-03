@@ -10,7 +10,7 @@
     'website': "http://www.bcube.pk",
 
     # any module necessary for this one to work correctly
-    'depends': ['base', 'report', 'hr'],
+    'depends': ['base', 'report','turkina_invoice_extend','account','account_accountant'],
     # always loaded
     'data': [
         'template.xml',

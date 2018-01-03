@@ -45,6 +45,7 @@
                                 .center-data {
                                     width: 100%;
                                     margin: 0px auto;
+                                    margin: 20px 0px 20px 0px;
                                 }
                                 .clearfloat {
                                     clear: both;
@@ -56,9 +57,6 @@
                                 .solid {
                                     font-weight: bold;
                                     margin-right: 10px;
-                                }
-                                h2 {
-                                text-align: center;
                                 }
                                 clearfloat {
                                     float: none;
@@ -74,6 +72,7 @@
                                 }
                                 img {
                                     float: left;
+                                    margin-bottom: 20px;
                                 }
                                 .arabic_1 {
 									width: 70%;
@@ -98,7 +97,7 @@
                                     min-width: 300px;
                                 }
                                 .colors {
-                                    background-color: #077D6A;
+                                    background-color: #AED6F1 ;
                                 }
 								.arabic_2 .solid {
 									width: 100%;
@@ -129,17 +128,21 @@
                                     width: 250px;
                                     min-width: 250px;
                                 }
-                                table tr td.space { width: 123px; min-width: 123px; max-width: 123px; }
+                                table tr td.space { 
+                                width: 123px; 
+                                min-width: 123px;
+                                 max-width: 123px; 
+                                 }
                             </style>
                             <div class="main-data">
                                 <div class="center-data">
-                                    <h2 style="color:#077D6A;">فاتورة ضريبة القيمة المضافة</h2>
+                                    
 
                                     <table class="smalls">
                                         <tr>
                                             
                                             <td>
-                                                <span class="liquid" style="color:#077D6A;" t-esc="o.company_id.name"></span>
+                                                <span class="liquid" t-esc="o.company_id.name"></span>
                                             </td>
 
                                             <td>
@@ -172,7 +175,7 @@
 
                                     </table>
 
-                                    <img src="/vat_invoice/static/src/img/turkina.jpeg" alt="turkina.jpeg"/>
+                                    <span class="logo"><img src="/vat_invoice/static/src/img/turkina.jpeg" alt="turkina.jpeg"/></span>
 
                                     <table class="table-one" width="100%" style="float: right;">
                                         <tr>
@@ -184,11 +187,7 @@
                                             <td class="colors">رقم الفاتورة</td>
                                         </tr>
                                         <tr>
-                                            <td class="margin"><span t-esc="o.due_date"></span></td>
-                                            <td class="colors">تاريخ االستحقاق</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="margin"><span t-esc = "o.company_id.vat">></span></td>
+                                            <td class="margin"><span t-esc = "o.company_id.vat"></span></td>
                                             <td class="colors">الرقم التعريفي للمنشأة الموردة الخاص
                                                 بضريبة القيمة المضافة</td>
                                         </tr>
@@ -199,7 +198,7 @@
                                         
                                         <tr >
                                             <td >
-                                                <span class="liquid" style="color:#077D6A;" t-esc="o.partner_id.name"></span>
+                                                <span class="liquid" t-esc="o.partner_id.name"></span>
                                             </td>
                                             <td class="headings">
                                                 <span class="solid">إلى:</span>
@@ -253,13 +252,16 @@
                                             لضريبة
                                             القيمة
                                             المضافة</td>
+                                           
                                             <td class="colors">إجمالي
                                             السعر
                                             بدون
                                             ضريبة
                                             القيمة
                                             المضافة</td>
-                                            <td class="colors">الكمية</td>
+                                            <td class="colors">خصم</td>
+                                            <td class="colors"> سعر الوحدة</td>
+                                            <td class="colors"> كمية </td>
                                             <td class="colors space">تاريخ التوريد</td>
                                             <td class="colors">وصف البند</td>
                                             <td class="colors">التسلسلي</td>
@@ -270,14 +272,45 @@
                                             <t t-set="count" t-value="count+1"/>
 
                                         <tr>
-                                            <td><span class="liquid" t-esc = "data.price_subtotal + data.afterTaxAmt"></span></td>
-                                            <td><span class="liquid" t-esc = "data.afterTaxAmt"></span></td>
-                                            <td><span class="liquid" t-esc = "data.invoice_line_tax_ids.amount" ></span>%</td>
-                                            <td><span class="liquid" t-esc = "data.price_subtotal"></span></td>
-                                            <td><span class="liquid" t-esc = "data.quantity"></span></td>
-                                            <td><span class="liquid" t-esc = "o.date_invoice"></span></td>
-                                            <td><span class="liquid" t-esc = "data.name"></span></td>
-                                            <td><span class="liquid" t-esc = "count"></span></td>
+                                            <td>
+                                                <span class="liquid" t-esc="data.price_subtotal + data.afterTaxAmt"></span>
+                                            </td>
+                                            
+                                            <td>
+                                                <span class="liquid" t-esc="data.afterTaxAmt"></span>
+                                            </td>
+                                            
+                                            <td>
+                                                <span class="liquid" t-esc="data.invoice_line_tax_ids.amount" ></span>%
+                                            </td>
+                                            
+                                            <td>
+                                                <span class="liquid" t-esc="data.price_subtotal"></span>
+                                            </td>
+                                            
+                                            <td>
+                                                <span class="liquid" t-esc="data.discount"></span>%
+                                            </td>
+                                            
+                                            <td>
+                                                <span class="liquid" t-esc="data.price_unit"></span>
+                                            </td>
+                                            
+                                            <td>
+                                                <span class="liquid" t-esc="data.quantity"></span>
+                                            </td>
+                                            
+                                            <td>
+                                                <span class="liquid" t-esc="o.date_invoice"></span>
+                                            </td>
+                                            
+                                            <td>
+                                                <span class="liquid" t-esc="data.name"></span>
+                                            </td>
+                                            
+                                            <td>
+                                                <span class="liquid" t-esc="count"></span>
+                                            </td>
                                         </tr>
                                         </t>
 
@@ -294,6 +327,10 @@
                                         <tr>
                                             <td class="margin"><span class="liquid" t-esc = "o.amount_tax"></span>SR</td>
                                             <td class="colors">ضريبة القيمة المضافة</td>
+                                        </tr>
+                                         <tr>
+                                            <td class="margin"><span class="liquid" t-esc = "amt"></span>SR</td>
+                                            <td class="colors">المبلغ المخفض</td>
                                         </tr>
                                         <tr>
                                             <td class="margin"><span class="liquid" t-esc = "o.amount_total"></span>SR</td>

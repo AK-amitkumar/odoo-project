@@ -352,12 +352,328 @@
       <change beforePath="" afterPath="$PROJECT_DIR$/champion/working_161_champion/static/src/Test_Pass.xlsx" />
       <change beforePath="" afterPath="$PROJECT_DIR$/champion/working_161_champion/static/src/css/styles.css" />
       <change beforePath="" afterPath="$PROJECT_DIR$/champion/working_161_champion/views.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/police/police_project/static/src/css/style.css" />
+      <change beforePath="$PROJECT_DIR$/.idea/Projects.iml" afterPath="$PROJECT_DIR$/.idea/Projects.iml" />
+      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/muhammad.xml" afterPath="$PROJECT_DIR$/.idea/dictionaries/muhammad.xml" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/fadi_al/hr_custom_employee_bcube_fadi/i18n/ar.po" afterPath="$PROJECT_DIR$/fadi_al/hr_custom_employee_bcube_fadi/i18n/ar.po" />
+      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/README.rst" afterPath="$PROJECT_DIR$/logistic/bi_view_editor/README.rst" />
+      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/__init__.py" afterPath="$PROJECT_DIR$/logistic/bi_view_editor/__init__.py" />
+      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/__manifest__.py" afterPath="$PROJECT_DIR$/logistic/bi_view_editor/__manifest__.py" />
+      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/hooks.py" afterPath="$PROJECT_DIR$/logistic/bi_view_editor/hooks.py" />
+      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/am.po" afterPath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/am.po" />
+      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/ar.po" afterPath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/ar.po" />
+      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/bg.po" afterPath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/bg.po" />
+      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/bs.po" afterPath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/bs.po" />
+      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/ca.po" afterPath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/ca.po" />
+      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/cs.po" afterPath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/cs.po" />
+      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/da.po" afterPath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/da.po" />
+      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/de.po" afterPath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/de.po" />
+      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/el_GR.po" afterPath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/el_GR.po" />
+      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/en_GB.po" afterPath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/en_GB.po" />
+      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/es.po" afterPath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/es.po" />
+      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/es_AR.po" afterPath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/es_AR.po" />
+      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/es_CL.po" afterPath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/es_CL.po" />
+      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/es_CO.po" afterPath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/es_CO.po" />
+      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/es_CR.po" afterPath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/es_CR.po" />
+      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/es_DO.po" afterPath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/es_DO.po" />
+      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/es_EC.po" afterPath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/es_EC.po" />
+      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/es_ES.po" afterPath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/es_ES.po" />
+      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/es_MX.po" afterPath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/es_MX.po" />
+      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/es_PE.po" afterPath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/es_PE.po" />
+      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/es_PY.po" afterPath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/es_PY.po" />
+      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/es_VE.po" afterPath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/es_VE.po" />
+      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/et.po" afterPath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/et.po" />
+      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/eu.po" afterPath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/eu.po" />
+      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/fa.po" afterPath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/fa.po" />
+      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/fi.po" afterPath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/fi.po" />
+      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/fr.po" afterPath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/fr.po" />
+      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/fr_CA.po" afterPath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/fr_CA.po" />
+      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/fr_CH.po" afterPath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/fr_CH.po" />
+      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/gl.po" afterPath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/gl.po" />
+      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/gl_ES.po" afterPath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/gl_ES.po" />
+      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/he.po" afterPath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/he.po" />
+      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/hr.po" afterPath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/hr.po" />
+      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/hr_HR.po" afterPath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/hr_HR.po" />
+      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/hu.po" afterPath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/hu.po" />
+      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/id.po" afterPath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/id.po" />
+      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/it.po" afterPath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/it.po" />
+      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/ja.po" afterPath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/ja.po" />
+      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/ko.po" afterPath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/ko.po" />
+      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/lt.po" afterPath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/lt.po" />
+      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/lt_LT.po" afterPath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/lt_LT.po" />
+      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/lv.po" afterPath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/lv.po" />
+      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/mk.po" afterPath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/mk.po" />
+      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/mn.po" afterPath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/mn.po" />
+      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/nb.po" afterPath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/nb.po" />
+      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/nb_NO.po" afterPath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/nb_NO.po" />
+      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/nl.po" afterPath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/nl.po" />
+      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/nl_BE.po" afterPath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/nl_BE.po" />
+      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/pl.po" afterPath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/pl.po" />
+      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/pt.po" afterPath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/pt.po" />
+      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/pt_BR.po" afterPath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/pt_BR.po" />
+      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/pt_PT.po" afterPath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/pt_PT.po" />
+      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/ro.po" afterPath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/ro.po" />
+      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/ru.po" afterPath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/ru.po" />
+      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/sk.po" afterPath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/sk.po" />
+      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/sl.po" afterPath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/sl.po" />
+      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/sr.po" afterPath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/sr.po" />
+      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/sr@latin.po" afterPath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/sr@latin.po" />
+      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/sv.po" afterPath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/sv.po" />
+      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/th.po" afterPath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/th.po" />
+      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/tr.po" afterPath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/tr.po" />
+      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/tr_TR.po" afterPath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/tr_TR.po" />
+      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/uk.po" afterPath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/uk.po" />
+      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/vi.po" afterPath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/vi.po" />
+      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/vi_VN.po" afterPath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/vi_VN.po" />
+      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/zh_CN.po" afterPath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/zh_CN.po" />
+      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/zh_TW.po" afterPath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/zh_TW.po" />
+      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/models/__init__.py" afterPath="$PROJECT_DIR$/logistic/bi_view_editor/models/__init__.py" />
+      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/models/bve_view.py" afterPath="$PROJECT_DIR$/logistic/bi_view_editor/models/bve_view.py" />
+      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/models/ir_model.py" afterPath="$PROJECT_DIR$/logistic/bi_view_editor/models/ir_model.py" />
+      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/models/models.py" afterPath="$PROJECT_DIR$/logistic/bi_view_editor/models/models.py" />
+      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/security/ir.model.access.csv" afterPath="$PROJECT_DIR$/logistic/bi_view_editor/security/ir.model.access.csv" />
+      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/security/rules.xml" afterPath="$PROJECT_DIR$/logistic/bi_view_editor/security/rules.xml" />
+      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/static/description/icon.png" afterPath="$PROJECT_DIR$/logistic/bi_view_editor/static/description/icon.png" />
+      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/static/description/main_screenshot.png" afterPath="$PROJECT_DIR$/logistic/bi_view_editor/static/description/main_screenshot.png" />
+      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/static/src/css/bve.css" afterPath="$PROJECT_DIR$/logistic/bi_view_editor/static/src/css/bve.css" />
+      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/static/src/js/bve.js" afterPath="$PROJECT_DIR$/logistic/bi_view_editor/static/src/js/bve.js" />
+      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/templates/assets_template.xml" afterPath="$PROJECT_DIR$/logistic/bi_view_editor/templates/assets_template.xml" />
+      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/templates/qweb_template.xml" afterPath="$PROJECT_DIR$/logistic/bi_view_editor/templates/qweb_template.xml" />
+      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/tests/__init__.py" afterPath="$PROJECT_DIR$/logistic/bi_view_editor/tests/__init__.py" />
+      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/tests/test_bi_view.py" afterPath="$PROJECT_DIR$/logistic/bi_view_editor/tests/test_bi_view.py" />
+      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/views/bve_view.xml" afterPath="$PROJECT_DIR$/logistic/bi_view_editor/views/bve_view.xml" />
+      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/wizard/__init__.py" afterPath="$PROJECT_DIR$/logistic/bi_view_editor/wizard/__init__.py" />
+      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/wizard/wizard_ir_model_menu_create.py" afterPath="$PROJECT_DIR$/logistic/bi_view_editor/wizard/wizard_ir_model_menu_create.py" />
+      <change beforePath="$PROJECT_DIR$/logistic/custom_logistic/__init__.py" afterPath="$PROJECT_DIR$/logistic/custom_logistic/__init__.py" />
+      <change beforePath="$PROJECT_DIR$/logistic/custom_logistic/__manifest__.py" afterPath="$PROJECT_DIR$/logistic/custom_logistic/__manifest__.py" />
+      <change beforePath="$PROJECT_DIR$/logistic/custom_logistic/models.py" afterPath="$PROJECT_DIR$/logistic/custom_logistic/models.py" />
+      <change beforePath="$PROJECT_DIR$/logistic/custom_logistic/quote.py" afterPath="$PROJECT_DIR$/logistic/custom_logistic/quote.py" />
+      <change beforePath="$PROJECT_DIR$/logistic/custom_logistic/quote.xml" afterPath="$PROJECT_DIR$/logistic/custom_logistic/quote.xml" />
+      <change beforePath="$PROJECT_DIR$/logistic/custom_logistic/report.py" afterPath="$PROJECT_DIR$/logistic/custom_logistic/report.py" />
+      <change beforePath="$PROJECT_DIR$/logistic/custom_logistic/report.xml" afterPath="$PROJECT_DIR$/logistic/custom_logistic/report.xml" />
+      <change beforePath="$PROJECT_DIR$/logistic/custom_logistic/static/src/css/styles.css" afterPath="$PROJECT_DIR$/logistic/custom_logistic/static/src/css/styles.css" />
+      <change beforePath="$PROJECT_DIR$/logistic/custom_logistic/supplier.py" afterPath="$PROJECT_DIR$/logistic/custom_logistic/supplier.py" />
+      <change beforePath="$PROJECT_DIR$/logistic/custom_logistic/supplier.xml" afterPath="$PROJECT_DIR$/logistic/custom_logistic/supplier.xml" />
+      <change beforePath="$PROJECT_DIR$/logistic/custom_logistic/views.xml" afterPath="$PROJECT_DIR$/logistic/custom_logistic/views.xml" />
+      <change beforePath="$PROJECT_DIR$/logistic/customer_payments_bcube/__init__.py" afterPath="$PROJECT_DIR$/logistic/customer_payments_bcube/__init__.py" />
+      <change beforePath="$PROJECT_DIR$/logistic/customer_payments_bcube/__manifest__.py" afterPath="$PROJECT_DIR$/logistic/customer_payments_bcube/__manifest__.py" />
+      <change beforePath="$PROJECT_DIR$/logistic/customer_payments_bcube/__openerp__.py" afterPath="$PROJECT_DIR$/logistic/customer_payments_bcube/__openerp__.py" />
+      <change beforePath="$PROJECT_DIR$/logistic/customer_payments_bcube/customer.py" afterPath="$PROJECT_DIR$/logistic/customer_payments_bcube/customer.py" />
+      <change beforePath="$PROJECT_DIR$/logistic/customer_payments_bcube/templates.xml" afterPath="$PROJECT_DIR$/logistic/customer_payments_bcube/templates.xml" />
+      <change beforePath="$PROJECT_DIR$/logistic/filter_wizard/__init__.py" afterPath="$PROJECT_DIR$/logistic/filter_wizard/__init__.py" />
+      <change beforePath="$PROJECT_DIR$/logistic/filter_wizard/__manifest__.py" afterPath="$PROJECT_DIR$/logistic/filter_wizard/__manifest__.py" />
+      <change beforePath="$PROJECT_DIR$/logistic/filter_wizard/model.py" afterPath="$PROJECT_DIR$/logistic/filter_wizard/model.py" />
+      <change beforePath="$PROJECT_DIR$/logistic/filter_wizard/static/src/css/styles.css" afterPath="$PROJECT_DIR$/logistic/filter_wizard/static/src/css/styles.css" />
+      <change beforePath="$PROJECT_DIR$/logistic/filter_wizard/static/src/js/javascriptfile.js" afterPath="$PROJECT_DIR$/logistic/filter_wizard/static/src/js/javascriptfile.js" />
+      <change beforePath="$PROJECT_DIR$/logistic/filter_wizard/views/template.xml" afterPath="$PROJECT_DIR$/logistic/filter_wizard/views/template.xml" />
+      <change beforePath="$PROJECT_DIR$/logistic/journal_voucher_logic/__init__.py" afterPath="$PROJECT_DIR$/logistic/journal_voucher_logic/__init__.py" />
+      <change beforePath="$PROJECT_DIR$/logistic/journal_voucher_logic/__manifest__.py" afterPath="$PROJECT_DIR$/logistic/journal_voucher_logic/__manifest__.py" />
+      <change beforePath="$PROJECT_DIR$/logistic/journal_voucher_logic/model.py" afterPath="$PROJECT_DIR$/logistic/journal_voucher_logic/model.py" />
+      <change beforePath="$PROJECT_DIR$/logistic/journal_voucher_logic/static/src/css/report.css" afterPath="$PROJECT_DIR$/logistic/journal_voucher_logic/static/src/css/report.css" />
+      <change beforePath="$PROJECT_DIR$/logistic/journal_voucher_logic/static/src/img/logo.png" afterPath="$PROJECT_DIR$/logistic/journal_voucher_logic/static/src/img/logo.png" />
+      <change beforePath="$PROJECT_DIR$/logistic/journal_voucher_logic/template.xml" afterPath="$PROJECT_DIR$/logistic/journal_voucher_logic/template.xml" />
+      <change beforePath="$PROJECT_DIR$/logistic/journal_voucher_logic/views/module_report.xml" afterPath="$PROJECT_DIR$/logistic/journal_voucher_logic/views/module_report.xml" />
+      <change beforePath="$PROJECT_DIR$/logistic/logistic_invoice/__init__.py" afterPath="$PROJECT_DIR$/logistic/logistic_invoice/__init__.py" />
+      <change beforePath="$PROJECT_DIR$/logistic/logistic_invoice/__openerp__.py" afterPath="$PROJECT_DIR$/logistic/logistic_invoice/__openerp__.py" />
+      <change beforePath="$PROJECT_DIR$/logistic/logistic_invoice/model.py" afterPath="$PROJECT_DIR$/logistic/logistic_invoice/model.py" />
+      <change beforePath="$PROJECT_DIR$/logistic/logistic_invoice/static/src/css/report.css" afterPath="$PROJECT_DIR$/logistic/logistic_invoice/static/src/css/report.css" />
+      <change beforePath="$PROJECT_DIR$/logistic/logistic_invoice/static/src/img/Logistic.png" afterPath="$PROJECT_DIR$/logistic/logistic_invoice/static/src/img/Logistic.png" />
+      <change beforePath="$PROJECT_DIR$/logistic/logistic_invoice/static/src/img/logo.png" afterPath="$PROJECT_DIR$/logistic/logistic_invoice/static/src/img/logo.png" />
+      <change beforePath="$PROJECT_DIR$/logistic/logistic_invoice/template.xml" afterPath="$PROJECT_DIR$/logistic/logistic_invoice/template.xml" />
+      <change beforePath="$PROJECT_DIR$/logistic/logistic_invoice/views/module_report.xml" afterPath="$PROJECT_DIR$/logistic/logistic_invoice/views/module_report.xml" />
+      <change beforePath="$PROJECT_DIR$/logistic/payment_voucher_logic/__init__.py" afterPath="$PROJECT_DIR$/logistic/payment_voucher_logic/__init__.py" />
+      <change beforePath="$PROJECT_DIR$/logistic/payment_voucher_logic/__manifest__.py" afterPath="$PROJECT_DIR$/logistic/payment_voucher_logic/__manifest__.py" />
+      <change beforePath="$PROJECT_DIR$/logistic/payment_voucher_logic/model.py" afterPath="$PROJECT_DIR$/logistic/payment_voucher_logic/model.py" />
+      <change beforePath="$PROJECT_DIR$/logistic/payment_voucher_logic/static/src/css/report.css" afterPath="$PROJECT_DIR$/logistic/payment_voucher_logic/static/src/css/report.css" />
+      <change beforePath="$PROJECT_DIR$/logistic/payment_voucher_logic/static/src/img/Logistic.png" afterPath="$PROJECT_DIR$/logistic/payment_voucher_logic/static/src/img/Logistic.png" />
+      <change beforePath="$PROJECT_DIR$/logistic/payment_voucher_logic/static/src/img/logo.png" afterPath="$PROJECT_DIR$/logistic/payment_voucher_logic/static/src/img/logo.png" />
+      <change beforePath="$PROJECT_DIR$/logistic/payment_voucher_logic/template.xml" afterPath="$PROJECT_DIR$/logistic/payment_voucher_logic/template.xml" />
+      <change beforePath="$PROJECT_DIR$/logistic/payment_voucher_logic/views/module_report.xml" afterPath="$PROJECT_DIR$/logistic/payment_voucher_logic/views/module_report.xml" />
+      <change beforePath="$PROJECT_DIR$/logistic/readonly_bypass/__init__.py" afterPath="$PROJECT_DIR$/logistic/readonly_bypass/__init__.py" />
+      <change beforePath="$PROJECT_DIR$/logistic/readonly_bypass/__openerp__.py" afterPath="$PROJECT_DIR$/logistic/readonly_bypass/__openerp__.py" />
+      <change beforePath="$PROJECT_DIR$/logistic/readonly_bypass/static/src/js/readonly_bypass.js" afterPath="$PROJECT_DIR$/logistic/readonly_bypass/static/src/js/readonly_bypass.js" />
+      <change beforePath="$PROJECT_DIR$/logistic/readonly_bypass/views/readonly_bypass.xml" afterPath="$PROJECT_DIR$/logistic/readonly_bypass/views/readonly_bypass.xml" />
+      <change beforePath="$PROJECT_DIR$/logistic/receipt_voucher_logic/__init__.py" afterPath="$PROJECT_DIR$/logistic/receipt_voucher_logic/__init__.py" />
+      <change beforePath="$PROJECT_DIR$/logistic/receipt_voucher_logic/__manifest__.py" afterPath="$PROJECT_DIR$/logistic/receipt_voucher_logic/__manifest__.py" />
+      <change beforePath="$PROJECT_DIR$/logistic/receipt_voucher_logic/model.py" afterPath="$PROJECT_DIR$/logistic/receipt_voucher_logic/model.py" />
+      <change beforePath="$PROJECT_DIR$/logistic/receipt_voucher_logic/static/src/css/report.css" afterPath="$PROJECT_DIR$/logistic/receipt_voucher_logic/static/src/css/report.css" />
+      <change beforePath="$PROJECT_DIR$/logistic/receipt_voucher_logic/static/src/img/Logistic.png" afterPath="$PROJECT_DIR$/logistic/receipt_voucher_logic/static/src/img/Logistic.png" />
+      <change beforePath="$PROJECT_DIR$/logistic/receipt_voucher_logic/static/src/img/logo.png" afterPath="$PROJECT_DIR$/logistic/receipt_voucher_logic/static/src/img/logo.png" />
+      <change beforePath="$PROJECT_DIR$/logistic/receipt_voucher_logic/template.xml" afterPath="$PROJECT_DIR$/logistic/receipt_voucher_logic/template.xml" />
+      <change beforePath="$PROJECT_DIR$/logistic/receipt_voucher_logic/views/module_report.xml" afterPath="$PROJECT_DIR$/logistic/receipt_voucher_logic/views/module_report.xml" />
+      <change beforePath="$PROJECT_DIR$/logistic/report_header_footer/__init__.py" afterPath="$PROJECT_DIR$/logistic/report_header_footer/__init__.py" />
+      <change beforePath="$PROJECT_DIR$/logistic/report_header_footer/__manifest__.py" afterPath="$PROJECT_DIR$/logistic/report_header_footer/__manifest__.py" />
+      <change beforePath="$PROJECT_DIR$/logistic/report_header_footer/model.py" afterPath="$PROJECT_DIR$/logistic/report_header_footer/model.py" />
+      <change beforePath="$PROJECT_DIR$/logistic/report_header_footer/views/template.xml" afterPath="$PROJECT_DIR$/logistic/report_header_footer/views/template.xml" />
+      <change beforePath="$PROJECT_DIR$/police project data/report_rtl-10.0.1.0.zip" afterPath="$PROJECT_DIR$/police project data/report_rtl-10.0.1.0.zip" />
+      <change beforePath="$PROJECT_DIR$/police project data/web_rtl-10.0.1.2.zip" afterPath="$PROJECT_DIR$/police project data/web_rtl-10.0.1.2.zip" />
       <change beforePath="$PROJECT_DIR$/police/police_project/i18n/ar_SY.po" afterPath="$PROJECT_DIR$/police/police_project/i18n/ar_SY.po" />
       <change beforePath="$PROJECT_DIR$/police/police_project/model.py" afterPath="$PROJECT_DIR$/police/police_project/model.py" />
       <change beforePath="$PROJECT_DIR$/police/police_project/templates.xml" afterPath="$PROJECT_DIR$/police/police_project/templates.xml" />
+      <change beforePath="$PROJECT_DIR$/police/web_rtl/__init__.py" afterPath="$PROJECT_DIR$/police/web_rtl/__init__.py" />
+      <change beforePath="$PROJECT_DIR$/police/web_rtl/__manifest__.py" afterPath="$PROJECT_DIR$/police/web_rtl/__manifest__.py" />
+      <change beforePath="$PROJECT_DIR$/police/web_rtl/controllers/__init__.py" afterPath="$PROJECT_DIR$/police/web_rtl/controllers/__init__.py" />
+      <change beforePath="$PROJECT_DIR$/police/web_rtl/controllers/main.py" afterPath="$PROJECT_DIR$/police/web_rtl/controllers/main.py" />
+      <change beforePath="$PROJECT_DIR$/police/web_rtl/doc/changelog.rst" afterPath="$PROJECT_DIR$/police/web_rtl/doc/changelog.rst" />
+      <change beforePath="$PROJECT_DIR$/police/web_rtl/models/__init__.py" afterPath="$PROJECT_DIR$/police/web_rtl/models/__init__.py" />
+      <change beforePath="$PROJECT_DIR$/police/web_rtl/models/ir_qweb.py" afterPath="$PROJECT_DIR$/police/web_rtl/models/ir_qweb.py" />
+      <change beforePath="$PROJECT_DIR$/police/web_rtl/models/res_lang.py" afterPath="$PROJECT_DIR$/police/web_rtl/models/res_lang.py" />
+      <change beforePath="$PROJECT_DIR$/police/web_rtl/static/description/icon.png" afterPath="$PROJECT_DIR$/police/web_rtl/static/description/icon.png" />
+      <change beforePath="$PROJECT_DIR$/police/web_rtl/static/src/css/bootstrap-rtl.min.css" afterPath="$PROJECT_DIR$/police/web_rtl/static/src/css/bootstrap-rtl.min.css" />
+      <change beforePath="$PROJECT_DIR$/police/web_rtl/static/src/css/rtl.css" afterPath="$PROJECT_DIR$/police/web_rtl/static/src/css/rtl.css" />
+      <change beforePath="$PROJECT_DIR$/police/web_rtl/views/templates.xml" afterPath="$PROJECT_DIR$/police/web_rtl/views/templates.xml" />
+      <change beforePath="$PROJECT_DIR$/saif/mytemp/__init__.py.template" afterPath="$PROJECT_DIR$/saif/mytemp/__init__.py.template" />
+      <change beforePath="$PROJECT_DIR$/saif/mytemp/__manifest__.py.template" afterPath="$PROJECT_DIR$/saif/mytemp/__manifest__.py.template" />
+      <change beforePath="$PROJECT_DIR$/saif/mytemp/models/__init__.py.template" afterPath="$PROJECT_DIR$/saif/mytemp/models/__init__.py.template" />
+      <change beforePath="$PROJECT_DIR$/saif/mytemp/models/models.py.template" afterPath="$PROJECT_DIR$/saif/mytemp/models/models.py.template" />
+      <change beforePath="$PROJECT_DIR$/saif/mytemp/security/ir.model.access.csv.template" afterPath="$PROJECT_DIR$/saif/mytemp/security/ir.model.access.csv.template" />
+      <change beforePath="$PROJECT_DIR$/saif/mytemp/views/templates.xml.template" afterPath="$PROJECT_DIR$/saif/mytemp/views/templates.xml.template" />
+      <change beforePath="$PROJECT_DIR$/saif/mytemp/views/views.xml.template" afterPath="$PROJECT_DIR$/saif/mytemp/views/views.xml.template" />
+      <change beforePath="$PROJECT_DIR$/saif/pycalverter-1.6.1/pyCalverter-1.6.1/PKG-INFO" afterPath="$PROJECT_DIR$/saif/pycalverter-1.6.1/pyCalverter-1.6.1/PKG-INFO" />
+      <change beforePath="$PROJECT_DIR$/saif/pycalverter-1.6.1/pyCalverter-1.6.1/setup.py" afterPath="$PROJECT_DIR$/saif/pycalverter-1.6.1/pyCalverter-1.6.1/setup.py" />
+      <change beforePath="$PROJECT_DIR$/saif/structure_module/test.py" afterPath="$PROJECT_DIR$/saif/structure_module/test.py" />
+      <change beforePath="$PROJECT_DIR$/turkina (copy)/account_parent/COPYRIGHT" afterPath="$PROJECT_DIR$/turkina (copy)/account_parent/COPYRIGHT" />
+      <change beforePath="$PROJECT_DIR$/turkina (copy)/account_parent/LICENSE" afterPath="$PROJECT_DIR$/turkina (copy)/account_parent/LICENSE" />
+      <change beforePath="$PROJECT_DIR$/turkina (copy)/account_parent/README.md" afterPath="$PROJECT_DIR$/turkina (copy)/account_parent/README.md" />
+      <change beforePath="$PROJECT_DIR$/turkina (copy)/account_parent/__init__.py" afterPath="$PROJECT_DIR$/turkina (copy)/account_parent/__init__.py" />
+      <change beforePath="$PROJECT_DIR$/turkina (copy)/account_parent/__manifest__.py" afterPath="$PROJECT_DIR$/turkina (copy)/account_parent/__manifest__.py" />
+      <change beforePath="$PROJECT_DIR$/turkina (copy)/account_parent/data/account_type_data.xml" afterPath="$PROJECT_DIR$/turkina (copy)/account_parent/data/account_type_data.xml" />
+      <change beforePath="$PROJECT_DIR$/turkina (copy)/account_parent/models/__init__.py" afterPath="$PROJECT_DIR$/turkina (copy)/account_parent/models/__init__.py" />
+      <change beforePath="$PROJECT_DIR$/turkina (copy)/account_parent/models/account.py" afterPath="$PROJECT_DIR$/turkina (copy)/account_parent/models/account.py" />
+      <change beforePath="$PROJECT_DIR$/turkina (copy)/account_parent/models/chart_template.py" afterPath="$PROJECT_DIR$/turkina (copy)/account_parent/models/chart_template.py" />
+      <change beforePath="$PROJECT_DIR$/turkina (copy)/account_parent/security/account_parent_security.xml" afterPath="$PROJECT_DIR$/turkina (copy)/account_parent/security/account_parent_security.xml" />
+      <change beforePath="$PROJECT_DIR$/turkina (copy)/account_parent/security/ir.model.access.csv" afterPath="$PROJECT_DIR$/turkina (copy)/account_parent/security/ir.model.access.csv" />
+      <change beforePath="$PROJECT_DIR$/turkina (copy)/account_parent/static/description/icon.png" afterPath="$PROJECT_DIR$/turkina (copy)/account_parent/static/description/icon.png" />
+      <change beforePath="$PROJECT_DIR$/turkina (copy)/account_parent/static/description/logo.png" afterPath="$PROJECT_DIR$/turkina (copy)/account_parent/static/description/logo.png" />
+      <change beforePath="$PROJECT_DIR$/turkina (copy)/account_parent/views/account_view.xml" afterPath="$PROJECT_DIR$/turkina (copy)/account_parent/views/account_view.xml" />
+      <change beforePath="$PROJECT_DIR$/turkina (copy)/account_parent/views/open_chart.xml" afterPath="$PROJECT_DIR$/turkina (copy)/account_parent/views/open_chart.xml" />
+      <change beforePath="$PROJECT_DIR$/turkina (copy)/account_parent/wizard/__init__.py" afterPath="$PROJECT_DIR$/turkina (copy)/account_parent/wizard/__init__.py" />
+      <change beforePath="$PROJECT_DIR$/turkina (copy)/account_parent/wizard/account_chart.py" afterPath="$PROJECT_DIR$/turkina (copy)/account_parent/wizard/account_chart.py" />
+      <change beforePath="$PROJECT_DIR$/turkina (copy)/balance_sheet_turkina/__init__.py" afterPath="$PROJECT_DIR$/turkina (copy)/balance_sheet_turkina/__init__.py" />
+      <change beforePath="$PROJECT_DIR$/turkina (copy)/balance_sheet_turkina/__manifest__.py" afterPath="$PROJECT_DIR$/turkina (copy)/balance_sheet_turkina/__manifest__.py" />
+      <change beforePath="$PROJECT_DIR$/turkina (copy)/balance_sheet_turkina/model.py" afterPath="$PROJECT_DIR$/turkina (copy)/balance_sheet_turkina/model.py" />
+      <change beforePath="$PROJECT_DIR$/turkina (copy)/balance_sheet_turkina/static/src/css/report.css" afterPath="$PROJECT_DIR$/turkina (copy)/balance_sheet_turkina/static/src/css/report.css" />
+      <change beforePath="$PROJECT_DIR$/turkina (copy)/balance_sheet_turkina/static/src/img/logo.png" afterPath="$PROJECT_DIR$/turkina (copy)/balance_sheet_turkina/static/src/img/logo.png" />
+      <change beforePath="$PROJECT_DIR$/turkina (copy)/balance_sheet_turkina/template.xml" afterPath="$PROJECT_DIR$/turkina (copy)/balance_sheet_turkina/template.xml" />
+      <change beforePath="$PROJECT_DIR$/turkina (copy)/balance_sheet_turkina/views/module_report.xml" afterPath="$PROJECT_DIR$/turkina (copy)/balance_sheet_turkina/views/module_report.xml" />
+      <change beforePath="$PROJECT_DIR$/turkina (copy)/balance_sheet_turkina/wizard.py" afterPath="$PROJECT_DIR$/turkina (copy)/balance_sheet_turkina/wizard.py" />
+      <change beforePath="$PROJECT_DIR$/turkina (copy)/expense_Bcube/__init__.py" afterPath="$PROJECT_DIR$/turkina (copy)/expense_Bcube/__init__.py" />
+      <change beforePath="$PROJECT_DIR$/turkina (copy)/expense_Bcube/__manifest__.py" afterPath="$PROJECT_DIR$/turkina (copy)/expense_Bcube/__manifest__.py" />
+      <change beforePath="$PROJECT_DIR$/turkina (copy)/expense_Bcube/base_report_to_printer/README.rst" afterPath="$PROJECT_DIR$/turkina (copy)/expense_Bcube/base_report_to_printer/README.rst" />
+      <change beforePath="$PROJECT_DIR$/turkina (copy)/expense_Bcube/base_report_to_printer/__init__.py" afterPath="$PROJECT_DIR$/turkina (copy)/expense_Bcube/base_report_to_printer/__init__.py" />
+      <change beforePath="$PROJECT_DIR$/turkina (copy)/expense_Bcube/base_report_to_printer/__manifest__.py" afterPath="$PROJECT_DIR$/turkina (copy)/expense_Bcube/base_report_to_printer/__manifest__.py" />
+      <change beforePath="$PROJECT_DIR$/turkina (copy)/expense_Bcube/base_report_to_printer/data/printing_data.xml" afterPath="$PROJECT_DIR$/turkina (copy)/expense_Bcube/base_report_to_printer/data/printing_data.xml" />
+      <change beforePath="$PROJECT_DIR$/turkina (copy)/expense_Bcube/base_report_to_printer/i18n/am.po" afterPath="$PROJECT_DIR$/turkina (copy)/expense_Bcube/base_report_to_printer/i18n/am.po" />
+      <change beforePath="$PROJECT_DIR$/turkina (copy)/expense_Bcube/base_report_to_printer/i18n/bg.po" afterPath="$PROJECT_DIR$/turkina (copy)/expense_Bcube/base_report_to_printer/i18n/bg.po" />
+      <change beforePath="$PROJECT_DIR$/turkina (copy)/expense_Bcube/base_report_to_printer/i18n/ca.po" afterPath="$PROJECT_DIR$/turkina (copy)/expense_Bcube/base_report_to_printer/i18n/ca.po" />
+      <change beforePath="$PROJECT_DIR$/turkina (copy)/expense_Bcube/base_report_to_printer/i18n/de.po" afterPath="$PROJECT_DIR$/turkina (copy)/expense_Bcube/base_report_to_printer/i18n/de.po" />
+      <change beforePath="$PROJECT_DIR$/turkina (copy)/expense_Bcube/base_report_to_printer/i18n/el_GR.po" afterPath="$PROJECT_DIR$/turkina (copy)/expense_Bcube/base_report_to_printer/i18n/el_GR.po" />
+      <change beforePath="$PROJECT_DIR$/turkina (copy)/expense_Bcube/base_report_to_printer/i18n/es.po" afterPath="$PROJECT_DIR$/turkina (copy)/expense_Bcube/base_report_to_printer/i18n/es.po" />
+      <change beforePath="$PROJECT_DIR$/turkina (copy)/expense_Bcube/base_report_to_printer/i18n/es_ES.po" afterPath="$PROJECT_DIR$/turkina (copy)/expense_Bcube/base_report_to_printer/i18n/es_ES.po" />
+      <change beforePath="$PROJECT_DIR$/turkina (copy)/expense_Bcube/base_report_to_printer/i18n/fi.po" afterPath="$PROJECT_DIR$/turkina (copy)/expense_Bcube/base_report_to_printer/i18n/fi.po" />
+      <change beforePath="$PROJECT_DIR$/turkina (copy)/expense_Bcube/base_report_to_printer/i18n/fr.po" afterPath="$PROJECT_DIR$/turkina (copy)/expense_Bcube/base_report_to_printer/i18n/fr.po" />
+      <change beforePath="$PROJECT_DIR$/turkina (copy)/expense_Bcube/base_report_to_printer/i18n/gl.po" afterPath="$PROJECT_DIR$/turkina (copy)/expense_Bcube/base_report_to_printer/i18n/gl.po" />
+      <change beforePath="$PROJECT_DIR$/turkina (copy)/expense_Bcube/base_report_to_printer/i18n/hr.po" afterPath="$PROJECT_DIR$/turkina (copy)/expense_Bcube/base_report_to_printer/i18n/hr.po" />
+      <change beforePath="$PROJECT_DIR$/turkina (copy)/expense_Bcube/base_report_to_printer/i18n/hr_HR.po" afterPath="$PROJECT_DIR$/turkina (copy)/expense_Bcube/base_report_to_printer/i18n/hr_HR.po" />
+      <change beforePath="$PROJECT_DIR$/turkina (copy)/expense_Bcube/base_report_to_printer/i18n/it.po" afterPath="$PROJECT_DIR$/turkina (copy)/expense_Bcube/base_report_to_printer/i18n/it.po" />
+      <change beforePath="$PROJECT_DIR$/turkina (copy)/expense_Bcube/base_report_to_printer/i18n/nl.po" afterPath="$PROJECT_DIR$/turkina (copy)/expense_Bcube/base_report_to_printer/i18n/nl.po" />
+      <change beforePath="$PROJECT_DIR$/turkina (copy)/expense_Bcube/base_report_to_printer/i18n/nl_NL.po" afterPath="$PROJECT_DIR$/turkina (copy)/expense_Bcube/base_report_to_printer/i18n/nl_NL.po" />
+      <change beforePath="$PROJECT_DIR$/turkina (copy)/expense_Bcube/base_report_to_printer/i18n/pt.po" afterPath="$PROJECT_DIR$/turkina (copy)/expense_Bcube/base_report_to_printer/i18n/pt.po" />
+      <change beforePath="$PROJECT_DIR$/turkina (copy)/expense_Bcube/base_report_to_printer/i18n/pt_BR.po" afterPath="$PROJECT_DIR$/turkina (copy)/expense_Bcube/base_report_to_printer/i18n/pt_BR.po" />
+      <change beforePath="$PROJECT_DIR$/turkina (copy)/expense_Bcube/base_report_to_printer/i18n/pt_PT.po" afterPath="$PROJECT_DIR$/turkina (copy)/expense_Bcube/base_report_to_printer/i18n/pt_PT.po" />
+      <change beforePath="$PROJECT_DIR$/turkina (copy)/expense_Bcube/base_report_to_printer/i18n/sl.po" afterPath="$PROJECT_DIR$/turkina (copy)/expense_Bcube/base_report_to_printer/i18n/sl.po" />
+      <change beforePath="$PROJECT_DIR$/turkina (copy)/expense_Bcube/base_report_to_printer/i18n/tr.po" afterPath="$PROJECT_DIR$/turkina (copy)/expense_Bcube/base_report_to_printer/i18n/tr.po" />
+      <change beforePath="$PROJECT_DIR$/turkina (copy)/expense_Bcube/base_report_to_printer/i18n/zh_CN.po" afterPath="$PROJECT_DIR$/turkina (copy)/expense_Bcube/base_report_to_printer/i18n/zh_CN.po" />
+      <change beforePath="$PROJECT_DIR$/turkina (copy)/expense_Bcube/base_report_to_printer/migrations/9.0.2.0.0/post-10-create_server_record.py" afterPath="$PROJECT_DIR$/turkina (copy)/expense_Bcube/base_report_to_printer/migrations/9.0.2.0.0/post-10-create_server_record.py" />
+      <change beforePath="$PROJECT_DIR$/turkina (copy)/expense_Bcube/base_report_to_printer/models/__init__.py" afterPath="$PROJECT_DIR$/turkina (copy)/expense_Bcube/base_report_to_printer/models/__init__.py" />
+      <change beforePath="$PROJECT_DIR$/turkina (copy)/expense_Bcube/base_report_to_printer/models/ir_actions_report_xml.py" afterPath="$PROJECT_DIR$/turkina (copy)/expense_Bcube/base_report_to_printer/models/ir_actions_report_xml.py" />
+      <change beforePath="$PROJECT_DIR$/turkina (copy)/expense_Bcube/base_report_to_printer/models/printing_action.py" afterPath="$PROJECT_DIR$/turkina (copy)/expense_Bcube/base_report_to_printer/models/printing_action.py" />
+      <change beforePath="$PROJECT_DIR$/turkina (copy)/expense_Bcube/base_report_to_printer/models/printing_job.py" afterPath="$PROJECT_DIR$/turkina (copy)/expense_Bcube/base_report_to_printer/models/printing_job.py" />
+      <change beforePath="$PROJECT_DIR$/turkina (copy)/expense_Bcube/base_report_to_printer/models/printing_printer.py" afterPath="$PROJECT_DIR$/turkina (copy)/expense_Bcube/base_report_to_printer/models/printing_printer.py" />
+      <change beforePath="$PROJECT_DIR$/turkina (copy)/expense_Bcube/base_report_to_printer/models/printing_report_xml_action.py" afterPath="$PROJECT_DIR$/turkina (copy)/expense_Bcube/base_report_to_printer/models/printing_report_xml_action.py" />
+      <change beforePath="$PROJECT_DIR$/turkina (copy)/expense_Bcube/base_report_to_printer/models/printing_server.py" afterPath="$PROJECT_DIR$/turkina (copy)/expense_Bcube/base_report_to_printer/models/printing_server.py" />
+      <change beforePath="$PROJECT_DIR$/turkina (copy)/expense_Bcube/base_report_to_printer/models/report.py" afterPath="$PROJECT_DIR$/turkina (copy)/expense_Bcube/base_report_to_printer/models/report.py" />
+      <change beforePath="$PROJECT_DIR$/turkina (copy)/expense_Bcube/base_report_to_printer/models/res_users.py" afterPath="$PROJECT_DIR$/turkina (copy)/expense_Bcube/base_report_to_printer/models/res_users.py" />
+      <change beforePath="$PROJECT_DIR$/turkina (copy)/expense_Bcube/base_report_to_printer/report_service.py" afterPath="$PROJECT_DIR$/turkina (copy)/expense_Bcube/base_report_to_printer/report_service.py" />
+      <change beforePath="$PROJECT_DIR$/turkina (copy)/expense_Bcube/base_report_to_printer/security/security.xml" afterPath="$PROJECT_DIR$/turkina (copy)/expense_Bcube/base_report_to_printer/security/security.xml" />
+      <change beforePath="$PROJECT_DIR$/turkina (copy)/expense_Bcube/base_report_to_printer/static/src/js/qweb_action_manager.js" afterPath="$PROJECT_DIR$/turkina (copy)/expense_Bcube/base_report_to_printer/static/src/js/qweb_action_manager.js" />
+      <change beforePath="$PROJECT_DIR$/turkina (copy)/expense_Bcube/base_report_to_printer/tests/__init__.py" afterPath="$PROJECT_DIR$/turkina (copy)/expense_Bcube/base_report_to_printer/tests/__init__.py" />
+      <change beforePath="$PROJECT_DIR$/turkina (copy)/expense_Bcube/base_report_to_printer/tests/test_ir_actions_report_xml.py" afterPath="$PROJECT_DIR$/turkina (copy)/expense_Bcube/base_report_to_printer/tests/test_ir_actions_report_xml.py" />
+      <change beforePath="$PROJECT_DIR$/turkina (copy)/expense_Bcube/base_report_to_printer/tests/test_printing_job.py" afterPath="$PROJECT_DIR$/turkina (copy)/expense_Bcube/base_report_to_printer/tests/test_printing_job.py" />
+      <change beforePath="$PROJECT_DIR$/turkina (copy)/expense_Bcube/base_report_to_printer/tests/test_printing_printer.py" afterPath="$PROJECT_DIR$/turkina (copy)/expense_Bcube/base_report_to_printer/tests/test_printing_printer.py" />
+      <change beforePath="$PROJECT_DIR$/turkina (copy)/expense_Bcube/base_report_to_printer/tests/test_printing_printer_wizard.py" afterPath="$PROJECT_DIR$/turkina (copy)/expense_Bcube/base_report_to_printer/tests/test_printing_printer_wizard.py" />
+      <change beforePath="$PROJECT_DIR$/turkina (copy)/expense_Bcube/base_report_to_printer/tests/test_printing_report_xml_action.py" afterPath="$PROJECT_DIR$/turkina (copy)/expense_Bcube/base_report_to_printer/tests/test_printing_report_xml_action.py" />
+      <change beforePath="$PROJECT_DIR$/turkina (copy)/expense_Bcube/base_report_to_printer/tests/test_printing_server.py" afterPath="$PROJECT_DIR$/turkina (copy)/expense_Bcube/base_report_to_printer/tests/test_printing_server.py" />
+      <change beforePath="$PROJECT_DIR$/turkina (copy)/expense_Bcube/base_report_to_printer/tests/test_report.py" afterPath="$PROJECT_DIR$/turkina (copy)/expense_Bcube/base_report_to_printer/tests/test_report.py" />
+      <change beforePath="$PROJECT_DIR$/turkina (copy)/expense_Bcube/base_report_to_printer/tests/test_res_users.py" afterPath="$PROJECT_DIR$/turkina (copy)/expense_Bcube/base_report_to_printer/tests/test_res_users.py" />
+      <change beforePath="$PROJECT_DIR$/turkina (copy)/expense_Bcube/base_report_to_printer/views/assets.xml" afterPath="$PROJECT_DIR$/turkina (copy)/expense_Bcube/base_report_to_printer/views/assets.xml" />
+      <change beforePath="$PROJECT_DIR$/turkina (copy)/expense_Bcube/base_report_to_printer/views/ir_actions_report_xml_view.xml" afterPath="$PROJECT_DIR$/turkina (copy)/expense_Bcube/base_report_to_printer/views/ir_actions_report_xml_view.xml" />
+      <change beforePath="$PROJECT_DIR$/turkina (copy)/expense_Bcube/base_report_to_printer/views/printing_job.xml" afterPath="$PROJECT_DIR$/turkina (copy)/expense_Bcube/base_report_to_printer/views/printing_job.xml" />
+      <change beforePath="$PROJECT_DIR$/turkina (copy)/expense_Bcube/base_report_to_printer/views/printing_printer_view.xml" afterPath="$PROJECT_DIR$/turkina (copy)/expense_Bcube/base_report_to_printer/views/printing_printer_view.xml" />
+      <change beforePath="$PROJECT_DIR$/turkina (copy)/expense_Bcube/base_report_to_printer/views/printing_report_view.xml" afterPath="$PROJECT_DIR$/turkina (copy)/expense_Bcube/base_report_to_printer/views/printing_report_view.xml" />
+      <change beforePath="$PROJECT_DIR$/turkina (copy)/expense_Bcube/base_report_to_printer/views/printing_server.xml" afterPath="$PROJECT_DIR$/turkina (copy)/expense_Bcube/base_report_to_printer/views/printing_server.xml" />
+      <change beforePath="$PROJECT_DIR$/turkina (copy)/expense_Bcube/base_report_to_printer/views/res_users_view.xml" afterPath="$PROJECT_DIR$/turkina (copy)/expense_Bcube/base_report_to_printer/views/res_users_view.xml" />
+      <change beforePath="$PROJECT_DIR$/turkina (copy)/expense_Bcube/base_report_to_printer/wizards/__init__.py" afterPath="$PROJECT_DIR$/turkina (copy)/expense_Bcube/base_report_to_printer/wizards/__init__.py" />
+      <change beforePath="$PROJECT_DIR$/turkina (copy)/expense_Bcube/base_report_to_printer/wizards/printing_printer_update_wizard.py" afterPath="$PROJECT_DIR$/turkina (copy)/expense_Bcube/base_report_to_printer/wizards/printing_printer_update_wizard.py" />
+      <change beforePath="$PROJECT_DIR$/turkina (copy)/expense_Bcube/base_report_to_printer/wizards/printing_printer_update_wizard_view.xml" afterPath="$PROJECT_DIR$/turkina (copy)/expense_Bcube/base_report_to_printer/wizards/printing_printer_update_wizard_view.xml" />
+      <change beforePath="$PROJECT_DIR$/turkina (copy)/expense_Bcube/models.py" afterPath="$PROJECT_DIR$/turkina (copy)/expense_Bcube/models.py" />
+      <change beforePath="$PROJECT_DIR$/turkina (copy)/expense_Bcube/templates.xml" afterPath="$PROJECT_DIR$/turkina (copy)/expense_Bcube/templates.xml" />
+      <change beforePath="$PROJECT_DIR$/turkina (copy)/genral_ledger/__init__.py" afterPath="$PROJECT_DIR$/turkina (copy)/genral_ledger/__init__.py" />
+      <change beforePath="$PROJECT_DIR$/turkina (copy)/genral_ledger/__manifest__.py" afterPath="$PROJECT_DIR$/turkina (copy)/genral_ledger/__manifest__.py" />
+      <change beforePath="$PROJECT_DIR$/turkina (copy)/genral_ledger/model.py" afterPath="$PROJECT_DIR$/turkina (copy)/genral_ledger/model.py" />
+      <change beforePath="$PROJECT_DIR$/turkina (copy)/genral_ledger/static/src/css/report.css" afterPath="$PROJECT_DIR$/turkina (copy)/genral_ledger/static/src/css/report.css" />
+      <change beforePath="$PROJECT_DIR$/turkina (copy)/genral_ledger/static/src/img/logo.png" afterPath="$PROJECT_DIR$/turkina (copy)/genral_ledger/static/src/img/logo.png" />
+      <change beforePath="$PROJECT_DIR$/turkina (copy)/genral_ledger/template.xml" afterPath="$PROJECT_DIR$/turkina (copy)/genral_ledger/template.xml" />
+      <change beforePath="$PROJECT_DIR$/turkina (copy)/genral_ledger/views/module_report.xml" afterPath="$PROJECT_DIR$/turkina (copy)/genral_ledger/views/module_report.xml" />
+      <change beforePath="$PROJECT_DIR$/turkina (copy)/genral_ledger/wizard.py" afterPath="$PROJECT_DIR$/turkina (copy)/genral_ledger/wizard.py" />
+      <change beforePath="$PROJECT_DIR$/turkina (copy)/partner_ledger_sugar/__init__.py" afterPath="$PROJECT_DIR$/turkina (copy)/partner_ledger_sugar/__init__.py" />
+      <change beforePath="$PROJECT_DIR$/turkina (copy)/partner_ledger_sugar/__manifest__.py" afterPath="$PROJECT_DIR$/turkina (copy)/partner_ledger_sugar/__manifest__.py" />
+      <change beforePath="$PROJECT_DIR$/turkina (copy)/partner_ledger_sugar/model.py" afterPath="$PROJECT_DIR$/turkina (copy)/partner_ledger_sugar/model.py" />
+      <change beforePath="$PROJECT_DIR$/turkina (copy)/partner_ledger_sugar/static/src/css/report.css" afterPath="$PROJECT_DIR$/turkina (copy)/partner_ledger_sugar/static/src/css/report.css" />
+      <change beforePath="$PROJECT_DIR$/turkina (copy)/partner_ledger_sugar/static/src/img/logo.png" afterPath="$PROJECT_DIR$/turkina (copy)/partner_ledger_sugar/static/src/img/logo.png" />
+      <change beforePath="$PROJECT_DIR$/turkina (copy)/partner_ledger_sugar/template.xml" afterPath="$PROJECT_DIR$/turkina (copy)/partner_ledger_sugar/template.xml" />
+      <change beforePath="$PROJECT_DIR$/turkina (copy)/partner_ledger_sugar/views/module_report.xml" afterPath="$PROJECT_DIR$/turkina (copy)/partner_ledger_sugar/views/module_report.xml" />
+      <change beforePath="$PROJECT_DIR$/turkina (copy)/partner_ledger_sugar/wizard.py" afterPath="$PROJECT_DIR$/turkina (copy)/partner_ledger_sugar/wizard.py" />
+      <change beforePath="$PROJECT_DIR$/turkina (copy)/report_header_footer/__init__.py" afterPath="$PROJECT_DIR$/turkina (copy)/report_header_footer/__init__.py" />
+      <change beforePath="$PROJECT_DIR$/turkina (copy)/report_header_footer/__manifest__.py" afterPath="$PROJECT_DIR$/turkina (copy)/report_header_footer/__manifest__.py" />
+      <change beforePath="$PROJECT_DIR$/turkina (copy)/report_header_footer/model.py" afterPath="$PROJECT_DIR$/turkina (copy)/report_header_footer/model.py" />
+      <change beforePath="$PROJECT_DIR$/turkina (copy)/report_header_footer/views/template.xml" afterPath="$PROJECT_DIR$/turkina (copy)/report_header_footer/views/template.xml" />
+      <change beforePath="$PROJECT_DIR$/turkina (copy)/report_structure_turkina/__init__.py" afterPath="$PROJECT_DIR$/turkina (copy)/report_structure_turkina/__init__.py" />
+      <change beforePath="$PROJECT_DIR$/turkina (copy)/report_structure_turkina/__manifest__.py" afterPath="$PROJECT_DIR$/turkina (copy)/report_structure_turkina/__manifest__.py" />
+      <change beforePath="$PROJECT_DIR$/turkina (copy)/report_structure_turkina/model.py" afterPath="$PROJECT_DIR$/turkina (copy)/report_structure_turkina/model.py" />
+      <change beforePath="$PROJECT_DIR$/turkina (copy)/report_structure_turkina/static/src/css/styles.css" afterPath="$PROJECT_DIR$/turkina (copy)/report_structure_turkina/static/src/css/styles.css" />
+      <change beforePath="$PROJECT_DIR$/turkina (copy)/report_structure_turkina/views/template.xml" afterPath="$PROJECT_DIR$/turkina (copy)/report_structure_turkina/views/template.xml" />
+      <change beforePath="$PROJECT_DIR$/turkina (copy)/turkina_invoice_extend/__init__.py" afterPath="$PROJECT_DIR$/turkina (copy)/turkina_invoice_extend/__init__.py" />
       <change beforePath="$PROJECT_DIR$/turkina (copy)/turkina_invoice_extend/__manifest__.py" afterPath="$PROJECT_DIR$/turkina (copy)/turkina_invoice_extend/__manifest__.py" />
+      <change beforePath="$PROJECT_DIR$/turkina (copy)/turkina_invoice_extend/models/__init__.py" afterPath="$PROJECT_DIR$/turkina (copy)/turkina_invoice_extend/models/__init__.py" />
       <change beforePath="$PROJECT_DIR$/turkina (copy)/turkina_invoice_extend/models/models.py" afterPath="$PROJECT_DIR$/turkina (copy)/turkina_invoice_extend/models/models.py" />
+      <change beforePath="$PROJECT_DIR$/turkina (copy)/turkina_invoice_extend/views/views.xml" afterPath="$PROJECT_DIR$/turkina (copy)/turkina_invoice_extend/views/views.xml" />
+      <change beforePath="$PROJECT_DIR$/turkina (copy)/turkina_sales_invoice/__init__.py" afterPath="$PROJECT_DIR$/turkina (copy)/turkina_sales_invoice/__init__.py" />
+      <change beforePath="$PROJECT_DIR$/turkina (copy)/turkina_sales_invoice/__manifest__.py" afterPath="$PROJECT_DIR$/turkina (copy)/turkina_sales_invoice/__manifest__.py" />
+      <change beforePath="$PROJECT_DIR$/turkina (copy)/turkina_sales_invoice/model.py" afterPath="$PROJECT_DIR$/turkina (copy)/turkina_sales_invoice/model.py" />
+      <change beforePath="$PROJECT_DIR$/turkina (copy)/turkina_sales_invoice/static/src/css/report.css" afterPath="$PROJECT_DIR$/turkina (copy)/turkina_sales_invoice/static/src/css/report.css" />
+      <change beforePath="$PROJECT_DIR$/turkina (copy)/turkina_sales_invoice/static/src/img/logo.jpg" afterPath="$PROJECT_DIR$/turkina (copy)/turkina_sales_invoice/static/src/img/logo.jpg" />
+      <change beforePath="$PROJECT_DIR$/turkina (copy)/turkina_sales_invoice/static/src/img/logo.png" afterPath="$PROJECT_DIR$/turkina (copy)/turkina_sales_invoice/static/src/img/logo.png" />
+      <change beforePath="$PROJECT_DIR$/turkina (copy)/turkina_sales_invoice/template.xml" afterPath="$PROJECT_DIR$/turkina (copy)/turkina_sales_invoice/template.xml" />
+      <change beforePath="$PROJECT_DIR$/turkina (copy)/turkina_sales_invoice/views/module_report.xml" afterPath="$PROJECT_DIR$/turkina (copy)/turkina_sales_invoice/views/module_report.xml" />
+      <change beforePath="$PROJECT_DIR$/turkina (copy)/turkina_sales_order_invoice/__init__.py" afterPath="$PROJECT_DIR$/turkina (copy)/turkina_sales_order_invoice/__init__.py" />
+      <change beforePath="$PROJECT_DIR$/turkina (copy)/turkina_sales_order_invoice/__manifest__.py" afterPath="$PROJECT_DIR$/turkina (copy)/turkina_sales_order_invoice/__manifest__.py" />
+      <change beforePath="$PROJECT_DIR$/turkina (copy)/turkina_sales_order_invoice/model.py" afterPath="$PROJECT_DIR$/turkina (copy)/turkina_sales_order_invoice/model.py" />
+      <change beforePath="$PROJECT_DIR$/turkina (copy)/turkina_sales_order_invoice/static/src/css/report.css" afterPath="$PROJECT_DIR$/turkina (copy)/turkina_sales_order_invoice/static/src/css/report.css" />
+      <change beforePath="$PROJECT_DIR$/turkina (copy)/turkina_sales_order_invoice/static/src/img/Logo.png" afterPath="$PROJECT_DIR$/turkina (copy)/turkina_sales_order_invoice/static/src/img/Logo.png" />
+      <change beforePath="$PROJECT_DIR$/turkina (copy)/turkina_sales_order_invoice/template.xml" afterPath="$PROJECT_DIR$/turkina (copy)/turkina_sales_order_invoice/template.xml" />
+      <change beforePath="$PROJECT_DIR$/turkina (copy)/turkina_sales_order_invoice/views/module_report.xml" afterPath="$PROJECT_DIR$/turkina (copy)/turkina_sales_order_invoice/views/module_report.xml" />
+      <change beforePath="$PROJECT_DIR$/turkina (copy)/vat_invoice/__init__.py" afterPath="$PROJECT_DIR$/turkina (copy)/vat_invoice/__init__.py" />
+      <change beforePath="$PROJECT_DIR$/turkina (copy)/vat_invoice/__manifest__.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/turkina (copy)/vat_invoice/model.py" afterPath="$PROJECT_DIR$/turkina (copy)/vat_invoice/model.py" />
+      <change beforePath="$PROJECT_DIR$/turkina (copy)/vat_invoice/static/src/css/report.css" afterPath="$PROJECT_DIR$/turkina (copy)/vat_invoice/static/src/css/report.css" />
+      <change beforePath="$PROJECT_DIR$/turkina (copy)/vat_invoice/static/src/img/turkina.jpeg" afterPath="$PROJECT_DIR$/turkina (copy)/vat_invoice/static/src/img/turkina.jpeg" />
+      <change beforePath="$PROJECT_DIR$/turkina (copy)/vat_invoice/template.xml" afterPath="$PROJECT_DIR$/turkina (copy)/vat_invoice/template.xml" />
       <change beforePath="$PROJECT_DIR$/turkina (copy)/vat_invoice/views/module_report.xml" afterPath="$PROJECT_DIR$/turkina (copy)/vat_invoice/views/module_report.xml" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -371,33 +687,39 @@
     <favorites_list name="Projects" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="templates.xml" pinned="false" current-in-tab="true">
+    <leaf>
+      <file leaf-file-name="style.css" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/police/police_project/static/src/css/style.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="44">
+              <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="templates.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/police/police_project/templates.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="329">
-              <caret line="346" column="29" lean-forward="true" selection-start-line="346" selection-start-column="29" selection-end-line="346" selection-end-column="29" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ar_SY.po" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/police/police_project/i18n/ar_SY.po">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="208">
-              <caret line="35" column="28" lean-forward="false" selection-start-line="35" selection-start-column="28" selection-end-line="35" selection-end-column="28" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="model.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/police/police_project/model.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="222">
-              <caret line="329" column="22" lean-forward="false" selection-start-line="329" selection-start-column="18" selection-end-line="329" selection-end-column="22" />
-              <folding />
+            <state relative-caret-position="-280">
+              <caret line="524" column="0" lean-forward="false" selection-start-line="524" selection-start-column="0" selection-end-line="524" selection-end-column="0" />
+              <folding>
+                <element signature="n#group#0;n#div#0;n#sheet#0;n#form#0;n#field#2;n#record#10;n#data#0;n#openerp#0;n#!!top" expanded="false" />
+                <element signature="n#group#1;n#div#0;n#sheet#0;n#form#0;n#field#2;n#record#10;n#data#0;n#openerp#0;n#!!top" expanded="false" />
+                <element signature="n#field#0;n#div#0;n#sheet#0;n#form#0;n#field#2;n#record#10;n#data#0;n#openerp#0;n#!!top" expanded="false" />
+                <element signature="n#field#1;n#div#0;n#sheet#0;n#form#0;n#field#2;n#record#10;n#data#0;n#openerp#0;n#!!top" expanded="false" />
+                <element signature="n#group#0;n#div#0;n#sheet#0;n#form#0;n#field#2;n#record#11;n#data#0;n#openerp#0;n#!!top" expanded="false" />
+                <element signature="n#group#0;n#group#0;n#div#0;n#sheet#0;n#form#0;n#field#2;n#record#12;n#data#0;n#openerp#0;n#!!top" expanded="false" />
+                <element signature="n#group#1;n#group#0;n#div#0;n#sheet#0;n#form#0;n#field#2;n#record#12;n#data#0;n#openerp#0;n#!!top" expanded="false" />
+                <element signature="n#group#0;n#div#0;n#sheet#0;n#form#0;n#field#2;n#record#13;n#data#0;n#openerp#0;n#!!top" expanded="false" />
+                <element signature="n#field#0;n#div#0;n#sheet#0;n#form#0;n#field#2;n#record#13;n#data#0;n#openerp#0;n#!!top" expanded="false" />
+                <element signature="n#field#1;n#div#0;n#sheet#0;n#form#0;n#field#2;n#record#13;n#data#0;n#openerp#0;n#!!top" expanded="false" />
+                <element signature="n#group#0;n#div#0;n#sheet#0;n#form#0;n#field#2;n#record#14;n#data#0;n#openerp#0;n#!!top" expanded="false" />
+                <element signature="n#group#0;n#div#0;n#sheet#0;n#form#0;n#field#2;n#record#16;n#data#0;n#openerp#0;n#!!top" expanded="false" />
+                <element signature="n#group#1;n#div#0;n#sheet#0;n#form#0;n#field#2;n#record#16;n#data#0;n#openerp#0;n#!!top" expanded="false" />
+                <element signature="n#group#0;n#group#0;n#div#0;n#sheet#0;n#form#0;n#field#2;n#record#17;n#data#0;n#openerp#0;n#!!top" expanded="false" />
+                <element signature="n#group#1;n#group#0;n#div#0;n#sheet#0;n#form#0;n#field#2;n#record#17;n#data#0;n#openerp#0;n#!!top" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -413,36 +735,36 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>write</find>
-      <find>create</find>
-      <find>Exportlogic</find>
-      <find>ExportLogic</find>
-      <find>Importlogic</find>
-      <find>contt_bol</find>
-      <find>import_serv</find>
-      <find>create_sale</find>
-      <find>create_custom_charges</find>
-      <find>transport_info</find>
-      <find>action_confirm</find>
-      <find>add_charges</find>
-      <find>line</find>
-      <find>field</find>
-      <find>env</find>
-      <find>export.logic</find>
-      <find>context</find>
-      <find>super</find>
-      <find>margin</find>
-      <find>arabic_1</find>
-      <find>clearfloat</find>
-      <find>color</find>
-      <find>&lt;span class=&quot;liquid&quot; t-esc = &quot;o.&quot;&gt;&lt;/span&gt;</find>
-      <find>&lt;span class=&quot;liquid&quot; t-esc = &quot;data.&quot;&gt;&lt;/span&gt;</find>
-      <find>&quot;context&quot;&gt;{'</find>
-      <find>qty</find>
-      <find>case type</find>
-      <find>Case</find>
-      <find>case</find>
+      <find>vio_code</find>
+      <find>code</find>
+      <find>Code of Police CAR</find>
+      <find>car_name</find>
+      <find>car_color</find>
+      <find>receiving_party</find>
+      <find>direction_name</find>
+      <find>Previous Records</find>
+      <find>case_id</find>
+      <find>d.number</find>
+      <find>hajjumrah.violation</find>
+      <find>number</find>
+      <find>قانون الانتهاك</find>
+      <find>الجن</find>
+      <find>جنس الموظف الثاني</find>
+      <find>PID</find>
+      <find>الجنس ضابط أولا</find>
+      <find>المالك شخص آخر؟</find>
+      <find>لون السيارة</find>
+      <find>Color of Car</find>
+      <find>اسم السيارة</find>
+      <find>gender</find>
       <find>Information</find>
+      <find>Gender</find>
+      <find>Case Information</find>
+      <find>نوع الانتهاك</find>
+      <find>Violation Information</find>
+      <find>معلومات الانتهاك</find>
+      <find>data.invoice_line_tax_id</find>
+      <find>date</find>
     </findStrings>
     <replaceStrings>
       <replace>traffic</replace>
@@ -483,11 +805,14 @@
         <option value="$PROJECT_DIR$/turkina/turkina_invoice_extend/views/views.xml" />
         <option value="$PROJECT_DIR$/turkina/turkina_invoice_extend/models/models.py" />
         <option value="$PROJECT_DIR$/turkina (copy)/turkina_invoice_extend/__manifest__.py" />
-        <option value="$PROJECT_DIR$/turkina (copy)/turkina_invoice_extend/models/models.py" />
-        <option value="$PROJECT_DIR$/turkina (copy)/vat_invoice/views/module_report.xml" />
         <option value="$PROJECT_DIR$/police/police_project/model.py" />
         <option value="$PROJECT_DIR$/police/police_project/i18n/ar_SY.po" />
+        <option value="$PROJECT_DIR$/turkina (copy)/turkina_invoice_extend/models/models.py" />
+        <option value="$PROJECT_DIR$/turkina (copy)/vat_invoice/model.py" />
+        <option value="$PROJECT_DIR$/turkina (copy)/vat_invoice/views/module_report.xml" />
+        <option value="$PROJECT_DIR$/turkina (copy)/vat_invoice/__manifest__.py" />
         <option value="$PROJECT_DIR$/police/police_project/templates.xml" />
+        <option value="$PROJECT_DIR$/police/police_project/static/src/css/style.css" />
       </list>
     </option>
   </component>
@@ -568,7 +893,24 @@
               <item name="Projects" type="462c0819:PsiDirectoryNode" />
               <item name="police" type="462c0819:PsiDirectoryNode" />
               <item name="police_project" type="462c0819:PsiDirectoryNode" />
-              <item name="i18n" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Projects" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Projects" type="462c0819:PsiDirectoryNode" />
+              <item name="police" type="462c0819:PsiDirectoryNode" />
+              <item name="police_project" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Projects" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Projects" type="462c0819:PsiDirectoryNode" />
+              <item name="police" type="462c0819:PsiDirectoryNode" />
+              <item name="police_project" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="css" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -619,16 +961,15 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="67" y="25" width="1613" height="1025" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21886793" sideWeight="0.49552572" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16289309" sideWeight="0.49552572" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32997763" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3293348" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32885906" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295688" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24968554" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23489933" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23378076" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22012578" sideWeight="0.5044743" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -649,8 +990,8 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32885906" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295688" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.30872482" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21886793" sideWeight="0.49552572" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23378076" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16289309" sideWeight="0.49552572" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24968554" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -712,22 +1053,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/saif/TEST/model.py" />
-    <entry file="file://$PROJECT_DIR$/structure/reg_form/templates.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="18">
-          <caret line="152" column="27" lean-forward="false" selection-start-line="152" selection-start-column="27" selection-end-line="152" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/saif/structure_module/model.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/saif/structure_module/views/v.xml" />
     <entry file="file://$PROJECT_DIR$/saif/structure_module/test.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="648">
@@ -916,13 +1241,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/logistic/custom_logistic/views.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="217">
-          <caret line="343" column="12" lean-forward="false" selection-start-line="343" selection-start-column="12" selection-end-line="343" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/turkina/turkina_invoice_extend/views/views.xml" />
     <entry file="file://$PROJECT_DIR$/turkina/turkina_sales_invoice/views/module_report.xml" />
     <entry file="file://$PROJECT_DIR$/turkina/turkina_invoice_extend/models/models.py" />
@@ -954,13 +1272,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/turkina (copy)/turkina_invoice_extend/models/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="318">
-          <caret line="52" column="33" lean-forward="false" selection-start-line="52" selection-start-column="33" selection-end-line="52" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/turkina (copy)/turkina_sales_order_invoice/views/module_report.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1341">
@@ -972,17 +1283,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="22">
           <caret line="324" column="65" lean-forward="false" selection-start-line="324" selection-start-column="65" selection-end-line="324" selection-end-column="65" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#t#0;n#t#0;n#t#0;n#template#0;n#data#0;n#openerp#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/turkina (copy)/vat_invoice/views/module_report.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="236">
-          <caret line="131" column="62" lean-forward="false" selection-start-line="131" selection-start-column="62" selection-end-line="131" selection-end-column="62" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -990,30 +1290,101 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="398">
           <caret line="1316" column="69" lean-forward="false" selection-start-line="1316" selection-start-column="57" selection-end-line="1316" selection-end-column="70" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/police/police_project/model.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="222">
-          <caret line="329" column="22" lean-forward="false" selection-start-line="329" selection-start-column="18" selection-end-line="329" selection-end-column="22" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/police/police_project/i18n/ar_SY.po">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="208">
-          <caret line="35" column="28" lean-forward="false" selection-start-line="35" selection-start-column="28" selection-end-line="35" selection-end-column="28" />
+        <state relative-caret-position="119">
+          <caret line="36" column="24" lean-forward="false" selection-start-line="36" selection-start-column="8" selection-end-line="36" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/police/police_project/model.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="184">
+          <caret line="23" column="26" lean-forward="true" selection-start-line="23" selection-start-column="26" selection-end-line="23" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/turkina (copy)/turkina_sales_invoice/model.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-385">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/turkina (copy)/turkina_invoice_extend/models/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="202">
+          <caret line="52" column="34" lean-forward="true" selection-start-line="52" selection-start-column="34" selection-end-line="52" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/turkina (copy)/vat_invoice/views/module_report.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="263">
+          <caret line="360" column="42" lean-forward="false" selection-start-line="360" selection-start-column="42" selection-end-line="360" selection-end-column="42" />
+          <folding>
+            <element signature="n#t#0;n#div#0;n#div#0;n#div#0;n#div#0;n#t#0;n#t#0;n#t#0;n#template#0;n#data#0;n#openerp#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/turkina (copy)/vat_invoice/__manifest__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="44">
+          <caret line="2" column="29" lean-forward="false" selection-start-line="2" selection-start-column="29" selection-end-line="2" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/turkina (copy)/vat_invoice/model.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="435">
+          <caret line="39" column="12" lean-forward="false" selection-start-line="39" selection-start-column="12" selection-end-line="39" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/logistic/custom_logistic/views.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="154">
+          <caret line="7" column="15" lean-forward="false" selection-start-line="7" selection-start-column="15" selection-end-line="7" selection-end-column="15" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/police/police_project/templates.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="329">
-          <caret line="346" column="29" lean-forward="true" selection-start-line="346" selection-start-column="29" selection-end-line="346" selection-end-column="29" />
+        <state relative-caret-position="-280">
+          <caret line="524" column="0" lean-forward="false" selection-start-line="524" selection-start-column="0" selection-end-line="524" selection-end-column="0" />
+          <folding>
+            <element signature="n#group#0;n#div#0;n#sheet#0;n#form#0;n#field#2;n#record#10;n#data#0;n#openerp#0;n#!!top" expanded="false" />
+            <element signature="n#group#1;n#div#0;n#sheet#0;n#form#0;n#field#2;n#record#10;n#data#0;n#openerp#0;n#!!top" expanded="false" />
+            <element signature="n#field#0;n#div#0;n#sheet#0;n#form#0;n#field#2;n#record#10;n#data#0;n#openerp#0;n#!!top" expanded="false" />
+            <element signature="n#field#1;n#div#0;n#sheet#0;n#form#0;n#field#2;n#record#10;n#data#0;n#openerp#0;n#!!top" expanded="false" />
+            <element signature="n#group#0;n#div#0;n#sheet#0;n#form#0;n#field#2;n#record#11;n#data#0;n#openerp#0;n#!!top" expanded="false" />
+            <element signature="n#group#0;n#group#0;n#div#0;n#sheet#0;n#form#0;n#field#2;n#record#12;n#data#0;n#openerp#0;n#!!top" expanded="false" />
+            <element signature="n#group#1;n#group#0;n#div#0;n#sheet#0;n#form#0;n#field#2;n#record#12;n#data#0;n#openerp#0;n#!!top" expanded="false" />
+            <element signature="n#group#0;n#div#0;n#sheet#0;n#form#0;n#field#2;n#record#13;n#data#0;n#openerp#0;n#!!top" expanded="false" />
+            <element signature="n#field#0;n#div#0;n#sheet#0;n#form#0;n#field#2;n#record#13;n#data#0;n#openerp#0;n#!!top" expanded="false" />
+            <element signature="n#field#1;n#div#0;n#sheet#0;n#form#0;n#field#2;n#record#13;n#data#0;n#openerp#0;n#!!top" expanded="false" />
+            <element signature="n#group#0;n#div#0;n#sheet#0;n#form#0;n#field#2;n#record#14;n#data#0;n#openerp#0;n#!!top" expanded="false" />
+            <element signature="n#group#0;n#div#0;n#sheet#0;n#form#0;n#field#2;n#record#16;n#data#0;n#openerp#0;n#!!top" expanded="false" />
+            <element signature="n#group#1;n#div#0;n#sheet#0;n#form#0;n#field#2;n#record#16;n#data#0;n#openerp#0;n#!!top" expanded="false" />
+            <element signature="n#group#0;n#group#0;n#div#0;n#sheet#0;n#form#0;n#field#2;n#record#17;n#data#0;n#openerp#0;n#!!top" expanded="false" />
+            <element signature="n#group#1;n#group#0;n#div#0;n#sheet#0;n#form#0;n#field#2;n#record#17;n#data#0;n#openerp#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/police/police_project/static/src/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="44">
+          <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
           <folding />
         </state>
       </provider>

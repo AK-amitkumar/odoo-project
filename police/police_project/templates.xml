@@ -2,6 +2,12 @@
 <openerp> 
 <data>
 
+<template id="assets_backend" name="custom assets" inherit_id="web.assets_backend">
+	<xpath expr="." position="inside">
+		<link rel="stylesheet" href="/police_project/static/src/css/style.css"/>
+	</xpath>
+</template>
+
 <record id="police_view_form" model="ir.ui.view"> 
 	<field name="name">Police  Records</field> 
 	<field name="model">police.detail</field> 
@@ -11,6 +17,7 @@
                 <button name="confirm" type="object" class= "oe_highlight" string="confirmed"/>
             </header>
 			<sheet>
+				<div class="low_width">
 				<h3>Case Details</h3>
 				<group name="group_top">
 					<group name="group_left">
@@ -25,15 +32,17 @@
 						<field name="digital_tag"/> 
 						<field name="direction_name"/> 
 						<field name="violation"/>
+						<field name="code"/>
 					</group>
 
 					<group name="group_right">
-						<field name="code"/>
 						<field name="police_officer"/>
 						<field name="rank_officer"/>
+						<field name="PID1"/>
 						<field name="sex_of1"/>
 						<field name="name_officer_2"/>
 						<field name="rank_officer_2"/>
+						<field name="PID2"/>
 						<field name="sex_of2"/>
 						<field name="tosc"/>
 						<field name="receiving_party"/>
@@ -48,10 +57,11 @@
 	                    <field name="case_type"/>
 	                    <field name="cate_case"/>
 	                    <field name="vio_code"/>
+	                    <field name="vio_number"/>
 	                </tree>
 	            </field>
 
-				<h3>Case Information</h3>
+				<h3>Violation Information</h3>
 				<field name="party_link">
 	                <tree>
 	                    <field name="name"/>
@@ -63,6 +73,7 @@
 	                    <field name="accident_reason"/>
 	                </tree>
 	            </field> 
+				 </div>
 
 			</sheet> 
 		</form> 
@@ -75,26 +86,28 @@
 	    <field name="arch" type="xml">
 	        <form string="Hajj and Umrah">
 	            <sheet>
-					<h3>Hajj Umrah Violation Record</h3>
-					<br></br>
-	                <group>
-	                    <field name="number" readonly="1"/>
-						<field name="case_id" default_focus="1"/>
-						<field name="date"/>
-						<field name="day"/>
-						<field name="time"/>
-						<field name="road_name"/>
-						<field name="center_name"/>
-	                </group>
-					<h3>Violation Information</h3>
-					<field name="violation_type">
-	                <tree>
-	                    <field name="violation"/>
-						<field name="violation_type"/>
-						<field name="nop"/>
-						<field name="receiving_party"/>
-	                </tree>
-	            </field>
+					<div  class="low_width">
+						<h3>Hajj Umrah Violation Record</h3>
+						<br></br>
+						<group>
+							<!--<field name="number" readonly="1"/>-->
+							<field name="case_id" readonly="1"/>
+							<field name="date"/>
+							<field name="day"/>
+							<field name="time"/>
+							<field name="road_name" default_focus="1"/>
+							<field name="center_name"/>
+						</group>
+						<h3>Violation Information</h3>
+						<field name="violation_type">
+						<tree>
+							<field name="violation"/>
+							<field name="violation_type"/>
+							<field name="nop"/>
+							<field name="remarks"/>
+						</tree>
+					</field>
+					</div>
 	            </sheet>
 	        </form>
 	    </field>
@@ -104,15 +117,17 @@
 	    <field name="name">hajj_umrah_violation</field>
 	    <field name="model">hajjumrah.violation</field>
 	    <field name="arch" type="xml">
-	        <form string="">
-	            <sheet>
-	                <group>
+	        <form>
+				<sheet>
+					<div  class="low_width">
+					<group>
 						<field name="violation"/>
 						<field name="violation_type"/>
 						<field name="nop"/>
-						<field name="receiving_party"/>
-	                </group>
-	            </sheet>
+						<field name="remarks"/>
+					</group>
+					</div>
+				</sheet>
 	        </form>
 	    </field>
 	</record>
@@ -122,8 +137,8 @@
     <field name="model">hajj.umrah</field>
     <field name="arch" type="xml">
         <tree string="Hajj and Umrah">
-            <field name="number" readonly="1"/>
-			<field name="case_id" default_focus="1"/>
+            <!--<field name="number" readonly="1"/>-->
+			<field name="case_id"/>
 			<field name="date"/>
 			<field name="day"/>
 			<field name="time"/>
@@ -139,11 +154,14 @@
 	    <field name="arch" type="xml">
 	        <form string="Violation Type">
 	            <sheet>
-	                <group>
-	                    <field name="case_type"/>
-	                    <field name="cate_case"/>
-	                    <field name="vio_code"/>
-	                </group>
+					<div  class="low_width">
+						<group>
+							<field name="case_type"/>
+							<field name="cate_case"/>
+							<field name="vio_code"/>
+							<field name="vio_number"/>
+						</group>
+					</div>
 	            </sheet>
 	        </form>
 	    </field>
@@ -155,8 +173,8 @@
     <field name="type">tree</field>
     <field name="arch" type="xml">
         <tree string="Police Details">
-			<field name="number" readonly="1"/>
-			<field name="case_id" default_focus="1"/>
+			<field name="number"/>
+			<field name="case_id"/>
 			<field name="date"/>
 			<field name="day"/>
 			<field name="time"/>
@@ -181,22 +199,22 @@
 
 <record id="violation_seq_id" model="ir.sequence">
   	<field name="name">violation_seq_id</field>
-  	<field name="code">recrod.number</field>
-  	<field name="prefix">Traffic Violation Case</field>
+  	<field name="code">record.number</field>
+  	<field name="prefix">Traffic Violation</field>
   	<field name="padding">4</field>
 </record> 
 
 <record id="police_seq_id" model="ir.sequence">
   	<field name="name">police_seq_id</field>
   	<field name="code">rec.number</field>
-  	<field name="prefix">Case</field>
+  	<field name="prefix">Violation</field>
   	<field name="padding">4</field>
 </record>
 
 <record id="umrah_seq_id" model="ir.sequence">
   	<field name="name">umrah_seq_id</field>
   	<field name="code">rec.umrah</field>
-  	<field name="prefix">Hajj Umrah Case</field>
+  	<field name="prefix">Hajj Umrah Violation</field>
   	<field name="padding">4</field>
 </record>
 
@@ -207,64 +225,65 @@
 	<field name="arch" type="xml"> 
 		<form string="Party  Records">
 			<sheet>
-				<h3>Violation Information</h3>
-				<group name="group_top">
-					<group name="group_left">
-						<field name="name"/>
-						<field name="id_num"/>
-						<field name="id_type"/>
-						<field name="driver_country"/>
-						<field name="sex"/>
-						<field name="car_name"/>
-						<field name="car_color"/>
-					</group>
-
-					<group name="group_right">
-						<field name="car_model"/>
-						<field name="car_plate"/>
-						<field name="what_found"/>
-						<!--<field name="qty"/>-->
-						<field name="accident_reason"/>
-						<field name="result"/>
-						<field name="mean_trans"/>
-						<field name="hospital_name"/>
-					</group>
+				<div  class="low_width">
+					<h3>Violation Information</h3>
+					<group name="group_top">
+				<group name="group_left">
+					<field name="name"/>
+					<field name="id_num"/>
+					<field name="id_type"/>
+					<field name="driver_country"/>
+					<field name="sex"/>
+					<field name="car_name"/>
+					<field name="car_maker"/>
+					<field name="car_color"/>
 				</group>
 
-				<group name="group_top">
-					<group name="group_left">
-						<field name="previous_record"/> 
-					</group>
-
-					<group name="group_right">
-						<field name="companion_detail"/> 
-					</group>
+				<group name="group_right">
+					<field name="car_model"/>
+					<field name="car_plate"/>
+					<field name="what_found"/>
+					<!--<field name="qty"/>-->
+					<field name="accident_reason"/>
+					<field name="result"/>
+					<field name="mean_trans"/>
+					<field name="hospital_name"/>
 				</group>
-				<field name="previous_record_link" attrs="{'invisible': [('previous_record','=',False)]}">
-				<h3>Previous Records</h3>
-	                <tree>
-	                    <field name="ministry_name"/>
-	                    <field name="no_complaint"/>
-	                    <field name="date"/>
-	                    <field name="day"/>
-	                </tree>
-	            </field> 
+			</group>
+					<group name="group_top">
+				<group name="group_left">
+					<field name="previous_record"/>
+				</group>
 
-	            <field name="companion_detail_link" attrs="{'invisible': [('companion_detail','=',False)]}">
-				<h3>Companion Details</h3>
-	                <tree>
-	                    <field name="name"/>
-	                    <field name="country"/>
-	                    <field name="id_num"/>
-	                    <field name="id_type"/>
-	                    <field name="relation"/>
-	                </tree>
-	            </field>
-				<h3>Remarks</h3>
-                <field name="remark"/>
-                <br></br>
-				<h3>Additional Details</h3>
-                <field name="additional"/>
+				<group name="group_right">
+					<field name="companion_detail"/>
+				</group>
+			</group>
+					<field name="previous_record_link" attrs="{'invisible': [('previous_record','=',False)]}">
+			<h3>Previous Records</h3>
+				<tree>
+					<field name="ministry_name"/>
+					<field name="no_complaint"/>
+					<field name="date"/>
+					<field name="day"/>
+				</tree>
+			</field>
+					<field name="companion_detail_link" attrs="{'invisible': [('companion_detail','=',False)]}">
+			<h3>Companion Details</h3>
+				<tree>
+					<field name="name"/>
+					<field name="country"/>
+					<field name="id_num"/>
+					<field name="id_type"/>
+					<field name="relation"/>
+				</tree>
+			</field>
+					<h3>Remarks</h3>
+					<field name="remark"/>
+					<br></br>
+					<h3>Additional Details</h3>
+					<field name="additional"/>
+				</div>
 			</sheet> 
 		</form> 
 	</field> 
@@ -276,7 +295,8 @@
 	<field name="arch" type="xml"> 
 		<form string="Companion Details">
 			<sheet>
-				<group name="group_top">
+				<div  class="low_width">
+					<group name="group_top">
 					<group name="group_left">
 						<field name="name"/> 
 						<field name="id_num"/>
@@ -295,6 +315,7 @@
 						<field name="hospital_name"/>
 					</group>
 				</group>
+				</div>
 			</sheet>
 		</form> 
 	</field> 
@@ -307,17 +328,18 @@
 	<field name="arch" type="xml"> 
 		<form string="Previous  Records">
 			<sheet>
-				<group name="group_top">
-					<group name="group_left">
+				<div  class="low_width">
+					<group name="group_top">
+						<group name="group_left">
 						<field name="ministry_name"/> 
 						<field name="no_complaint"/> 
 					</group>
-
-					<group name="group_right">
+						<group name="group_right">
 						<field name="date"/> 
 						<field name="day"/> 
 					</group>
-				</group>
+					</group>
+				</div>
 			</sheet>
 		</form> 
 	</field> 
@@ -332,8 +354,9 @@
                 <button name="confirm" type="object" class= "oe_highlight" string="confirmed"/>
             </header>
 			<sheet>
-				<h3>Traffic Violation Details</h3>
-				<group name="group_top">
+				<div  class="low_width">
+					<h3>Traffic Violation Details</h3>
+					<group name="group_top">
 					<group name="group_left">
 						<field name="number" readonly="1"/>
 						<field name="case_id" default_focus="1"/>
@@ -344,18 +367,20 @@
 						<field name="center_name"/>
 						<field name="location_name"/>
 						<field name="digital_tag"/>
+						<field name="direction_name"/>
+						<field name="violation"/>
 					</group>
 
 
 					<group name="group_right">
-						<field name="direction_name"/>
-						<field name="violation"/>
 						<field name="code"/>
 						<field name="police_officer"/>
 						<field name="rank_officer"/>
+						<field name="PID1"/>
 						<field name="sex_of1"/>
 						<field name="name_officer_2"/>
 						<field name="rank_officer_2"/>
+						<field name="PID2"/>
 						<field name="sex_of2"/>
 						<field name="tosc"/>
 
@@ -371,16 +396,17 @@
 	                <!--</tree>-->
 	            <!--</field>-->
 
-				<h3>Violation Type</h3>
-				<field name="case_type">
+					<h3>Violation Type</h3>
+					<field name="case_type">
 	                <tree>
 	                    <field name="case_type"/>
 	                    <field name="cate_case"/>
 	                    <field name="vio_code"/>
+	                    <field name="vio_number"/>
 	                </tree>
 	            </field>
-				<h3>Violation Information</h3>
-				<field name="party_link">
+					<h3>Violation Information</h3>
+					<field name="party_link">
 	                <tree>
 	                    <!-- <field name="party"/> -->
 	                    <field name="car_name"/>
@@ -389,7 +415,7 @@
 	                    <field name="oftc"/>
 	                </tree>
 	            </field> 
-
+				</div>
 			</sheet> 
 		</form> 
 	</field> 
@@ -400,14 +426,17 @@
 	    <field name="arch" type="xml">
 	        <form string="Receiving Party">
 	            <sheet>
-	                <group>
+					<div  class="low_width">
+	             	   <group>
 	                    <field name="receiving_party"/>
 						<field name="receiving_name"/>
 						<field name="receiving_party_rank"/>
 	                </group>
+					</div>
 	            </sheet>
 	        </form>
 	    </field>
+
 	</record>
 
 <record id="traffic_violation_tree_view" model="ir.ui.view">
@@ -416,8 +445,8 @@
     <field name="type">tree</field>
     <field name="arch" type="xml">
         <tree string="Traffic Violation Details">
-			<field name="number" readonly="1"/>
-			<field name="case_id" default_focus="1"/>
+			<field name="number"/>
+			<field name="case_id"/>
 			<field name="date"/>
 			<field name="day"/>
 			<field name="time"/>
@@ -437,8 +466,9 @@
 	<field name="arch" type="xml"> 
 		<form string="Party  Records">
 			<sheet>
-				<h3>Violation Information</h3>
-				<group name="group_top">
+				<div  class="low_width">
+					<h3>Violation Information</h3>
+					<group name="group_top">
 					<group name="group_left">
 						<field name="name"/>
 						<field name="id_num"/>
@@ -455,7 +485,7 @@
 					</group>
 				</group>
 
-				<group name="group_top">
+					<group name="group_top">
 					<group name="group_left">
 						<field name="other_onwer"/> 
 					</group>
@@ -463,8 +493,8 @@
 					<group name="group_right">
 					</group>
 				</group>
-				<field name="owner_detail" attrs="{'invisible': [('other_onwer','=',False)]}">
-				<h3>Owner Details</h3>
+					<field name="owner_detail" attrs="{'invisible': [('other_onwer','=',False)]}">
+					<h3>Owner Details</h3>
 	                <tree>
 	                    <field name="name"/>
 	                    <field name="id_num"/>
@@ -472,9 +502,9 @@
 						<field name="country"/>
 						<field name="mobile"/>
 	                </tree>
-	            </field>
-
-			</sheet> 
+	            	</field>
+				</div>
+			</sheet>
 		</form> 
 	</field> 
 </record>
@@ -485,19 +515,20 @@
 	<field name="arch" type="xml"> 
 		<form string="Owner Detail">
 			<sheet>
-				<group name="group_top">
-					<group name="group_left">
+				<div  class="low_width">
+					<group name="group_top">
+						<group name="group_left">
 						<field name="name"/>
 						<field name="id_num"/>
 						<field name="id_type"/>
 					</group>
-
-					<group name="group_right">
+						<group name="group_right">
 						<field name="country"/>
 						<field name="mobile"/>
 						<field name="remark"/>
 					</group>
-				</group>
+					</group>
+				</div>
 			</sheet> 
 		</form> 
 	</field> 

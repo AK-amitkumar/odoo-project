@@ -34,20 +34,21 @@ msgstr " تفاصيل الحالة"
 #: model:ir.ui.view,arch_db:police_project.traffic_violation_party_view_form
 #: model:ir.ui.view,arch_db:police_project.hajj_umrah
 msgid "Violation Information"
-msgstr "نوع الانتهاك"
+msgstr "معلومات الانتهاك"
 
 #. module: police_project
 #: model:ir.ui.view,arch_db:police_project.party_view_form
 #: model:ir.ui.view,arch_db:police_project.police_view_form
 #: model:ir.ui.view,arch_db:police_project.traffic_violation_party_view_form
-msgid "Violation Type"
-msgstr "نوع الانتهاك"
-
-#. module: police_project
 #: model:ir.model.fields,field_description:police_project.field_police_detail_type_case
 #: model:ir.model.fields,field_description:police_project.field_violation_detail
+#: model:ir.model.fields,field_description:police_project.field_hajjumrah_violation_violation_type
+#: model:ir.ui.view,arch_db:police_project.traffic_violation_view_form
+#: model:ir.ui.view,arch_db:police_project.hajj_umrah
+#: model:ir.ui.view,arch_db:police_project.traffic_violation_view_form
+
 msgid "Violation Type"
-msgstr "نوع القضية"
+msgstr "نوع الانتهاك"
 
 #. module: police_project
 #: model:ir.model.fields,field_description:police_project.field_police_detail_case_detail
@@ -80,14 +81,23 @@ msgstr "رمز الدورية"
 #. module: police_project
 #: model:ir.model.fields,field_description:police_project.field_police_detail_sex_of1
 #: model:ir.model.fields,field_description:police_project.field_violation_detail_sex_of1
-msgid "Sex of Officer 1"
-msgstr "الجنس ضابط أولا"
-
-#. module: police_project
 #: model:ir.model.fields,field_description:police_project.field_police_detail_sex_of2
 #: model:ir.model.fields,field_description:police_project.field_violation_detail_sex_of2
-msgid "Sex of Officer 2"
-msgstr "جنس الموظف الثاني"
+msgid "Gender"
+msgstr "جنس"
+
+#. module: police_project
+#: model:ir.model.fields,field_description:police_project.field_police_detail_PID1
+#: model:ir.model.fields,field_description:police_project.field_violation_detail_PID1
+msgid "Officer 1 ID"
+msgstr "ضابط واحد إد"
+
+#. module: police_project
+#: model:ir.model.fields,field_description:police_project.field_police_detail_PID2
+#: model:ir.model.fields,field_description:police_project.field_violation_detail_PID2
+msgid "Officer 2 ID"
+msgstr "ضابط اثنين إد"
+
 
 #. module: police_project
 #: selection:violation.detail,field_police_detail_sex_of1:0
@@ -104,13 +114,28 @@ msgstr "إناثا"
 
 #. module: police_project
 #: model:ir.model.fields,field_description:police_project.field_party_detail_car_color
+#: model:ir.model.fields,field_description:police_project.field_car_color_name
 msgid "Color of Car"
 msgstr "لون السيارة"
+
+#. module: police_project
+#: model:ir.model.fields,field_description:police_project.field_party_detail_car_maker
+#: model:ir.model.fields,field_description:police_project.field_car_name_model
+#: model:ir.model.fields,field_description:police_project.field_car_maker_name
+msgid "Maker of Car"
+msgstr "صانع السيارات"
 
 #. module: police_project
 #: model:ir.model.fields,field_description:police_project.field_party_detail_companion_detail_link
 msgid "Companion Detail"
 msgstr "تفاصيل المرافقين"
+
+
+
+#. module: police_project
+#: model:ir.model.fields,field_description:police_project.field_car_model_name
+msgid "Model of Car"
+msgstr "نموذج السيارة"
 
 #. module: police_project
 #: model:ir.model.fields,field_description:police_project.field_party_detail_sex
@@ -410,8 +435,9 @@ msgstr "الإسم"
 #. module: police_project
 #: model:ir.model.fields,field_description:police_project.field_party_detail_car_name
 #: model:ir.model.fields,field_description:police_project.field_traffic_party_detail_car_name
+#: model:ir.model.fields,field_description:police_project.field_car_name_name
 msgid "Name of Car"
-msgstr "نوع السيارة"
+msgstr "اسم السيارة"
 
 #. module: police_project
 #: model:ir.model.fields,field_description:police_project.field_police_detail_case_type
@@ -535,20 +561,24 @@ msgid "Owner Is Someone Else ?"
 msgstr "المالك شخص آخر؟"
 
 #. module: police_project
+#: model:ir.model.fields,field_description:police_project.field_traffic_party_detail_vio_id
+msgid "Violation Id"
+msgstr "معرف الانتهاك"
+
+#. module: police_project
 #: model:ir.model.fields,field_description:police_project.field_hajjumrah_violation_violation
 msgid "Violation name"
 msgstr "اسم الانتهاك"
-
-
-#. module: police_project
-#: model:ir.model.fields,field_description:police_project.field_hajjumrah_violation_violation_type
-msgid "Violation type"
-msgstr "نوع الانتهاك"
 
 #. module: police_project
 #: model:ir.model.fields,field_description:police_project.field_hajjumrah_violation_nop
 msgid "number of people"
 msgstr "عدد الاشخاص"
+
+#. module: police_project
+#: model:ir.model.fields,field_description:police_project.field_hajjumrah_violation_remarks
+msgid "Remarks"
+msgstr "ملاحظات"
 
 #. module: police_project
 #: model:ir.model.fields,field_description:police_project.field_hajjumrah_violation_receiving_party
@@ -627,6 +657,11 @@ msgstr "الكمية"
 #: model:ir.model.fields,field_description:police_project.field_case_type_vio_code
 msgid "Violation Code"
 msgstr "قانون الانتهاك"
+
+#. module: police_project
+#: model:ir.model.fields,field_description:police_project.field_case_type_vio_number
+msgid "Violation Number"
+msgstr "رقم الانتهاك"
 
 #. module: police_project
 #: model:ir.model.fields,field_description:police_project.field_police_detail_rank_officer
@@ -773,19 +808,8 @@ msgstr "نوع المخالفة"
 
 #. module: police_project
 #: model:ir.ui.view,arch_db:police_project.traffic_violation_view_form
-#: model:ir.ui.view,arch_db:police_project.hajj_umrah
-msgid "Violation Information"
-msgstr "نوع الانتهاك"
-
-#. module: police_project
-#: model:ir.ui.view,arch_db:police_project.traffic_violation_view_form
 msgid "Block The Car"
 msgstr "منع السيارة"
-
-#. module: police_project
-#: model:ir.ui.view,arch_db:police_project.traffic_violation_view_form
-msgid "Violation Type"
-msgstr "نوع الانتهاك"
 
 #. module: police_project
 #: model:ir.model.fields,field_description:police_project.field_companion_detail_what_found

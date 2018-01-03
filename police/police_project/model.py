@@ -21,11 +21,13 @@ class PoliceDetail(models.Model):
 	code = fields.Char(string='Code of Police CAR')
 	police_officer = fields.Char(string='Name of Police Officer 1')
 	rank_officer = fields.Char(string='Rank Of Police Officer 1')
-	sex_of1 = fields.Selection(string="Sex of Officer 1", selection=[('m', 'Male'), ('f', 'Female'), ], required=False, )
-	sex_of2 = fields.Selection(string="Sex of Officer 2", selection=[('m', 'Male'), ('f', 'Female'), ], required=False, )
+	PID1 = fields.Char(string="Officer 1 ID", required=False, )
+	PID2 = fields.Char(string="Officer 2 ID", required=False, )
+	sex_of1 = fields.Selection(string="Gender", selection=[('m', 'M'), ('f', 'F'), ], required=False, )
+	sex_of2 = fields.Selection(string="Gender", selection=[('m', 'M'), ('f', 'F'), ], required=False, )
 	name_officer_2 = fields.Char(string='Name of Police officer 2')
 	rank_officer_2 = fields.Char(string='Rank of police officer 2')
-	tosc = fields.Char(string="Case submitting Time", required=False, )
+	tosc = fields.Char(string="Violation submitting Time", required=False, )
 	receiving_party = fields.Many2one('receiving.party', string="Receiving Party")
 	receiving_party_rank = fields.Many2one('receiving.party.rank', string="Receiving Party Rank")
 	receiving_name = fields.Char(string="Receiving Party Name", required=False, )
@@ -54,16 +56,17 @@ class CaseType(models.Model):
 	_rec_name = 'case_type'
 	case_type = fields.Many2one(comodel_name="type.case", string="Violation Type", required=False, )
 	cate_case = fields.Many2one(comodel_name="cate.case", string="Case Category", required=False, )
-	vio_code = fields.Float(string="Violation Code",  required=False, )
+	vio_code = fields.Char(string="Violation Code",  required=False, )
+	vio_number = fields.Char(string="Violation Number",  required=False, )
 
 	main_class = fields.Many2one(comodel_name="police.detail", string="Violation Type", required=False, )
 
 
 class HajjUmrah(models.Model):
 	_name = 'hajj.umrah'
-	_rec_name = 'number'
+	_rec_name = 'case_id'
 
-	number = fields.Char(string="Report Number")
+	# number = fields.Char(string="Report Number")
 	case_id = fields.Char(string="Case ID")
 	date = fields.Date(default=datetime.date.today())
 	day = fields.Char()
@@ -75,7 +78,7 @@ class HajjUmrah(models.Model):
 
 	@api.model
 	def create(self, vals):
-		vals['number'] = self.env['ir.sequence'].next_by_code('rec.umrah')
+		vals['case_id'] = self.env['ir.sequence'].next_by_code('rec.umrah')
 		new_record = super(HajjUmrah, self).create(vals)
 		return new_record
 
@@ -94,8 +97,7 @@ class HajjUmrahViolation(models.Model):
 	violation = fields.Char(string="Violation name", required=False, )
 	violation_type = fields.Char(string="Violation type", required=False, )
 	nop = fields.Integer(string="Number of people", required=False, )
-	receiving_party = fields.Char(string="Receiving Party", required=False, )
-
+	remarks = fields.Text(string="Remarks", required=False, )
 
 	main_class  = new_field_id = fields.Many2one(comodel_name="hajj.umrah", string="Hajj and Umrah", required=False, )
 
@@ -105,16 +107,16 @@ class PartyDetail(models.Model):
 	_name = 'party.detail'
 
 	name = fields.Char("Driver Name")
-	car_name = fields.Char("Name of Car")
-	car_color = fields.Char("Color of Car")
-	car_model = fields.Char("Model of Car")
+	car_name = fields.Many2one(comodel_name="car.name",   string="Name of Car", required=False, )
+	car_color = fields.Many2one(comodel_name="car.color", string="Color of Car", required=False, )
+	car_model = fields.Many2one(comodel_name="car.model", string="Model of Car", required=False, )
+	car_maker = fields.Many2one(comodel_name="car.maker", string="Maker of Car", required=False, )
 	car_plate = fields.Char("Plate Number")
 	driver_country = fields.Many2one('res.country', "Nationality")
 	id_num = fields.Char("ID number")
-	sex = fields.Selection(string="Sex", selection=[('m', 'Male'), ('f', 'Female'), ], required=False, )
+	sex = fields.Selection(string="Gender", selection=[('m', 'M'), ('f', 'F'), ], required=False, )
 	id_type = fields.Many2one('id.type', "ID Type")
 	what_found = fields.Many2one('what.found', "What we found")
-	# qty = fields.Float(string="Qty",  required=False, )
 	accident_reason = fields.Char("Reason of accident ")
 	result = fields.Char("Results")
 	mean_trans = fields.Many2one('mean.trans', "Means of Transportation")
@@ -122,12 +124,16 @@ class PartyDetail(models.Model):
 	main_class = fields.Many2one('police.detail', "Party Detail")
 	remark = fields.Text("Remarks")
 	additional = fields.Text("Additional Details")
-	previous_record = fields.Boolean("Previous records")
+	previous_record = fields.Boolean("Previous Records")
 	companion_detail = fields.Boolean("Companion Details")
 
-	previous_record_link = fields.One2many('previous.record', "main_class", string="Rrevious Record")
+	previous_record_link = fields.One2many('previous.record', "main_class", string="Previous Record")
 	companion_detail_link = fields.One2many('companion.detail', "main_class", string="Companion Detail")
 
+	@api.onchange('car_name')
+	def onchange_car_name(self):
+		if self.car_name:
+			self.car_maker = self.car_name.model
 
 class CompanionDetail(models.Model):
 	_name = 'companion.detail'
@@ -137,7 +143,7 @@ class CompanionDetail(models.Model):
 	id_num = fields.Char("ID number")
 	id_type = fields.Many2one('id.type', "ID Type")
 	relation = fields.Char("Relation")
-	sex = fields.Selection(string="Sex", selection=[('m', 'Male'), ('f', 'Female'), ], required=False, )
+	sex = fields.Selection(string="Gender", selection=[('m', 'M'), ('f', 'F'), ], required=False, )
 	what_found = fields.Char("What we found")
 	qty = fields.Float(string="Qty",  required=False, )
 	accident_reason = fields.Char("Reason of accident ")
@@ -182,12 +188,14 @@ class ViolationDetail(models.Model):
 	code = fields.Char(string='Code of Police CAR')
 	police_officer = fields.Char(string='Name of Police Officer 1')
 	rank_officer = fields.Char(string='Rank Of Police Officer 1')
-	sex_of1 = fields.Selection(string="Sex of Officer 1", selection=[('m', 'Male'), ('f', 'Female'), ],
+	PID1 = fields.Char(string="Officer 1 ID", required=False, )
+	sex_of1 = fields.Selection(string="Gender", selection=[('m', 'M'), ('f', 'F'), ],
 							   required=False, )
-	sex_of2 = fields.Selection(string="Sex of Officer 2", selection=[('m', 'Male'), ('f', 'Female'), ],
+	sex_of2 = fields.Selection(string="Gender", selection=[('m', 'M'), ('f', 'F'), ],
 							   required=False, )
 	name_officer_2 = fields.Char(string='Name of Police officer 2')
 	rank_officer_2 = fields.Char(string='Rank of police officer 2')
+	PID2 = fields.Char(string="Officer 2 ID", required=False, )
 	tosc = fields.Char(string="Violation submitting Time", required=False, )
 
 	case_detail = fields.Text(string='Violation details ')
@@ -200,7 +208,7 @@ class ViolationDetail(models.Model):
 
 	@api.model
 	def create(self, vals):
-		vals['number'] = self.env['ir.sequence'].next_by_code('recrod.number')
+		vals['number'] = self.env['ir.sequence'].next_by_code('record.number')
 		new_record = super(ViolationDetail, self).create(vals)
 		return new_record
 
@@ -335,9 +343,32 @@ class TypeOfCase(models.Model):
 class TypeOfViolation(models.Model):
 	_name = 'type.violation'
 
-	name = fields.Char(string="Type of Case")
+	name = fields.Char(string="Type of Violation")
 
 class CategoryCase(models.Model):
 	_name = 'cate.case'
 
 	name = fields.Char(string="Category of Case")
+
+class CarMaker(models.Model):
+	_name = 'car.maker'
+
+	name = fields.Char(string="Maker of Car", required=False, )
+
+
+class CarName(models.Model):
+	_name = 'car.name'
+
+	name = fields.Char(string="Name of Car", required=False, )
+	model = fields.Many2one(comodel_name="car.maker", string="Maker of Car", required=False, )
+
+class CarColor(models.Model):
+	_name = 'car.color'
+
+	name = fields.Char(string="Color of Car", required=False, )
+
+
+class CarModel(models.Model):
+	_name = 'car.model'
+
+	name = fields.Char(string="Model of Car", required=False, )
