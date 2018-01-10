@@ -321,21 +321,30 @@
 
                                     <table width="60%" style="float: left;margin-bottom: 50px;">
                                         <tr>
-                                            <td class="margin"><span class="liquid" t-esc = "o.amount_untaxed"></span>SR</td>
-                                            <td class="colors">إجمالي بدون ضريبة القيمة المضافة</td>
+                                            <td class="margin"><span class="liquid" t-esc = "actualAmt"></span>SR</td>
+                                            <td class="colors">الإجمالي قبل ضريبة و خصم</td>
                                         </tr>
+
+                                        <tr>
+                                            <td class="margin"><span class="liquid" t-esc = "amt"></span>SR</td>
+                                            <td class="colors">الإجمالي خصم</td>
+                                        </tr>
+
+                                        <tr>
+                                            <td class="margin"><span class="liquid" t-esc = "o.amount_untaxed"></span>SR</td>
+                                            <td class="colors">إجمالي بعد الخصم</td>
+                                        </tr>
+
                                         <tr>
                                             <td class="margin"><span class="liquid" t-esc = "o.amount_tax"></span>SR</td>
-                                            <td class="colors">ضريبة القيمة المضافة</td>
+                                            <td class="colors">الإجمالي ضريبة</td>
                                         </tr>
-                                         <tr>
-                                            <td class="margin"><span class="liquid" t-esc = "amt"></span>SR</td>
-                                            <td class="colors">المبلغ المخفض</td>
-                                        </tr>
+
                                         <tr>
                                             <td class="margin"><span class="liquid" t-esc = "o.amount_total"></span>SR</td>
                                             <td class="colors">الرصيد المستحق</td>
                                         </tr>
+
                                     </table>
                                     <br class="clearfloat"/>
                                     <br class="clearfloat"/>

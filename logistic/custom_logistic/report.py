@@ -17,25 +17,30 @@ class XlsxReport(models.Model):
 					 ('import', 'Import'),
 					 ],default='export',string="Report Type",required=True) 
 	total = fields.Boolean("Total Report" ,default=False)
-	b_name = fields.Many2one('by.customer',"By Customer",required=True)
+	b_name = fields.Many2one('by.customer',"By Customer")
+	site = fields.Many2one(comodel_name="import.site", string="Site", required=True, )
 
 	@api.onchange('total')
 	def onchange_total(self):
-		if self.total == True:
-			self.s_date = ''
-			self.e_date = ''
+		if self.total:
+			self.s_date = self.e_date = ''
+
+	@api.onchange('customer')
+	def onchange_customer(self):
+		if not self.customer.by_customer:
+			self.b_name = ''
 
 	@api.multi
 	def print_report(self):
-		if self.total == True:
+		if self.total:
 			if self.ttype == 'export':
-				data=self.env['export.logic'].search([('customer','=',self.customer.id),('by_customer','=',self.b_name.id)])
+				data=self.env['export.logic'].search([('customer','=',self.customer.id),('by_customer','=',self.b_name.id),('site','=',self.site.id)])
 				if data:
 						return self.xlsx_report(data,ttype='export')
 				else:
 					raise  ValidationError('Report Does Not Exist According To Given Data')
 			elif self.ttype == 'import':
-				data=self.env['import.logic'].search([('customer','=',self.customer.id),('by_customer','=',self.b_name.id)])
+				data=self.env['import.logic'].search([('customer','=',self.customer.id),('by_customer','=',self.b_name.id),('site','=',self.site.id)])
 				if data:
 						return self.xlsx_report(data,ttype='import')
 				else:
@@ -44,14 +49,14 @@ class XlsxReport(models.Model):
 				raise  ValidationError('Report Does Not Exist According To Given Data')
 		else:
 			if self.ttype == 'export' and self.e_date and self.s_date:
-				data=self.env['export.logic'].search([('customer','=',self.customer.id),('by_customer','=',self.b_name.id),('date','>=',self.s_date),('date','<=',self.e_date)])
+				data=self.env['export.logic'].search([('customer','=',self.customer.id),('by_customer','=',self.b_name.id),('date','>=',self.s_date),('date','<=',self.e_date),('site','=',self.site.id)])
 				if data:
 					return self.xlsx_report(data,ttype='export')
 				else:
 					raise  ValidationError('Report Does Not Exist According To Given Data')
 
 			elif self.ttype == 'import' and self.e_date and self.s_date:
-				data=self.env['import.logic'].search([('customer','=',self.customer.id),('by_customer','=',self.b_name.id),('date','>=',self.s_date),('date','<=',self.e_date)])
+				data=self.env['import.logic'].search([('customer','=',self.customer.id),('by_customer','=',self.b_name.id),('date','>=',self.s_date),('date','<=',self.e_date),('site','=',self.site.id)])
 				if data:
 					return self.xlsx_report(data,ttype='import')
 				else:
@@ -61,7 +66,7 @@ class XlsxReport(models.Model):
 	
 	@api.multi
 	def xlsx_report(self,input_records,ttype):
-		with xlsxwriter.Workbook("/home/nayyab/odoo10/projects/logistic/custom_logistic/static/src/lib/DAILY_SHIPMENT_STATUS_REPORT.xlsx") as workbook:
+		with xlsxwriter.Workbook("/home/muhammad/odoo-dev/Projects/logistic/custom_logistic/static/src/lib/DAILY_SHIPMENT_STATUS_REPORT.xlsx") as workbook:
 			main_heading = workbook.add_format({
 				"bold": 1, 
 				"border": 1,
@@ -173,60 +178,66 @@ class XlsxReport(models.Model):
 			if ttype == 'export':
 				for x in records:
 					if x.export_id:
-						for y in x.export_id:
-							worksheet.write_string (row, col,str(check_false(x.sr_no)),main_data)
-							worksheet.write_string (row, col+1,str(check_false(x.our_job_no)),main_data)
-							worksheet.write_string (row, col+2,str(check_false(x.customer.name)),main_data)
-							worksheet.write_string (row, col+3,str(check_false(x.cust_ref_inv)),main_data)
-							worksheet.write_string (row, col+4,str(check_false(x.shipper_date)),main_data)
-							worksheet.write_string (row, col+5,str(check_false(x.bill_no)),main_data)
-							
-							if y.types == '20 ft':
-								worksheet.write_string (row, col+6,str(check_false(y.types)),main_data)
-							else:
-								worksheet.write_string (row, col+6,' ',main_data)
-							if y.types == '40 ft':
-								worksheet.write_string (row, col+7,str(check_false(y.types)),main_data)
-							else:
-								worksheet.write_string (row, col+7,' ',main_data)
+						worksheet.write_string (row, col,str(check_false(x.sr_no)),main_data)
+						worksheet.write_string (row, col+1,str(check_false(x.our_job_no)),main_data)
+						worksheet.write_string (row, col+2,str(check_false(x.customer.name)),main_data)
+						worksheet.write_string (row, col+3,str(check_false(x.customer_ref)),main_data)
+						worksheet.write_string (row, col+4,str(check_false(x.shipper_date)),main_data)
+						worksheet.write_string (row, col+5,str(check_false(x.bill_no)),main_data)
+						def ft20 (line):
+							count = 0
+							for x in line:
+								if x.types == '20 ft':
+									count = count + 1
+							return count
+						def ft40 (line):
+							count = 0
+							for x in line:
+								if x.types == '40 ft':
+									count = count + 1
+							return count
 
-							worksheet.write_string (row, col+8,' - ',main_data)
-							worksheet.write_string (row, col+9,str(check_false(x.s_supplier.name)),main_data)
-							worksheet.write_string (row, col+10,str(check_false(x.vessel_name)),main_data)
-							worksheet.write_string (row, col+11,str(check_false(x.eta)),main_data)
-							worksheet.write_string (row, col+12,str(check_false(x.etd)),main_data)
-							if x.eta and x.shipper_date:
-								k_e = (datetime.date(datetime.strptime(x.eta,'%Y-%m-%d')) - datetime.date(datetime.strptime(x.shipper_date,'%Y-%m-%d'))).days
-							else:
-								k_e = ''
-							worksheet.write_string (row, col+13,str(k_e),main_data)
-							worksheet.write_string (row, col+14,str(check_false(x.mani_date)),main_data)
-							worksheet.write_string (row, col+15,str(check_false(x.bayan_no)),main_data)
-							worksheet.write_string (row, col+16,str(check_false(x.rot_no)),main_data)
-							worksheet.write_string (row, col+17,str(check_false(x.bayan_date)),main_data)
-							worksheet.write_string (row, col+18,str(check_false(x.pre_bayan)),main_data)
-							if x.pre_bayan and x.mani_date:
-								r_o = (datetime.date(datetime.strptime(x.pre_bayan,'%Y-%m-%d')) - datetime.date(datetime.strptime(x.mani_date,'%Y-%m-%d'))).days
-							else:
-								r_o = ''
-							worksheet.write_string (row, col+19,str(r_o),main_data)
-							if x.pre_bayan and x.shipper_date:
-								s_r = (datetime.date(datetime.strptime(x.pre_bayan,'%Y-%m-%d')) - datetime.date(datetime.strptime(x.bayan_date,'%Y-%m-%d'))).days
-							else:
-								s_r = ''
-							worksheet.write_string (row, col+20,str(s_r),main_data)
-							worksheet.write_string (row, col+21,str(check_false(x.shutl_start_date)),main_data)
-							worksheet.write_string (row, col+22,str(check_false(x.shutl_end_date)),main_data)
-							worksheet.write_string (row, col+23,str(check_false(x.fin_bayan_date)),main_data)
-							if x.fin_bayan_date and x.shutl_start_date:
-								x_v = (datetime.date(datetime.strptime(x.fin_bayan_date,'%Y-%m-%d')) - datetime.date(datetime.strptime(x.shutl_start_date,'%Y-%m-%d'))).days
-							else:
-								x_v = ''
-							worksheet.write_string (row, col+24,str(x_v),main_data)
-							worksheet.write_string (row, col+25,' ',main_data)
-							worksheet.write_string (row, col+26,'N/A',main_data)
-							worksheet.write_string (row, col+27,' - ',main_data)
-							worksheet.write_string (row, col+28,' ',main_data)
+						worksheet.write_string (row, col+6,str(check_false(ft20(x.export_id))),main_data)
+						worksheet.write_string (row, col+7,str(check_false(ft40(x.export_id))),main_data)
+
+						worksheet.write_string (row, col+8,' - ',main_data)
+						worksheet.write_string (row, col+9,str(check_false(x.s_supplier.name)),main_data)
+						worksheet.write_string (row, col+10,str(check_false(x.vessel_name)),main_data)
+						worksheet.write_string (row, col+11,str(check_false(x.vessel_date)),main_data)
+						worksheet.write_string (row, col+12,str(check_false(x.eta)),main_data)
+						if x.vessel_date and x.shipper_date:
+							k_e = (datetime.date(datetime.strptime(x.vessel_date,'%Y-%m-%d')) - datetime.date(datetime.strptime(x.shipper_date,'%Y-%m-%d'))).days
+						else:
+							k_e = ''
+						worksheet.write_string (row, col+13,str(k_e),main_data)
+						worksheet.write_string (row, col+14,str(check_false(x.mani_date)),main_data)
+						worksheet.write_string (row, col+15,str(check_false(x.bayan_no)),main_data)
+						worksheet.write_string (row, col+16,str(check_false(x.rot_no)),main_data)
+						worksheet.write_string (row, col+17,str(check_false(x.bayan_date)),main_data)
+						worksheet.write_string (row, col+18,str(check_false(x.pre_bayan)),main_data)
+						if x.pre_bayan and x.mani_date:
+							r_o = (datetime.date(datetime.strptime(x.pre_bayan,'%Y-%m-%d')) - datetime.date(datetime.strptime(x.mani_date,'%Y-%m-%d'))).days
+						else:
+							r_o = ''
+						worksheet.write_string (row, col+19,str(r_o),main_data)
+						if x.pre_bayan and x.shipper_date:
+							s_r = (datetime.date(datetime.strptime(x.pre_bayan,'%Y-%m-%d')) - datetime.date(datetime.strptime(x.bayan_date,'%Y-%m-%d'))).days
+						else:
+							s_r = ''
+						worksheet.write_string (row, col+20,str(s_r),main_data)
+						worksheet.write_string (row, col+21,str(check_false(x.shutl_start_date)),main_data)
+						worksheet.write_string (row, col+22,str(check_false(x.shutl_end_date)),main_data)
+						worksheet.write_string (row, col+23,str(check_false(x.fin_bayan_date)),main_data)
+						if x.fin_bayan_date and x.shutl_start_date:
+							x_v = (datetime.date(datetime.strptime(x.fin_bayan_date,'%Y-%m-%d')) - datetime.date(datetime.strptime(x.shutl_start_date,'%Y-%m-%d'))).days
+						else:
+							x_v = ''
+						worksheet.write_string (row, col+24,str(x_v),main_data)
+						worksheet.write_string (row, col+25,' ',main_data)
+						worksheet.write_string (row, col+26,'N/A',main_data)
+						worksheet.write_string (row, col+27,' - ',main_data)
+						worksheet.write_string (row, col+28,' ',main_data)
+						for y in x.export_id:
 							if x.custom_exam == True and  x.export_link:
 								for z in x.export_link:
 									if y.crt_no == z.container_no:
@@ -234,70 +245,77 @@ class XlsxReport(models.Model):
 										worksheet.write_string (row, col+30,' N/A',main_data)
 										worksheet.write_string (row, col+31,str(check_false(z.new_seal)),main_data)
 										worksheet.write_string (row, col+32,str(check_false(z.amt_paid)),main_data)
-							else:
-								worksheet.write_string (row, col+29,' / ',main_data)
-								worksheet.write_string (row, col+30,' / ',main_data)
-								worksheet.write_string (row, col+31,' / ',main_data)
-								worksheet.write_string (row, col+32,' / ',main_data)
-							
-							worksheet.write_string (row, col+33,str(check_false(x.status.comment)),main_data)
-							worksheet.write_string (row, col+34,str(check_false(x.remarks)),main_data)
-							worksheet.write_string (row, col+35,' ',main_data)
+						else:
+							worksheet.write_string (row, col+29,' / ',main_data)
+							worksheet.write_string (row, col+30,' / ',main_data)
+							worksheet.write_string (row, col+31,' / ',main_data)
+							worksheet.write_string (row, col+32,' / ',main_data)
 
-							row += 1
+						worksheet.write_string (row, col+33,str(check_false(x.status.comment)),main_data)
+						worksheet.write_string (row, col+34,str(check_false(x.remarks)),main_data)
+						worksheet.write_string (row, col+35,' ',main_data)
+
+						row += 1
 			
 			elif ttype == 'import':
 				for x in records:
 					if x.import_id:
-						for y in x.import_id:
-							worksheet.write_string (row, col,str(check_false(x.s_no)),main_data)
-							worksheet.write_string (row, col+1,str(check_false(x.job_no)),main_data)
-							worksheet.write_string (row, col+2,str(check_false(x.customer.name)),main_data)
-							worksheet.write_string (row, col+3,str(check_false(x.cust_ref_inv)),main_data)
-							worksheet.write_string (row, col+4,str(check_false(x.shipper_date)),main_data)
-							worksheet.write_string (row, col+5,str(check_false(x.bill_no)),main_data)
-							if y.types == '20 ft':
-								worksheet.write_string (row, col+6,str(check_false(y.types)),main_data)
-							else:
-								worksheet.write_string (row, col+6,' ',main_data)
-							if y.types == '40 ft':
-								worksheet.write_string (row, col+7,str(check_false(y.types)),main_data)
-							else:
-								worksheet.write_string (row, col+7,' ',main_data)
+						worksheet.write_string (row, col,str(check_false(x.s_no)),main_data)
+						worksheet.write_string (row, col+1,str(check_false(x.job_no)),main_data)
+						worksheet.write_string (row, col+2,str(check_false(x.customer.name)),main_data)
+						worksheet.write_string (row, col+3,str(check_false(x.cust_ref_inv)),main_data)
+						worksheet.write_string (row, col+4,str(check_false(x.shipper_date)),main_data)
+						worksheet.write_string (row, col+5,str(check_false(x.bill_no)),main_data)
 
-							worksheet.write_string (row, col+8,' - ',main_data)
-							worksheet.write_string (row, col+9,str(check_false(x.s_supplier.name)),main_data)
-							worksheet.write_string (row, col+10,str(check_false(x.vessel_name)),main_data)
-							worksheet.write_string (row, col+11,str(check_false(x.eta)),main_data)
-							worksheet.write_string (row, col+12,str(check_false(x.etd)),main_data)
-							if x.eta and x.shipper_date:
-								k_e = (datetime.date(datetime.strptime(x.eta,'%Y-%m-%d')) - datetime.date(datetime.strptime(x.shipper_date,'%Y-%m-%d'))).days
-							else:
-								k_e = ''
-							worksheet.write_string (row, col+13,str(k_e),main_data)
-							worksheet.write_string (row, col+14,' N/A',main_data)
-							worksheet.write_string (row, col+15,str(check_false(x.bayan_no)),main_data)
-							worksheet.write_string (row, col+16,str(check_false(x.rot_no)),main_data)
-							worksheet.write_string (row, col+17,str(check_false(x.bayan_date)),main_data)
-							worksheet.write_string (row, col+18,'N/A',main_data)
-							worksheet.write_string (row, col+19,'N/A',main_data)
-							worksheet.write_string (row, col+20,'N/A',main_data)
-							worksheet.write_string (row, col+21,'N/A',main_data)
-							worksheet.write_string (row, col+22,'N/A',main_data)
-							worksheet.write_string (row, col+24,'N/A',main_data)
-							worksheet.write_string (row, col+25,' ',main_data)
-							worksheet.write_string (row, col+26,'N/A',main_data)
-							worksheet.write_string (row, col+27,' - ',main_data)
-							worksheet.write_string (row, col+28,' ',main_data)
-							worksheet.write_string (row, col+29,'  ',main_data)
-							worksheet.write_string (row, col+30,'  ',main_data)
-							worksheet.write_string (row, col+31,'  ',main_data)
-							worksheet.write_string (row, col+32,'  ',main_data)
-							worksheet.write_string (row, col+33,str(check_false(x.status.comment)),main_data)
-							worksheet.write_string (row, col+34,str(check_false(x.remarks)),main_data)
-							worksheet.write_string (row, col+35,' ',main_data)
+						def ft20(line):
+							count = 0
+							for x in line:
+								if x.types == '20 ft':
+									count = count + 1
+							return count
 
-							row += 1
+						def ft40(line):
+							count = 0
+							for x in line:
+								if x.types == '40 ft':
+									count = count + 1
+							return count
+
+						worksheet.write_string(row, col + 6, str(check_false(ft20(x.import_id))), main_data)
+						worksheet.write_string(row, col + 7, str(check_false(ft40(x.import_id))), main_data)
+						worksheet.write_string (row, col+8,' - ',main_data)
+						worksheet.write_string (row, col+9,str(check_false(x.s_supplier.name)),main_data)
+						worksheet.write_string (row, col+10,str(check_false(x.vessel_name)),main_data)
+						worksheet.write_string (row, col+11,str(check_false(x.vessel_date)),main_data)
+						worksheet.write_string (row, col+12,str(check_false(datetime.strptime(x.eta,'%d-%m-%Y'))),main_data)
+						if x.vessel_date and x.shipper_date:
+							k_e = (datetime.date(datetime.strptime(x.vessel_date,'%Y-%m-%d')) - datetime.date(datetime.strptime(x.shipper_date,'%Y-%m-%d'))).days
+						else:
+							k_e = ''
+						worksheet.write_string (row, col+13,str(k_e),main_data)
+						worksheet.write_string (row, col+14,' N/A',main_data)
+						worksheet.write_string (row, col+15,str(check_false(x.bayan_no)),main_data)
+						worksheet.write_string (row, col+16,str(check_false(x.rot_no)),main_data)
+						worksheet.write_string (row, col+17,str(check_false(x.bayan_date)),main_data)
+						worksheet.write_string (row, col+18,'N/A',main_data)
+						worksheet.write_string (row, col+19,'N/A',main_data)
+						worksheet.write_string (row, col+20,'N/A',main_data)
+						worksheet.write_string (row, col+21,'N/A',main_data)
+						worksheet.write_string (row, col+22,'N/A',main_data)
+						worksheet.write_string (row, col+24,'N/A',main_data)
+						worksheet.write_string (row, col+25,' ',main_data)
+						worksheet.write_string (row, col+26,'N/A',main_data)
+						worksheet.write_string (row, col+27,' - ',main_data)
+						worksheet.write_string (row, col+28,' ',main_data)
+						worksheet.write_string (row, col+29,'  ',main_data)
+						worksheet.write_string (row, col+30,'  ',main_data)
+						worksheet.write_string (row, col+31,'  ',main_data)
+						worksheet.write_string (row, col+32,'  ',main_data)
+						worksheet.write_string (row, col+33,str(check_false(x.status.comment)),main_data)
+						worksheet.write_string (row, col+34,str(check_false(x.remarks)),main_data)
+						worksheet.write_string (row, col+35,' ',main_data)
+
+						row += 1
 
 		return {
 			'type': 'ir.actions.act_url',

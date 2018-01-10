@@ -1,5 +1,4 @@
 from datetime import date
-from random import *
 from odoo import models, fields, api
 
 class ExportLogic(models.Model):
@@ -40,7 +39,7 @@ class ExportLogic(models.Model):
 	acc_link         = fields.Many2one('account.invoice',string="Invoice",readonly=True)
 	status           = fields.Many2one('import.status',string="Status")
 	fri_id           = fields.Many2one('freight.forward', string="Freight Link")
-	site             = fields.Many2one('import.site',string="Site")
+	site             = fields.Many2one('import.site',string="Site", required=True)
 	remarks          = fields.Text(string="Remarks")
 	vessel_date 	 = fields.Date(string="Vessel Arrival Date")
 	vessel_name      = fields.Char(string="Vessel Name")
@@ -62,10 +61,15 @@ class ExportLogic(models.Model):
 		('customer_ref', 'unique(customer_ref)','This customer reference already exists!')
 	]
 
+	# todo for count in tree lines
+	@api.multi
+	def generate_count(self):
+		pass
+
 	@api.onchange('custom_exam')
 	def change_state(self):
 		"""This function change the state of Status Bar to Custom Examination"""
-		if self.custom_exam == True:
+		if self.custom_exam:
 			self.state='custom_exam'
 
 	@api.onchange('bill_types')
@@ -316,7 +320,8 @@ class service_cont_tree(models.Model):
 class export_tree(models.Model):
 	_name = 'export.tree'
 
-	crt_no           = fields.Char(string="Container No.",required=True)
+	crt_no           = fields.Char(string="Container No.")
+	des = fields.Char(string="Description", required=False, )
 	form             = fields.Many2one('from.qoute',string="From")
 	to               = fields.Many2one('to.quote',string="To")
 	fleet_type       = fields.Many2one('fleet',string="Fleet Type")
@@ -361,19 +366,20 @@ class ImportLogic(models.Model):
 	date             = fields.Date(string="Date" ,required=True,default=date.today())
 	customer_ref     = fields.Char(string="Customer Ref")
 	cust_ref_inv     = fields.Char(string="Customer Ref Inv No")
-	site             = fields.Many2one('import.site',string="Site")
+	site             = fields.Many2one('import.site',string="Site", required=True)
 	fri_id           = fields.Many2one('freight.forward', string="Freight Link")
-	shipper_date     = fields.Date(string="DOC Received Date",default=date.today())
+	shipper_date     = fields.Date(string="By Email DOC Received Date",default=date.today())
+	org_date    	 = fields.Date(string="Original DOC Received Date")
 	vessel_date      = fields.Date(string="Vessel Arrival Date")
 	vessel_name      = fields.Char(string="Vessel Name")
 	s_supplier       = fields.Many2one('res.partner',string="Shipping Line")
 	bill_attach      = fields.Binary(string=" ")
-	bill_no          = fields.Char(string="B/L Number")
+	bill_no          = fields.Char(string="BL / AWB Number")
 	rot_no           = fields.Char(string="Rotation Number/Sequence Number")
 	twen_ft          = fields.Integer(string="20 ft")
 	fort_ft          = fields.Integer(string="40 ft")
 	do_attach        = fields.Binary(string=" ")
-	do_no            = fields.Boolean(string="Do No.")
+	do_no            = fields.Date(string="Do No.")
 	acc_link         = fields.Many2one('account.invoice',string="Invoice",readonly=True)
 	bayan_attach     = fields.Binary(string=" ")
 	final_bayan      = fields.Char(string="Final Bayan")
@@ -388,6 +394,17 @@ class ImportLogic(models.Model):
 	remarks          = fields.Text(string="Remarks")
 	eta              = fields.Date(string="ETA")
 	etd              = fields.Date(string="ETD")
+	inspect_Date = fields.Date(string="Inspection Date", required=False, )
+	duty_Date = fields.Date(string="Duty Paid Date", required=False, )
+	gate_Date = fields.Date(string="Gate Pass Date", required=False, )
+	des_Port  =  fields.Many2one(comodel_name="res.country", string="Discharging Port", required=False, )
+	lan_Port  =  fields.Many2one(comodel_name="res.country", string="Landing Port", required=False, )
+	tasdeer = fields.Boolean(string="Tasdeer",  )
+	BRZ_In = fields.Date(string="BRZ In Date", required=False, )
+	BRZ_Out = fields.Date(string="BRZ Out Date", required=False, )
+	SDO_Date = fields.Date(string="SDO Collection Date", required=False, )
+	ship_Type = fields.Selection(string="Shipment Type", selection=[('lcl', 'LCL'), ('fcl', 'FCL'), ], required=False, )
+
 	tick  = fields.Boolean()
 	stages 			 = fields.Selection([
 		('draft', 'Draft'),
@@ -590,7 +607,8 @@ class ImportLogic(models.Model):
 class ImportTree(models.Model):
 	_name = 'import.tree'
 
-	crt_no       	= fields.Char(string="Container No.",required=True)
+	crt_no       	= fields.Char(string="Container No.")
+	des = fields.Char(string="Description", required=False, )
 	form         	= fields.Many2one('from.qoute',string="From")
 	to           	= fields.Many2one('to.quote',string="To")
 	fleet_type   	= fields.Many2one('fleet',string="Fleet Type")

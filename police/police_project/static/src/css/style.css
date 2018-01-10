@@ -1,3 +1,21 @@
 .o_form_view .low_width .o_group .o_td_label + td {
-    padding: 2px 0px 2px 8px;
+    padding: 2px 0px 2px 1px;
+}
+
+.genderL {
+    width: 20% !important;
+    float: left;
+    max-height: 23px;
+}
+
+.genderR {
+    width: 78% !important;
+    float: left;
+    position: relative;
+    margin: -33px 0px 0px 55px;
+    }
+
+.height_low{
+max-height:5px;
+
 }

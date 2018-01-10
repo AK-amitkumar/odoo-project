@@ -1,573 +1,760 @@
 <?xml version="1.0"?> 
 <openerp> 
-<data>
+	<data>
 
-<template id="assets_backend" name="custom assets" inherit_id="web.assets_backend">
-	<xpath expr="." position="inside">
-		<link rel="stylesheet" href="/police_project/static/src/css/style.css"/>
-	</xpath>
-</template>
+		<template id="assets_backend" name="custom assets" inherit_id="web.assets_backend">
+			<xpath expr="." position="inside">
+				<link rel="stylesheet" href="/police_project/static/src/css/style.css"/>
+			</xpath>
+		</template>
 
-<record id="police_view_form" model="ir.ui.view"> 
-	<field name="name">Police  Records</field> 
-	<field name="model">police.detail</field> 
-	<field name="arch" type="xml"> 
-		<form string="Police  Records">
-			<header>
-                <button name="confirm" type="object" class= "oe_highlight" string="confirmed"/>
-            </header>
-			<sheet>
-				<div class="low_width">
-				<h3>Case Details</h3>
-				<group name="group_top">
-					<group name="group_left">
-						<field name="number" readonly="1"/>
-						<field name="case_id" default_focus="1"/>
-						<field name="date"/>
-						<field name="day"/>
-						<field name="time"/>
-						<field name="road_name"/> 
-						<field name="center_name"/> 
-						<field name="location_name"/> 
-						<field name="digital_tag"/> 
-						<field name="direction_name"/> 
-						<field name="violation"/>
-						<field name="code"/>
-					</group>
+		<record id="police_view_form" model="ir.ui.view">
+			<field name="name">Police  Records</field> 
+			<field name="model">police.detail</field> 
+			<field name="arch" type="xml"> 
+				<form string="Police  Records">
+					<header>
+		                <button name="confirm" type="object" class= "oe_highlight" string="confirmed"/>
+		            </header>
+					<sheet>
+						<div class="low_width">
+						<h3>Case Details</h3>
+						<group name="group_top">
+							<group name="group_left">
+								<field name="number" readonly="1"/>
+								<field name="case_id" default_focus="1"/>
+								<field name="date"/>
+								<field name="day"/>
+								<field name="time"/>
+								<field name="road_name"/> 
+								<field name="center_name"/> 
+								<field name="location_name"/> 
+								<field name="digital_tag"/> 
+								<field name="direction_name"/> 
+								<field name="violation"/>
+								<field name="code"/>
+							</group>
 
-					<group name="group_right">
-						<field name="police_officer"/>
-						<field name="rank_officer"/>
-						<field name="PID1"/>
-						<field name="sex_of1"/>
-						<field name="name_officer_2"/>
-						<field name="rank_officer_2"/>
-						<field name="PID2"/>
-						<field name="sex_of2"/>
-						<field name="tosc"/>
-						<field name="receiving_party"/>
-						<field name="receiving_name"/>
-						<field name="receiving_party_rank"/>
-					</group>
-				</group>
-
-				<h3>Violation Type</h3>
-				<field name="case_type">
-	                <tree>
-	                    <field name="case_type"/>
-	                    <field name="cate_case"/>
-	                    <field name="vio_code"/>
-	                    <field name="vio_number"/>
-	                </tree>
-	            </field>
-
-				<h3>Violation Information</h3>
-				<field name="party_link">
-	                <tree>
-	                    <field name="name"/>
-	                    <field name="car_name"/>
-	                    <field name="driver_country"/>
-	                    <field name="id_type"/>
-	                    <field name="what_found"/>
-	                    <!--<field name="qty"/>-->
-	                    <field name="accident_reason"/>
-	                </tree>
-	            </field> 
-				 </div>
-
-			</sheet> 
-		</form> 
-	</field> 
-</record>
-
-	<record id="hajj_umrah" model="ir.ui.view">
-	    <field name="name">hajj_umrah</field>
-	    <field name="model">hajj.umrah</field>
-	    <field name="arch" type="xml">
-	        <form string="Hajj and Umrah">
-	            <sheet>
-					<div  class="low_width">
-						<h3>Hajj Umrah Violation Record</h3>
-						<br></br>
-						<group>
-							<!--<field name="number" readonly="1"/>-->
-							<field name="case_id" readonly="1"/>
-							<field name="date"/>
-							<field name="day"/>
-							<field name="time"/>
-							<field name="road_name" default_focus="1"/>
-							<field name="center_name"/>
+							<group name="group_right">
+								<field name="police_officer"/>
+								<field name="rank_officer"/>
+								<field name="PID1"/>
+								<field name="sex_of1"/>
+								<field name="name_officer_2"/>
+								<field name="rank_officer_2"/>
+								<field name="PID2"/>
+								<field name="sex_of2"/>
+								<field name="tosc"/>
+								<field name="receiving_party"/>
+								<field name="receiving_name"/>
+								<field name="receiving_party_rank"/>
+							</group>
 						</group>
-						<h3>Violation Information</h3>
-						<field name="violation_type">
-						<tree>
+
+						<h3>Case Type</h3>
+						<field name="case_type">
+			                <tree>
+			                    <field name="case_type"/>
+			                    <field name="cate_case"/>
+			                    <field name="qty"/>
+			                    <!--<field name="vio_number"/>-->
+			                </tree>
+			            </field>
+
+						<h3>Party Detail</h3>
+						<field name="party_link">
+			                <tree>
+			                    <field name="name"/>
+			                    <field name="car_name"/>
+			                    <field name="driver_country"/>
+			                    <field name="id_type"/>
+			                    <field name="what_found"/>
+			                    <!--<field name="qty"/>-->
+			                    <field name="accident_reason"/>
+			                </tree>
+			            </field> 
+						 </div>
+
+					</sheet> 
+				</form> 
+			</field> 
+		</record>
+
+		<!--<record model="ir.ui.view" id="police_details_calendar">-->
+	      	<!--<field name="name">police_details_calendar</field>-->
+		    <!--<field name="model">police.detail</field>-->
+    		<!--<field name="priority" eval="2"/>-->
+		    <!--<field name="arch" type="xml">-->
+	          	<!--<calendar string="Calendar View" date_start="date" color="road_name">-->
+		            <!--<field name="road_name"/> -->
+					<!--<field name="center_name"/> -->
+					<!--<field name="location_name"/> -->
+					<!--<field name="digital_tag"/> -->
+					<!--<field name="direction_name"/> -->
+					<!--<field name="violation"/>-->
+					<!--<field name="code"/>-->
+	          	<!--</calendar>-->
+		    <!--</field>-->
+		<!--</record>-->
+
+  		<!--<record model="ir.ui.view" id="police_details_graph">-->
+		    <!--<field name="name">police_details_graph</field>-->
+		    <!--<field name="model">police.detail</field>-->
+		    <!--<field name="type">graph</field>-->
+		    <!--<field name="arch" type="xml">-->
+		        <!--<graph string="Graph View">-->
+		            <!--<field name="road_name"/> -->
+					<!--<field name="center_name"/> -->
+					<!--<field name="location_name"/> -->
+					<!--<field name="digital_tag"/> -->
+					<!--<field name="direction_name"/> -->
+					<!--<field name="violation"/>-->
+					<!--<field name="code"/>-->
+		        <!--</graph>-->
+		    <!--</field>-->
+		<!--</record>-->
+
+		<!--<record model="ir.ui.view" id="police_details_pivot">-->
+		    <!--<field name="name">police_details_pivot</field>-->
+		    <!--<field name="model">police.detail</field>-->
+		    <!--<field name="arch" type="xml">-->
+		        <!--<pivot string="Pivot" display_quantity="True">-->
+		            <!--<field name="road_name"/> -->
+					<!--<field name="center_name"/> -->
+					<!--<field name="location_name"/> -->
+					<!--<field name="digital_tag"/> -->
+					<!--<field name="direction_name"/> -->
+					<!--<field name="violation"/>-->
+					<!--<field name="code"/>-->
+		        <!--</pivot>-->
+		      <!--</field>-->
+		<!--</record>-->
+
+		<!--<record model="ir.ui.view" id="custom_module_kanban_view">-->
+			<!--<field name="name">custom_module_kanban_view</field>-->
+			<!--<field name="model">police.detail</field>-->
+			<!--<field name="type">kanban</field>-->
+			<!--<field name="arch" type="xml">-->
+				<!--<kanban class="col-lg-12 oe_background_green o_kanban_dashboard o_kanban_large_column ">-->
+
+					<!--<templates>-->
+						<!--<t t-name="kanban-box">-->
+							<!--<div t-attf-class=" oe_kanban_card  o_kanban_primary_left">-->
+								<!--<div class="o_kanban_card_header">-->
+									<!--<div class="o_kanban_card_header_title">-->
+										<!--<div class="o_primary">Police Records</div>-->
+									<!--</div>-->
+								<!--</div>-->
+								<!--<div class="oe_kanban_content o_kanban_large_column o_kanban_manage_view">-->
+									<!--<div>-->
+										<!--<button class="btn oe_highlight o_quotation_view_button" name="open_menu" type="object">Sale</button>-->
+									<!--</div>-->
+								<!--</div>-->
+								<!--<div class="o_kanban_card_header">-->
+									<!--<div class="o_kanban_card_header_title">-->
+										<!--<div class="o_primary"> </div>-->
+									<!--</div>-->
+								<!--</div>-->
+
+								<!--<div class="o_kanban_card_header">-->
+									<!--<div class="o_kanban_card_header_title">-->
+									<!--<h3>Awais Ijaz Ali</h3>-->
+									<!--</div>-->
+								<!--</div>-->
+
+							<!--</div>-->
+						<!--</t>-->
+					<!--</templates>-->
+				<!--</kanban>-->
+			<!--</field>-->
+		<!--</record>-->
+
+		<record id="hajj_umrah" model="ir.ui.view">
+			<field name="name">hajj_umrah</field>
+			<field name="model">hajj.umrah</field>
+			<field name="arch" type="xml">
+				<form string="Hajj and Umrah">
+					<sheet>
+						<div  class="low_width">
+							<h3>Hajj Umrah Violation Record</h3>
+							<br></br>
+							<group>
+								<!--<field name="number" readonly="1"/>-->
+								<field name="case_id" readonly="1"/>
+								<field name="date"/>
+								<field name="day"/>
+								<field name="time"/>
+								<field name="road_name" default_focus="1"/>
+								<field name="center_name"/>
+							</group>
+							<h3>Violation Information</h3>
+							<field name="violation_type">
+							<tree>
+								<field name="violation"/>
+								<field name="violation_type"/>
+								<field name="nop"/>
+								<field name="remarks"/>
+							</tree>
+						</field>
+						</div>
+					</sheet>
+				</form>
+			</field>
+		</record>
+
+		<record id="hajj_umrah_violation" model="ir.ui.view">
+		    <field name="name">hajj_umrah_violation</field>
+		    <field name="model">hajjumrah.violation</field>
+		    <field name="arch" type="xml">
+		        <form>
+					<sheet>
+						<div  class="low_width">
+						<group>
 							<field name="violation"/>
 							<field name="violation_type"/>
 							<field name="nop"/>
 							<field name="remarks"/>
-						</tree>
-					</field>
-					</div>
-	            </sheet>
-	        </form>
-	    </field>
-	</record>
-
-	<record id="hajj_umrah_violation" model="ir.ui.view">
-	    <field name="name">hajj_umrah_violation</field>
-	    <field name="model">hajjumrah.violation</field>
-	    <field name="arch" type="xml">
-	        <form>
-				<sheet>
-					<div  class="low_width">
-					<group>
-						<field name="violation"/>
-						<field name="violation_type"/>
-						<field name="nop"/>
-						<field name="remarks"/>
-					</group>
-					</div>
-				</sheet>
-	        </form>
-	    </field>
-	</record>
-
-<record id="hajj_umrah_tree" model="ir.ui.view">
-    <field name="name">hajj_umrah_tree</field>
-    <field name="model">hajj.umrah</field>
-    <field name="arch" type="xml">
-        <tree string="Hajj and Umrah">
-            <!--<field name="number" readonly="1"/>-->
-			<field name="case_id"/>
-			<field name="date"/>
-			<field name="day"/>
-			<field name="time"/>
-			<field name="road_name"/>
-			<field name="center_name"/>
-        </tree>
-    </field>
-</record>
-
-	<record id="case_type_form" model="ir.ui.view">
-	    <field name="name">case_type_form</field>
-	    <field name="model">case.type</field>
-	    <field name="arch" type="xml">
-	        <form string="Violation Type">
-	            <sheet>
-					<div  class="low_width">
-						<group>
-							<field name="case_type"/>
-							<field name="cate_case"/>
-							<field name="vio_code"/>
-							<field name="vio_number"/>
 						</group>
-					</div>
-	            </sheet>
-	        </form>
-	    </field>
-	</record>
+						</div>
+					</sheet>
+		        </form>
+		    </field>
+		</record>
 
-<record id="police_tree_view" model="ir.ui.view">
-    <field name="name">police_tree_view</field>
-    <field name="model">police.detail</field>
-    <field name="type">tree</field>
-    <field name="arch" type="xml">
-        <tree string="Police Details">
-			<field name="number"/>
-			<field name="case_id"/>
-			<field name="date"/>
-			<field name="day"/>
-			<field name="time"/>
-			<field name="road_name"/>
-			<field name="center_name"/>
-			<field name="location_name"/>
-			<field name="digital_tag"/>
-			<field name="direction_name"/>
-			<field name="violation"/>
-        </tree>
-    </field>
-</record>
-
-<record id="police_act_id" model="ir.actions.act_window">
-	<field name="name">Police Record</field>
-	<field name="type">ir.actions.act_window</field>
-	<field name="res_model">police.detail</field>
-	<field name="view_type">form</field>
-	<field name="view_mode">tree,form</field>
-</record>
-
-
-<record id="violation_seq_id" model="ir.sequence">
-  	<field name="name">violation_seq_id</field>
-  	<field name="code">record.number</field>
-  	<field name="prefix">Traffic Violation</field>
-  	<field name="padding">4</field>
-</record> 
-
-<record id="police_seq_id" model="ir.sequence">
-  	<field name="name">police_seq_id</field>
-  	<field name="code">rec.number</field>
-  	<field name="prefix">Violation</field>
-  	<field name="padding">4</field>
-</record>
-
-<record id="umrah_seq_id" model="ir.sequence">
-  	<field name="name">umrah_seq_id</field>
-  	<field name="code">rec.umrah</field>
-  	<field name="prefix">Hajj Umrah Violation</field>
-  	<field name="padding">4</field>
-</record>
-
-
-	<record id="party_view_form" model="ir.ui.view">
-		<field name="name">Party  Records</field>
-		<field name="model">party.detail</field>
-	<field name="arch" type="xml"> 
-		<form string="Party  Records">
-			<sheet>
-				<div  class="low_width">
-					<h3>Violation Information</h3>
-					<group name="group_top">
-				<group name="group_left">
-					<field name="name"/>
-					<field name="id_num"/>
-					<field name="id_type"/>
-					<field name="driver_country"/>
-					<field name="sex"/>
-					<field name="car_name"/>
-					<field name="car_maker"/>
-					<field name="car_color"/>
-				</group>
-
-				<group name="group_right">
-					<field name="car_model"/>
-					<field name="car_plate"/>
-					<field name="what_found"/>
-					<!--<field name="qty"/>-->
-					<field name="accident_reason"/>
-					<field name="result"/>
-					<field name="mean_trans"/>
-					<field name="hospital_name"/>
-				</group>
-			</group>
-					<group name="group_top">
-				<group name="group_left">
-					<field name="previous_record"/>
-				</group>
-
-				<group name="group_right">
-					<field name="companion_detail"/>
-				</group>
-			</group>
-					<field name="previous_record_link" attrs="{'invisible': [('previous_record','=',False)]}">
-			<h3>Previous Records</h3>
-				<tree>
-					<field name="ministry_name"/>
-					<field name="no_complaint"/>
+		<record id="hajj_umrah_tree" model="ir.ui.view">
+		    <field name="name">hajj_umrah_tree</field>
+		    <field name="model">hajj.umrah</field>
+		    <field name="arch" type="xml">
+		        <tree string="Hajj and Umrah">
+		            <!--<field name="number" readonly="1"/>-->
+					<field name="case_id"/>
 					<field name="date"/>
 					<field name="day"/>
-				</tree>
+					<field name="time"/>
+					<field name="road_name"/>
+					<field name="center_name"/>
+		        </tree>
+		    </field>
+		</record>
+
+		<record id="case_type_form" model="ir.ui.view">
+		    <field name="name">case_type_form</field>
+		    <field name="model">case.type</field>
+		    <field name="arch" type="xml">
+		        <form string="Case Type">
+		            <sheet>
+						<div  class="low_width">
+							<group>
+								<field name="case_type"/>
+			                    <field name="cate_case"/>
+			                    <!-- <field name="vio_code"/>
+								<field name="vio_number"/> -->
+			                    <field name="qty"/>
+							</group>
+						</div>
+		            </sheet>
+		        </form>
+		    </field>
+		</record>
+
+		<record id="case_type_form1" model="ir.ui.view">
+		    <field name="name">case_type_form1</field>
+		    <field name="model">case.type1</field>
+		    <field name="arch" type="xml">
+		        <form string="Violation Type">
+		            <sheet>
+						<div  class="low_width">
+							<group>
+								<field name="case_type"/>
+			                    <field name="cate_case"/>
+			                    <field name="vio_code"/>
+								<field name="vio_number"/>
+			                    <!-- <field name="qty"/> -->
+							</group>
+						</div>
+		            </sheet>
+		        </form>
+		    </field>
+		</record>
+
+		<record id="police_tree_view" model="ir.ui.view">
+			<field name="name">police_tree_view</field>
+			<field name="model">police.detail</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+		    	<tree string="Police Details">
+					<field name="number"/>
+					<field name="case_id"/>
+					<field name="date"/>
+					<field name="day"/>
+					<field name="time"/>
+					<field name="road_name"/>
+					<field name="center_name"/>
+					<field name="location_name"/>
+					<field name="digital_tag"/>
+					<field name="direction_name"/>
+					<field name="violation"/>
+		   		</tree>
 			</field>
-					<field name="companion_detail_link" attrs="{'invisible': [('companion_detail','=',False)]}">
-			<h3>Companion Details</h3>
-				<tree>
-					<field name="name"/>
-					<field name="country"/>
-					<field name="id_num"/>
-					<field name="id_type"/>
-					<field name="relation"/>
-				</tree>
-			</field>
-					<h3>Remarks</h3>
-					<field name="remark"/>
-					<br></br>
-					<h3>Additional Details</h3>
-					<field name="additional"/>
-				</div>
-			</sheet> 
-		</form> 
-	</field> 
-</record>
+		</record>
 
-<record id="companion_detail_view_form" model="ir.ui.view"> 
-	<field name="name">Companion Details</field> 
-	<field name="model">companion.detail</field> 
-	<field name="arch" type="xml"> 
-		<form string="Companion Details">
-			<sheet>
-				<div  class="low_width">
-					<group name="group_top">
-					<group name="group_left">
-						<field name="name"/> 
-						<field name="id_num"/>
-						<field name="id_type"/>
-						<field name="sex"/>
-						<field name="country"/>
-						<field name="relation"/>
-					</group>
+		<record id="police_act_id" model="ir.actions.act_window">
+			<field name="name">Police Record</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">police.detail</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+			<!--<field name="view_mode">kanban,tree,form,graph,calender,pivot</field>-->
+		</record>
 
-					<group name="group_right">
-						<field name="what_found"/>
-						<field name="qty"/>
-						<field name="accident_reason"/>
-						<field name="result"/>
-						<field name="mean_trans"/>
-						<field name="hospital_name"/>
-					</group>
-				</group>
-				</div>
-			</sheet>
-		</form> 
-	</field> 
-</record>
+		<record id="violation_seq_id" model="ir.sequence">
+		  	<field name="name">violation_seq_id</field>
+		  	<field name="code">record.number</field>
+		  	<field name="prefix">Traffic Violation</field>
+		  	<field name="padding">4</field>
+		</record> 
 
+		<record id="police_seq_id" model="ir.sequence">
+		  	<field name="name">police_seq_id</field>
+		  	<field name="code">rec.number</field>
+		  	<field name="prefix">Violation</field>
+		  	<field name="padding">4</field>
+		</record>
 
-<record id="previous_record_view_form" model="ir.ui.view"> 
-	<field name="name">Previous Record</field> 
-	<field name="model">previous.record</field> 
-	<field name="arch" type="xml"> 
-		<form string="Previous  Records">
-			<sheet>
-				<div  class="low_width">
-					<group name="group_top">
+		<record id="umrah_seq_id" model="ir.sequence">
+		  	<field name="name">umrah_seq_id</field>
+		  	<field name="code">rec.umrah</field>
+		  	<field name="prefix">Hajj Umrah Violation</field>
+		  	<field name="padding">4</field>
+		</record>
+
+		<record id="party_view_form" model="ir.ui.view">
+			<field name="name">Party  Records</field>
+			<field name="model">party.detail</field>
+			<field name="arch" type="xml"> 
+				<form string="Party  Records">
+					<sheet>
+						<div  class="low_width">
+							<h3>Case Information</h3>
+							<group name="group_top">
 						<group name="group_left">
-						<field name="ministry_name"/> 
-						<field name="no_complaint"/> 
-					</group>
+							<field name="name"/>
+							<field name="id_num"/>
+							<field name="id_type"/>
+							<field name="sex"/>
+							<field name="driver_country"/>
+							<field name="car_maker"/>
+							<field name="car_name"/>
+							<field name="car_color"/>
+						</group>
+
 						<group name="group_right">
-						<field name="date"/> 
-						<field name="day"/> 
+							<field name="car_model"/>
+							<field name="car_plate"/>
+							<field name="what_found"/>
+							<!--<field name="qty"/>-->
+							<field name="accident_reason"/>
+							<field name="result"/>
+							<field name="mean_trans"/>
+							<field name="hospital_name"/>
+						</group>
 					</group>
-					</group>
-				</div>
-			</sheet>
-		</form> 
-	</field> 
-</record>
-
-<record id="traffic_violation_view_form" model="ir.ui.view">
-	<field name="name">Traffic Violation Records</field>
-	<field name="model">violation.detail</field> 
-	<field name="arch" type="xml"> 
-		<form string="Traffic Violation Records">
-			<header>
-                <button name="confirm" type="object" class= "oe_highlight" string="confirmed"/>
-            </header>
-			<sheet>
-				<div  class="low_width">
-					<h3>Traffic Violation Details</h3>
-					<group name="group_top">
-					<group name="group_left">
-						<field name="number" readonly="1"/>
-						<field name="case_id" default_focus="1"/>
-						<field name="date"/>
-						<field name="day"/>
-						<field name="time"/>
-						<field name="road_name"/>
-						<field name="center_name"/>
-						<field name="location_name"/>
-						<field name="digital_tag"/>
-						<field name="direction_name"/>
-						<field name="violation"/>
-					</group>
-
-
-					<group name="group_right">
-						<field name="code"/>
-						<field name="police_officer"/>
-						<field name="rank_officer"/>
-						<field name="PID1"/>
-						<field name="sex_of1"/>
-						<field name="name_officer_2"/>
-						<field name="rank_officer_2"/>
-						<field name="PID2"/>
-						<field name="sex_of2"/>
-						<field name="tosc"/>
-
-					</group>
-				</group>
-
-				<!--<h3>Block The Car</h3>-->
-				<!--<field name="receive_link">-->
-	                <!--<tree>-->
-	                    <!--<field name="receiving_party"/>-->
-						<!--<field name="receiving_name"/>-->
-						<!--<field name="receiving_party_rank"/>-->
-	                <!--</tree>-->
-	            <!--</field>-->
-
-					<h3>Violation Type</h3>
-					<field name="case_type">
-	                <tree>
-	                    <field name="case_type"/>
-	                    <field name="cate_case"/>
-	                    <field name="vio_code"/>
-	                    <field name="vio_number"/>
-	                </tree>
-	            </field>
-					<h3>Violation Information</h3>
-					<field name="party_link">
-	                <tree>
-	                    <!-- <field name="party"/> -->
-	                    <field name="car_name"/>
-	                    <field name="driver_country"/>
-	                    <field name="id_type"/>
-	                    <field name="oftc"/>
-	                </tree>
-	            </field> 
-				</div>
-			</sheet> 
-		</form> 
-	</field> 
-</record>
-	<record id="receive_party_form" model="ir.ui.view">
-	    <field name="name">receive_party_form</field>
-	    <field name="model">traffic.receive</field>
-	    <field name="arch" type="xml">
-	        <form string="Receiving Party">
-	            <sheet>
-					<div  class="low_width">
-	             	   <group>
-	                    <field name="receiving_party"/>
-						<field name="receiving_name"/>
-						<field name="receiving_party_rank"/>
-	                </group>
-					</div>
-	            </sheet>
-	        </form>
-	    </field>
-
-	</record>
-
-<record id="traffic_violation_tree_view" model="ir.ui.view">
-    <field name="name">traffic_violation_tree_view</field>
-    <field name="model">violation.detail</field>
-    <field name="type">tree</field>
-    <field name="arch" type="xml">
-        <tree string="Traffic Violation Details">
-			<field name="number"/>
-			<field name="case_id"/>
-			<field name="date"/>
-			<field name="day"/>
-			<field name="time"/>
-			<field name="road_name"/>
-			<field name="center_name"/>
-			<field name="location_name"/>
-			<field name="digital_tag"/>
-			<field name="direction_name"/>
-			<field name="violation"/>
-        </tree>
-    </field>
-</record>
-
-<record id="traffic_violation_party_view_form" model="ir.ui.view">
-	<field name="name">Party  Records</field> 
-	<field name="model">traffic.party.detail</field>
-	<field name="arch" type="xml"> 
-		<form string="Party  Records">
-			<sheet>
-				<div  class="low_width">
-					<h3>Violation Information</h3>
-					<group name="group_top">
-					<group name="group_left">
-						<field name="name"/>
-						<field name="id_num"/>
-						<field name="id_type"/>
-						<field name="driver_country"/>
-					</group>
-
-					<group name="group_right">
-						<field name="dln"/>
-						<field name="car_name"/>
-						<field name="car_plate"/>
-						<field name="oftc"/>
-						<field name="vio_id"/>
-					</group>
-				</group>
-
-					<group name="group_top">
-					<group name="group_left">
-						<field name="other_onwer"/> 
-					</group>
-
-					<group name="group_right">
-					</group>
-				</group>
-					<field name="owner_detail" attrs="{'invisible': [('other_onwer','=',False)]}">
-					<h3>Owner Details</h3>
-	                <tree>
-	                    <field name="name"/>
-	                    <field name="id_num"/>
-						<field name="id_type"/>
-						<field name="country"/>
-						<field name="mobile"/>
-	                </tree>
-	            	</field>
-				</div>
-			</sheet>
-		</form> 
-	</field> 
-</record>
-
-<record id="owner_detail_view_form" model="ir.ui.view"> 
-	<field name="name">Owner Detail</field> 
-	<field name="model">owner.detail</field> 
-	<field name="arch" type="xml"> 
-		<form string="Owner Detail">
-			<sheet>
-				<div  class="low_width">
-					<group name="group_top">
+							<group name="group_top">
 						<group name="group_left">
-						<field name="name"/>
-						<field name="id_num"/>
-						<field name="id_type"/>
-					</group>
+							<field name="previous_record"/>
+						</group>
+
 						<group name="group_right">
-						<field name="country"/>
-						<field name="mobile"/>
-						<field name="remark"/>
+							<field name="companion_detail"/>
+						</group>
 					</group>
-					</group>
+							<field name="previous_record_link" attrs="{'invisible': [('previous_record','=',False)]}">
+					<h3>Previous Records</h3>
+						<tree>
+							<field name="ministry_name"/>
+							<field name="no_complaint"/>
+							<field name="date"/>
+							<field name="day"/>
+						</tree>
+					</field>
+							<field name="companion_detail_link" attrs="{'invisible': [('companion_detail','=',False)]}">
+					<h3>Companion Details</h3>
+						<tree>
+							<field name="name"/>
+							<field name="country"/>
+							<field name="id_num"/>
+							<field name="id_type"/>
+							<field name="relation"/>
+						</tree>
+					</field>
+							<h3>Remarks</h3>
+							<field name="remark"/>
+							<br></br>
+							<h3>Additional Details</h3>
+							<field name="additional"/>
+						</div>
+					</sheet> 
+				</form> 
+			</field> 
+		</record>
+
+		<record id="companion_detail_view_form" model="ir.ui.view">
+			<field name="name">Companion Details</field> 
+			<field name="model">companion.detail</field> 
+			<field name="arch" type="xml"> 
+				<form string="Companion Details">
+					<sheet>
+						<div  class="low_width">
+							<group name="group_top">
+							<group name="group_left">
+								<field name="name"/> 
+								<field name="id_num"/>
+								<field name="id_type"/>
+								<field name="sex"/>
+								<field name="country"/>
+								<field name="relation"/>
+							</group>
+
+							<group name="group_right">
+								<field name="what_found"/>
+								<field name="qty"/>
+								<field name="accident_reason"/>
+								<field name="result"/>
+								<field name="mean_trans"/>
+								<field name="hospital_name"/>
+							</group>
+						</group>
+						</div>
+					</sheet>
+				</form> 
+			</field> 
+		</record>
+
+		<record id="previous_record_view_form" model="ir.ui.view">
+			<field name="name">Previous Record</field> 
+			<field name="model">previous.record</field> 
+			<field name="arch" type="xml"> 
+				<form string="Previous  Records">
+					<sheet>
+						<div  class="low_width">
+							<group name="group_top">
+								<group name="group_left">
+								<field name="ministry_name"/> 
+								<field name="no_complaint"/> 
+							</group>
+								<group name="group_right">
+								<field name="date"/> 
+								<field name="day"/> 
+							</group>
+							</group>
+						</div>
+					</sheet>
+				</form> 
+			</field> 
+		</record>
+
+		<record id="traffic_violation_view_form" model="ir.ui.view">
+			<field name="name">Traffic Violation Records</field>
+			<field name="model">violation.detail</field> 
+			<field name="arch" type="xml"> 
+				<form string="Traffic Violation Records">
+					<header>
+		                <button name="confirm" type="object" class= "oe_highlight" string="confirmed"/>
+		            </header>
+					<sheet>
+						<div  class="low_width">
+							<h3>Traffic Violation Details</h3>
+							<group name="group_top">
+							<group name="group_left">
+								<field name="number" readonly="1"/>
+								<field name="case_id" default_focus="1"/>
+								<field name="date"/>
+								<field name="day"/>
+								<field name="time"/>
+								<field name="road_name"/>
+								<field name="center_name"/>
+								<field name="location_name"/>
+								<field name="digital_tag"/>
+								<field name="direction_name"/>
+								<field name="violation"/>
+							</group>
+
+
+							<group name="group_right">
+								<field name="code"/>
+								<field name="police_officer"/>
+								<field name="rank_officer"/>
+								<field name="PID1"/>
+								<field name="sex_of1"/>
+								<field name="name_officer_2"/>
+								<field name="rank_officer_2"/>
+								<field name="PID2"/>
+								<field name="sex_of2"/>
+								<field name="tosc"/>
+
+							</group>
+						</group>
+
+						<!--<h3>Block The Car</h3>-->
+						<!--<field name="receive_link">-->
+			                <!--<tree>-->
+			                    <!--<field name="receiving_party"/>-->
+								<!--<field name="receiving_name"/>-->
+								<!--<field name="receiving_party_rank"/>-->
+			                <!--</tree>-->
+			            <!--</field>-->
+
+							<h3>Violation Type</h3>
+							<field name="case_type">
+			                <tree>
+			                    <field name="case_type"/>
+			                    <field name="cate_case"/>
+			                    <field name="vio_code"/>
+								<field name="vio_number"/>
+			                    <!-- <field name="qty"/> -->
+			                </tree>
+			            </field>
+							<h3>Party Detail</h3>
+							<field name="party_link">
+			                <tree>
+			                    <field name="car_maker"/>
+			                    <field name="car_name"/>
+			                    <field name="driver_country"/>
+			                    <field name="id_type"/>
+								<field name="sex"/>
+			                    <field name="oftc"/>
+			                </tree>
+			            </field> 
+						</div>
+					</sheet> 
+				</form> 
+			</field> 
+		</record>
+
+		<record id="receive_party_form" model="ir.ui.view">
+		    <field name="name">receive_party_form</field>
+		    <field name="model">traffic.receive</field>
+		    <field name="arch" type="xml">
+		        <form string="Receiving Party">
+		            <sheet>
+						<div  class="low_width">
+		             	   <group>
+		                    <field name="receiving_party"/>
+							<field name="receiving_name"/>
+							<field name="receiving_party_rank"/>
+		                </group>
+						</div>
+		            </sheet>
+		        </form>
+		    </field>
+		</record>
+
+		<record id="traffic_violation_tree_view" model="ir.ui.view">
+		    <field name="name">traffic_violation_tree_view</field>
+		    <field name="model">violation.detail</field>
+		    <field name="type">tree</field>
+		    <field name="arch" type="xml">
+		        <tree string="Traffic Violation Details">
+					<field name="number"/>
+					<field name="case_id"/>
+					<field name="date"/>
+					<field name="day"/>
+					<field name="time"/>
+					<field name="road_name"/>
+					<field name="center_name"/>
+					<field name="location_name"/>
+					<field name="digital_tag"/>
+					<field name="direction_name"/>
+					<field name="violation"/>
+		        </tree>
+		    </field>
+		</record>
+
+		<record id="traffic_violation_party_view_form" model="ir.ui.view">
+			<field name="name">Party  Records</field> 
+			<field name="model">traffic.party.detail</field>
+			<field name="arch" type="xml"> 
+				<form string="Party  Records">
+					<sheet>
+						<div  class="low_width">
+							<h3>Party Detail</h3>
+							<group name="group_top">
+							<group name="group_left">
+								<field name="name"/>
+								<field name="id_num"/>
+								<field name="id_type"/>
+								<field name="sex"/>
+								<field name="driver_country"/>
+							</group>
+
+							<group name="group_right">
+								<field name="dln"/>
+								<field name="car_maker"/>
+								<field name="car_name"/>
+								<field name="car_plate"/>
+								<field name="oftc"/>
+								<!--<field name="vio_id"/>-->
+							</group>
+						</group>
+
+							<group name="group_top">
+							<group name="group_left">
+								<field name="other_onwer"/> 
+							</group>
+
+							<group name="group_right">
+							</group>
+						</group>
+							<field name="owner_detail" attrs="{'invisible': [('other_onwer','=',False)]}">
+							<h3>Owner Details</h3>
+			                <tree>
+			                    <field name="name"/>
+			                    <field name="id_num"/>
+								<field name="id_type"/>
+								<field name="country"/>
+								<field name="mobile"/>
+			                </tree>
+			            	</field>
+						</div>
+					</sheet>
+				</form> 
+			</field> 
+		</record>
+
+		<record id="owner_detail_view_form" model="ir.ui.view">
+			<field name="name">Owner Detail</field> 
+			<field name="model">owner.detail</field> 
+			<field name="arch" type="xml"> 
+				<form string="Owner Detail">
+					<sheet>
+						<div  class="low_width">
+							<group name="group_top">
+								<group name="group_left">
+								<field name="name"/>
+								<field name="id_num"/>
+								<field name="id_type"/>
+							</group>
+								<group name="group_right">
+								<field name="country"/>
+								<field name="mobile"/>
+								<field name="remark"/>
+							</group>
+							</group>
+						</div>
+					</sheet> 
+				</form> 
+			</field> 
+		</record>
+
+		<record id="violation_act_id" model="ir.actions.act_window">
+			<field name="name">Traffic Violation Record</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">violation.detail</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+		</record>
+
+		<record id="umrah_act_id" model="ir.actions.act_window">
+			<field name="name">Hajj Umrah Violation Record</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">hajj.umrah</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+		</record>
+
+		<menuitem id="police_main_menu_id"
+		  	name="Police Record"/>
+
+		<menuitem id="police_menu_id"
+		  	name="Police Record" 
+		  	action="police_act_id" 
+		  	parent="police_main_menu_id"/>
+
+		<menuitem id="violation_menu_id"
+		  	name="Traffic Violation Record"
+		  	action="violation_act_id" 
+		  	parent="police_main_menu_id"/>
+
+		<menuitem id="umrah_violation_menu_id"
+		  	name="Hajj Umrah Violation Record"
+		  	action="umrah_act_id"
+		  	parent="police_main_menu_id"/>
+
+		<template id="index">
+		<t t-name="police_project.index">
+  <t t-call="website.layout">
+    <t t-set="title">New page</t>
+    <div class="oe_structure">
+      <section class="s_text_block_image_fw oe_img_bg oe_custom_bg mb0" style="background-image: url(&quot;/web/image/website.s_cover_default_image&quot;); background-position: 50% 100%; height: 848px; overflow: hidden;">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-6 mt64 mb64 bg-black-25">
+              <h2 style="font-size:62px">Jeddah Police<br/></h2>
+              <h4>A police force is a constituted body of persons empowered by a state to enforce the law, protect property, and limit civil disorder<br/></h4>
+				<div class="col-md-3">
+				  <a href="http://0.0.0.0:8069/web#min=1&amp;limit=80&amp;view_type=list&amp;model=police.detail&amp;menu_id=71&amp;action=77" class="btn btn-lg btn-primary mt8 pull-right" data-original-title="" title="">Police Case&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;<i class="fa fa-chevron-right"/></a>
 				</div>
-			</sheet> 
-		</form> 
-	</field> 
-</record>
+			</div>
+          </div>
+        </div>
+      </section>
+      <section class="jumbotron s_button bg-gray-lighter oe_img_bg oe_custom_bg" style="background-image: url(&quot;http://0.0.0.0:8069/website/static/src/img/library/office.jpg&quot;); background-position: 66% 44.19%;">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-9">
+              <p class="mb0">
+                <strong>
+                  <font class="text-white" style="">Create Police Records</font>
+                </strong>
+              </p>
+              <p class="mb0">
+                <font class="text-white" style="">By clicking this button you can create Police Case</font>
+              </p>
+            </div>
+            <div class="col-md-3">
+              <a href="http://0.0.0.0:8069/web#min=1&amp;limit=80&amp;view_type=list&amp;model=police.detail&amp;menu_id=71&amp;action=77" class="btn btn-lg btn-primary mt8 pull-right" data-original-title="" title="">Police Case&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;<i class="fa fa-chevron-right"/></a>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="jumbotron s_button bg-gray-lighter">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-9">
+              <p class="mb0">
+                <strong>Create Traffic Violation Record</strong>
+              </p>
+              <p class="mb0">By clicking this button you can create Traffic Violation Record</p>
+            </div>
+            <div class="col-md-3">
+              <a href="/page/website.contactus" class="mt8 pull-right btn btn-primary btn-lg" data-original-title="" title="">Traffic Violation Record&amp;nbsp;<i class="fa fa-chevron-right"/></a>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="s_image_text bg-success mb0 oe_img_bg" style="background-image: url(&quot;/web/image/website.s_background_image_02&quot;); height: 864px; overflow: hidden;">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-6 mt32 mb128">
 
-<record id="violation_act_id" model="ir.actions.act_window">
-	<field name="name">Traffic Violation Record</field>
-	<field name="type">ir.actions.act_window</field>
-	<field name="res_model">violation.detail</field>
-	<field name="view_type">form</field>
-	<field name="view_mode">tree,form</field>
-</record>
+            </div>
+            <div class="col-md-6 mt64 mb32">&amp;nbsp;<h3><br/></h3><h3>Jeddah Police</h3>
+              <p><br/><span style="color: rgb(34, 34, 34); font-family: sans-serif;">A police force is a constituted body of persons empowered by a state to enforce the law, protect property, and limit civil disorder.Their powers include the legitimized use of force. The term is most commonly associated with police services of a sovereign state that are authorized to exercise the police power of that state within a defined legal or territorial area of responsibility. Police forces are often defined as being separate from military or other organizations involved in the defense of the state against foreign aggressors; however, gendarmerie is military units charged with civil policing.<br/></span><br/></p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <div class="container">
+        <p style="text-align: center; ">
+          <br/>
+        </p>
+        <p>&amp;nbsp;</p>
+      </div>
+    </div>
+  </t>
+</t>
 
-<record id="umrah_act_id" model="ir.actions.act_window">
-	<field name="name">Hajj Umrah Violation Record</field>
-	<field name="type">ir.actions.act_window</field>
-	<field name="res_model">hajj.umrah</field>
-	<field name="view_type">form</field>
-	<field name="view_mode">tree,form</field>
-</record>
+		</template>
 
-<menuitem id="police_main_menu_id" 
-  	name="Police Record"/>
-
-<menuitem id="police_menu_id" 
-  	name="Police Record" 
-  	action="police_act_id" 
-  	parent="police_main_menu_id"/>
-
-<menuitem id="violation_menu_id" 
-  	name="Traffic Violation Record"
-  	action="violation_act_id" 
-  	parent="police_main_menu_id"/>
-
-	<menuitem id="umrah_violation_menu_id"
-  	name="Hajj Umrah Violation Record"
-  	action="umrah_act_id"
-  	parent="police_main_menu_id"/>
-
-
-</data>
+	</data>
 </openerp> 

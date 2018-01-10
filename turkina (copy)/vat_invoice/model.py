@@ -29,8 +29,11 @@ class PacificCommercialInvoice(models.AbstractModel):
         report = report_obj._get_report_from_name('vat_invoice.vat_invoice_id')
         records = self.env['account.invoice'].browse(docids)
         amt = 0.0
+        actualAmt = 0.0
         for x in records.invoice_line_ids:
             amt = amt + ((x.discount/100) * x.price_unit * x.quantity)
+            actualAmt = actualAmt + (x.price_unit * x.quantity)
+
 
         docargs = {
             'doc_ids': docids,
@@ -38,6 +41,7 @@ class PacificCommercialInvoice(models.AbstractModel):
             'docs': records,
             'data': data,
             'amt': amt,
+            'actualAmt': actualAmt,
             }
 
         return report_obj.render('vat_invoice.vat_invoice_id', docargs)

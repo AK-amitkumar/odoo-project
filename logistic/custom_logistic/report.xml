@@ -19,6 +19,7 @@
 					<group name="top">  
 						<group name="left">
 						   <field name="ttype"/>
+						   <field name="site" options="{'no_quick_create': True, 'no_create_edit' : True}"/>
 						   <field name="customer" domain="[('parent_id','=',False),('supplier','=',False),('customer','=',True)]"/>
                         	<field name="b_name"  domain="[('customer.id','=',customer)]"/>
 					    </group>

@@ -8,6 +8,7 @@
     'version': '1',
     'depends': ['base'],
     'data': [ 'templates.xml'],
+    # 'images': ['img/icon.png'],
     'installable': True,
     'auto_install': False
 }
