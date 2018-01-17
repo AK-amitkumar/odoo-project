@@ -80,55 +80,55 @@
 			</field> 
 		</record>
 
-		<!--<record model="ir.ui.view" id="police_details_calendar">-->
-	      	<!--<field name="name">police_details_calendar</field>-->
-		    <!--<field name="model">police.detail</field>-->
-    		<!--<field name="priority" eval="2"/>-->
-		    <!--<field name="arch" type="xml">-->
-	          	<!--<calendar string="Calendar View" date_start="date" color="road_name">-->
-		            <!--<field name="road_name"/> -->
-					<!--<field name="center_name"/> -->
-					<!--<field name="location_name"/> -->
-					<!--<field name="digital_tag"/> -->
-					<!--<field name="direction_name"/> -->
-					<!--<field name="violation"/>-->
-					<!--<field name="code"/>-->
-	          	<!--</calendar>-->
-		    <!--</field>-->
-		<!--</record>-->
+		<record model="ir.ui.view" id="police_details_calendar">
+	      	<field name="name">police_details_calendar</field>
+		    <field name="model">police.detail</field>
+    		<field name="priority" eval="2"/>
+		    <field name="arch" type="xml">
+	          	<calendar string="Calendar View" date_start="date" color="road_name">
+		            <field name="road_name"/>
+					<field name="center_name"/>
+					<field name="location_name"/>
+					<field name="digital_tag"/>
+					<field name="direction_name"/>
+					<field name="violation"/>
+					<field name="code"/>
+	          	</calendar>
+		    </field>
+		</record>
 
-  		<!--<record model="ir.ui.view" id="police_details_graph">-->
-		    <!--<field name="name">police_details_graph</field>-->
-		    <!--<field name="model">police.detail</field>-->
-		    <!--<field name="type">graph</field>-->
-		    <!--<field name="arch" type="xml">-->
-		        <!--<graph string="Graph View">-->
-		            <!--<field name="road_name"/> -->
-					<!--<field name="center_name"/> -->
-					<!--<field name="location_name"/> -->
-					<!--<field name="digital_tag"/> -->
-					<!--<field name="direction_name"/> -->
-					<!--<field name="violation"/>-->
-					<!--<field name="code"/>-->
-		        <!--</graph>-->
-		    <!--</field>-->
-		<!--</record>-->
+  		<record model="ir.ui.view" id="police_details_graph">
+		    <field name="name">police_details_graph</field>
+		    <field name="model">police.detail</field>
+		    <field name="type">graph</field>
+		    <field name="arch" type="xml">
+		        <graph string="Graph View">
+		            <field name="road_name"/>
+					<field name="center_name"/>
+					<field name="location_name"/>
+					<field name="digital_tag"/>
+					<field name="direction_name"/>
+					<field name="violation"/>
+					<field name="code"/>
+		        </graph>
+		    </field>
+		</record>
 
-		<!--<record model="ir.ui.view" id="police_details_pivot">-->
-		    <!--<field name="name">police_details_pivot</field>-->
-		    <!--<field name="model">police.detail</field>-->
-		    <!--<field name="arch" type="xml">-->
-		        <!--<pivot string="Pivot" display_quantity="True">-->
-		            <!--<field name="road_name"/> -->
-					<!--<field name="center_name"/> -->
-					<!--<field name="location_name"/> -->
-					<!--<field name="digital_tag"/> -->
-					<!--<field name="direction_name"/> -->
-					<!--<field name="violation"/>-->
-					<!--<field name="code"/>-->
-		        <!--</pivot>-->
-		      <!--</field>-->
-		<!--</record>-->
+		<record model="ir.ui.view" id="police_details_pivot">
+		    <field name="name">police_details_pivot</field>
+		    <field name="model">police.detail</field>
+		    <field name="arch" type="xml">
+		        <pivot string="Pivot" display_quantity="True">
+		            <field name="road_name"/>
+					<field name="center_name"/>
+					<field name="location_name"/>
+					<field name="digital_tag"/>
+					<field name="direction_name"/>
+					<field name="violation"/>
+					<field name="code"/>
+		        </pivot>
+		      </field>
+		</record>
 
 		<!--<record model="ir.ui.view" id="custom_module_kanban_view">-->
 			<!--<field name="name">custom_module_kanban_view</field>-->
@@ -303,8 +303,8 @@
 			<field name="type">ir.actions.act_window</field>
 			<field name="res_model">police.detail</field>
 			<field name="view_type">form</field>
-			<field name="view_mode">tree,form</field>
-			<!--<field name="view_mode">kanban,tree,form,graph,calender,pivot</field>-->
+			<!--<field name="view_mode">tree,form</field>-->
+			<field name="view_mode">tree,form,graph,calender,pivot</field>
 		</record>
 
 		<record id="violation_seq_id" model="ir.sequence">

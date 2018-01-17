@@ -92,6 +92,7 @@ class AccountAccount(models.Model):
     
     @api.model
     def search(self, args, offset=0, limit=None, order=None, count=False):
+        # type: (object, object, object, object, object) -> object
         context = self._context or {}
         if not context.get('show_parent_account',False):
             args += [('user_type_id.type', '!=', 'view')]

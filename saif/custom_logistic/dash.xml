@@ -1,0 +1,117 @@
+<?xml version="1.0"?>
+<odoo>
+
+<record id="export_dashboard_kanban_view" model="ir.ui.view">
+    <field name="name">export_dashboard_kanban_view</field>
+    <field name="model">custom.export.dashboard</field>
+    <field name="arch" type="xml">
+        <kanban class="oe_background_grey o_kanban_dashboard o_salesteam_kanban o_project_kanban " create="0">
+            <field name="color"/>
+            <field name="name"/>
+            <templates>
+                <t t-name="kanban-box">
+                    <div t-attf-class="#{kanban_color(record.color.raw_value)} ">
+                        <div class="o_project_kanban_manage">
+                            <a class="o_kanban_manage_toggle_button" href="#">More
+                                <i class="fa fa-caret-down"/>
+                            </a>
+                        </div>
+                        <div class="o_project_kanban_main" >
+                            <div class="o_kanban_card_content o_visible">
+                                <div class="o_kanban_primary_left" >
+                                    <div class="">
+                                        <center>
+                                            <span>
+                                                <t t-field="record.name.value"/>
+                                            </span>
+                                        </center>
+                                    </div>
+                                    <!--<div>-->
+                                        <!--<center>-->
+                                            <!--<button class="btn btn-primary" type="action" name="action_export_logic" string="Export">Export</button>-->
+                                            <!--<h3>Dashboard for Export</h3>-->
+                                        <!--</center>-->
+                                    <!--</div>-->
+                                </div>
+                            </div>
+                            <div class="o_kanban_card_manage_pane o_invisible">
+                                <!--<div class="col-xs-6 o_kanban_card_manage_section o_kanban_manage_view">-->
+                                    <!--<div class="o_kanban_card_manage_title">-->
+                                        <!--<span>View</span>-->
+                                    <!--</div>-->
+                                    <!--<div>-->
+                                        <!--<a name="%(action_export_logic)d" type="action">Export</a>-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                                <div t-if="widget.editable" class="o_project_kanban_colorpicker" >
+                                    <ul class="oe_kanban_colorpicker" data-field="color"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="o_project_kanban_boxes" >
+                            <a class="o_project_kanban_box" name="" type="action">
+                                <span class="o_value" style="overflow:visible !important">
+                                    <t t-esc="record.draft_count.value"/>
+                                </span>
+                                <span class="o_label" style="overflow:visible !important">Draft</span>
+                            </a>
+                            <a class="o_project_kanban_box" name="" type="action">
+                                <span class="o_value" style="overflow:visible !important">
+                                    <t t-esc="record.pre_count.value"/>
+                                </span>
+                                <span class="o_label" style="overflow:visible !important">Pre</span>
+                            </a>
+                            <a class="o_project_kanban_box" name="" type="action">
+                                <span class="o_value" style="overflow:visible !important">
+                                    <t t-esc="record.initial_count.value"/>
+                                </span>
+                                <span class="o_label" style="overflow:visible !important">Initial</span>
+                            </a>
+                            <a class="o_project_kanban_box" name="" type="action">
+                                <span class="o_value" style="overflow:visible !important">
+                                    <t t-esc="record.final_count.value"/>
+                                </span>
+                                <span class="o_label" style="overflow:visible !important">Final</span>
+                            </a>
+                            <a class="o_project_kanban_box" name="" type="action">
+                                <span class="o_value" style="overflow:visible !important">
+                                    <t t-esc="record.custom_exam_count.value"/>
+                                </span>
+                                <span class="o_label" style="overflow:visible !important">Custom</span>
+                            </a>
+                            <a class="o_project_kanban_box" name="" type="action">
+                                <span class="o_value" style="overflow:visible !important">
+                                    <t t-esc="record.done_count.value"/>
+                                </span>
+                                <span class="o_label" style="overflow:visible !important">Done</span>
+                            </a>
+                        </div>
+                    </div>
+                </t>
+            </templates>
+        </kanban>
+    </field>
+</record>
+
+    <record id="custom_export_dashboard_action" model="ir.actions.act_window">
+    <field name="name">Dashboard</field>
+    <field name="res_model">custom.export.dashboard</field>
+    <field name="type">ir.actions.act_window</field>
+    <field name="view_type">form</field>
+    <field name="view_mode">kanban</field>
+</record>
+
+    <menuitem  id="export_dashboard_menu"
+               parent="menu_import"
+               sequence="0"
+               name="Dashboard"
+               action="custom_export_dashboard_action"
+    />
+ <data noupdate="1">
+   <record model="custom.export.dashboard" id="custom_export_dashboard_demo">
+        <field name="name">Export Dashboard</field>
+        <field name="coDashboards in Odoo are useful for visualization of data in a better wayDashboards in Odoo are useful for visualization of data in a better waylor">1</field>
+    </record>
+</data>
+
+</odoo>

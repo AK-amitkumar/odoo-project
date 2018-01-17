@@ -184,7 +184,52 @@
          <field name="by_customer" domain="[('customer.id','=',customer)]"/>
         <field name="customer_ref" string="Customer Reference"/>
         <field name="bill_no" string="BL Number"/>
+        <field name="site" string="Site"/>
         <field name="bayan_no" string="Pre Bayan Date"/>
+        <field name="status" string="Status"/>
+        <filter string="Today" name="Today" domain="[('state','in',('draft','pre'))]"/>
+        <filter string="Today" name="Today" domain="[('state','in',('draft','pre'))]"/>
+
+
+    </search>
+    </field>
+  </record>
+
+    <record id="view_filter_transportation" model="ir.ui.view">
+    <field name="name">view_filter_transportation</field>
+    <field name="model">sale.order</field>
+    <field name="inherit_id" ref="sale.sale_order_view_search_inherit_sale"/>
+    <field name="arch" type="xml"> <search>
+        <field name="partner_id" string="Customer" domain="[('parent_id','=',False),('supplier','=',False),('customer','=',True)]"/>
+         <field name="by_customer" domain="[('customer.id','=',customer)]"/>
+        <field name="bill_no" string="BL Number"/>
+    </search>
+    </field>
+  </record>
+
+  <record id="view_filter_invoicing" model="ir.ui.view">
+    <field name="name">view_filter_invoicing</field>
+    <field name="model">account.invoice</field>
+    <field name="inherit_id" ref="account.view_account_invoice_filter"/>
+    <field name="arch" type="xml"> <search>
+        <field name="partner_id" string="Customer" domain="[('parent_id','=',False),('supplier','=',False),('customer','=',True)]"/>
+         <field name="by_customer" domain="[('customer.id','=',customer)]"/>
+        <field name="bill_num" string="BL Number"/>
+        <field name="state" string="State"/>
+    </search>
+    </field>
+  </record>
+
+
+    <record id="view_filter_FF" model="ir.ui.view">
+    <field name="name">view_filter_FF</field>
+    <field name="model">freight.forward</field>
+    <field name="arch" type="xml"> <search>
+        <field name="customer" string="Customer" domain="[('parent_id','=',False),('supplier','=',False),('customer','=',True)]"/>
+         <field name="status"/>
+        <field name="types"/>
+        <field name="form"/>
+        <field name="to"/>
     </search>
     </field>
   </record>
@@ -196,18 +241,20 @@
         <field name="customer" string="Customer"  domain="[('parent_id','=',False),('supplier','=',False),('customer','=',True)]"/>
         <field name="by_customer" domain="[('customer.id','=',customer)]"/>
         <field name="customer_ref" string="Customer Reference"/>
+        <field name="site" string="Site"/>
         <field name="bill_no" string="BL / AWB Number"/>
         <field name="bayan_no" string="Pre Bayan Date"/>
+
     </search>
     </field>
   </record>
-  
-  <!-- <record model="ir.ui.view" id="logistic_import_calendar">
-      <field name="name">logistic_import_calendar</field>
-      <field name="model">import.logic</field>
+  <record model="ir.ui.view" id="logistic_export_calendar">
+      <field name="name">logistic_export_calendar</field>
+      <field name="model">export.logic</field>
       <field name="priority" eval="2"/>
       <field name="arch" type="xml">
-          <calendar string="Calendar View" date_start="date" color="customer">
+          <calendar string="Calendar View" date_start="date" color="site">
+              <field name="site"/>
               <field name="customer"/>
               <field name="customer_ref"/>
               <field name="bill_no"/>
@@ -216,34 +263,36 @@
           </calendar>
       </field>
   </record>
-  <record model="ir.ui.view" id="logistic_import_graph">
-   <field name="name">logistic_import_graph</field>
-   <field name="model">import.logic</field>
+  <record model="ir.ui.view" id="logistic_export_graph">
+   <field name="name">logistic_export_graph</field>
+   <field name="model">export.logic</field>
    <field name="type">graph</field>
    <field name="arch" type="xml">
          <graph string="Graph View">
-              <field name="customer" group="True"/>
-              <field name="customer_ref"/>
+             <field name="site" group="True"/>
+             <field name="customer"/>
+             <field name="customer_ref"/>
               <field name="bill_no"/>
               <field name="bayan_no"/>
-              <field name="status"/>
+              <field name="state" group="True"/>
         </graph>
     </field>
   </record>
 
-  <record model="ir.ui.view" id="logistic_import_pivot">
-      <field name="name">logistic_import_pivot</field>
-      <field name="model">import.logic</field>
+  <record model="ir.ui.view" id="logistic_export_pivot">
+      <field name="name">logistic_export_pivot</field>
+      <field name="model">export.logic</field>
       <field name="arch" type="xml">
           <pivot string="Pivot" display_quantity="True">
-              <field name="customer" type="row"/>
-              <field name="customer_ref" type="dimension"/>
-              <field name="bill_no" type="dimension"/>
-              <field name="bayan_no" type="measure"/>
-              <field name="status" type="measure"/>
+              <field name="customer"/>
+              <field name="customer_ref"/>
+              <field name="site" type="measure"/>
+              <field name="bill_no" />
+              <field name="bayan_no"/>
+              <field name="status" type="dimension"/>
           </pivot>
       </field>
-  </record>  -->
+  </record>
 
     <record id="sales_import_logics" model="ir.sequence">
       <field name="name">sales_import_logics</field>
@@ -261,7 +310,7 @@
 
     <record id="view_tree_new_module" model="ir.ui.view"> 
       <field name="name">view_form_import</field> 
-      <field name="model">import.logic</field> 
+      <field name="model">import.logic</field>
       <field name="type">tree</field> 
       <field name="arch" type="xml"> 
       <tree default_order ="s_no desc"  >
@@ -314,8 +363,9 @@
           <sheet>
             <group name="top">
                 <group >
-                  <field name="site_name"/>
+                  <field name="site_name" invisible="1"/>
                   <field name="city"/>
+                  <field name="name"/>
                 </group>
                 <group>
                   <field name="address"/>
@@ -326,6 +376,21 @@
         </form> 
       </field> 
   </record>
+
+    <record id="import_status" model="ir.ui.view">
+        <field name="name">import_status</field>
+        <field name="model">import.status</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="comment" invisible="1"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
 
   <act_window id="action_site_logic" 
   name="Site" 
@@ -495,7 +560,7 @@
     <act_window id="action_export_logic" 
     name="Export" 
     res_model="export.logic" 
-    view_mode="tree,form" />
+    view_mode="tree,form,calender,graph,pivot" />
 
   <menuitem id="menu_export_logistic" name="Exports" parent="menu_import" action="action_export_logic" sequence=""/>
 
