@@ -26,8 +26,8 @@
 								<field name="date"/>
 								<field name="day"/>
 								<field name="time"/>
-								<field name="road_name"/> 
-								<field name="center_name"/> 
+								<field name="road_name" options="{'no_quick_create': True, 'no_create_edit' : True}"/>
+								<field name="center_name" domain="[('road_name','=',road_name)]" options="{'no_quick_create': True, 'no_create_edit' : True}"/>
 								<field name="location_name"/> 
 								<field name="digital_tag"/> 
 								<field name="direction_name"/> 
@@ -45,7 +45,7 @@
 								<field name="PID2"/>
 								<field name="sex_of2"/>
 								<field name="tosc"/>
-								<field name="receiving_party"/>
+								<field name="receiving_party" domain="[('road_name','=',road_name)]" options="{'no_quick_create': True, 'no_create_edit' : True}"/>
 								<field name="receiving_name"/>
 								<field name="receiving_party_rank"/>
 							</group>
@@ -54,10 +54,11 @@
 						<h3>Case Type</h3>
 						<field name="case_type">
 			                <tree>
-			                    <field name="case_type"/>
-			                    <field name="cate_case"/>
+			                    <field name="main_case" options="{'no_quick_create': True, 'no_create_edit' : True}"/>
+			                    <field name="case_type" options="{'no_quick_create': True, 'no_create_edit' : True}"/>
+			                    <field name="cate_case" options="{'no_quick_create': True, 'no_create_edit' : True}"/>
+			                    <field name="sub_cate_case" options="{'no_quick_create': True, 'no_create_edit' : True}"/>
 			                    <field name="qty"/>
-			                    <!--<field name="vio_number"/>-->
 			                </tree>
 			            </field>
 
@@ -130,45 +131,6 @@
 		      </field>
 		</record>
 
-		<!--<record model="ir.ui.view" id="custom_module_kanban_view">-->
-			<!--<field name="name">custom_module_kanban_view</field>-->
-			<!--<field name="model">police.detail</field>-->
-			<!--<field name="type">kanban</field>-->
-			<!--<field name="arch" type="xml">-->
-				<!--<kanban class="col-lg-12 oe_background_green o_kanban_dashboard o_kanban_large_column ">-->
-
-					<!--<templates>-->
-						<!--<t t-name="kanban-box">-->
-							<!--<div t-attf-class=" oe_kanban_card  o_kanban_primary_left">-->
-								<!--<div class="o_kanban_card_header">-->
-									<!--<div class="o_kanban_card_header_title">-->
-										<!--<div class="o_primary">Police Records</div>-->
-									<!--</div>-->
-								<!--</div>-->
-								<!--<div class="oe_kanban_content o_kanban_large_column o_kanban_manage_view">-->
-									<!--<div>-->
-										<!--<button class="btn oe_highlight o_quotation_view_button" name="open_menu" type="object">Sale</button>-->
-									<!--</div>-->
-								<!--</div>-->
-								<!--<div class="o_kanban_card_header">-->
-									<!--<div class="o_kanban_card_header_title">-->
-										<!--<div class="o_primary"> </div>-->
-									<!--</div>-->
-								<!--</div>-->
-
-								<!--<div class="o_kanban_card_header">-->
-									<!--<div class="o_kanban_card_header_title">-->
-									<!--<h3>Awais Ijaz Ali</h3>-->
-									<!--</div>-->
-								<!--</div>-->
-
-							<!--</div>-->
-						<!--</t>-->
-					<!--</templates>-->
-				<!--</kanban>-->
-			<!--</field>-->
-		<!--</record>-->
-
 		<record id="hajj_umrah" model="ir.ui.view">
 			<field name="name">hajj_umrah</field>
 			<field name="model">hajj.umrah</field>
@@ -185,7 +147,7 @@
 								<field name="day"/>
 								<field name="time"/>
 								<field name="road_name" default_focus="1"/>
-								<field name="center_name"/>
+								<field name="center_name" domain="[('road_name','=',road_name)]" options="{'no_quick_create': True, 'no_create_edit' : True}"/>
 							</group>
 							<h3>Violation Information</h3>
 							<field name="violation_type">
@@ -245,10 +207,10 @@
 		            <sheet>
 						<div  class="low_width">
 							<group>
-								<field name="case_type"/>
-			                    <field name="cate_case"/>
-			                    <!-- <field name="vio_code"/>
-								<field name="vio_number"/> -->
+								<field name="main_case" options="{'no_quick_create': True, 'no_create_edit' : True}"/>
+								<field name="case_type" domain="[('case','=',main_case)]" options="{'no_quick_create': True, 'no_create_edit' : True}"/>
+			                    <field name="cate_case" domain="[('case_type','=',case_type)]" options="{'no_quick_create': True, 'no_create_edit' : True}"/>
+			                    <field name="sub_cate_case" domain="[('case_cate','=',cate_case)]" options="{'no_quick_create': True, 'no_create_edit' : True}"/>
 			                    <field name="qty"/>
 							</group>
 						</div>
@@ -265,11 +227,10 @@
 		            <sheet>
 						<div  class="low_width">
 							<group>
-								<field name="case_type"/>
-			                    <field name="cate_case"/>
+								<field name="case_type" options="{'no_quick_create': True, 'no_create_edit' : True}"/>
+			                    <field name="cate_case" domain="[('case_type','=',case_type)]" options="{'no_quick_create': True, 'no_create_edit' : True}"/>
 			                    <field name="vio_code"/>
 								<field name="vio_number"/>
-			                    <!-- <field name="qty"/> -->
 							</group>
 						</div>
 		            </sheet>
@@ -288,8 +249,8 @@
 					<field name="date"/>
 					<field name="day"/>
 					<field name="time"/>
-					<field name="road_name"/>
-					<field name="center_name"/>
+					<field name="road_name" options="{'no_quick_create': True, 'no_create_edit' : True}"/>
+					<field name="center_name" options="{'no_quick_create': True, 'no_create_edit' : True}"/>
 					<field name="location_name"/>
 					<field name="digital_tag"/>
 					<field name="direction_name"/>
@@ -471,8 +432,8 @@
 								<field name="date"/>
 								<field name="day"/>
 								<field name="time"/>
-								<field name="road_name"/>
-								<field name="center_name"/>
+								<field name="road_name" options="{'no_quick_create': True, 'no_create_edit' : True}"/>
+								<field name="center_name" domain="[('road_name','=',road_name)]" options="{'no_quick_create': True, 'no_create_edit' : True}"/>
 								<field name="location_name"/>
 								<field name="digital_tag"/>
 								<field name="direction_name"/>
@@ -507,8 +468,8 @@
 							<h3>Violation Type</h3>
 							<field name="case_type">
 			                <tree>
-			                    <field name="case_type"/>
-			                    <field name="cate_case"/>
+			                    <field name="case_type" options="{'no_quick_create': True, 'no_create_edit' : True}"/>
+			                    <field name="cate_case" options="{'no_quick_create': True, 'no_create_edit' : True}"/>
 			                    <field name="vio_code"/>
 								<field name="vio_number"/>
 			                    <!-- <field name="qty"/> -->
@@ -539,7 +500,7 @@
 		            <sheet>
 						<div  class="low_width">
 		             	   <group>
-		                    <field name="receiving_party"/>
+		                    <field name="receiving_party" domain="[('road_name','=',road_name)]" options="{'no_quick_create': True, 'no_create_edit' : True}"/>
 							<field name="receiving_name"/>
 							<field name="receiving_party_rank"/>
 		                </group>
@@ -560,8 +521,8 @@
 					<field name="date"/>
 					<field name="day"/>
 					<field name="time"/>
-					<field name="road_name"/>
-					<field name="center_name"/>
+					<field name="road_name" options="{'no_quick_create': True, 'no_create_edit' : True}"/>
+					<field name="center_name" options="{'no_quick_create': True, 'no_create_edit' : True}"/>
 					<field name="location_name"/>
 					<field name="digital_tag"/>
 					<field name="direction_name"/>
@@ -605,8 +566,8 @@
 							<group name="group_right">
 							</group>
 						</group>
-							<field name="owner_detail" attrs="{'invisible': [('other_onwer','=',False)]}">
 							<h3>Owner Details</h3>
+							<field name="owner_detail" attrs="{'invisible': [('other_onwer','=',False)]}">
 			                <tree>
 			                    <field name="name"/>
 			                    <field name="id_num"/>
@@ -619,6 +580,32 @@
 					</sheet>
 				</form> 
 			</field> 
+		</record>
+
+		<record id="road_id" model="ir.ui.view">
+		    <field name="name">road_id</field>
+		    <field name="model">road.name</field>
+		    <field name="arch" type="xml">
+		        <form string="Road Configuration">
+		            <sheet>
+		                <group name="group_top">
+							<group name="group_left">
+								<field name="name"/>
+							</group>
+
+							<group name="group_right">
+							</group>
+						</group>
+						<h3>Linked Center and Receiving Party</h3>
+						<field name="road_tree">
+							<tree>
+								<field name="center"/>
+								<field name="rec_party"/>
+							</tree>
+						</field>
+		            </sheet>
+		        </form>
+		    </field>
 		</record>
 
 		<record id="owner_detail_view_form" model="ir.ui.view">
@@ -646,6 +633,206 @@
 			</field> 
 		</record>
 
+		<record id="center_id" model="ir.ui.view">
+		    <field name="name">center_id</field>
+		    <field name="model">center.name</field>
+		    <field name="arch" type="xml">
+		        <form string="Center Name">
+		            <sheet>
+		                <group name="group_top">
+							<group name="group_left">
+								<field name="name"/>
+								<field name="road_name"/>
+							</group>
+
+							<group name="group_right">
+							</group>
+						</group>
+		            </sheet>
+		        </form>
+		    </field>
+		</record>
+
+		<record id="rec_id" model="ir.ui.view">
+		    <field name="name">rec_id</field>
+		    <field name="model">receiving.party</field>
+		    <field name="arch" type="xml">
+		        <form string="Receiving Party">
+		            <sheet>
+		                <group name="group_top">
+							<group name="group_left">
+								<field name="name"/>
+								<field name="road_name"/>
+							</group>
+
+							<group name="group_right">
+							</group>
+						</group>
+		            </sheet>
+		        </form>
+		    </field>
+		</record>
+
+		<record id="road_tree_id" model="ir.ui.view">
+		    <field name="name">road_tree_id</field>
+		    <field name="model">road.tree</field>
+		    <field name="arch" type="xml">
+		        <form string="Linked Center and Receiving Party">
+		            <sheet>
+		                <group name="group_top">
+							<group name="group_left">
+								<field name="center"/>
+								<field name="rec_party"/>
+							</group>
+
+							<group name="group_right">
+							</group>
+						</group>
+		            </sheet>
+		        </form>
+		    </field>
+		</record>
+
+		<record id="case_level_id" model="ir.ui.view">
+		    <field name="name">case_level_id</field>
+		    <field name="model">case.level</field>
+		    <field name="arch" type="xml">
+		        <form string="Case Level">
+		            <sheet>
+						<group name="group_top">
+							<group name="group_left">
+								<field name="case" domain="[('name','=','')]"/>
+							</group>
+
+							<group name="group_right">
+							</group>
+						</group>
+
+						<h3>Type Hierarchy</h3>
+						<field name="tree_link">
+							<tree>
+								<field name="case_type"/>
+							</tree>
+						</field>
+
+		            </sheet>
+		        </form>
+		    </field>
+		</record>
+
+		<record id="case_level_tree_id" model="ir.ui.view">
+		    <field name="name">case_level_tree_id</field>
+		    <field name="model">case.level.tree</field>
+		    <field name="arch" type="xml">
+		        <form string="">
+		            <sheet>
+		               <group name="group_top">
+							<group name="group_left">
+								<field name="case_type"/>
+							</group>
+
+						   <group name="group_right">
+						   </group>
+						</group>
+						<h3>Category Hierarchy</h3>
+						<field name="case_level_cate" context="{'default_case_type': case_type}">
+							<tree>
+								<field name="case_type" invisible="1"/>
+								<field name="case_cate"/>
+							</tree>
+						</field>
+		            </sheet>
+		        </form>
+		    </field>
+		</record>
+
+		<record id="case_level_cate_id" model="ir.ui.view">
+		    <field name="name">case_level_cate_id</field>
+		    <field name="model">case.level.cate</field>
+		    <field name="arch" type="xml">
+		        <form>
+		            <sheet>
+		                <group name="group_top">
+							<group name="group_left">
+								<field name="case_type" invisible="1"/>
+								<field name="case_cate"/>
+							</group>
+
+							<group name="group_right">
+							</group>
+						</group>
+						<h3>Sub Category Hierarchy</h3>
+						<field name="case_level_sub_cate_link" context="{'default_case_cate': case_cate}">
+							<tree>
+								<field name="case_cate" invisible="1"/>
+								<field name="case_sub_cate"/>
+							</tree>
+						</field>
+		            </sheet>
+		        </form>
+		    </field>
+		</record>
+
+		<record id="case_level_sub_cate_id" model="ir.ui.view">
+		    <field name="name">case_level_sub_cate_id</field>
+		    <field name="model">case.level.cate.sub</field>
+		    <field name="arch" type="xml">
+		        <form string="Case Level Sub Category">
+		            <sheet>
+		                <group>
+		                    <field name="case_sub_cate"/>
+		                    <field name="case_cate" invisible="1"/>
+		                </group>
+		            </sheet>
+		        </form>
+		    </field>
+		</record>
+
+		<record id="case_sub_cate_id" model="ir.ui.view">
+		    <field name="name">case_sub_cate_id</field>
+		    <field name="model">case.sub.cate</field>
+		    <field name="arch" type="xml">
+		        <form string="Case Sub Category">
+		            <sheet>
+		                <group>
+		                    <field name="name"/>
+		                    <field name="case_cate" invisible="1"/>
+		                </group>
+		            </sheet>
+		        </form>
+		    </field>
+		</record>
+
+		<record id="case_type_id" model="ir.ui.view">
+		    <field name="name">case_type_id</field>
+		    <field name="model">type.case</field>
+		    <field name="arch" type="xml">
+		        <form string="Case Type">
+		            <sheet>
+		                <group>
+		                    <field name="name"/>
+		                    <field name="case" invisible="1"/>
+		                </group>
+		            </sheet>
+		        </form>
+		    </field>
+		</record>
+
+		<record id="case_cate_id" model="ir.ui.view">
+		    <field name="name">case_cate_id</field>
+		    <field name="model">cate.case</field>
+		    <field name="arch" type="xml">
+		        <form string="Case Category">
+		            <sheet>
+		                <group>
+		                    <field name="name"/>
+		                    <field name="case_type" invisible="1"/>
+		                </group>
+		            </sheet>
+		        </form>
+		    </field>
+		</record>
+
 		<record id="violation_act_id" model="ir.actions.act_window">
 			<field name="name">Traffic Violation Record</field>
 			<field name="type">ir.actions.act_window</field>
@@ -662,11 +849,31 @@
 			<field name="view_mode">tree,form</field>
 		</record>
 
+		<record id="road_act_id" model="ir.actions.act_window">
+			<field name="name">Road Configuration</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">road.name</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+		</record>
+
+		<record id="case_level_act_id" model="ir.actions.act_window">
+			<field name="name">Case Configuration</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">case.level</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+		</record>
+
 		<menuitem id="police_main_menu_id"
 		  	name="Police Record"/>
 
+		<menuitem id="config_id"
+		  	name="Configuration"
+			parent="police_main_menu_id"/>
+
 		<menuitem id="police_menu_id"
-		  	name="Police Record" 
+		  	name="Police Record"
 		  	action="police_act_id" 
 		  	parent="police_main_menu_id"/>
 
@@ -680,81 +887,88 @@
 		  	action="umrah_act_id"
 		  	parent="police_main_menu_id"/>
 
-		<template id="index">
-		<t t-name="police_project.index">
-  <t t-call="website.layout">
-    <t t-set="title">New page</t>
-    <div class="oe_structure">
-      <section class="s_text_block_image_fw oe_img_bg oe_custom_bg mb0" style="background-image: url(&quot;/web/image/website.s_cover_default_image&quot;); background-position: 50% 100%; height: 848px; overflow: hidden;">
-        <div class="container">
-          <div class="row">
-            <div class="col-md-6 mt64 mb64 bg-black-25">
-              <h2 style="font-size:62px">Jeddah Police<br/></h2>
-              <h4>A police force is a constituted body of persons empowered by a state to enforce the law, protect property, and limit civil disorder<br/></h4>
-				<div class="col-md-3">
-				  <a href="http://0.0.0.0:8069/web#min=1&amp;limit=80&amp;view_type=list&amp;model=police.detail&amp;menu_id=71&amp;action=77" class="btn btn-lg btn-primary mt8 pull-right" data-original-title="" title="">Police Case&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;<i class="fa fa-chevron-right"/></a>
-				</div>
-			</div>
-          </div>
-        </div>
-      </section>
-      <section class="jumbotron s_button bg-gray-lighter oe_img_bg oe_custom_bg" style="background-image: url(&quot;http://0.0.0.0:8069/website/static/src/img/library/office.jpg&quot;); background-position: 66% 44.19%;">
-        <div class="container">
-          <div class="row">
-            <div class="col-md-9">
-              <p class="mb0">
-                <strong>
-                  <font class="text-white" style="">Create Police Records</font>
-                </strong>
-              </p>
-              <p class="mb0">
-                <font class="text-white" style="">By clicking this button you can create Police Case</font>
-              </p>
-            </div>
-            <div class="col-md-3">
-              <a href="http://0.0.0.0:8069/web#min=1&amp;limit=80&amp;view_type=list&amp;model=police.detail&amp;menu_id=71&amp;action=77" class="btn btn-lg btn-primary mt8 pull-right" data-original-title="" title="">Police Case&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;<i class="fa fa-chevron-right"/></a>
-            </div>
-          </div>
-        </div>
-      </section>
-      <section class="jumbotron s_button bg-gray-lighter">
-        <div class="container">
-          <div class="row">
-            <div class="col-md-9">
-              <p class="mb0">
-                <strong>Create Traffic Violation Record</strong>
-              </p>
-              <p class="mb0">By clicking this button you can create Traffic Violation Record</p>
-            </div>
-            <div class="col-md-3">
-              <a href="/page/website.contactus" class="mt8 pull-right btn btn-primary btn-lg" data-original-title="" title="">Traffic Violation Record&amp;nbsp;<i class="fa fa-chevron-right"/></a>
-            </div>
-          </div>
-        </div>
-      </section>
-      <section class="s_image_text bg-success mb0 oe_img_bg" style="background-image: url(&quot;/web/image/website.s_background_image_02&quot;); height: 864px; overflow: hidden;">
-        <div class="container">
-          <div class="row">
-            <div class="col-md-6 mt32 mb128">
+		<menuitem id="case_config_id"
+		  	name="Case Configuration"
+		  	action="case_level_act_id"
+		  	parent="config_id"/>
 
-            </div>
-            <div class="col-md-6 mt64 mb32">&amp;nbsp;<h3><br/></h3><h3>Jeddah Police</h3>
-              <p><br/><span style="color: rgb(34, 34, 34); font-family: sans-serif;">A police force is a constituted body of persons empowered by a state to enforce the law, protect property, and limit civil disorder.Their powers include the legitimized use of force. The term is most commonly associated with police services of a sovereign state that are authorized to exercise the police power of that state within a defined legal or territorial area of responsibility. Police forces are often defined as being separate from military or other organizations involved in the defense of the state against foreign aggressors; however, gendarmerie is military units charged with civil policing.<br/></span><br/></p>
-            </div>
-          </div>
-        </div>
-      </section>
-      <div class="container">
-        <p style="text-align: center; ">
-          <br/>
-        </p>
-        <p>&amp;nbsp;</p>
-      </div>
-    </div>
-  </t>
-</t>
+		<menuitem id="road_config_id"
+		  	name="Road Configuration"
+		  	action="road_act_id"
+		  	parent="config_id"/>
 
-		</template>
+		<!--<template id="index">-->
+			<!--<t t-name="police_project.index">-->
+			  <!--<t t-call="website.layout">-->
+			    <!--<t t-set="title">Jeddah Police</t>-->
+			    <!--<div class="oe_structure">-->
+			      <!--<section class="s_text_block_image_fw oe_img_bg oe_custom_bg mb0" style="background-image: url(/police_project/static/src/description/icon.png); background-position: 50% 100%; height: 848px; overflow: hidden;">-->
+			        <!--<div class="container">-->
+			          <!--<div class="row">-->
+			            <!--<div class="col-md-6 mt64 mb64 bg-black-25">-->
+			              <!--<h2 style="font-size:62px">Jeddah Police<br/></h2>-->
+			              <!--<h4>A police force is a constituted body of persons empowered by a state to enforce the law, protect property, and limit civil disorder<br/></h4>-->
+			            <!--</div>-->
+			          <!--</div>-->
+			        <!--</div>-->
+			      <!--</section>-->
+			      <!--<section class="jumbotron s_button bg-gray-lighter oe_img_bg oe_custom_bg" style="background-image: url(&quot;http://0.0.0.0:8069/website/static/src/img/library/office.jpg&quot;); background-position: 66% 44.19%;">-->
+			        <!--<div class="container">-->
+			          <!--<div class="row">-->
+			            <!--<div class="col-md-9">-->
+			              <!--<p class="mb0">-->
+			                <!--<strong>-->
+			                  <!--<font class="text-white" style="">Create Police Records</font>-->
+			                <!--</strong>-->
+			              <!--</p>-->
+			              <!--<p class="mb0">-->
+			                <!--<font class="text-white" style="">By clicking this button you can create Police Case</font>-->
+			              <!--</p>-->
+			            <!--</div>-->
+			            <!--<div class="col-md-3">-->
+			              <!--<a href="http://0.0.0.0:8069/web#min=1&amp;limit=80&amp;view_type=list&amp;model=police.detail&amp;menu_id=71&amp;action=77" class="btn btn-lg btn-primary mt8 pull-right" data-original-title="" title="">Police Case&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;<i class="fa fa-chevron-right"/></a>-->
+			            <!--</div>-->
+			          <!--</div>-->
+			        <!--</div>-->
+			      <!--</section>-->
+			      <!--<section class="jumbotron s_button bg-gray-lighter">-->
+			        <!--<div class="container">-->
+			          <!--<div class="row">-->
+			            <!--<div class="col-md-9">-->
+			              <!--<p class="mb0">-->
+			                <!--<strong>Create Traffic Violation Record</strong>-->
+			              <!--</p>-->
+			              <!--<p class="mb0">By clicking this button you can create Traffic Violation Record</p>-->
+			            <!--</div>-->
+			            <!--<div class="col-md-3">-->
+			              <!--<a href="http://0.0.0.0:8069/web#min=1&amp;limit=80&amp;view_type=list&amp;model=violation.detail&amp;menu_id=72&amp;action=78" class="mt8 pull-right btn btn-primary btn-lg" data-original-title="" title="" target="_blank">Traffic Violation Record&amp;nbsp;<i class="fa fa-chevron-right"/></a>-->
+			            <!--</div>-->
+			          <!--</div>-->
+			        <!--</div>-->
+			      <!--</section>-->
+			      <!--<section class="s_image_text bg-success mb0 oe_img_bg" style="background-image: url(&quot;/web/image/website.s_background_image_02&quot;); height: 864px; overflow: hidden;">-->
+			        <!--<div class="container">-->
+			          <!--<div class="row">-->
+			            <!--<div class="col-md-6 mt32 mb128">-->
+			              <!---->
+			            <!--</div>-->
+			            <!--<div class="col-md-6 mt64 mb32">&amp;nbsp;<h3><br/></h3><h3>Jeddah Police</h3>-->
+			              <!--<p><br/><span style="color: rgb(34, 34, 34); font-family: sans-serif;">A police force is a constituted body of persons empowered by a state to enforce the law, protect property, and limit civil disorder.Their powers include the legitimized use of force. The term is most commonly associated with police services of a sovereign state that are authorized to exercise the police power of that state within a defined legal or territorial area of responsibility. Police forces are often defined as being separate from military or other organizations involved in the defense of the state against foreign aggressors; however, gendarmerie is military units charged with civil policing.<br/></span><br/></p>-->
+			            <!--</div>-->
+			          <!--</div>-->
+			        <!--</div>-->
+			      <!--</section>-->
+			      <!--<div class="container">-->
+			        <!--<p style="text-align: center; ">-->
+			          <!--<br/>-->
+			        <!--</p>-->
+			        <!--<p>&amp;nbsp;</p>-->
+			      <!--</div>-->
+			    <!--</div>-->
+			  <!--</t>-->
+			<!--</t>-->
+		<!--</template>-->
 
 	</data>
+
 </openerp> 

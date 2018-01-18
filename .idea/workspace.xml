@@ -354,105 +354,9 @@
       <change beforePath="" afterPath="$PROJECT_DIR$/champion/working_161_champion/views.xml" />
       <change beforePath="$PROJECT_DIR$/.idea/dictionaries/muhammad.xml" afterPath="$PROJECT_DIR$/.idea/dictionaries/muhammad.xml" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/a_com/account_parent/models/account.py" afterPath="$PROJECT_DIR$/a_com/account_parent/models/account.py" />
-      <change beforePath="$PROJECT_DIR$/arian/account_parent/models/account.py" afterPath="$PROJECT_DIR$/arian/account_parent/models/account.py" />
-      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/README.rst" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/__init__.py" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/__manifest__.py" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/hooks.py" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/am.po" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/ar.po" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/bg.po" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/bs.po" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/ca.po" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/cs.po" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/da.po" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/de.po" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/el_GR.po" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/en_GB.po" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/es.po" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/es_AR.po" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/es_CL.po" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/es_CO.po" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/es_CR.po" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/es_DO.po" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/es_EC.po" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/es_ES.po" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/es_MX.po" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/es_PE.po" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/es_PY.po" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/es_VE.po" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/et.po" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/eu.po" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/fa.po" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/fi.po" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/fr.po" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/fr_CA.po" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/fr_CH.po" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/gl.po" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/gl_ES.po" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/he.po" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/hr.po" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/hr_HR.po" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/hu.po" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/id.po" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/it.po" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/ja.po" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/ko.po" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/lt.po" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/lt_LT.po" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/lv.po" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/mk.po" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/mn.po" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/nb.po" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/nb_NO.po" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/nl.po" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/nl_BE.po" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/pl.po" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/pt.po" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/pt_BR.po" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/pt_PT.po" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/ro.po" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/ru.po" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/sk.po" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/sl.po" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/sr.po" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/sr@latin.po" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/sv.po" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/th.po" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/tr.po" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/tr_TR.po" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/uk.po" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/vi.po" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/vi_VN.po" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/zh_CN.po" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/i18n/zh_TW.po" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/models/__init__.py" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/models/bve_view.py" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/models/ir_model.py" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/models/models.py" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/security/ir.model.access.csv" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/security/rules.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/static/description/icon.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/static/description/main_screenshot.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/static/src/css/bve.css" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/static/src/js/bve.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/templates/assets_template.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/templates/qweb_template.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/tests/__init__.py" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/tests/test_bi_view.py" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/views/bve_view.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/wizard/__init__.py" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/logistic/bi_view_editor/wizard/wizard_ir_model_menu_create.py" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/logistic/custom_logistic/__init__.py" afterPath="$PROJECT_DIR$/logistic/custom_logistic/__init__.py" />
-      <change beforePath="$PROJECT_DIR$/logistic/custom_logistic/__manifest__.py" afterPath="$PROJECT_DIR$/logistic/custom_logistic/__manifest__.py" />
       <change beforePath="$PROJECT_DIR$/logistic/custom_logistic/models.py" afterPath="$PROJECT_DIR$/logistic/custom_logistic/models.py" />
-      <change beforePath="$PROJECT_DIR$/logistic/custom_logistic/quote.xml" afterPath="$PROJECT_DIR$/logistic/custom_logistic/quote.xml" />
-      <change beforePath="$PROJECT_DIR$/logistic/custom_logistic/report.py" afterPath="$PROJECT_DIR$/logistic/custom_logistic/report.py" />
-      <change beforePath="$PROJECT_DIR$/logistic/custom_logistic/report.xml" afterPath="$PROJECT_DIR$/logistic/custom_logistic/report.xml" />
-      <change beforePath="$PROJECT_DIR$/logistic/custom_logistic/views.xml" afterPath="$PROJECT_DIR$/logistic/custom_logistic/views.xml" />
+      <change beforePath="$PROJECT_DIR$/police/police_project/model.py" afterPath="$PROJECT_DIR$/police/police_project/model.py" />
       <change beforePath="$PROJECT_DIR$/police/police_project/templates.xml" afterPath="$PROJECT_DIR$/police/police_project/templates.xml" />
-      <change beforePath="$PROJECT_DIR$/turkina (copy)/account_parent/models/account.py" afterPath="$PROJECT_DIR$/turkina (copy)/account_parent/models/account.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -466,26 +370,62 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="views.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/logistic/custom_logistic/views.xml">
+      <file leaf-file-name="model.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/police/police_project/model.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-472">
-              <caret line="368" column="20" lean-forward="false" selection-start-line="368" selection-start-column="20" selection-end-line="368" selection-end-column="20" />
-              <folding />
+            <state relative-caret-position="1914">
+              <caret line="402" column="3" lean-forward="false" selection-start-line="402" selection-start-column="3" selection-end-line="402" selection-end-column="3" />
+              <folding>
+                <element signature="e#216#2844#0" expanded="false" />
+                <element signature="e#2882#3448#0" expanded="false" />
+                <element signature="e#3485#4230#0" expanded="false" />
+                <element signature="e#4268#5267#0" expanded="false" />
+                <element signature="e#5314#5771#0" expanded="false" />
+                <element signature="e#5811#7488#0" expanded="false" />
+                <element signature="e#7532#8271#0" expanded="false" />
+                <element signature="e#8314#8733#0" expanded="false" />
+                <element signature="e#8777#11056#0" expanded="false" />
+                <element signature="e#11099#11533#0" expanded="false" />
+                <element signature="e#11580#12498#0" expanded="false" />
+                <element signature="e#12538#12923#0" expanded="false" />
+                <element signature="e#12964#13038#0" expanded="false" />
+                <element signature="e#13079#13153#0" expanded="false" />
+                <element signature="e#13191#13269#0" expanded="false" />
+                <element signature="e#13307#13375#0" expanded="false" />
+                <element signature="e#13410#13469#0" expanded="false" />
+                <element signature="e#13506#13909#0" expanded="false" />
+                <element signature="e#13946#14285#0" expanded="false" />
+                <element signature="e#14324#14488#0" expanded="false" />
+                <element signature="e#14525#14596#0" expanded="false" />
+                <element signature="e#14635#14695#0" expanded="false" />
+                <element signature="e#14733#14801#0" expanded="false" />
+                <element signature="e#14844#15016#0" expanded="false" />
+                <element signature="e#15063#15148#0" expanded="false" />
+                <element signature="e#15187#15339#0" expanded="false" />
+                <element signature="e#15383#15459#0" expanded="false" />
+                <element signature="e#15500#15666#0" expanded="false" />
+                <element signature="e#15703#15787#0" expanded="false" />
+                <element signature="e#15823#16000#0" expanded="false" />
+                <element signature="e#16037#16121#0" expanded="false" />
+                <element signature="e#16158#16242#0" expanded="false" />
+                <element signature="e#16280#16962#0" expanded="false" />
+                <element signature="e#17004#17402#0" expanded="false" />
+                <element signature="e#17442#17697#0" expanded="false" />
+                <element signature="e#17739#18279#0" expanded="false" />
+                <element signature="e#18324#18725#0" expanded="false" />
+                <element signature="e#18764#18895#0" expanded="false" />
+                <element signature="e#18927#19245#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="models.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/logistic/custom_logistic/models.py">
+      <file leaf-file-name="templates.xml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/police/police_project/templates.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="327">
-              <caret line="679" column="23" lean-forward="true" selection-start-line="679" selection-start-column="23" selection-end-line="679" selection-end-column="23" />
-              <folding>
-                <element signature="e#0#25#0" expanded="true" />
-                <element signature="e#3611#4774#0" expanded="false" />
-                <element signature="e#4815#5059#0" expanded="false" />
-              </folding>
+            <state relative-caret-position="282">
+              <caret line="874" column="10" lean-forward="true" selection-start-line="874" selection-start-column="10" selection-end-line="874" selection-end-column="10" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -501,36 +441,36 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>import_id</find>
-      <find>todo</find>
-      <find>cust_ref</find>
-      <find>SHIPMENT_STATUS_REPORT</find>
-      <find>inh</find>
-      <find>sale.order</find>
-      <find>dashboard_sales_action_id</find>
-      <find>dashboard_sales_order_action_id</find>
-      <find>&amp;</find>
-      <find>custom_export_dashboard_action</find>
-      <find>value</find>
-      <find>record</find>
-      <find>action_export_logic</find>
-      <find>filter</find>
-      <find>co</find>
-      <find>color</find>
-      <find>domai</find>
-      <find>twen_ft</find>
-      <find>fort_ft</find>
-      <find>chart_date_field_id</find>
-      <find>site_name</find>
-      <find>for</find>
-      <find>comment</find>
-      <find>env</find>
-      <find>vessel_dates</find>
-      <find>.name</find>
-      <find>get_default_chart</find>
-      <find>store</find>
-      <find>import_status</find>
-      <find>import.site</find>
+      <find>center.name</find>
+      <find>rece</find>
+      <find>road.tree</find>
+      <find>crea</find>
+      <find>w</find>
+      <find>write</find>
+      <find>party_link</find>
+      <find>traffic.receive</find>
+      <find>road_act_id</find>
+      <find>case_act_id</find>
+      <find>attrs</find>
+      <find>case_act</find>
+      <find>case_level_id</find>
+      <find>context</find>
+      <find>case_level_tree_id</find>
+      <find>tree_link</find>
+      <find>case_ca</find>
+      <find>cate.case</find>
+      <find>case.sub.cate</find>
+      <find>invisible</find>
+      <find>case.type1</find>
+      <find>unl</find>
+      <find>domain</find>
+      <find>option</find>
+      <find>case_type_id</find>
+      <find>ase_type</find>
+      <find>case_type</find>
+      <find>type.case</find>
+      <find>case_cate_id</find>
+      <find>case.type</find>
     </findStrings>
     <replaceStrings>
       <replace>traffic</replace>
@@ -578,8 +518,6 @@
         <option value="$PROJECT_DIR$/police/police_project/i18n/ar_SY.po" />
         <option value="$PROJECT_DIR$/police/web_islamic_datepicker_v8/res_users.py" />
         <option value="$PROJECT_DIR$/police/web_islamic_datepicker_v8/views/web_linkedin.xml" />
-        <option value="$PROJECT_DIR$/police/police_project/__manifest__.py" />
-        <option value="$PROJECT_DIR$/police/police_project/model.py" />
         <option value="$PROJECT_DIR$/logistic/rowno_in_tree/static/src/xml/base.xml" />
         <option value="$PROJECT_DIR$/logistic/custom_logistic/quote.xml" />
         <option value="$PROJECT_DIR$/saif/muk_dms/models/dms_base.py" />
@@ -590,11 +528,14 @@
         <option value="$PROJECT_DIR$/logistic/account_dashboard_bokeh/__manifest__.py" />
         <option value="$PROJECT_DIR$/logistic/custom_logistic/__init__.py" />
         <option value="$PROJECT_DIR$/logistic/custom_logistic/__manifest__.py" />
-        <option value="$PROJECT_DIR$/police/police_project/templates.xml" />
         <option value="$PROJECT_DIR$/logistic/dashboard/models/settings.py" />
         <option value="$PROJECT_DIR$/logistic/custom_logistic/report.py" />
-        <option value="$PROJECT_DIR$/logistic/custom_logistic/models.py" />
         <option value="$PROJECT_DIR$/logistic/custom_logistic/views.xml" />
+        <option value="$PROJECT_DIR$/logistic/custom_logistic/models.py" />
+        <option value="$PROJECT_DIR$/police/police_project/user_navbar.xml" />
+        <option value="$PROJECT_DIR$/police/police_project/__manifest__.py" />
+        <option value="$PROJECT_DIR$/police/police_project/model.py" />
+        <option value="$PROJECT_DIR$/police/police_project/templates.xml" />
       </list>
     </option>
   </component>
@@ -651,28 +592,6 @@
     </navigator>
     <panes>
       <pane id="Scratches" />
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="Projects" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Projects" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Projects" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Projects" type="462c0819:PsiDirectoryNode" />
-              <item name="logistic" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Projects" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Projects" type="462c0819:PsiDirectoryNode" />
-              <item name="logistic" type="462c0819:PsiDirectoryNode" />
-              <item name="custom_logistic" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
       <pane id="Scope">
         <subPane subId="Project Files">
           <expand>
@@ -733,6 +652,45 @@
           <select />
         </subPane>
       </pane>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="Projects" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Projects" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Projects" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Projects" type="462c0819:PsiDirectoryNode" />
+              <item name="police" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Projects" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Projects" type="462c0819:PsiDirectoryNode" />
+              <item name="police" type="462c0819:PsiDirectoryNode" />
+              <item name="police_project" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Projects" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Projects" type="462c0819:PsiDirectoryNode" />
+              <item name="structure" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Projects" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Projects" type="462c0819:PsiDirectoryNode" />
+              <item name="structure" type="462c0819:PsiDirectoryNode" />
+              <item name="customer_payments_bcube_structure" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Projects" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Projects" type="462c0819:PsiDirectoryNode" />
+              <item name="structure" type="462c0819:PsiDirectoryNode" />
+              <item name="reg_form" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -783,15 +741,16 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="67" y="25" width="1613" height="1025" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17987421" sideWeight="0.49552572" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13836478" sideWeight="0.49552572" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32997763" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3293348" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32885906" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295688" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24968554" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26510066" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26510066" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22012578" sideWeight="0.5044743" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -845,59 +804,11 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="12" />
+      <option name="time" value="13" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/police/police_project/model.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="406">
-          <caret line="402" column="12" lean-forward="false" selection-start-line="402" selection-start-column="12" selection-end-line="402" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/BAFCO/islamic_datepicker_v9/views/islamic_template.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/BAFCO/hr_custom_employee_bcube/templates.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="22">
-          <caret line="954" column="34" lean-forward="false" selection-start-line="954" selection-start-column="31" selection-end-line="954" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/.PyCharmCE2017.3/system/python_stubs/-1247972723/__builtin__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="2206" column="8" lean-forward="false" selection-start-line="2206" selection-start-column="8" selection-end-line="2206" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/logistic/rowno_in_tree/views/listview_templates.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/logistic/rowno_in_tree/static/src/xml/base.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="352">
-          <caret line="16" column="12" lean-forward="false" selection-start-line="16" selection-start-column="12" selection-end-line="16" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/logistic/bi_professional_reports_templates/sale_report/odoo_standard_report_saleorder.xml" />
-    <entry file="file://$PROJECT_DIR$/logistic/bi_professional_reports_templates/__init__.py" />
-    <entry file="file://$PROJECT_DIR$/logistic/bi_professional_reports_templates/__manifest__.py" />
-    <entry file="file://$PROJECT_DIR$/logistic/bi_professional_reports_templates/res_company.py" />
-    <entry file="file://$PROJECT_DIR$/logistic/bi_professional_reports_templates/sale_report/classic_report_saleorder.xml" />
-    <entry file="file://$PROJECT_DIR$/logistic/bi_professional_reports_templates/res_company.xml" />
     <entry file="file://$PROJECT_DIR$/logistic/bi_professional_reports_templates/static/description/po_m_1.png" />
     <entry file="file://$PROJECT_DIR$/logistic/bi_professional_reports_templates/static/description/purchase_odoo.png" />
     <entry file="file://$PROJECT_DIR$/logistic/bi_professional_reports_templates/static/description/Banner.png" />
@@ -939,13 +850,6 @@
     <entry file="file://$PROJECT_DIR$/logistic/custom_logistic/dash.xml" />
     <entry file="file://$PROJECT_DIR$/logistic/account_dashboard_bokeh/views/html_template_views.xml" />
     <entry file="file://$PROJECT_DIR$/logistic/account_dashboard_bokeh/__manifest__.py" />
-    <entry file="file://$PROJECT_DIR$/logistic/custom_logistic/__manifest__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="383">
-          <caret line="18" column="20" lean-forward="false" selection-start-line="18" selection-start-column="20" selection-end-line="18" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/logistic/custom_logistic/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="132">
@@ -964,13 +868,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="361">
           <caret line="249" column="60" lean-forward="false" selection-start-line="249" selection-start-column="55" selection-end-line="249" selection-end-column="60" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/police/police_project/templates.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
-          <caret line="160" column="58" lean-forward="false" selection-start-line="160" selection-start-column="58" selection-end-line="160" selection-end-column="58" />
         </state>
       </provider>
     </entry>
@@ -995,18 +892,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/logistic/custom_logistic/supplier.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="203">
-          <caret line="77" column="30" lean-forward="false" selection-start-line="77" selection-start-column="30" selection-end-line="77" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/logistic/custom_logistic/report.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="166">
           <caret line="9" column="21" lean-forward="false" selection-start-line="9" selection-start-column="21" selection-end-line="9" selection-end-column="21" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1014,14 +903,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="95">
           <caret line="76" column="12" lean-forward="false" selection-start-line="76" selection-start-column="12" selection-end-line="76" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/structure/reg_form/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="191">
-          <caret line="175" column="20" lean-forward="false" selection-start-line="175" selection-start-column="16" selection-end-line="175" selection-end-column="20" />
         </state>
       </provider>
     </entry>
@@ -1043,21 +924,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="163">
           <caret line="132" column="14" lean-forward="false" selection-start-line="132" selection-start-column="14" selection-end-line="132" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/logistic/custom_logistic/quote.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1635">
-          <caret line="11" column="17" lean-forward="true" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/logistic/custom_logistic/report.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="42">
-          <caret line="208" column="56" lean-forward="false" selection-start-line="208" selection-start-column="56" selection-end-line="208" selection-end-column="56" />
         </state>
       </provider>
     </entry>
@@ -1082,23 +948,180 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/police/police_project/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mr_fabrics/report_header_footer/__manifest__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mr_fabrics/report_header_footer/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/logistic/custom_logistic/views.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-472">
+        <state relative-caret-position="-3919">
           <caret line="368" column="20" lean-forward="false" selection-start-line="368" selection-start-column="20" selection-end-line="368" selection-end-column="20" />
-          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/police/police_project/user_navbar.xml" />
+    <entry file="file://$PROJECT_DIR$/logistic/custom_logistic/__manifest__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="383">
+          <caret line="18" column="20" lean-forward="false" selection-start-line="18" selection-start-column="20" selection-end-line="18" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/police/police_project/__manifest__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="9" column="29" lean-forward="false" selection-start-line="9" selection-start-column="29" selection-end-line="9" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/logistic/custom_logistic/quote.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="496">
+          <caret line="34" column="49" lean-forward="false" selection-start-line="34" selection-start-column="48" selection-end-line="34" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/logistic/custom_logistic/report.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="42">
+          <caret line="208" column="56" lean-forward="false" selection-start-line="208" selection-start-column="56" selection-end-line="208" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/logistic/custom_logistic/supplier.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="191">
+          <caret line="131" column="47" lean-forward="false" selection-start-line="131" selection-start-column="46" selection-end-line="131" selection-end-column="47" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/logistic/custom_logistic/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="327">
-          <caret line="679" column="23" lean-forward="true" selection-start-line="679" selection-start-column="23" selection-end-line="679" selection-end-column="23" />
+        <state relative-caret-position="191">
+          <caret line="251" column="29" lean-forward="false" selection-start-line="251" selection-start-column="28" selection-end-line="251" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BAFCO/hr_custom_employee_bcube/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="1197" column="0" lean-forward="false" selection-start-line="1197" selection-start-column="0" selection-end-line="1198" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/structure/reg_form/templates.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="191">
+          <caret line="268" column="93" lean-forward="false" selection-start-line="268" selection-start-column="93" selection-end-line="268" selection-end-column="93" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BAFCO/hr_custom_employee_bcube/templates.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="191">
+          <caret line="80" column="55" lean-forward="false" selection-start-line="80" selection-start-column="48" selection-end-line="80" selection-end-column="55" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/structure/reg_form/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="191">
+          <caret line="124" column="50" lean-forward="false" selection-start-line="124" selection-start-column="47" selection-end-line="124" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/structure/customer_payments_bcube_structure/customer.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="191">
+          <caret line="57" column="13" lean-forward="false" selection-start-line="57" selection-start-column="10" selection-end-line="57" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fadi_al/hr_custom_employee_bcube_fadi/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="1200" column="13" lean-forward="false" selection-start-line="1200" selection-start-column="13" selection-end-line="1200" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fadi_al/hr_custom_employee_bcube_fadi/templates.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="223">
+          <caret line="48" column="111" lean-forward="false" selection-start-line="48" selection-start-column="111" selection-end-line="48" selection-end-column="111" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/police/police_project/model.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1914">
+          <caret line="402" column="3" lean-forward="false" selection-start-line="402" selection-start-column="3" selection-end-line="402" selection-end-column="3" />
           <folding>
-            <element signature="e#0#25#0" expanded="true" />
-            <element signature="e#3611#4774#0" expanded="false" />
-            <element signature="e#4815#5059#0" expanded="false" />
+            <element signature="e#216#2844#0" expanded="false" />
+            <element signature="e#2882#3448#0" expanded="false" />
+            <element signature="e#3485#4230#0" expanded="false" />
+            <element signature="e#4268#5267#0" expanded="false" />
+            <element signature="e#5314#5771#0" expanded="false" />
+            <element signature="e#5811#7488#0" expanded="false" />
+            <element signature="e#7532#8271#0" expanded="false" />
+            <element signature="e#8314#8733#0" expanded="false" />
+            <element signature="e#8777#11056#0" expanded="false" />
+            <element signature="e#11099#11533#0" expanded="false" />
+            <element signature="e#11580#12498#0" expanded="false" />
+            <element signature="e#12538#12923#0" expanded="false" />
+            <element signature="e#12964#13038#0" expanded="false" />
+            <element signature="e#13079#13153#0" expanded="false" />
+            <element signature="e#13191#13269#0" expanded="false" />
+            <element signature="e#13307#13375#0" expanded="false" />
+            <element signature="e#13410#13469#0" expanded="false" />
+            <element signature="e#13506#13909#0" expanded="false" />
+            <element signature="e#13946#14285#0" expanded="false" />
+            <element signature="e#14324#14488#0" expanded="false" />
+            <element signature="e#14525#14596#0" expanded="false" />
+            <element signature="e#14635#14695#0" expanded="false" />
+            <element signature="e#14733#14801#0" expanded="false" />
+            <element signature="e#14844#15016#0" expanded="false" />
+            <element signature="e#15063#15148#0" expanded="false" />
+            <element signature="e#15187#15339#0" expanded="false" />
+            <element signature="e#15383#15459#0" expanded="false" />
+            <element signature="e#15500#15666#0" expanded="false" />
+            <element signature="e#15703#15787#0" expanded="false" />
+            <element signature="e#15823#16000#0" expanded="false" />
+            <element signature="e#16037#16121#0" expanded="false" />
+            <element signature="e#16158#16242#0" expanded="false" />
+            <element signature="e#16280#16962#0" expanded="false" />
+            <element signature="e#17004#17402#0" expanded="false" />
+            <element signature="e#17442#17697#0" expanded="false" />
+            <element signature="e#17739#18279#0" expanded="false" />
+            <element signature="e#18324#18725#0" expanded="false" />
+            <element signature="e#18764#18895#0" expanded="false" />
+            <element signature="e#18927#19245#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/police/police_project/templates.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="282">
+          <caret line="874" column="10" lean-forward="true" selection-start-line="874" selection-start-column="10" selection-end-line="874" selection-end-column="10" />
+          <folding />
         </state>
       </provider>
     </entry>

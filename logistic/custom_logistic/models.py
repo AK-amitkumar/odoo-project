@@ -665,21 +665,21 @@ class SiteLogic(models.Model):
 	address   = fields.Char(string="Address")
 	cnt_num   = fields.Char(string="Contact No")
 
-	@api.model
-	def _getName(self):
-		for rec in self.env['import.site'].search([]):
-			rec.name = rec.site_name
-			print rec.name
+	# @api.model
+	# def _getName(self):
+	# 	for rec in self.env['import.site'].search([]):
+	# 		rec.name = rec.site_name
+	# 		print rec.name
 
 class StatusLogic(models.Model):
 	_name = 'import.status'
 	comment = fields.Char(string="status")
 	name = fields.Char(string="Status Name")
 
-	@api.model
-	def _getName(self):
-		for rec in self.env['import.status'].search([]):
-			rec.name = rec.comment
-			print rec.name
+	# @api.model
+	# def _getName(self):
+	# 	for rec in self.env['import.status'].search([]):
+	# 		rec.name = rec.comment
+	# 		print rec.name
 
 

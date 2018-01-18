@@ -58,6 +58,7 @@ class PoliceDetail(models.Model):
             self.day = datetime.datetime.strptime(self.date,'%Y-%m-%d').strftime('%A')
             self.time = (datetime.datetime.now() + timedelta(hours=3)).strftime("%I:%M:%S %p")
 
+
 class CaseType1(models.Model):
     _name = 'case.type1'
     _rec_name = 'case_type'
@@ -73,8 +74,10 @@ class CaseType1(models.Model):
 class CaseType(models.Model):
     _name = 'case.type'
     _rec_name = 'case_type'
+    main_case = fields.Many2one(comodel_name="main.case", string="Case", required=False, )
     case_type = fields.Many2one(comodel_name="type.case", string="Case Type", required=False, )
     cate_case = fields.Many2one(comodel_name="cate.case", string="Case Category", required=False, )
+    sub_cate_case = fields.Many2one(comodel_name="case.sub.cate", string="Case Sub Category", required=False, )
     qty = fields.Char(string="Quantity",  required=False, )
     vio_code = fields.Char(string="Case Code ",  required=False, )
     vio_number = fields.Char(string="Case Number",  required=False, )
@@ -122,7 +125,6 @@ class HajjUmrahViolation(models.Model):
     main_class  = new_field_id = fields.Many2one(comodel_name="hajj.umrah", string="Hajj and Umrah", required=False, )
 
 
-
 class PartyDetail(models.Model):
     _name = 'party.detail'
 
@@ -154,6 +156,7 @@ class PartyDetail(models.Model):
     def onchange_car_name(self):
         if self.car_name:
             self.car_maker = self.car_name.model
+
 
 class CompanionDetail(models.Model):
     _name = 'companion.detail'
@@ -238,6 +241,7 @@ class ViolationDetail(models.Model):
             self.day = datetime.datetime.strptime(self.date,'%Y-%m-%d').strftime('%A')
             self.time = (datetime.datetime.now() + timedelta(hours=3)).strftime("%I:%M:%S %p")
 
+
 class TrafficReceive(models.Model):
     _name = 'traffic.receive'
     _rec_name = 'receiving_party'
@@ -318,12 +322,31 @@ class RoadName(models.Model):
     _name = 'road.name'
 
     name = fields.Char(string="Road Name")
+    road_tree = fields.One2many(comodel_name="road.tree", inverse_name="road", string="Road Link", required=False, )
+
+    @api.multi
+    def write(self, vals):
+        super(RoadName, self).write(vals)
+        for x in self.road_tree:
+            x.center.road_name = self.id
+            x.rec_party.road_name = self.id
+        return True
+
+
+class RoadTree(models.Model):
+    _name = 'road.tree'
+    _rec_name = 'road'
+
+    center = fields.Many2one(comodel_name="center.name", string="Center Name", required=False, )
+    rec_party = fields.Many2one(comodel_name="receiving.party", string="Receiving Party", required=False, )
+    road = fields.Many2one(comodel_name="road.name", string="Road Tree", required=False, )
 
 
 class CenterName(models.Model):
     _name = 'center.name'
 
     name = fields.Char(string="Center Name")
+    road_name  = fields.Many2one(comodel_name="road.name", string="Road Name", required=False, )
 
 
 class Location(models.Model):
@@ -348,6 +371,7 @@ class ReceivingParty(models.Model):
     _name = 'receiving.party'
 
     name = fields.Char(string="Receiving Party")
+    road_name  = fields.Many2one(comodel_name="road.name", string="Road Name", required=False, )
 
 
 class ReceivingPartyRank(models.Model):
@@ -360,6 +384,7 @@ class TypeOfCase(models.Model):
     _name = 'type.case'
 
     name = fields.Char(string="Type of Case")
+    case = fields.Many2one(comodel_name="main.case", string="Case", required=False, )
 
 
 class TypeOfViolation(models.Model):
@@ -367,10 +392,13 @@ class TypeOfViolation(models.Model):
 
     name = fields.Char(string="Type of Violation")
 
+
 class CategoryCase(models.Model):
     _name = 'cate.case'
 
     name = fields.Char(string="Category of Case")
+    case_type = fields.Many2one(comodel_name="type.case", string="Case Type", required=False, )
+
 
 class CarMaker(models.Model):
     _name = 'car.maker'
@@ -384,6 +412,7 @@ class CarName(models.Model):
     name = fields.Char(string="Name of Car", required=False, )
     model = fields.Many2one(comodel_name="car.maker", string="Maker of Car", required=False, )
 
+
 class CarColor(models.Model):
     _name = 'car.color'
 
@@ -395,13 +424,79 @@ class CarModel(models.Model):
 
     name = fields.Char(string="Model of Car", required=False, )
 
+
+class CaseLevel(models.Model):
+    _name = 'case.level'
+    _rec_name = 'case'
+    _description = "Create Case Level"
+
+    case = fields.Many2one(comodel_name="main.case", string="Case", required=False, )
+    tree_link = fields.One2many(comodel_name="case.level.tree", inverse_name="level_link", string="Case Type", required=False, )
+
+    @api.multi
+    def write(self, val):
+        super(CaseLevel, self).write(val)
+        for x in self.tree_link:
+            x.case_type.case = self.case
+            for y in x.case_level_cate:
+                y.case_cate.case_type = x.case_type
+                for z  in y.case_level_sub_cate_link:
+                    z.case_sub_cate.case_cate = y.case_cate
+        return True
+
+
+class CaseLevelTree(models.Model):
+    _name = 'case.level.tree'
+    _rec_name = 'case_type'
+
+    level_link = fields.Many2one(comodel_name="case.level", string="Case Type", required=False, )
+    case_type = fields.Many2one(comodel_name="type.case", string="Case Type", required=False, )
+    case_level_cate = fields.One2many(comodel_name="case.level.cate", inverse_name="case_level_link", string="Case Level Category", required=False, )
+
+
+class CaseSubCate(models.Model):
+    _name = 'case.sub.cate'
+    _rec_name = 'name'
+    _description = 'Case Sub Category'
+
+    name = fields.Char(string="Case Sub Category", required=False, )
+    case_cate = fields.Many2one(comodel_name="cate.case", string="Case Category", required=False, )
+
+
+class CaseLevelCate(models.Model):
+    _name = 'case.level.cate'
+    _rec_name = 'case_cate'
+
+    case_cate = fields.Many2one(comodel_name="cate.case", string="Case Category", required=False, )
+    case_type = fields.Many2one(comodel_name="type.case", string="Case Type", required=False, )
+    case_level_link = fields.Many2one(comodel_name="case.level.tree", string="Case Level Category", required=False, )
+    case_level_sub_cate_link = fields.One2many(comodel_name="case.level.cate.sub", inverse_name="case_cate_level_link", string="Case Level Sub Category", required=False, )
+
+
+class CaseLevelCateSub(models.Model):
+    _name = 'case.level.cate.sub'
+    _rec_name = 'case_sub_cate'
+
+    case_cate = fields.Many2one(comodel_name="cate.case", string="Case Category", required=False, )
+    case_sub_cate = fields.Many2one(comodel_name="case.sub.cate", string="Case Sub Category", required=False, )
+    case_cate_level_link = fields.Many2one(comodel_name="case.level.cate", string="Case Level Sub Category", required=False, )
+
+
 class NewPage(http.Controller):
     @http.route('/police/',auth='public', website=True)
     def index(self):
         return http.request.render('police_project.index')
+
 
 class Websiste(Website):
     @http.route(auth='public')
     def index(self, data={},**kw):
         super(Website, self).index(**kw)
         return http.request.render('police_project.index', data)
+
+    class MainCase(models.Model):
+        _name = 'main.case'
+        _rec_name = 'name'
+
+        name = fields.Char(string="Case", required=False, )
+
