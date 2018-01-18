@@ -352,9 +352,7 @@
       <change beforePath="" afterPath="$PROJECT_DIR$/champion/working_161_champion/static/src/Test_Pass.xlsx" />
       <change beforePath="" afterPath="$PROJECT_DIR$/champion/working_161_champion/static/src/css/styles.css" />
       <change beforePath="" afterPath="$PROJECT_DIR$/champion/working_161_champion/views.xml" />
-      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/muhammad.xml" afterPath="$PROJECT_DIR$/.idea/dictionaries/muhammad.xml" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/logistic/custom_logistic/models.py" afterPath="$PROJECT_DIR$/logistic/custom_logistic/models.py" />
       <change beforePath="$PROJECT_DIR$/police/police_project/model.py" afterPath="$PROJECT_DIR$/police/police_project/model.py" />
       <change beforePath="$PROJECT_DIR$/police/police_project/templates.xml" afterPath="$PROJECT_DIR$/police/police_project/templates.xml" />
     </list>
@@ -370,11 +368,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="model.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="model.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/police/police_project/model.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1914">
-              <caret line="402" column="3" lean-forward="false" selection-start-line="402" selection-start-column="3" selection-end-line="402" selection-end-column="3" />
+            <state relative-caret-position="419">
+              <caret line="522" column="0" lean-forward="true" selection-start-line="522" selection-start-column="0" selection-end-line="522" selection-end-column="0" />
               <folding>
                 <element signature="e#216#2844#0" expanded="false" />
                 <element signature="e#2882#3448#0" expanded="false" />
@@ -393,38 +391,37 @@
                 <element signature="e#13191#13269#0" expanded="false" />
                 <element signature="e#13307#13375#0" expanded="false" />
                 <element signature="e#13410#13469#0" expanded="false" />
-                <element signature="e#13506#13909#0" expanded="false" />
-                <element signature="e#13946#14285#0" expanded="false" />
-                <element signature="e#14324#14488#0" expanded="false" />
-                <element signature="e#14525#14596#0" expanded="false" />
-                <element signature="e#14635#14695#0" expanded="false" />
-                <element signature="e#14733#14801#0" expanded="false" />
-                <element signature="e#14844#15016#0" expanded="false" />
-                <element signature="e#15063#15148#0" expanded="false" />
-                <element signature="e#15187#15339#0" expanded="false" />
-                <element signature="e#15383#15459#0" expanded="false" />
-                <element signature="e#15500#15666#0" expanded="false" />
-                <element signature="e#15703#15787#0" expanded="false" />
-                <element signature="e#15823#16000#0" expanded="false" />
-                <element signature="e#16037#16121#0" expanded="false" />
-                <element signature="e#16158#16242#0" expanded="false" />
-                <element signature="e#16280#16962#0" expanded="false" />
-                <element signature="e#17004#17402#0" expanded="false" />
-                <element signature="e#17442#17697#0" expanded="false" />
-                <element signature="e#17739#18279#0" expanded="false" />
-                <element signature="e#18324#18725#0" expanded="false" />
-                <element signature="e#18764#18895#0" expanded="false" />
-                <element signature="e#18927#19245#0" expanded="false" />
+                <element signature="e#13506#14147#0" expanded="false" />
+                <element signature="e#14184#14523#0" expanded="false" />
+                <element signature="e#14562#14726#0" expanded="false" />
+                <element signature="e#14763#14834#0" expanded="false" />
+                <element signature="e#14873#14933#0" expanded="false" />
+                <element signature="e#14971#15039#0" expanded="false" />
+                <element signature="e#15301#15386#0" expanded="false" />
+                <element signature="e#15425#15577#0" expanded="false" />
+                <element signature="e#15621#15697#0" expanded="false" />
+                <element signature="e#15738#15904#0" expanded="false" />
+                <element signature="e#15941#16025#0" expanded="false" />
+                <element signature="e#16061#16238#0" expanded="false" />
+                <element signature="e#16275#16359#0" expanded="false" />
+                <element signature="e#16396#16480#0" expanded="false" />
+                <element signature="e#16518#17602#0" expanded="false" />
+                <element signature="e#17644#18042#0" expanded="false" />
+                <element signature="e#18082#18337#0" expanded="false" />
+                <element signature="e#18379#18919#0" expanded="false" />
+                <element signature="e#18964#19365#0" expanded="false" />
+                <element signature="e#19404#19535#0" expanded="false" />
+                <element signature="e#19567#19885#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="templates.xml" pinned="false" current-in-tab="true">
+      <file leaf-file-name="templates.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/police/police_project/templates.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="282">
-              <caret line="874" column="10" lean-forward="true" selection-start-line="874" selection-start-column="10" selection-end-line="874" selection-end-column="10" />
+            <state relative-caret-position="1204">
+              <caret line="780" column="0" lean-forward="false" selection-start-line="780" selection-start-column="0" selection-end-line="780" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -441,12 +438,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>center.name</find>
-      <find>rece</find>
-      <find>road.tree</find>
-      <find>crea</find>
-      <find>w</find>
-      <find>write</find>
       <find>party_link</find>
       <find>traffic.receive</find>
       <find>road_act_id</find>
@@ -471,6 +462,12 @@
       <find>type.case</find>
       <find>case_cate_id</find>
       <find>case.type</find>
+      <find>create</find>
+      <find>road.name</find>
+      <find>center</find>
+      <find>center.name</find>
+      <find>center_id</find>
+      <find>receiving.party</find>
     </findStrings>
     <replaceStrings>
       <replace>traffic</replace>
@@ -534,8 +531,8 @@
         <option value="$PROJECT_DIR$/logistic/custom_logistic/models.py" />
         <option value="$PROJECT_DIR$/police/police_project/user_navbar.xml" />
         <option value="$PROJECT_DIR$/police/police_project/__manifest__.py" />
-        <option value="$PROJECT_DIR$/police/police_project/model.py" />
         <option value="$PROJECT_DIR$/police/police_project/templates.xml" />
+        <option value="$PROJECT_DIR$/police/police_project/model.py" />
       </list>
     </option>
   </component>
@@ -662,6 +659,17 @@
             <path>
               <item name="Projects" type="b2602c69:ProjectViewProjectNode" />
               <item name="Projects" type="462c0819:PsiDirectoryNode" />
+              <item name="fadi_al" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Projects" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Projects" type="462c0819:PsiDirectoryNode" />
+              <item name="fadi_al" type="462c0819:PsiDirectoryNode" />
+              <item name="hr_custom_employee_bcube_fadi" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Projects" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Projects" type="462c0819:PsiDirectoryNode" />
               <item name="police" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -669,23 +677,6 @@
               <item name="Projects" type="462c0819:PsiDirectoryNode" />
               <item name="police" type="462c0819:PsiDirectoryNode" />
               <item name="police_project" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Projects" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Projects" type="462c0819:PsiDirectoryNode" />
-              <item name="structure" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Projects" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Projects" type="462c0819:PsiDirectoryNode" />
-              <item name="structure" type="462c0819:PsiDirectoryNode" />
-              <item name="customer_payments_bcube_structure" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Projects" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Projects" type="462c0819:PsiDirectoryNode" />
-              <item name="structure" type="462c0819:PsiDirectoryNode" />
-              <item name="reg_form" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -1030,6 +1021,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="191">
           <caret line="268" column="93" lean-forward="false" selection-start-line="268" selection-start-column="93" selection-end-line="268" selection-end-column="93" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1054,13 +1046,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/fadi_al/hr_custom_employee_bcube_fadi/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="1200" column="13" lean-forward="false" selection-start-line="1200" selection-start-column="13" selection-end-line="1200" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/fadi_al/hr_custom_employee_bcube_fadi/templates.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="223">
@@ -1069,10 +1054,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/fadi_al/hr_custom_employee_bcube_fadi/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="169">
+          <caret line="1176" column="0" lean-forward="false" selection-start-line="1176" selection-start-column="0" selection-end-line="1176" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/police/police_project/templates.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1204">
+          <caret line="780" column="0" lean-forward="false" selection-start-line="780" selection-start-column="0" selection-end-line="780" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/police/police_project/model.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1914">
-          <caret line="402" column="3" lean-forward="false" selection-start-line="402" selection-start-column="3" selection-end-line="402" selection-end-column="3" />
+        <state relative-caret-position="419">
+          <caret line="522" column="0" lean-forward="true" selection-start-line="522" selection-start-column="0" selection-end-line="522" selection-end-column="0" />
           <folding>
             <element signature="e#216#2844#0" expanded="false" />
             <element signature="e#2882#3448#0" expanded="false" />
@@ -1091,37 +1092,28 @@
             <element signature="e#13191#13269#0" expanded="false" />
             <element signature="e#13307#13375#0" expanded="false" />
             <element signature="e#13410#13469#0" expanded="false" />
-            <element signature="e#13506#13909#0" expanded="false" />
-            <element signature="e#13946#14285#0" expanded="false" />
-            <element signature="e#14324#14488#0" expanded="false" />
-            <element signature="e#14525#14596#0" expanded="false" />
-            <element signature="e#14635#14695#0" expanded="false" />
-            <element signature="e#14733#14801#0" expanded="false" />
-            <element signature="e#14844#15016#0" expanded="false" />
-            <element signature="e#15063#15148#0" expanded="false" />
-            <element signature="e#15187#15339#0" expanded="false" />
-            <element signature="e#15383#15459#0" expanded="false" />
-            <element signature="e#15500#15666#0" expanded="false" />
-            <element signature="e#15703#15787#0" expanded="false" />
-            <element signature="e#15823#16000#0" expanded="false" />
-            <element signature="e#16037#16121#0" expanded="false" />
-            <element signature="e#16158#16242#0" expanded="false" />
-            <element signature="e#16280#16962#0" expanded="false" />
-            <element signature="e#17004#17402#0" expanded="false" />
-            <element signature="e#17442#17697#0" expanded="false" />
-            <element signature="e#17739#18279#0" expanded="false" />
-            <element signature="e#18324#18725#0" expanded="false" />
-            <element signature="e#18764#18895#0" expanded="false" />
-            <element signature="e#18927#19245#0" expanded="false" />
+            <element signature="e#13506#14147#0" expanded="false" />
+            <element signature="e#14184#14523#0" expanded="false" />
+            <element signature="e#14562#14726#0" expanded="false" />
+            <element signature="e#14763#14834#0" expanded="false" />
+            <element signature="e#14873#14933#0" expanded="false" />
+            <element signature="e#14971#15039#0" expanded="false" />
+            <element signature="e#15301#15386#0" expanded="false" />
+            <element signature="e#15425#15577#0" expanded="false" />
+            <element signature="e#15621#15697#0" expanded="false" />
+            <element signature="e#15738#15904#0" expanded="false" />
+            <element signature="e#15941#16025#0" expanded="false" />
+            <element signature="e#16061#16238#0" expanded="false" />
+            <element signature="e#16275#16359#0" expanded="false" />
+            <element signature="e#16396#16480#0" expanded="false" />
+            <element signature="e#16518#17602#0" expanded="false" />
+            <element signature="e#17644#18042#0" expanded="false" />
+            <element signature="e#18082#18337#0" expanded="false" />
+            <element signature="e#18379#18919#0" expanded="false" />
+            <element signature="e#18964#19365#0" expanded="false" />
+            <element signature="e#19404#19535#0" expanded="false" />
+            <element signature="e#19567#19885#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/police/police_project/templates.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="282">
-          <caret line="874" column="10" lean-forward="true" selection-start-line="874" selection-start-column="10" selection-end-line="874" selection-end-column="10" />
-          <folding />
         </state>
       </provider>
     </entry>

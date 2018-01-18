@@ -324,9 +324,17 @@ class RoadName(models.Model):
     name = fields.Char(string="Road Name")
     road_tree = fields.One2many(comodel_name="road.tree", inverse_name="road", string="Road Link", required=False, )
 
+    @api.model
+    def create(self, val):
+        record = super(RoadName, self).create(val)
+        for x in record.road_tree:
+            x.center.road_name = record.id
+            x.rec_party.road_name = record.id
+        return record
+
     @api.multi
-    def write(self, vals):
-        super(RoadName, self).write(vals)
+    def write(self, val):
+        super(RoadName, self).write(val)
         for x in self.road_tree:
             x.center.road_name = self.id
             x.rec_party.road_name = self.id
@@ -433,6 +441,18 @@ class CaseLevel(models.Model):
     case = fields.Many2one(comodel_name="main.case", string="Case", required=False, )
     tree_link = fields.One2many(comodel_name="case.level.tree", inverse_name="level_link", string="Case Type", required=False, )
 
+    @api.model
+    def create(self, val):
+        record = super(CaseLevel, self).create(val)
+        for x in record.tree_link:
+            x.case_type.case = record.case
+            for y in x.case_level_cate:
+                y.case_cate.case_type = x.case_type
+                for z  in y.case_level_sub_cate_link:
+                    z.case_sub_cate.case_cate = y.case_cate
+
+        return record
+
     @api.multi
     def write(self, val):
         super(CaseLevel, self).write(val)
@@ -499,4 +519,5 @@ class Websiste(Website):
         _rec_name = 'name'
 
         name = fields.Char(string="Case", required=False, )
+
 

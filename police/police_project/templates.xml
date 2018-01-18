@@ -662,7 +662,7 @@
 		                <group name="group_top">
 							<group name="group_left">
 								<field name="name"/>
-								<field name="road_name"/>
+								<field name="road_name" invisible="1"/>
 							</group>
 
 							<group name="group_right">
@@ -778,12 +778,17 @@
 		    <field name="model">case.level.cate.sub</field>
 		    <field name="arch" type="xml">
 		        <form string="Case Level Sub Category">
-		            <sheet>
-		                <group>
-		                    <field name="case_sub_cate"/>
-		                    <field name="case_cate" invisible="1"/>
-		                </group>
-		            </sheet>
+					<sheet>
+						<group name="group_top">
+							<group name="group_left">
+								<field name="case_sub_cate"/>
+								<field name="case_cate" invisible="1"/>
+							</group>
+
+							<group name="group_right">
+							</group>
+						</group>
+					</sheet>
 		        </form>
 		    </field>
 		</record>
@@ -794,11 +799,16 @@
 		    <field name="arch" type="xml">
 		        <form string="Case Sub Category">
 		            <sheet>
-		                <group>
-		                    <field name="name"/>
-		                    <field name="case_cate" invisible="1"/>
-		                </group>
-		            </sheet>
+						<group name="group_top">
+							<group name="group_left">
+								<field name="name"/>
+								<field name="case_cate" invisible="1"/>
+							</group>
+
+							<group name="group_right">
+							</group>
+						</group>
+					</sheet>
 		        </form>
 		    </field>
 		</record>
@@ -809,11 +819,16 @@
 		    <field name="arch" type="xml">
 		        <form string="Case Type">
 		            <sheet>
-		                <group>
-		                    <field name="name"/>
-		                    <field name="case" invisible="1"/>
-		                </group>
-		            </sheet>
+						<group name="group_top">
+							<group name="group_left">
+								<field name="name"/>
+								<field name="case" invisible="1"/>
+							</group>
+
+							<group name="group_right">
+							</group>
+						</group>
+					</sheet>
 		        </form>
 		    </field>
 		</record>
@@ -824,11 +839,36 @@
 		    <field name="arch" type="xml">
 		        <form string="Case Category">
 		            <sheet>
-		                <group>
-		                    <field name="name"/>
-		                    <field name="case_type" invisible="1"/>
-		                </group>
-		            </sheet>
+						<group name="group_top">
+							<group name="group_left">
+								<field name="name"/>
+								<field name="case_type" invisible="1"/>
+							</group>
+
+							<group name="group_right">
+							</group>
+						</group>
+					</sheet>
+		        </form>
+		    </field>
+		</record>
+
+		<record id="_id" model="ir.ui.view">
+			<field name="name">center_id</field>
+		    <field name="model">center.name</field>
+		    <field name="arch" type="xml">
+		        <form string="Center Name">
+		            <sheet>
+						<group name="group_top">
+							<group name="group_left">
+								<field name="name"/>
+								<field name="road_name" invisible="1"/>
+							</group>
+
+							<group name="group_right">
+							</group>
+						</group>
+					</sheet>
 		        </form>
 		    </field>
 		</record>
