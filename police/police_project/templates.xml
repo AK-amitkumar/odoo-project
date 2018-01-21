@@ -29,10 +29,10 @@
 								<field name="road_name" options="{'no_quick_create': True, 'no_create_edit' : True}"/>
 								<field name="center_name" domain="[('road_name','=',road_name)]" options="{'no_quick_create': True, 'no_create_edit' : True}"/>
 								<field name="location_name"/> 
-								<field name="digital_tag"/> 
+								<field name="digital_tag" domain="[('road_name','=',road_name)]" options="{'no_quick_create': True, 'no_create_edit' : True}"/>
 								<field name="direction_name"/> 
 								<field name="violation"/>
-								<field name="code"/>
+								<field name="code" domain="[('car_center','=',center_name)]" options="{'no_quick_create': True, 'no_create_edit' : True}"/>
 							</group>
 
 							<group name="group_right">
@@ -268,18 +268,18 @@
 			<field name="view_mode">tree,form,graph,calender,pivot</field>
 		</record>
 
-		<record id="violation_seq_id" model="ir.sequence">
-		  	<field name="name">violation_seq_id</field>
-		  	<field name="code">record.number</field>
-		  	<field name="prefix">Traffic Violation</field>
-		  	<field name="padding">4</field>
-		</record> 
-
 		<record id="police_seq_id" model="ir.sequence">
-		  	<field name="name">police_seq_id</field>
-		  	<field name="code">rec.number</field>
-		  	<field name="prefix">Violation</field>
-		  	<field name="padding">4</field>
+			<field name="name">police_seq_id</field>
+			<field name="code">rec.number</field>
+			<field name="prefix">Case</field>
+			<field name="padding">4</field>
+		</record>
+
+		<record id="violation_seq_id" model="ir.sequence">
+			<field name="name">violation_seq_id</field>
+			<field name="code">record.number</field>
+			<field name="prefix">Traffic Violation</field>
+			<field name="padding">4</field>
 		</record>
 
 		<record id="umrah_seq_id" model="ir.sequence">
@@ -596,11 +596,22 @@
 							<group name="group_right">
 							</group>
 						</group>
-						<h3>Linked Center and Receiving Party</h3>
+						<h3>Linked Center and Police Car Code</h3>
 						<field name="road_tree">
 							<tree>
 								<field name="center"/>
-								<field name="rec_party"/>
+							</tree>
+						</field>
+						<h3>Receiving Party</h3>
+						<field name="receiving_tree">
+							<tree>
+								<field name="name"/>
+							</tree>
+						</field>
+						<h3>Digital Tag</h3>
+						<field name="digital_tree">
+							<tree>
+								<field name="name"/>
 							</tree>
 						</field>
 		            </sheet>
@@ -673,21 +684,47 @@
 		    </field>
 		</record>
 
-		<record id="road_tree_id" model="ir.ui.view">
-		    <field name="name">road_tree_id</field>
-		    <field name="model">road.tree</field>
+		<record id="digital_tag_id" model="ir.ui.view">
+		    <field name="name">digital_tag_id</field>
+		    <field name="model">digital.tag</field>
 		    <field name="arch" type="xml">
-		        <form string="Linked Center and Receiving Party">
+		        <form string="Digital Tag">
 		            <sheet>
 		                <group name="group_top">
 							<group name="group_left">
-								<field name="center"/>
-								<field name="rec_party"/>
+								<field name="name"/>
+								<field name="road_name" invisible="1"/>
 							</group>
 
 							<group name="group_right">
 							</group>
 						</group>
+		            </sheet>
+		        </form>
+		    </field>
+		</record>
+
+		<record id="road_tree_id" model="ir.ui.view">
+		    <field name="name">road_tree_id</field>
+		    <field name="model">road.tree</field>
+		    <field name="arch" type="xml">
+		        <form string="Linked Center and Police Car Code">
+		            <sheet>
+		                <group name="group_top">
+							<group name="group_left">
+								<field name="center"/>
+							</group>
+
+							<group name="group_right">
+							</group>
+						</group>
+						<h3>Car Center</h3>
+						<field name="car_center_link" context="{'default_car_center':center}">
+							<tree>
+								<field name="name"/>
+								<field name="car_center" invisible="1"/>
+							</tree>
+						</field>
 		            </sheet>
 		        </form>
 		    </field>
@@ -826,6 +863,27 @@
 							</group>
 
 							<group name="group_right">
+							</group>
+						</group>
+					</sheet>
+		        </form>
+		    </field>
+		</record>
+
+			<record id="car_id" model="ir.ui.view">
+		    <field name="name">car_id</field>
+		    <field name="model">car.code</field>
+		    <field name="arch" type="xml">
+		        <form string="Police Car Code">
+		            <sheet>
+						<group name="group_top">
+							<group name="group_left">
+								<field name="name"/>
+								<field name="car_center" invisible="1"/>
+							</group>
+
+							<group name="group_right">
+								<field name="road_link" invisible="1"/>
 							</group>
 						</group>
 					</sheet>
@@ -990,7 +1048,7 @@
 			        <!--<div class="container">-->
 			          <!--<div class="row">-->
 			            <!--<div class="col-md-6 mt32 mb128">-->
-			              <!---->
+
 			            <!--</div>-->
 			            <!--<div class="col-md-6 mt64 mb32">&amp;nbsp;<h3><br/></h3><h3>Jeddah Police</h3>-->
 			              <!--<p><br/><span style="color: rgb(34, 34, 34); font-family: sans-serif;">A police force is a constituted body of persons empowered by a state to enforce the law, protect property, and limit civil disorder.Their powers include the legitimized use of force. The term is most commonly associated with police services of a sovereign state that are authorized to exercise the police power of that state within a defined legal or territorial area of responsibility. Police forces are often defined as being separate from military or other organizations involved in the defense of the state against foreign aggressors; however, gendarmerie is military units charged with civil policing.<br/></span><br/></p>-->

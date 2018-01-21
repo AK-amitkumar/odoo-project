@@ -141,7 +141,7 @@
 								<group name="group_right">
 									<field name="city"/>
 									<field name="state_id"/>
-									<field name="country_idd"/>
+									<field name="country_idd" options="{'no_quick_create': True, 'no_create_edit' : True}"/>
 									<field name="contact_no"/>
 								</group>
 							</group>
@@ -158,7 +158,7 @@
 								<group name="group_right">
 									<field name="p_city"/>
 									<field name="p_state_id"/>
-									<field name="p_country_id"/>
+									<field name="p_country_id" options="{'no_quick_create': True, 'no_create_edit' : True}"/>
 									<field name="p_contact_no"/>
 								</group>
 							</group>
@@ -305,6 +305,9 @@
 						<field name="bank_code"/>
 
 					</xpath>
+				<xpath expr="//field[@name='notes']" position="before">
+					<field name="status_id" label="Status"/>
+				</xpath>
 			</field>
 		
 		</record>
@@ -1059,9 +1062,9 @@
 								<field name="city" placeholder="City" class="o_address_city"/>
 								<field name="state_id" class="o_address_state" placeholder="State" options="{&quot;no_open&quot;: True}"/>
 								<field name="zip_code" placeholder="Postal /Zip Code" class="o_address_zip"/>
-								<field name="country_id" placeholder="Country" class="o_address_country" options="{&quot;no_open&quot;: True}"/>
+								<field name="country_id" placeholder="Country" class="o_address_country" options="{'no_quick_create': True, 'no_create_edit' : True}"/>
 							</div>
-							<field name="website" widget="url" placeholder="e.g. www.odoo.com"/>
+							<field name="website" widget="url" placeholder="e.g. www.bafco.com"/>
 						</group>
 						<group>
 							<field name="phone"/>

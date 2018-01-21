@@ -352,7 +352,13 @@
       <change beforePath="" afterPath="$PROJECT_DIR$/champion/working_161_champion/static/src/Test_Pass.xlsx" />
       <change beforePath="" afterPath="$PROJECT_DIR$/champion/working_161_champion/static/src/css/styles.css" />
       <change beforePath="" afterPath="$PROJECT_DIR$/champion/working_161_champion/views.xml" />
+      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/muhammad.xml" afterPath="$PROJECT_DIR$/.idea/dictionaries/muhammad.xml" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/BAFCO/hr_custom_employee_bcube/models.py" afterPath="$PROJECT_DIR$/BAFCO/hr_custom_employee_bcube/models.py" />
+      <change beforePath="$PROJECT_DIR$/BAFCO/hr_custom_employee_bcube/templates.xml" afterPath="$PROJECT_DIR$/BAFCO/hr_custom_employee_bcube/templates.xml" />
+      <change beforePath="$PROJECT_DIR$/fadi_al/hr_custom_employee_bcube_fadi/models.py" afterPath="$PROJECT_DIR$/fadi_al/hr_custom_employee_bcube_fadi/models.py" />
+      <change beforePath="$PROJECT_DIR$/fadi_al/hr_custom_employee_bcube_fadi/templates.xml" afterPath="$PROJECT_DIR$/fadi_al/hr_custom_employee_bcube_fadi/templates.xml" />
+      <change beforePath="$PROJECT_DIR$/police/police_project/i18n/ar_SY.po" afterPath="$PROJECT_DIR$/police/police_project/i18n/ar_SY.po" />
       <change beforePath="$PROJECT_DIR$/police/police_project/model.py" afterPath="$PROJECT_DIR$/police/police_project/model.py" />
       <change beforePath="$PROJECT_DIR$/police/police_project/templates.xml" afterPath="$PROJECT_DIR$/police/police_project/templates.xml" />
     </list>
@@ -368,60 +374,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="model.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/police/police_project/model.py">
+      <file leaf-file-name="templates.xml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/oil_kinetics/OK_delivery_slip/templates.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="419">
-              <caret line="522" column="0" lean-forward="true" selection-start-line="522" selection-start-column="0" selection-end-line="522" selection-end-column="0" />
-              <folding>
-                <element signature="e#216#2844#0" expanded="false" />
-                <element signature="e#2882#3448#0" expanded="false" />
-                <element signature="e#3485#4230#0" expanded="false" />
-                <element signature="e#4268#5267#0" expanded="false" />
-                <element signature="e#5314#5771#0" expanded="false" />
-                <element signature="e#5811#7488#0" expanded="false" />
-                <element signature="e#7532#8271#0" expanded="false" />
-                <element signature="e#8314#8733#0" expanded="false" />
-                <element signature="e#8777#11056#0" expanded="false" />
-                <element signature="e#11099#11533#0" expanded="false" />
-                <element signature="e#11580#12498#0" expanded="false" />
-                <element signature="e#12538#12923#0" expanded="false" />
-                <element signature="e#12964#13038#0" expanded="false" />
-                <element signature="e#13079#13153#0" expanded="false" />
-                <element signature="e#13191#13269#0" expanded="false" />
-                <element signature="e#13307#13375#0" expanded="false" />
-                <element signature="e#13410#13469#0" expanded="false" />
-                <element signature="e#13506#14147#0" expanded="false" />
-                <element signature="e#14184#14523#0" expanded="false" />
-                <element signature="e#14562#14726#0" expanded="false" />
-                <element signature="e#14763#14834#0" expanded="false" />
-                <element signature="e#14873#14933#0" expanded="false" />
-                <element signature="e#14971#15039#0" expanded="false" />
-                <element signature="e#15301#15386#0" expanded="false" />
-                <element signature="e#15425#15577#0" expanded="false" />
-                <element signature="e#15621#15697#0" expanded="false" />
-                <element signature="e#15738#15904#0" expanded="false" />
-                <element signature="e#15941#16025#0" expanded="false" />
-                <element signature="e#16061#16238#0" expanded="false" />
-                <element signature="e#16275#16359#0" expanded="false" />
-                <element signature="e#16396#16480#0" expanded="false" />
-                <element signature="e#16518#17602#0" expanded="false" />
-                <element signature="e#17644#18042#0" expanded="false" />
-                <element signature="e#18082#18337#0" expanded="false" />
-                <element signature="e#18379#18919#0" expanded="false" />
-                <element signature="e#18964#19365#0" expanded="false" />
-                <element signature="e#19404#19535#0" expanded="false" />
-                <element signature="e#19567#19885#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="templates.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/police/police_project/templates.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1204">
-              <caret line="780" column="0" lean-forward="false" selection-start-line="780" selection-start-column="0" selection-end-line="780" selection-end-column="0" />
+            <state relative-caret-position="88">
+              <caret line="4" column="29" lean-forward="false" selection-start-line="4" selection-start-column="29" selection-end-line="4" selection-end-column="29" />
               <folding />
             </state>
           </provider>
@@ -438,36 +395,36 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>party_link</find>
-      <find>traffic.receive</find>
-      <find>road_act_id</find>
-      <find>case_act_id</find>
-      <find>attrs</find>
-      <find>case_act</find>
-      <find>case_level_id</find>
-      <find>context</find>
-      <find>case_level_tree_id</find>
-      <find>tree_link</find>
-      <find>case_ca</find>
-      <find>cate.case</find>
-      <find>case.sub.cate</find>
-      <find>invisible</find>
-      <find>case.type1</find>
-      <find>unl</find>
-      <find>domain</find>
-      <find>option</find>
-      <find>case_type_id</find>
-      <find>ase_type</find>
-      <find>case_type</find>
-      <find>type.case</find>
-      <find>case_cate_id</find>
-      <find>case.type</find>
       <find>create</find>
-      <find>road.name</find>
       <find>center</find>
       <find>center.name</find>
       <find>center_id</find>
+      <find>mean</find>
+      <find>case.level</find>
+      <find>main.case</find>
+      <find>violation</find>
+      <find>cate_case</find>
+      <find>case</find>
+      <find>Status</find>
+      <find>requried</find>
+      <find>status</find>
+      <find>hr.emp</find>
+      <find>address</find>
+      <find>country</find>
+      <find>no</find>
+      <find>many2</find>
+      <find>road.tree</find>
+      <find>receiving</find>
+      <find>rec_party</find>
+      <find>road.name</find>
+      <find>road_tree</find>
+      <find>road_id</find>
       <find>receiving.party</find>
+      <find>0</find>
+      <find>00</find>
+      <find>car.code</find>
+      <find>digi</find>
+      <find>pad</find>
     </findStrings>
     <replaceStrings>
       <replace>traffic</replace>
@@ -493,10 +450,8 @@
         <option value="$PROJECT_DIR$/saif/mytemp/models/models.py.template" />
         <option value="$PROJECT_DIR$/fadi_al/hr_custom_employee_bcube_fadi/i18n/hr_custom_employee_bcube_fadi.pot" />
         <option value="$PROJECT_DIR$/structure/reg_form/models.py" />
-        <option value="$PROJECT_DIR$/fadi_al/hr_custom_employee_bcube_fadi/models.py" />
         <option value="$PROJECT_DIR$/fadi_al/hr_custom_employee_bcube_fadi/i18n/ar.po" />
         <option value="$PROJECT_DIR$/fadi_al/hr_custom_employee_bcube_fadi/i18n/ar_SY.po" />
-        <option value="$PROJECT_DIR$/fadi_al/hr_custom_employee_bcube_fadi/templates.xml" />
         <option value="$PROJECT_DIR$/police/police_project/i18n/police_project.pot" />
         <option value="$PROJECT_DIR$/police/police_project/__init__.py" />
         <option value="$PROJECT_DIR$/logistic/custom_logistic/supplier.py" />
@@ -512,7 +467,6 @@
         <option value="$PROJECT_DIR$/turkina (copy)/vat_invoice/views/module_report.xml" />
         <option value="$PROJECT_DIR$/police/test1/views/views.xml" />
         <option value="$PROJECT_DIR$/police/police_project/static/src/css/style.css" />
-        <option value="$PROJECT_DIR$/police/police_project/i18n/ar_SY.po" />
         <option value="$PROJECT_DIR$/police/web_islamic_datepicker_v8/res_users.py" />
         <option value="$PROJECT_DIR$/police/web_islamic_datepicker_v8/views/web_linkedin.xml" />
         <option value="$PROJECT_DIR$/logistic/rowno_in_tree/static/src/xml/base.xml" />
@@ -531,8 +485,13 @@
         <option value="$PROJECT_DIR$/logistic/custom_logistic/models.py" />
         <option value="$PROJECT_DIR$/police/police_project/user_navbar.xml" />
         <option value="$PROJECT_DIR$/police/police_project/__manifest__.py" />
-        <option value="$PROJECT_DIR$/police/police_project/templates.xml" />
+        <option value="$PROJECT_DIR$/police/police_project/i18n/ar_SY.po" />
+        <option value="$PROJECT_DIR$/fadi_al/hr_custom_employee_bcube_fadi/models.py" />
+        <option value="$PROJECT_DIR$/BAFCO/hr_custom_employee_bcube/models.py" />
+        <option value="$PROJECT_DIR$/BAFCO/hr_custom_employee_bcube/templates.xml" />
+        <option value="$PROJECT_DIR$/fadi_al/hr_custom_employee_bcube_fadi/templates.xml" />
         <option value="$PROJECT_DIR$/police/police_project/model.py" />
+        <option value="$PROJECT_DIR$/police/police_project/templates.xml" />
       </list>
     </option>
   </component>
@@ -588,7 +547,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="Scope">
         <subPane subId="Project Files">
           <expand>
@@ -649,6 +607,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -659,24 +618,13 @@
             <path>
               <item name="Projects" type="b2602c69:ProjectViewProjectNode" />
               <item name="Projects" type="462c0819:PsiDirectoryNode" />
-              <item name="fadi_al" type="462c0819:PsiDirectoryNode" />
+              <item name="oil_kinetics" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Projects" type="b2602c69:ProjectViewProjectNode" />
               <item name="Projects" type="462c0819:PsiDirectoryNode" />
-              <item name="fadi_al" type="462c0819:PsiDirectoryNode" />
-              <item name="hr_custom_employee_bcube_fadi" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Projects" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Projects" type="462c0819:PsiDirectoryNode" />
-              <item name="police" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Projects" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Projects" type="462c0819:PsiDirectoryNode" />
-              <item name="police" type="462c0819:PsiDirectoryNode" />
-              <item name="police_project" type="462c0819:PsiDirectoryNode" />
+              <item name="oil_kinetics" type="462c0819:PsiDirectoryNode" />
+              <item name="OK_delivery_slip" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -686,7 +634,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="last_opened_file_path" value="$USER_HOME$/odoo8-dev/Projects8" />
-    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Python" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Color Scheme Font" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -734,14 +682,14 @@
     <frame x="67" y="25" width="1613" height="1025" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13836478" sideWeight="0.49552572" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22264151" sideWeight="0.49552572" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32997763" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3293348" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32885906" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295688" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24968554" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26510066" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26398212" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22012578" sideWeight="0.5044743" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -800,14 +748,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/logistic/bi_professional_reports_templates/static/description/po_m_1.png" />
-    <entry file="file://$PROJECT_DIR$/logistic/bi_professional_reports_templates/static/description/purchase_odoo.png" />
-    <entry file="file://$PROJECT_DIR$/logistic/bi_professional_reports_templates/static/description/Banner.png" />
-    <entry file="file://$PROJECT_DIR$/logistic/bi_professional_reports_templates/static/description/bi_logo.png" />
-    <entry file="file://$PROJECT_DIR$/logistic/bi_professional_reports_templates/static/description/compnay_config.png" />
-    <entry file="file://$PROJECT_DIR$/logistic/bi_professional_reports_templates/static/description/cust_inv_fency.png" />
-    <entry file="file://$PROJECT_DIR$/logistic/bi_professional_reports_templates/static/description/cust_invoice_classic.png" />
-    <entry file="file://$PROJECT_DIR$/logistic/bi_professional_reports_templates/purchase_report/classic_purchase_report.xml" />
     <entry file="file://$PROJECT_DIR$/logistic/bi_professional_reports_templates/static/description/index.html" />
     <entry file="file://$PROJECT_DIR$/a_com/account_parent/models/account.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -939,13 +879,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/police/police_project/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/mr_fabrics/report_header_footer/__manifest__.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -989,13 +922,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/logistic/custom_logistic/report.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="42">
-          <caret line="208" column="56" lean-forward="false" selection-start-line="208" selection-start-column="56" selection-end-line="208" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/logistic/custom_logistic/supplier.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="191">
@@ -1003,32 +929,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/logistic/custom_logistic/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="191">
-          <caret line="251" column="29" lean-forward="false" selection-start-line="251" selection-start-column="28" selection-end-line="251" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/BAFCO/hr_custom_employee_bcube/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="1197" column="0" lean-forward="false" selection-start-line="1197" selection-start-column="0" selection-end-line="1198" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/structure/reg_form/templates.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="191">
           <caret line="268" column="93" lean-forward="false" selection-start-line="268" selection-start-column="93" selection-end-line="268" selection-end-column="93" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/BAFCO/hr_custom_employee_bcube/templates.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="191">
-          <caret line="80" column="55" lean-forward="false" selection-start-line="80" selection-start-column="48" selection-end-line="80" selection-end-column="55" />
         </state>
       </provider>
     </entry>
@@ -1046,74 +950,131 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/fadi_al/hr_custom_employee_bcube_fadi/templates.xml">
+    <entry file="file://$PROJECT_DIR$/police/police_project/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="223">
-          <caret line="48" column="111" lean-forward="false" selection-start-line="48" selection-start-column="111" selection-end-line="48" selection-end-column="111" />
-          <folding />
+        <state relative-caret-position="44">
+          <caret line="2" column="18" lean-forward="false" selection-start-line="2" selection-start-column="18" selection-end-line="2" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/logistic/custom_logistic/report.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2787">
+          <caret line="208" column="56" lean-forward="false" selection-start-line="208" selection-start-column="56" selection-end-line="208" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/logistic/custom_logistic/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="191">
+          <caret line="63" column="51" lean-forward="false" selection-start-line="63" selection-start-column="45" selection-end-line="63" selection-end-column="51" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/fadi_al/hr_custom_employee_bcube_fadi/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="169">
-          <caret line="1176" column="0" lean-forward="false" selection-start-line="1176" selection-start-column="0" selection-end-line="1176" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="204">
+          <caret line="92" column="0" lean-forward="false" selection-start-line="92" selection-start-column="0" selection-end-line="93" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/police/police_project/templates.xml">
+    <entry file="file://$PROJECT_DIR$/BAFCO/hr_custom_employee_bcube/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1204">
-          <caret line="780" column="0" lean-forward="false" selection-start-line="780" selection-start-column="0" selection-end-line="780" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="138">
+          <caret line="87" column="0" lean-forward="true" selection-start-line="87" selection-start-column="0" selection-end-line="87" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BAFCO/hr_custom_employee_bcube/templates.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="301">
+          <caret line="160" column="123" lean-forward="false" selection-start-line="160" selection-start-column="123" selection-end-line="160" selection-end-column="123" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fadi_al/hr_custom_employee_bcube_fadi/templates.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="686">
+          <caret line="602" column="53" lean-forward="false" selection-start-line="602" selection-start-column="46" selection-end-line="602" selection-end-column="53" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/police/police_project/model.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="419">
-          <caret line="522" column="0" lean-forward="true" selection-start-line="522" selection-start-column="0" selection-end-line="522" selection-end-column="0" />
+        <state relative-caret-position="1138">
+          <caret line="381" column="39" lean-forward="false" selection-start-line="381" selection-start-column="39" selection-end-line="381" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/police/police_project/templates.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="339">
+          <caret line="17" column="29" lean-forward="true" selection-start-line="17" selection-start-column="29" selection-end-line="17" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/police/police_project/i18n/ar_SY.po">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="367">
+          <caret line="562" column="11" lean-forward="true" selection-start-line="562" selection-start-column="11" selection-end-line="562" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/a_com/account_parent/security/account_parent_security.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="242">
+          <caret line="11" column="6" lean-forward="false" selection-start-line="11" selection-start-column="6" selection-end-line="11" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/oil_kinetics/OK_purchase_order/templates.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/oil_kinetics/OK_purchase_order/NtoW.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#216#2844#0" expanded="false" />
-            <element signature="e#2882#3448#0" expanded="false" />
-            <element signature="e#3485#4230#0" expanded="false" />
-            <element signature="e#4268#5267#0" expanded="false" />
-            <element signature="e#5314#5771#0" expanded="false" />
-            <element signature="e#5811#7488#0" expanded="false" />
-            <element signature="e#7532#8271#0" expanded="false" />
-            <element signature="e#8314#8733#0" expanded="false" />
-            <element signature="e#8777#11056#0" expanded="false" />
-            <element signature="e#11099#11533#0" expanded="false" />
-            <element signature="e#11580#12498#0" expanded="false" />
-            <element signature="e#12538#12923#0" expanded="false" />
-            <element signature="e#12964#13038#0" expanded="false" />
-            <element signature="e#13079#13153#0" expanded="false" />
-            <element signature="e#13191#13269#0" expanded="false" />
-            <element signature="e#13307#13375#0" expanded="false" />
-            <element signature="e#13410#13469#0" expanded="false" />
-            <element signature="e#13506#14147#0" expanded="false" />
-            <element signature="e#14184#14523#0" expanded="false" />
-            <element signature="e#14562#14726#0" expanded="false" />
-            <element signature="e#14763#14834#0" expanded="false" />
-            <element signature="e#14873#14933#0" expanded="false" />
-            <element signature="e#14971#15039#0" expanded="false" />
-            <element signature="e#15301#15386#0" expanded="false" />
-            <element signature="e#15425#15577#0" expanded="false" />
-            <element signature="e#15621#15697#0" expanded="false" />
-            <element signature="e#15738#15904#0" expanded="false" />
-            <element signature="e#15941#16025#0" expanded="false" />
-            <element signature="e#16061#16238#0" expanded="false" />
-            <element signature="e#16275#16359#0" expanded="false" />
-            <element signature="e#16396#16480#0" expanded="false" />
-            <element signature="e#16518#17602#0" expanded="false" />
-            <element signature="e#17644#18042#0" expanded="false" />
-            <element signature="e#18082#18337#0" expanded="false" />
-            <element signature="e#18379#18919#0" expanded="false" />
-            <element signature="e#18964#19365#0" expanded="false" />
-            <element signature="e#19404#19535#0" expanded="false" />
-            <element signature="e#19567#19885#0" expanded="false" />
+            <element signature="e#0#39#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/a_com/account_parent/security/ir.model.access.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="22">
+          <caret line="1" column="0" lean-forward="true" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/oil_kinetics/repott/model.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-360">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/oil_kinetics/repott/template.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/oil_kinetics/OK_delivery_slip/templates.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="88">
+          <caret line="4" column="29" lean-forward="false" selection-start-line="4" selection-start-column="29" selection-end-line="4" selection-end-column="29" />
+          <folding />
         </state>
       </provider>
     </entry>

@@ -497,7 +497,7 @@ msgstr "نوع الحالة"
 
 #. module: police_project
 #: model:ir.model.fields,field_description:police_project.field_case_type1_cate_case
-msgid "Case Category"
+msgid "Violation Category"
 msgstr "نوع المخالفة"
 
 #. module: police_project

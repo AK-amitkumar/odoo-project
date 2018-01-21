@@ -42,8 +42,8 @@ class Hr_Employee(models.Model):
     insurance_id = fields.One2many('hr.insurance', 'insurance_relation', string="Insurance")
     experience_id = fields.One2many('hr.experience', 'experience_relation', string="Experience")
     documents_id = fields.One2many('hr.documents', 'documents_relation', string="Documents")
-    issue = fields.Date("Issue Date", required=True)
-    expiry = fields.Date("Expiry Date", required=True)
+    issue = fields.Date("Issue Date")
+    expiry = fields.Date("Expiry Date")
     job_idd = fields.Many2one('designation.info', string="Job Id")
     passport_idd = fields.Many2one('hr.documents', string="Passport No")
     depend = fields.Boolean("Have Dependent")
@@ -90,6 +90,7 @@ class Hr_Employee(models.Model):
     r_mail = fields.Char("Email")
     r_remark = fields.Char("Remarks")
     reason = fields.Char(string="Reason")
+    status_id = fields.Many2one(comodel_name="status", string="Status", required=False, )
 
     # c_athu = fields.Selection([(
     #     'yes', 'Yes'),
@@ -144,6 +145,12 @@ class Hr_Employee(models.Model):
                     years = r.years
                     months = r.months
                     self.serv_year = "%s Months" % months
+
+    
+    # @api.model
+    # def create(self, values):
+    #     record = super(Hr_Employee, self).create(values)
+    #     return record
 
 
 # Dependent
@@ -1174,31 +1181,38 @@ class HRDep(models.Model):
 
     dep_link = fields.Many2one('department.info')
 
-    @api.model
-    def create(self, vals):
-        new_record = super(HRDep, self).create(vals)
-        data = self.env['department.info'].create({
-            'department': new_record.name,
-            'parent_dep': new_record.parent_id.id,
-            'manager': new_record.manager_id.id,
+    # @api.model
+    # def create(self, vals):
+    #     new_record = super(HRDep, self).create(vals)
+    #     data = self.env['department.info'].create({
+    #         'department': new_record.name,
+    #         'parent_dep': new_record.parent_id.id,
+    #         'manager': new_record.manager_id.id,
 
-        })
-        new_record.dep_link = data.id
+    #     })
+    #     new_record.dep_link = data.id
 
-        return new_record
+    #     return new_record
 
-    @api.multi
-    def write(self, vals):
-        super(HRDep, self).write(vals)
-        if self.dep_link:
-            self.dep_link.department = self.name
-            self.dep_link.parent_dep = self.parent_id.id
-            self.dep_link.manager = self.manager_id.id
+    # @api.multi
+    # def write(self, vals):
+    #     super(HRDep, self).write(vals)
+    #     if self.dep_link:
+    #         self.dep_link.department = self.name
+    #         self.dep_link.parent_dep = self.parent_id.id
+    #         self.dep_link.manager = self.manager_id.id
 
-        return True
+    #     return True
 
     @api.multi
     def unlink(self):
         self.dep_link.unlink()
         super(HRDep, self).unlink()
         return True
+
+
+class Status(models.Model):
+    _name = 'status'
+    _rec_name = 'name'
+
+    name = fields.Char(string="Status", required=True)

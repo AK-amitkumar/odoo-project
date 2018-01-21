@@ -19,7 +19,7 @@ class PoliceDetail(models.Model):
     digital_tag = fields.Many2one('digital.tag', string="Digital Tag")
     direction_name = fields.Many2one('direction.name', string="Direction Name")
     violation = fields.Char(string='Time of Violation')
-    code = fields.Char(string='Code of Police CAR')
+    code = fields.Many2one(comodel_name="car.code",string='Code of Police CAR')
     police_officer = fields.Char(string='Police Officer 1')
     rank_officer = fields.Char(string='Rank of officer 1')
     PID1 = fields.Char(string="Officer 1 ID", required=False, )
@@ -63,7 +63,7 @@ class CaseType1(models.Model):
     _name = 'case.type1'
     _rec_name = 'case_type'
     case_type = fields.Many2one(comodel_name="type.case", string="Violation Type", required=False, )
-    cate_case = fields.Many2one(comodel_name="cate.case", string="Case Category", required=False, )
+    cate_case = fields.Many2one(comodel_name="cate.case", string="Violation Category", required=False, )
     qty = fields.Char(string="Quantity",  required=False, )
     vio_code = fields.Char(string="Violation Code ",  required=False, )
     vio_number = fields.Char(string="Violation Number",  required=False, )
@@ -300,7 +300,7 @@ class HospitalName(models.Model):
     name = fields.Char(string="Name of Hospital")
 
 
-class MaenTrans(models.Model):
+class MeanTrans(models.Model):
     _name = 'mean.trans'
 
     name = fields.Char(string="Means of Transportation")
@@ -323,13 +323,21 @@ class RoadName(models.Model):
 
     name = fields.Char(string="Road Name")
     road_tree = fields.One2many(comodel_name="road.tree", inverse_name="road", string="Road Link", required=False, )
+    receiving_tree = fields.One2many(comodel_name="receiving.party", inverse_name="road_link", string="Road Link", required=False, )
+    digital_tree = fields.One2many(comodel_name="digital.tag", inverse_name="road_link", string="Road Link", required=False, )
 
     @api.model
     def create(self, val):
         record = super(RoadName, self).create(val)
         for x in record.road_tree:
             x.center.road_name = record.id
-            x.rec_party.road_name = record.id
+            for y in x.car_center_link:
+                y.car_center = x.center
+        for z in record.receiving_tree:
+            z.road_name = record.id
+        for rec in record.digital_tree:
+            rec.road_name = record.id
+
         return record
 
     @api.multi
@@ -337,7 +345,12 @@ class RoadName(models.Model):
         super(RoadName, self).write(val)
         for x in self.road_tree:
             x.center.road_name = self.id
-            x.rec_party.road_name = self.id
+            for y in x.car_center_link:
+                y.car_center = x.center
+        for z in self.receiving_tree:
+            z.road_name = self.id
+        for rec in self.digital_tree:
+            rec.road_name = self.id
         return True
 
 
@@ -346,8 +359,8 @@ class RoadTree(models.Model):
     _rec_name = 'road'
 
     center = fields.Many2one(comodel_name="center.name", string="Center Name", required=False, )
-    rec_party = fields.Many2one(comodel_name="receiving.party", string="Receiving Party", required=False, )
     road = fields.Many2one(comodel_name="road.name", string="Road Tree", required=False, )
+    car_center_link = fields.One2many(comodel_name="car.code", inverse_name="road_link", string="Car Center", required=False, )
 
 
 class CenterName(models.Model):
@@ -366,7 +379,9 @@ class Location(models.Model):
 class DigitalTag(models.Model):
     _name = 'digital.tag'
 
-    name = fields.Char(string="Name")
+    name = fields.Char(string="Digital Tag")
+    road_name = fields.Many2one(comodel_name="road.name", string="Road Name", required=False, )
+    road_link = fields.Many2one(comodel_name="road.name", string="Road Link", required=False, )
 
 
 class Direction(models.Model):
@@ -380,7 +395,7 @@ class ReceivingParty(models.Model):
 
     name = fields.Char(string="Receiving Party")
     road_name  = fields.Many2one(comodel_name="road.name", string="Road Name", required=False, )
-
+    road_link = fields.Many2one(comodel_name="road.name", string="Road Link", required=False, )
 
 class ReceivingPartyRank(models.Model):
     _name = 'receiving.party.rank'
@@ -502,22 +517,37 @@ class CaseLevelCateSub(models.Model):
     case_cate_level_link = fields.Many2one(comodel_name="case.level.cate", string="Case Level Sub Category", required=False, )
 
 
-class NewPage(http.Controller):
-    @http.route('/police/',auth='public', website=True)
-    def index(self):
-        return http.request.render('police_project.index')
-
-
-class Websiste(Website):
-    @http.route(auth='public')
-    def index(self, data={},**kw):
-        super(Website, self).index(**kw)
-        return http.request.render('police_project.index', data)
-
-    class MainCase(models.Model):
+class MainCase(models.Model):
         _name = 'main.case'
         _rec_name = 'name'
 
         name = fields.Char(string="Case", required=False, )
+
+
+
+class CarCode(models.Model):
+    _name = 'car.code'
+    _rec_name = 'name'
+
+    name = fields.Char(string="Code of Police CAR")
+    car_center = fields.Many2one(comodel_name="center.name", string="Center Name", required=False, )
+    road_link = fields.Many2one(comodel_name="road.tree", string="Road Tree Link", required=False, )
+
+
+
+
+#
+# class NewPage(http.Controller):
+#     @http.route('/police/',auth='public', website=True)
+#     def index(self):
+#         return http.request.render('police_project.index')
+#
+#
+# class Websiste(Website):
+#     @http.route(auth='public')
+#     def index(self, data={},**kw):
+#         super(Website, self).index(**kw)
+#         return http.request.render('police_project.index', data)
+
 
 

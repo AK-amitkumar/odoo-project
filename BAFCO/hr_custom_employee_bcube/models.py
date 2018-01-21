@@ -84,7 +84,8 @@ class Hr_Employee(models.Model):
 	r_remark = fields.Char("Remarks")
 	reason = fields.Char(string="Reason")
 	same_add = fields.Boolean(string="Same Address")
-	
+	status_id = fields.Many2one(comodel_name="status", string="Status", required=False, )
+
 	c_athu = fields.Selection([(
 		'yes','Yes'),
 		('no','No'),],string="Clearing Authority",required=True)
@@ -1203,3 +1204,9 @@ class HRDep(models.Model):
 		self.dep_link.unlink() 
 		super(HRDep, self).unlink()
 		return True
+
+class Status(models.Model):
+	_name = 'status'
+	_rec_name = 'name'
+
+	name = fields.Char(string="Status", required=True)
