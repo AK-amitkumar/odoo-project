@@ -1,0 +1,5 @@
+<openerp>
+    <data noupdate="1">
+        <function model="google.inte" name="install"/>
+    </data>
+</openerp>

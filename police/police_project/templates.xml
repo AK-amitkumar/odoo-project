@@ -13,9 +13,7 @@
 			<field name="model">police.detail</field> 
 			<field name="arch" type="xml"> 
 				<form string="Police  Records">
-					<header>
-		                <button name="confirm" type="object" class= "oe_highlight" string="confirmed"/>
-		            </header>
+
 					<sheet>
 						<div class="low_width">
 						<h3>Case Details</h3>
@@ -58,7 +56,7 @@
 			                    <field name="case_type" options="{'no_quick_create': True, 'no_create_edit' : True}"/>
 			                    <field name="cate_case" options="{'no_quick_create': True, 'no_create_edit' : True}"/>
 			                    <field name="sub_cate_case" options="{'no_quick_create': True, 'no_create_edit' : True}"/>
-			                    <field name="qty"/>
+			                    <!--<field name="qty"/>-->
 			                </tree>
 			            </field>
 
@@ -70,7 +68,7 @@
 			                    <field name="driver_country"/>
 			                    <field name="id_type"/>
 			                    <field name="what_found"/>
-			                    <!--<field name="qty"/>-->
+			                    <field name="qty"/>
 			                    <field name="accident_reason"/>
 			                </tree>
 			            </field> 
@@ -211,7 +209,7 @@
 								<field name="case_type" domain="[('case','=',main_case)]" options="{'no_quick_create': True, 'no_create_edit' : True}"/>
 			                    <field name="cate_case" domain="[('case_type','=',case_type)]" options="{'no_quick_create': True, 'no_create_edit' : True}"/>
 			                    <field name="sub_cate_case" domain="[('case_cate','=',cate_case)]" options="{'no_quick_create': True, 'no_create_edit' : True}"/>
-			                    <field name="qty"/>
+			                    <!--<field name="qty"/>-->
 							</group>
 						</div>
 		            </sheet>
@@ -313,7 +311,7 @@
 							<field name="car_model"/>
 							<field name="car_plate"/>
 							<field name="what_found"/>
-							<!--<field name="qty"/>-->
+							<field name="qty"/>
 							<field name="accident_reason"/>
 							<field name="result"/>
 							<field name="mean_trans"/>
@@ -419,9 +417,7 @@
 			<field name="model">violation.detail</field> 
 			<field name="arch" type="xml"> 
 				<form string="Traffic Violation Records">
-					<header>
-		                <button name="confirm" type="object" class= "oe_highlight" string="confirmed"/>
-		            </header>
+
 					<sheet>
 						<div  class="low_width">
 							<h3>Traffic Violation Details</h3>
@@ -435,7 +431,7 @@
 								<field name="road_name" options="{'no_quick_create': True, 'no_create_edit' : True}"/>
 								<field name="center_name" domain="[('road_name','=',road_name)]" options="{'no_quick_create': True, 'no_create_edit' : True}"/>
 								<field name="location_name"/>
-								<field name="digital_tag"/>
+								<field name="digital_tag" domain="[('road_name','=',road_name)]" options="{'no_quick_create': True, 'no_create_edit' : True}"/>
 								<field name="direction_name"/>
 								<field name="violation"/>
 							</group>
