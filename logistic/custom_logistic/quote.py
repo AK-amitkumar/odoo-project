@@ -20,8 +20,7 @@ class AccountMoveLineInher(models.Model):
 			for x in trans.route_id:
 				if self.form.id == x.form.id and self.to.id == x.to.id and self.fleet_type == x.fleet_type:
 					self.price_unit = x.trans_charges
-	
-   
+
 class TransportInfo(models.Model):
 	_inherit = 'sale.order'
 
@@ -120,7 +119,6 @@ class TransportInfo(models.Model):
 			for x in trans.route_id:
 				if self.form_t.id == x.form.id and self.to_t.id == x.to.id and self.fleet_type == x.fleet_type:
 					self.suppl_freight = x.trans_charges
-
 
 class AccountInvoiceTree(models.Model):
 	_inherit = 'account.invoice.line'

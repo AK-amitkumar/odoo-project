@@ -222,7 +222,7 @@ class XlsxReport(models.Model):
 						else:
 							r_o = ''
 						worksheet.write_string (row, col+19,str(r_o),main_data)
-						if x.pre_bayan and x.shipper_date:
+						if x.pre_bayan and x.bayan_date:
 							s_r = (datetime.date(datetime.strptime(x.pre_bayan,'%Y-%m-%d')) - datetime.date(datetime.strptime(x.bayan_date,'%Y-%m-%d'))).days
 						else:
 							s_r = ''

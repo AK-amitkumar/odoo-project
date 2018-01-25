@@ -66,7 +66,7 @@ class XlsxReport(models.Model):
 	
 	@api.multi
 	def xlsx_report(self,input_records,ttype):
-		with xlsxwriter.Workbook("/home/muhammad/odoo-dev/Projects/logistic/custom_logistic/static/src/lib/SHIPMENT_STATUS_REPORT.xlsx") as workbook:
+		with xlsxwriter.Workbook("/home/odoo/odoo-dev/odoo/custom-addons/custom_logistic/static/src/lib/SHIPMENT_STATUS_REPORT.xlsx") as workbook:
 			main_heading = workbook.add_format({
 				"bold": 1, 
 				"border": 1,

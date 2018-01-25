@@ -24,8 +24,6 @@ class ExportLogic(models.Model):
 	eta              = fields.Date(string="ETA")
 	etd              = fields.Date(string="ETD")
 	about            = fields.Char(string="On Or About")
-	twen_ft          = fields.Integer(string="20 ft")
-	fort_ft          = fields.Integer(string="40 ft")
 	bayan_no         = fields.Char(string="Bayan No")
 	bayan_attach     = fields.Binary(string=" ")
 	final_bayan      = fields.Char(string="Final Bayan")
@@ -135,6 +133,19 @@ class ExportLogic(models.Model):
 	@api.multi
 	def prebay(self):
 		self.state = "pre"
+
+		# Data to plot
+		labels = 'Python', 'C++', 'Ruby', 'Java'
+		sizes = [215, 130, 245, 210]
+		colors = ['gold', 'yellowgreen', 'lightcoral', 'lightskyblue']
+		explode = (0.1, 0, 0, 0)  # explode 1st slice
+
+		# Plot
+		plt.pie(sizes, explode=explode, labels=labels, colors=colors,
+				autopct='%1.1f%%', shadow=True, startangle=140)
+
+		plt.axis('equal')
+		plt.show()
 
 	@api.multi
 	def initialbay(self):
@@ -372,8 +383,6 @@ class ImportLogic(models.Model):
 	bill_attach      = fields.Binary(string=" ")
 	bill_no          = fields.Char(string="BL / AWB Number")
 	rot_no           = fields.Char(string="Rotation Number/Sequence Number")
-	twen_ft          = fields.Integer(string="20 ft")
-	fort_ft          = fields.Integer(string="40 ft")
 	do_attach        = fields.Binary(string=" ")
 	do_no            = fields.Date(string="Do No.")
 	acc_link         = fields.Many2one('account.invoice',string="Invoice",readonly=True)
@@ -649,14 +658,28 @@ class ImportContTree(models.Model):
 
 class SiteLogic(models.Model):
 	_name = 'import.site'
-	_rec_name = 'site_name'
 
-	site_name = fields.Char(string="Site Name")
+	site_name = fields.Char(string="Name")
+	name = fields.Char(string="Site Name")
 	city      = fields.Char(string="City")
 	address   = fields.Char(string="Address")
 	cnt_num   = fields.Char(string="Contact No")
 
+	@api.model
+	def _getName(self):
+		for rec in self.env['import.site'].search([]):
+			rec.name = rec.site_name
+			print rec.name
+
 class StatusLogic(models.Model):
 	_name = 'import.status'
-	_rec_name = 'comment'
 	comment = fields.Char(string="status")
+	name = fields.Char(string="Status Name")
+
+	@api.model
+	def _getName(self):
+		for rec in self.env['import.status'].search([]):
+			rec.name = rec.comment
+			print rec.name
+
+

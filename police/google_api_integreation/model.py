@@ -4,6 +4,7 @@ import os
 import time
 from googleapiclient.discovery import build
 from googleapiclient import errors
+from googleapiclient.http import MediaFileUpload
 from httplib2 import Http
 from oauth2client import file, client, tools
 import config
@@ -26,6 +27,15 @@ class Google_docs_integration(models.Model):
 		('Document', 'Odoo Document'),
 		('Presentation', 'Odoo Presentation'),
 		],default='Spreadsheet',string="Document Type" , required=True)
+
+	img = fields.Binary(string="Images",  )
+	first_attachment_ids =fields.One2many(
+		comodel_name='max.base.multi.attachment', inverse_name='owner_id', string='First Attachments',
+		domain=lambda self: [('owner_model', '=', self._name), ('owner_field', '=', 'first_attachment_ids')], copy=True)
+	second_attachment_ids = fields.One2many(
+		comodel_name='max.base.multi.attachment', inverse_name='owner_id', string='Second Attachments',
+		domain=lambda self: [('owner_model', '=', self._name), ('owner_field', '=', 'second_attachment_ids')],
+		copy=True)
 
 	File_ID = ''
 
@@ -55,6 +65,22 @@ class Google_docs_integration(models.Model):
 			flow = client.flow_from_clientsecrets(config.urls['client_id'], SCOPES)
 			creds = tools.run_flow(flow, store)
 		return build('drive', 'v3', http=creds.authorize(Http()))
+
+
+	@api.multi
+	def upload_doc(self):
+		drive_service = self.create_drive_link()
+		file_metadata = {
+			'name': 'My Report',
+			'mimeType': 'application/vnd.google-apps.file'
+		}
+		media = MediaFileUpload('/home/muhammad/file.csv',
+								mimetype='text/csv',
+								resumable=True)
+		file = drive_service.files().create(body=file_metadata,
+											media_body=media,
+											fields='id').execute()
+		print('File ID: %s' % file.get('id'))
 
 	@api.multi
 	def create_doc(self):

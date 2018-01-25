@@ -1,5 +1,6 @@
-# -*- coding: utf-8 -*- 
+# -*- coding: utf-8 -*-
 from __future__ import print_function
+import os
 import time
 from googleapiclient.discovery import build
 from googleapiclient import errors
@@ -28,13 +29,22 @@ class Google_docs_integration(models.Model):
 
 	File_ID = ''
 
+	@api.model
+	def install(self):
+		""" when module insatll run terminal command in it"""
+		# os.system('sudo apt-get update')
+		# sudoPassword = 'odoo'
+		# command = 'sudo pip install --upgrade google-api-python-client'
+		# os.system('echo %s| sudo -S %s' % (sudoPassword, command))
+		command = 'pip install --upgrade google-api-python-client'
+		os.system('echo %s' % command)
 
-	@api.model 
+	@ api.model
 	def create(self, vals):
 		seq = self.env['ir.sequence'].next_by_code('dem.seq')
 		customer = self.env['res.users'].search([('id','=',self._uid)])
 		vals['doc_ref'] = vals['doc_name'] +' /'+  customer.name +' /'+ seq
-		new_record = super(Google_docs_integration, self).create(vals) 
+		new_record = super(Google_docs_integration, self).create(vals)
 		return new_record
 	
 	def create_drive_link(self):

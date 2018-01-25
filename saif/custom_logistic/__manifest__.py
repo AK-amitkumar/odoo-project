@@ -16,7 +16,7 @@
     # Check https://github.com/odoo/odoo/blob/master/odoo/addons/base/module/module_data.xml
     # for the full list
     'category': 'Uncategorized',
-    'version': '0.7',
+    'version': '0.8s',
 
     # any module necessary for this one to work correctly
     'depends': ['base','sale','account','sale_stock'],
@@ -27,7 +27,6 @@
         'quote.xml',
         'supplier.xml',
         'report.xml',
-        'dash.xml',
     ],
     'installable': True,
     'auto_install': False

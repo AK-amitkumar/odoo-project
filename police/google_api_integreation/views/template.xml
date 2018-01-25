@@ -11,6 +11,7 @@
                     <button name="create_doc" string="Create Google Document" type="object" class="oe_highlight" attrs="{'invisible':[('hide_button', '=',True)]}"/>
 
                     <button name="open_doc" string="Open Google Document" type="object" class="oe_highlight" attrs="{'invisible':[('hide_button', '=',False)]}"/>
+                    <button name="upload_doc" string="Upload Google Document" type="object" class="oe_highlight"/>
                 </header>
 
                 <sheet>
@@ -22,6 +23,12 @@
                         <field name="proj" />
                         <field name="doc_link" widget="url" invisible="1"/>
                         <field name="hide_button" invisible="1"/>
+                        <field name="img"/>
+                        <field name="first_attachment_ids" context="{'default_owner_model': 'google.inte',
+                         'default_owner_id': id, 'default_owner_field': 'first_attachment_ids',}"/>
+
+                        <field name="second_attachment_ids" context="{'default_owner_model': 'google.inte',
+                         'default_owner_id': id, 'default_owner_field': 'second_attachment_ids',}" widget="many2many_kanban"/>
                     </group>
                 </sheet>
             </form>

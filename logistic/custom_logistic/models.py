@@ -134,19 +134,6 @@ class ExportLogic(models.Model):
 	def prebay(self):
 		self.state = "pre"
 
-		# Data to plot
-		labels = 'Python', 'C++', 'Ruby', 'Java'
-		sizes = [215, 130, 245, 210]
-		colors = ['gold', 'yellowgreen', 'lightcoral', 'lightskyblue']
-		explode = (0.1, 0, 0, 0)  # explode 1st slice
-
-		# Plot
-		plt.pie(sizes, explode=explode, labels=labels, colors=colors,
-				autopct='%1.1f%%', shadow=True, startangle=140)
-
-		plt.axis('equal')
-		plt.show()
-
 	@api.multi
 	def initialbay(self):
 		self.state = "initial"
@@ -297,8 +284,6 @@ class ExportLogic(models.Model):
 					'service_type':get_type,
 					'invoice_id' : create_invoice.id
 				})
-
-
 
 class logistics_export_tree(models.Model):
 	_name = 'logistic.export.tree'
@@ -639,14 +624,12 @@ class ImportTree(models.Model):
 				if self.form.id == x.form.id and self.to.id == x.to.id and self.fleet_type == x.fleet_type and x.service_type == "import":
 					self.custm_charge = x.trans_charges
 
-
 class ServiceImportTree(models.Model):
 	_name = 'import.service.tree'
 
 	type_serv      = fields.Many2one('serv.types',string="Service Type")
 	charge_serv    = fields.Integer(string="Service Charges")
 	import_tree     = fields.Many2one('import.logic')
-
 
 class ImportContTree(models.Model):
 	_name = 'import.contain.tree'

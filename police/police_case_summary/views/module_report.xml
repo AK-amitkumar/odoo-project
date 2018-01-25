@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>   
+        <template id="module_report">
+            <t t-call="report.html_container">
+                <t t-call="report.external_layout">
+
+                    <div class="page">
+
+
+						<div class="main-data">
+							<div class="center-data">
+								<h3>تفاصيل الحالة</h3>
+								<h3>بيانات الاطراف</h3>
+								<div class="summary">
+									<p><span class="solid">اسم السائق</span>
+									<span class="liquid">ناصر الهاجري</span></p>
+									<p><span class="solid">الجنسية</span>
+									<span class="liquid">المملكة العربية السعودية</span></p>
+									<p><span class="solid">نوع الهوية</span>
+									<span class="liquid">بطاقة احوال</span></p>
+									<p><span class="solid">رقم الهوية</span>
+									<span class="liquid">رقم الهوية</span></p>
+									<p><span class="solid">الجنس</span>
+									<span class="liquid">رقم الهوية</span></p>
+									<p><span class="solid">نوع السيارة</span>
+									<span class="liquid">رقم الهوية</span></p>
+									<p><span class="solid">أسم السيارة</span>
+									<span class="liquid">كورلا</span></p>
+									<p><span class="solid">الموديل</span>
+									<span class="liquid">2004</span></p>
+									<p><span class="solid">لون السيارة</span>
+									<span class="liquid">اسود</span></p>
+									<p><span class="solid">رقم اللوحة</span>
+									<span class="liquid">ب خ ح 242</span></p>
+									<p><span class="solid">سبب الحادث</span>
+									<span class="liquid">رقم الهوية</span></p>
+									<p><span class="solid">نتائج</span>
+									<span class="liquid">رقم الهوية</span></p>
+									<p><span class="solid">المضبوطات</span>
+									<span class="liquid">رقم الهوية</span></p>
+									<p><span class="solid">الكمية</span>
+									<span class="liquid">0.00</span></p>
+									<p><span class="solid">وسيلة النقل</span>
+									<span class="liquid">رقم الهوية</span></p>
+									<p><span class="solid">المستشفى	</span>
+									<span class="liquid">رقم الهوية</span></p>
+									<br class="clearfloat"/>
+								</div>
+								<h3>تفاصيل المرافقين</h3>
+								<div class="summary">
+									<p><span class="solid">اسم</span>
+									<span class="liquid">رقم الهوية</span></p>
+									<p><span class="solid">الجنسية</span>
+									<span class="liquid">رقم الهوية</span></p>
+									<p><span class="solid">نوع الهوية</span>
+									<span class="liquid">رقم الهوية</span></p>
+									<p><span class="solid">الجنس</span>
+									<span class="liquid">رقم الهوية</span></p>
+									<p><span class="solid">علاقة</span>
+									<span class="liquid">رقم الهوية</span></p>
+									<p><span class="solid">نتائج</span>
+									<span class="liquid">رقم الهوية</span></p>
+									<p><span class="solid">وسيلة النقل</span>
+									<span class="liquid">رقم الهوية</span></p>
+									<p><span class="solid">المستشفى</span>
+									<span class="liquid">رقم الهوية</span></p>
+								</div>
+								<br class="cleafloat"/>
+								<h3>تعميم سابق</h3>
+								<div class="summary">
+									<p><span class="solid">الجهة الطالبة</span>
+									<span class="liquid">المرور</span></p>
+									<p><span class="solid">رقم التعميم</span>
+									<span class="liquid">رقم الهوية</span></p>
+									<p><span class="solid">التاريخ</span>
+									<span class="liquid">٢٨/نوفمبر/٢٠١٧	</span></p>
+								</div>
+								<br class="cleafloat"/>
+							</div>
+						</div>
+		
+                    </div><!--end of page-->
+                </t>
+            </t>
+
+        </template>
+
+    </data>
+
+</openerp>

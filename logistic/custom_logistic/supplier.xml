@@ -31,7 +31,7 @@
 							
 						</xpath>
 						
-						<xpath expr="//page[5]" position="before">
+						<xpath expr="//page[@name='sales_purchases']" position="before">
 
 							<page string="B/L Number" attrs="{'invisible':['|',('bl_num','=',False),('customer','=',False)]}">
 
@@ -50,7 +50,7 @@
 
 						</xpath>
 
-						<xpath expr="//page[5]" position="before">
+						<xpath expr="//page[@name='sales_purchases']" position="before">
 
 							<page string="Container Wise" attrs="{'invisible':['|',('cont_num','=',False),('customer','=',False)]}">
 								
@@ -71,7 +71,7 @@
 							
 						</xpath>
 
-						<xpath expr="//page[5]" position="before">
+						<xpath expr="//page[@name='sales_purchases']" position="before">
 
 								<page string="Route Management" attrs="{'invisible':[('checks','=',True)]}">
 										
@@ -92,7 +92,7 @@
 
 						</xpath>
 
-						<xpath expr="//page[5]" position="before">
+						<xpath expr="//page[@name='sales_purchases']" position="before">
 
 								<page string="Charges" attrs="{'invisible':['|',('types','!=','freight_fwd'),('customer','!=',False)]}">
 										
@@ -112,7 +112,7 @@
 
 						</xpath>
 
-						<xpath expr="//page[8]" position="after">
+						<xpath expr="//page[@name='sales_purchases']" position="after">
 							<page string="By Customers">
 
 								<field name="by_customer" nolabel='1'>

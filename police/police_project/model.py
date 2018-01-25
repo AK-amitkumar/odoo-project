@@ -7,7 +7,6 @@ from openerp.addons.website.controllers.main import Website
 class PoliceDetail(models.Model):
     _name = 'police.detail'
     _rec_name = 'number'
-
     number = fields.Char(string="Report Number")
     case_id = fields.Char(string="Case ID",required=True,)
     date = fields.Date(default = datetime.date.today())
@@ -35,6 +34,12 @@ class PoliceDetail(models.Model):
     case_detail = fields.Text(string='Case details ')
     party_link = fields.One2many('party.detail', "main_class", string="Party Detail")
     case_type = fields.One2many('case.type', "main_class", string="Case Type")
+
+    preview = fields.Html('Report Preview',compute="generate_preview")
+
+    @api.one
+    def generate_preview(self):
+        self.preview = self.env['report'].get_html(self, 'police_case_summary.module_report')
 
     @api.multi
     def open_menu(self):
@@ -71,9 +76,9 @@ class CaseType(models.Model):
     _name = 'case.type'
     _rec_name = 'case_type'
     main_case = fields.Many2one(comodel_name="main.case", string="Case",required=True,)
-    case_type = fields.Many2one(comodel_name="type.case", string="Case Type",required=False, )
-    cate_case = fields.Many2one(comodel_name="cate.case", string="Case Category",required=False, )
-    sub_cate_case = fields.Many2one(comodel_name="case.sub.cate", string="Case Sub Category", required=False, )
+    case_type = fields.Many2one(comodel_name="type.case", string="Case Type",required=True, )
+    cate_case = fields.Many2one(comodel_name="cate.case", string="Case Category",required=True, )
+    sub_cate_case = fields.Many2one(comodel_name="case.sub.cate", string="Case Sub Category", required=True, )
     # qty = fields.Char(string="Quantity",  required=False, )
     vio_code = fields.Char(string="Case Code ",  required=False, )
     vio_number = fields.Char(string="Case Number",  required=False, )
@@ -199,16 +204,16 @@ class ViolationDetail(models.Model):
     date = fields.Date(default=datetime.date.today())
     day = fields.Char()
     time = fields.Char()
-    road_name = fields.Many2one('road.name', string="Road Name",required=True,)
-    center_name = fields.Many2one('center.name', string="Center Name",required=True,)
-    location_name = fields.Many2one('location.name', string="Location Name",required=True,)
-    digital_tag = fields.Many2one('digital.tag', string="Digital Tag",required=True,)
-    direction_name = fields.Many2one('direction.name', string="Direction Name",required=True,)
-    violation = fields.Char(string='Time of Violation',required=True,)
+    road_name = fields.Many2one('road.name', string="Road Name",required=False,)
+    center_name = fields.Many2one('center.name', string="Center Name",required=False,)
+    location_name = fields.Many2one('location.name', string="Location Name",required=False,)
+    digital_tag = fields.Many2one('digital.tag', string="Digital Tag",required=False,)
+    direction_name = fields.Many2one('direction.name', string="Direction Name",required=False,)
+    violation = fields.Char(string='Time of Violation',required=False,)
     code = fields.Char(string='Code of Police CAR')
-    police_officer = fields.Char(string='Police Officer 1',required=True,)
-    rank_officer = fields.Char(string='Rank of officer 1',required=True,)
-    PID1 = fields.Char(string="Officer 1 ID",required=True,)
+    police_officer = fields.Char(string='Police Officer 1',required=False,)
+    rank_officer = fields.Char(string='Rank of officer 1',required=False,)
+    PID1 = fields.Char(string="Officer 1 ID",required=False,)
     sex_of1 = fields.Selection(string="Gender", selection=[('m', 'M'), ('f', 'F'), ],
                                required=False, )
     sex_of2 = fields.Selection(string="Gender", selection=[('m', 'M'), ('f', 'F'), ],
@@ -216,7 +221,7 @@ class ViolationDetail(models.Model):
     name_officer_2 = fields.Char(string='Police officer 2')
     rank_officer_2 = fields.Char(string='Rank of officer 2')
     PID2 = fields.Char(string="Officer 2 ID", required=False, )
-    tosc = fields.Char(string="Violation submitting Time",required=True,)
+    tosc = fields.Char(string="Violation submitting Time",required=False,)
 
     case_detail = fields.Text(string='Violation details ')
     case_type = fields.One2many('case.type1', "main_class", string="Violation Type")
@@ -240,9 +245,9 @@ class TrafficReceive(models.Model):
     _name = 'traffic.receive'
     _rec_name = 'receiving_party'
 
-    receiving_party = fields.Many2one('receiving.party', string="Receiving Party",required=True,)
-    receiving_party_rank = fields.Many2one('receiving.party.rank', string="Receiving Party Rank",required=True,)
-    receiving_name = fields.Char(string="Receiving Party Name",required=True,)
+    receiving_party = fields.Many2one('receiving.party', string="Receiving Party",required=False,)
+    receiving_party_rank = fields.Many2one('receiving.party.rank', string="Receiving Party Rank",required=False,)
+    receiving_name = fields.Char(string="Receiving Party Name",required=False,)
 
     main_class = fields.Many2one(comodel_name="violation.detail", string="Receiving Party", required=False, )
 
@@ -251,17 +256,17 @@ class trafficPartyDetail(models.Model):
     _name = 'traffic.party.detail'
 
     # party = fields.Text("Party")
-    car_name = fields.Char("Name of Car",required=True,)
-    car_plate = fields.Char("Plate Number",required=True,)
-    name = fields.Char("Driver Name",required=True,)
-    driver_country = fields.Many2one('res.country', "Nationality",required=True,)
+    car_name = fields.Char("Name of Car",required=False,)
+    car_plate = fields.Char("Plate Number",required=False,)
+    name = fields.Char("Driver Name",required=False,)
+    driver_country = fields.Many2one('res.country', "Nationality",required=False,)
     id_num = fields.Char("ID number",required=True,)
-    id_type = fields.Many2one('id.type', "ID Type",required=True,)
+    id_type = fields.Many2one('id.type', "ID Type",required=False,)
     sex = fields.Selection(string="Gender", selection=[('m', 'M'), ('f', 'F'), ], required=False, )
-    dln = fields.Char("Driving License Number",required=True,)
-    oftc = fields.Char("Owner of the car",required=True,)
+    dln = fields.Char("Driving License Number",required=False,)
+    oftc = fields.Char("Owner of the car",required=False,)
     car_maker = fields.Many2one(comodel_name="car.maker", string="Maker of Car", required=False, )
-    remark = fields.Text("Remarks",required=True,)
+    remark = fields.Text("Remarks",required=False,)
     other_onwer = fields.Boolean("Owner Is Someone Else ?")
     # vio_id = fields.Char("Violation Id")
 
@@ -272,12 +277,12 @@ class trafficPartyDetail(models.Model):
 class OwnerDetail(models.Model):
     _name = 'owner.detail'
 
-    name = fields.Char("Name of Owner",required=True,)
-    country = fields.Many2one('res.country', "Nationality of Owner",required=True,)
-    id_num = fields.Char("ID number of Owner",required=True,)
-    id_type = fields.Many2one('id.type', "ID Type of Owner",required=True,)
-    mobile = fields.Char("Mobile Number of Owner",required=True,)
-    remark = fields.Text("Remarks",required=True,)
+    name = fields.Char("Name of Owner",required=False,)
+    country = fields.Many2one('res.country', "Nationality of Owner",required=False,)
+    id_num = fields.Char("ID number of Owner",required=False,)
+    id_type = fields.Many2one('id.type', "ID Type of Owner",required=False,)
+    mobile = fields.Char("Mobile Number of Owner",required=False,)
+    remark = fields.Text("Remarks",required=False,)
 
     main_class = fields.Many2one('traffic.party.detail')
 
@@ -318,7 +323,7 @@ class RoadName(models.Model):
     name = fields.Char(string="Road Name",required=True,)
     road_tree = fields.One2many(comodel_name="road.tree", inverse_name="road", string="Road Link", required=False, )
     receiving_tree = fields.One2many(comodel_name="receiving.party", inverse_name="road_link", string="Road Link", required=False, )
-    digital_tree = fields.One2many(comodel_name="digital.tag", inverse_name="road_link", string="Road Link", required=False, )
+    direction_tree = fields.One2many(comodel_name="road.tag", inverse_name="direction_link", string="Direction Link", required=False, )
 
     @api.model
     def create(self, val):
@@ -329,8 +334,11 @@ class RoadName(models.Model):
                 y.car_center = x.center
         for z in record.receiving_tree:
             z.road_name = record.id
-        for rec in record.digital_tree:
-            rec.road_name = record.id
+
+        for x in record.direction_tree:
+            x.direction.road_link = record.id
+            for y in x.direction_tag_link:
+                y.direction_name = x.direction
 
         return record
 
@@ -343,8 +351,12 @@ class RoadName(models.Model):
                 y.car_center = x.center
         for z in self.receiving_tree:
             z.road_name = self.id
-        for rec in self.digital_tree:
-            rec.road_name = self.id
+
+        for x in self.direction_tree:
+            x.direction.road_link = self.id
+            for y in x.direction_tag_link:
+                y.direction_name = x.direction
+
         return True
 
 
@@ -356,6 +368,13 @@ class RoadTree(models.Model):
     road = fields.Many2one(comodel_name="road.name", string="Road Tree",required=True,)
     car_center_link = fields.One2many(comodel_name="car.code", inverse_name="road_link", string="Car Center", required=False, )
 
+class RoadTag(models.Model):
+    _name = 'road.tag'
+    _rec_name = 'direction_link'
+
+    direction = fields.Many2one(comodel_name="direction.name", string="Direction Name",required=True,)
+    direction_link = fields.Many2one(comodel_name="road.name", string="Road Tree",required=True,)
+    direction_tag_link = fields.One2many(comodel_name="digital.tag", inverse_name="road_link", string="Direction Tag", required=False, )
 
 class CenterName(models.Model):
     _name = 'center.name'
@@ -374,14 +393,15 @@ class DigitalTag(models.Model):
     _name = 'digital.tag'
 
     name = fields.Char(string="Digital Tag",required=True,)
-    road_name = fields.Many2one(comodel_name="road.name", string="Road Name", required=False, )
-    road_link = fields.Many2one(comodel_name="road.name", string="Road Link", required=False, )
+    direction_name = fields.Many2one(comodel_name="direction.name", string="Direction Name", required=False, )
+    road_link = fields.Many2one(comodel_name="road.tag", string="Road Tree Link", required=False, )
 
 
 class Direction(models.Model):
     _name = 'direction.name'
 
     name = fields.Char(string="Direction",required=True,)
+    road_link = fields.Many2one(comodel_name="road.name", string="Road Name", required=False, )
 
 
 class ReceivingParty(models.Model):

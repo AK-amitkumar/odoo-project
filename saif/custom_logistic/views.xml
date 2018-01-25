@@ -187,12 +187,13 @@
         <field name="site" string="Site"/>
         <field name="bayan_no" string="Pre Bayan Date"/>
         <field name="status" string="Status"/>
-        <filter string="Today" name="Today" domain="[('site','in',())]"/>
+        <filter string="Today" name="Today" domain="[('state','in',('draft','pre'))]"/>
+        <filter string="Today" name="Today" domain="[('state','in',('draft','pre'))]"/>
+
 
     </search>
     </field>
   </record>
-
 
     <record id="view_filter_transportation" model="ir.ui.view">
     <field name="name">view_filter_transportation</field>
@@ -362,8 +363,9 @@
           <sheet>
             <group name="top">
                 <group >
-                  <field name="site_name"/>
+                  <field name="site_name" invisible="1"/>
                   <field name="city"/>
+                  <field name="name"/>
                 </group>
                 <group>
                   <field name="address"/>
@@ -374,6 +376,21 @@
         </form> 
       </field> 
   </record>
+
+    <record id="import_status" model="ir.ui.view">
+        <field name="name">import_status</field>
+        <field name="model">import.status</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="comment" invisible="1"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
 
   <act_window id="action_site_logic" 
   name="Site" 
