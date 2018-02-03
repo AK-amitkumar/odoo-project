@@ -47,6 +47,7 @@ class ExportLogic(models.Model):
 	export_serv 	 = fields.One2many('logistic.service.tree','service_tree')
 	cont_serv 	     = fields.One2many('logistic.contain.tree','service_tree_cont')
 	tick  = fields.Boolean()
+
 	state 			 = fields.Selection([
 		('draft', 'Draft'),
 		('pre', 'Pre Bayan'),
@@ -84,6 +85,7 @@ class ExportLogic(models.Model):
 		if self.customer:
 			self.bill_types = self.customer.bill_type
 			if self.bill_types == "B/L Number":
+				inv = []
 				for x in self.customer.bl_id:
 					if self.by_customer == x.by_customer:
 						# / Delete Previous Records in Custom Charges Tree/
@@ -91,7 +93,6 @@ class ExportLogic(models.Model):
 						delete = delete.append(2)
 						self.export_serv = delete
 
-						inv = []
 						for invo in x:
 							inv.append({
 								'sevr_charge':invo.charges_serv,
@@ -99,9 +100,10 @@ class ExportLogic(models.Model):
 								'service_tree':self.id,
 							})
 
-						self.export_serv = inv
+				self.export_serv = inv
 
 			if self.bill_types == "Container Wise":
+				inv = []
 				for x in self.customer.cont_id:
 					if self.by_customer == x.by_customer:
 						delete = []
@@ -109,7 +111,6 @@ class ExportLogic(models.Model):
 						self.cont_serv = delete
 						# / Delete Previous Records in Custom Charges Tree/
 
-						inv = []
 						for invo in x:
 							inv.append({
 								'sevr_charge_cont':invo.charges_serv,
@@ -118,7 +119,7 @@ class ExportLogic(models.Model):
 								'cont_serv':self.id,
 							})
 
-						self.cont_serv = inv
+				self.cont_serv = inv
 
 	@api.model
 	def create(self, vals):
@@ -150,140 +151,263 @@ class ExportLogic(models.Model):
 	def create_sale(self):
 		"""Create Transport Order"""
 		# / Delete the Transport Order if exist/
-		prev_rec = self.env['sale.order'].search([('sales_id','=',self.id)])
-		if prev_rec:
-			prev_rec.unlink()
+		prev = self.env['sale.order'].search([('sales_id','=',self.id)])
+		if prev:
+			get_id = self.env['product.template'].search([])
+			value = 0
+			for x in get_id:
+				if x.name == "Container":
+					value = x.id
+			for x, y in [(x, y) for x in prev for y in self.export_id]:
+				x.partner_id=self.customer.id
+				x.by_customer=self.by_customer.id
+				x.date_order=self.date
+				x.bill_type=self.bill_types
+				x.bill_no=self.bill_no
+				x.suppl_name=y.transporter.id
+				x.suppl_freight=y.trans_charge
+				x.form=y.form.name
+				x.to=y.to.name
+				x.sales_id= self.id
+				x.our_job= self.our_job_no
+				x.sr_no= self.sr_no
+				x.customer_ref= self.customer_ref
+				x.custom_dec= ''
+				x.bayan_no= self.bayan_no
+				x.final_date= self.fin_bayan_date
+				x.order_line.product_id = value
+				x.order_line.name = 'Container'
+				x.order_line.product_uom_qty = 1.0
+				x.order_line.price_unit = y.custm_charge
+				x.order_line.crt_no = y.crt_no
+				x.order_line.product_uom = 1
+		else:
+			# / Get Product having name is Container/
+			get_id = self.env['product.template'].search([])
+			value = 0
+			for x in get_id:
+				if x.name == "Container":
+					value = x.id
+			# / Create Transport Order/
+			for data in self.export_id:
+				records = self.env['sale.order'].create({
+					'partner_id':self.customer.id,
+					'by_customer':self.by_customer.id,
+					'date_order':self.date,
+					'bill_type':self.bill_types,
+					'bill_no':self.bill_no,
+					'suppl_name':data.transporter.id,
+					'suppl_freight':data.trans_charge,
+					'form':data.form.name,
+					'to':data.to.name,
+					'sales_id': self.id,
+					'our_job': self.our_job_no,
+					'sr_no': self.sr_no,
+					'customer_ref': self.customer_ref,
+					'custom_dec': '',
+					'bayan_no': self.bayan_no,
+					'final_date': self.fin_bayan_date,
+				})
 
-		# / Get Product having name is Container/
-		get_id = self.env['product.template'].search([])
-		value = 0
-		for x in get_id:
-			if x.name == "Container":
-				value = x.id
-		# / Create Transport Order/
-		for data in self.export_id:
-			records = self.env['sale.order'].create({
-				'partner_id':self.customer.id,
-				'by_customer':self.by_customer.id,
-				'date_order':self.date,
-				'bill_type':self.bill_types,
-				'bill_no':self.bill_no,
-				'suppl_name':data.transporter.id,
-				'suppl_freight':data.trans_charge,
-				'form':data.form.name,
-				'to':data.to.name,
-				'sales_id': self.id,
-			})
-
-			records.order_line.create({
-				'product_id':value,
-				'name':'Container',
-				'product_uom_qty':1.0,
-				'price_unit':data.custm_charge,
-				'crt_no':data.crt_no,
-				'product_uom':1,
-				'order_id':records.id,
-			})
-
+				records.order_line.create({
+					'product_id':value,
+					'name':'Container',
+					'product_uom_qty':1.0,
+					'price_unit':data.custm_charge,
+					'crt_no':data.crt_no,
+					'product_uom':1,
+					'order_id':records.id,
+				})
 
 	@api.multi
 	def booker(self):
-		# / Creating Booker List/
 		lisst = []
 		for x in self.export_link:
 			if x.broker not in lisst:
 				lisst.append(x.broker)
+		broker = self.env['account.invoice'].search([('type','=','in_invoice'),('broker_link','=',self.id)])
+		if broker:
 
-		invoice = self.env['account.invoice'].search([])
-		invoice_lines = self.env['account.invoice.line'].search([])
-		# / Creating the vendors bills/
-		for line in lisst:
-			create_invoice = invoice.create({
-				'journal_id': 3,
-				'partner_id':line.id,
-				'customer':self.customer.id,
-				'date_invoice' : self.date,
-				'type':"in_invoice",
-			})
+			for x, y in map(None, broker, lisst):
+				x.journal_id = 3
+				x.partner_id = y.id
+				x.customer = self.customer.id
+				x.date_invoice = self.date
 
-			for x in self.export_link:
-				if x.broker.name == line.name:
-					create_invoice_lines= invoice_lines.create({
-						'product_id':1,
-						'quantity':1,
-						'price_unit':x.amt_paid,
-						'account_id': 3,
-						'name' :'Broker Amount',
-						'crt_no':x.container_no,
-						'invoice_id' : create_invoice.id
-					})
+				x.invoice_line_ids.unlink()
+
+				for z in self.export_link:
+					if z.broker.id == y.id:
+						create_invoice_lines= x.invoice_line_ids.create({
+							'product_id':1,
+							'quantity':1,
+							'price_unit':z.amt_paid,
+							'account_id': 1,
+							'name' :'Broker Amount',
+							'crt_no':z.container_no,
+							'invoice_id' : x.id
+						})
+
+		else:
+			invoice = self.env['account.invoice'].search([])
+			invoice_lines = self.env['account.invoice.line'].search([])
+			# / Creating the vendors bills/
+			for line in lisst:
+				create_invoice = invoice.create({
+					'journal_id': 3,
+					'partner_id':line.id,
+					'customer':self.customer.id,
+					'date_invoice' : self.date,
+					'broker_link' : self.id,
+					'type':"in_invoice",
+				})
+
+				for x in self.export_link:
+					if x.broker.id == line.id:
+						create_invoice_lines= invoice_lines.create({
+							'product_id':1,
+							'quantity':1,
+							'price_unit':x.amt_paid,
+							'account_id': 1,
+							'name' :'Broker Amount',
+							'crt_no':x.container_no,
+							'invoice_id' : create_invoice.id
+						})
 
 
 	@api.multi
 	def create_custom_charges(self):
 		""" Creating the invoice as per billing type B/L or Container wise"""
-		invoice = self.env['account.invoice'].search([])
-		invoice_lines = self.env['account.invoice.line'].search([])
-		# / B/L Wise invoice/
-		if self.bill_types == "B/L Number":
+		if self.acc_link:
+			self.acc_link.journal_id = 4
+			self.acc_link.partner_id = self.customer.id
+			self.acc_link.by_customer = self.by_customer.id
+			self.acc_link.date_invoice = self.date
+			self.acc_link.billng_type = self.bill_types
+			self.acc_link.bill_num = self.bill_no
+			self.acc_link.our_job = self.our_job_no
+			self.acc_link.sr_no = self.sr_no
+			self.acc_link.customer_ref = self.customer_ref
+			self.acc_link.custom_dec = ''
+			self.acc_link.bayan_no = self.bayan_no
+			self.acc_link.final_date = self.fin_bayan_date
 
-			create_invoice = invoice.create({
-				'journal_id': 3,
-				'partner_id':self.customer.id,
-				'by_customer':self.by_customer.id,
-				'date_invoice': self.date,
-				'billng_type':self.bill_types,
-				'bill_num':self.bill_no,
-			})
+			self.acc_link.invoice_line_ids.unlink()
+			if self.bill_types == "B/L Number":
+				for x in self.export_serv:
+					create_invoice_lines = self.acc_link.invoice_line_ids.create({
+						'quantity': 1,
+						'price_unit': x.sevr_charge,
+						'account_id': 1,
+						'name': x.sevr_type.name,
+						'invoice_id': self.acc_link.id,
+						'invoice_line_tax_ids': [1],
+					})
 
-			self.acc_link = create_invoice.id
-
-			for x in self.export_serv:
-				create_invoice_lines= invoice_lines.create({
-					'quantity':1,
-					'price_unit':x.sevr_charge,
-					'account_id': 3,
-					'name' :x.sevr_type.name,
-					'invoice_id' : create_invoice.id
-				})
-		# / B/L Wise invoice/
-		if self.bill_types == "Container Wise":
-			data = []
-			for x in self.export_id:
-				if x.types not in data:
-					data.append(x.types)
-
-			create_invoice = invoice.create({
-				'journal_id': 3,
-				'partner_id':self.customer.id,
-				'by_customer':self.by_customer.id,
-				'date_invoice': self.date,
-				'billng_type':self.bill_types,
-				'bill_num':self.bill_no,
-			})
-
-			self.acc_link = create_invoice.id
-
-			for line in data:
-				value = 0
+			if self.bill_types == "Container Wise":
+				data = []
 				for x in self.export_id:
-					if x.types == line:
-						value = value + 1
-				get_unit = 0
-				get_type = ' '
-				for y in self.cont_serv:
-					if y.type_contt == line:
-						get_unit = y.sevr_charge_cont
-						get_type = y.sevr_type_cont.name
+					if x.types not in data:
+						data.append(x.types)
+				for line in data:
+					value = 0
+					for x in self.export_id:
+						if x.types == line:
+							value = value + 1
+					get_unit = 0
+					get_type = ' '
+					for y in self.cont_serv:
+						if y.type_contt == line:
+							get_unit = y.sevr_charge_cont
+							get_type = y.sevr_type_cont.name
 
-				create_invoice_lines= invoice_lines.create({
-					'quantity':value,
-					'price_unit':get_unit,
-					'account_id': 3,
-					'name' :line,
-					'service_type':get_type,
-					'invoice_id' : create_invoice.id
+					create_invoice_lines = self.acc_link.invoice_line_ids.create({
+						'quantity': value,
+						'price_unit': get_unit,
+						'account_id': 1,
+						'name': line,
+						'service_type': get_type,
+						'invoice_id': self.acc_link.id,
+						'invoice_line_tax_ids': [1],
+					})
+
+		else:
+			invoice = self.env['account.invoice'].search([])
+			invoice_lines = self.env['account.invoice.line'].search([])
+			# / B/L Wise invoice/
+
+			if self.bill_types == "B/L Number":
+				create_invoice = invoice.create({
+					'journal_id': 4,
+					'partner_id':self.customer.id,
+					'by_customer':self.by_customer.id,
+					'date_invoice': self.date,
+					'billng_type':self.bill_types,
+					'bill_num':self.bill_no,
+					'our_job':self.our_job_no,
+					'sr_no':self.sr_no,
+					'customer_ref':self.customer_ref,
+					'custom_dec':'',
+					'bayan_no':self.bayan_no,
+					'final_date':self.fin_bayan_date,
 				})
+
+				self.acc_link = create_invoice.id
+
+				for x in self.export_serv:
+					create_invoice_lines= invoice_lines.create({
+						'quantity':1,
+						'price_unit':x.sevr_charge,
+						'account_id':1,
+						'name' :x.sevr_type.name,
+						'invoice_id' : create_invoice.id,
+						'invoice_line_tax_ids': [1],
+					})
+			# / B/L Wise invoice/
+			if self.bill_types == "Container Wise":
+				data = []
+				for x in self.export_id:
+					if x.types not in data:
+						data.append(x.types)
+
+				create_invoice = invoice.create({
+					'journal_id': 4,
+					'partner_id':self.customer.id,
+					'by_customer':self.by_customer.id,
+					'date_invoice': self.date,
+					'billng_type':self.bill_types,
+					'bill_num':self.bill_no,
+					'our_job': self.our_job_no,
+					'sr_no': self.sr_no,
+					'customer_ref': self.customer_ref,
+					'custom_dec': '',
+					'bayan_no': self.bayan_no,
+					'final_date': self.fin_bayan_date,
+				})
+
+				self.acc_link = create_invoice.id
+
+				for line in data:
+					value = 0
+					for x in self.export_id:
+						if x.types == line:
+							value = value + 1
+					get_unit = 0
+					get_type = ' '
+					for y in self.cont_serv:
+						if y.type_contt == line:
+							get_unit = y.sevr_charge_cont
+							get_type = y.sevr_type_cont.name
+
+					create_invoice_lines= invoice_lines.create({
+						'quantity':value,
+						'price_unit':get_unit,
+						'account_id': 1,
+						'name' :line,
+						'service_type':get_type,
+						'invoice_id' : create_invoice.id,
+						'invoice_line_tax_ids': [1],
+					})
 
 class logistics_export_tree(models.Model):
 	_name = 'logistic.export.tree'
@@ -317,7 +441,7 @@ class export_tree(models.Model):
 	form             = fields.Many2one('from.qoute',string="From")
 	to               = fields.Many2one('to.quote',string="To")
 	fleet_type       = fields.Many2one('fleet',string="Fleet Type")
-	transporter      = fields.Many2one('res.partner',string="Transporter")
+	transporter      = fields.Many2one('res.partner',string="Transporter" ,required=True,)
 	trans_charge     = fields.Char(string="Transporter Charges")
 	custm_charge     = fields.Char(string="Customer Charges")
 	types            = fields.Selection([
@@ -537,7 +661,7 @@ class ImportLogic(models.Model):
 		if self.bill_types == "B/L Number":
 
 			create_invoice = invoice.create({
-				'journal_id': 3,
+				'journal_id': 2,
 				'partner_id':self.customer.id,
 				'by_customer':self.by_customer.id,
 				'date_invoice': self.date,
@@ -551,9 +675,10 @@ class ImportLogic(models.Model):
 				create_invoice_lines= invoice_lines.create({
 					'quantity':1,
 					'price_unit':x.charge_serv,
-					'account_id': 3,
+					'account_id': 1,
 					'name' :x.type_serv.name,
-					'invoice_id' : create_invoice.id
+					'invoice_id' : create_invoice.id,
+					'invoice_line_tax_ids':1,
 				})
 		# / B/L Wise invoice/
 		if self.bill_types == "Container Wise":
@@ -563,7 +688,7 @@ class ImportLogic(models.Model):
 					entry.append(x.types)
 
 			create_invoice = invoice.create({
-				'journal_id': 3,
+				'journal_id': 2,
 				'partner_id':self.customer.id,
 				'by_customer':self.by_customer.id,
 				'date_invoice': self.date,
@@ -587,10 +712,11 @@ class ImportLogic(models.Model):
 				create_invoice_lines= invoice_lines.create({
 					'quantity':value,
 					'price_unit':get_unit,
-					'account_id': 3,
+					'account_id': 1,
 					'name' :line,
 					'service_type':get_type,
-					'invoice_id' : create_invoice.id
+					'invoice_id' : create_invoice.id,
+					'invoice_line_tax_ids': 1,
 				})
 
 class ImportTree(models.Model):
@@ -648,21 +774,60 @@ class SiteLogic(models.Model):
 	address   = fields.Char(string="Address")
 	cnt_num   = fields.Char(string="Contact No")
 
-	# @api.model
-	# def _getName(self):
-	# 	for rec in self.env['import.site'].search([]):
-	# 		rec.name = rec.site_name
-	# 		print rec.name
+# @api.model
+# def _getName(self):
+# 	for rec in self.env['import.site'].search([]):
+# 		rec.name = rec.site_name
+# 		print rec.name
 
 class StatusLogic(models.Model):
 	_name = 'import.status'
 	comment = fields.Char(string="status")
 	name = fields.Char(string="Status Name")
 
-	# @api.model
-	# def _getName(self):
-	# 	for rec in self.env['import.status'].search([]):
-	# 		rec.name = rec.comment
-	# 		print rec.name
+# @api.model
+# def _getName(self):
+# 	for rec in self.env['import.status'].search([]):
+# 		rec.name = rec.comment
+# 		print rec.name
 
 
+class AccInvLineExt(models.Model):
+	_inherit = 'account.invoice.line'
+
+	afterTaxAmt = fields.Float(string='Tax Amount', required=False, digits=(6,3))
+
+	@api.onchange('price_subtotal','quantity','price_unit','invoice_line_tax_ids')
+	def onchange_price_subtotal(self):
+		if self.invoice_line_tax_ids:
+			amt = 0
+			for x in self.invoice_line_tax_ids:
+				tax = x.amount / 100
+				amt =  amt + (tax * self.price_subtotal)
+			self.afterTaxAmt = amt
+
+class SaleLineExt(models.Model):
+	_inherit = 'sale.order.line'
+
+	afterTaxAmt = fields.Float(string='Tax Amount', required=False, digits=(6,3))
+
+	@api.onchange('price_subtotal','product_uon_qty','price_unit','tax_id')
+	def onchange_price_subtotal(self):
+		if self.tax_id:
+			amt = 0
+			for x in self.tax_id:
+				tax = x.amount / 100
+				amt =  amt + (tax * self.price_subtotal)
+			self.afterTaxAmt = amt
+
+
+class ResPartnerExt(models.Model):
+	_inherit = 'res.partner'
+
+	vat = fields.Char(string="VAT", required=False, )
+
+
+class ResCompanyExt(models.Model):
+	_inherit = 'res.company'
+
+	vat = fields.Char(string="VAT", required=False, )

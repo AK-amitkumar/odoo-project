@@ -1,0 +1,8 @@
+.o_form_editable .o_form_field_time input {
+    width: 20em;
+    background-color: #D2D2FF;
+
+}
+.o_form_field_time{
+    display: -webkit-inline-box !important;
+}

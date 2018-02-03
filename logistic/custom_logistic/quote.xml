@@ -83,7 +83,13 @@
 
             <xpath expr="//field[@name='payment_term_id']" position="after">
 
-                <field name="bill_no"/>                    
+                <field name="bill_no"/>
+                <field name="our_job" invisible="1"/>
+                <field name="sr_no" invisible="1"/>
+                <field name="customer_ref" invisible="1"/>
+                <field name="custom_dec" invisible="1"/>
+                <field name="bayan_no" invisible="1"/>
+                <field name="final_date" invisible="1"/>
 
             </xpath>
 
@@ -173,8 +179,8 @@
         </field> 
     </record>
 
-    <record id="account_form_view"   model="ir.ui.view"> 
-        <field name="name">account_form_view</field> 
+    <record id="vendor_bill_form_view"   model="ir.ui.view">
+        <field name="name">vendor_bill_form_view</field>
         <field name="model">account.invoice</field> 
         <field name="inherit_id" ref="account.invoice_supplier_form"/> 
         <field name="arch" type="xml">
@@ -183,7 +189,7 @@
             <xpath expr="//field[@name='reference']" position="after">
 
                 <field name="acount_link"/>
-
+                <field name="broker_link"/>
             </xpath>
 
             <xpath expr="//field[@name='invoice_line_ids']/tree/field[@name='price_unit']" position="after">

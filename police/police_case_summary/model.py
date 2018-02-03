@@ -27,7 +27,6 @@ class SampleDevelopmentReport(models.AbstractModel):
     def render_html(self,docids, data=None):
         report_obj = self.env['report']
         report = report_obj._get_report_from_name('police_case_summary.module_report')
-
         docargs = {
             'doc_ids': docids,
             'doc_model': 'police.detail',

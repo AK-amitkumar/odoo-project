@@ -57,7 +57,17 @@ max-height:5px;
         display : block;
         color :#40790A;
     }
+
+    .preview h2 {
+        margin: 10px 10px 10px 10px;
+        text-align: center;
+        display : block;
+        color :#40790A;
+    }
     .preview .clearfloat {
         clear: both;
         float: none;
+    }
+    span.o_form_field.o_form_field_time.no_icon.o_form_required span {
+        display: none;
     }

@@ -48,6 +48,14 @@ class TransportInfo(models.Model):
 	recive_mob    = fields.Char(string="Receiver Mobile")
 	sales_id      = fields.Many2one('export.logic')
 	sales_imp_id  = fields.Many2one('import.logic')
+
+	our_job = fields.Char(string="Our Job No", required=False, )
+	sr_no = fields.Char(string="Sr No", required=False, )
+	customer_ref = fields.Char(string="Customer Ref", required=False, )
+	custom_dec = fields.Char(string="Custom Dec", required=False, )
+	bayan_no = fields.Char(string="Bayan No", required=False, )
+	final_date = fields.Date(string="Final Date", required=False, )
+
 	state         = fields.Selection([
 					('draft', 'Quotation'),
 					('sent', 'Quotation Sent'),
@@ -99,6 +107,13 @@ class TransportInfo(models.Model):
 		records = self.env['account.invoice'].search([('origin','=',self.name)])
 		if records:
 			records.by_customer = self.by_customer.id
+			records.our_job = self.our_job
+			records.sr_no = self.sr_no
+			records.customer_ref = self.customer_ref
+			records.custom_dec = self.custom_dec
+			records.bayan_no = self.bayan_no
+			records.final_date = self.final_date
+			self.acc_link = records.id
 		return new_record
 
 	@api.multi
@@ -127,6 +142,7 @@ class AccountInvoiceTree(models.Model):
 class AccountInvoiceForm(models.Model):
 	_inherit = 'account.invoice'
 	acount_link = fields.Many2one('freight.forward',string='link')
+	broker_link = fields.Many2one('export.logic',string=' Broker link')
 
 
 

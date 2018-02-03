@@ -2,32 +2,31 @@
 import datetime
 from datetime import timedelta
 from openerp import models, fields, api, http
-from openerp.addons.website.controllers.main import Website
 
 class PoliceDetail(models.Model):
     _name = 'police.detail'
     _rec_name = 'number'
     number = fields.Char(string="Report Number")
-    case_id = fields.Char(string="Case ID",required=True,)
+    case_id = fields.Char(string="Case ID",required=False,)
     date = fields.Date(default = datetime.date.today())
     day = fields.Char()
-    time = fields.Char()
+    time = fields.Char(required=True)
     road_name = fields.Many2one('road.name', string="Road Name",required=True,)
     center_name = fields.Many2one('center.name', string="Center Name",required=True,)
     location_name = fields.Many2one('location.name', string="Location Name",required=True,)
     digital_tag = fields.Many2one('digital.tag', string="Digital Tag",required=True,)
     direction_name = fields.Many2one('direction.name', string="Direction Name",required=True,)
-    violation = fields.Char(string='Time of Case' ,required=True,)
+    violation = fields.Float(string='Time of Case' ,required=True,)
     code = fields.Many2one(comodel_name="car.code",string='Code of Police CAR',required=True,)
     police_officer = fields.Char(string='Police Officer 1',required=True,)
     rank_officer = fields.Char(string='Rank of officer 1',required=True,)
     PID1 = fields.Char(string="Officer 1 ID",required=True, )
     PID2 = fields.Char(string="Officer 2 ID", required=False, )
-    sex_of1 = fields.Selection(string="Gender", selection=[('m', 'M'), ('f', 'F'), ], required=False, )
-    sex_of2 = fields.Selection(string="Gender", selection=[('m', 'M'), ('f', 'F'), ], required=False, )
+    sex_of1 = fields.Selection(string="Gender", selection=[('m', 'الذكر'), ('f', 'إناثا'), ], required=True, )
+    sex_of2 = fields.Selection(string="Gender", selection=[('m', 'الذكر'), ('f', 'إناثا'), ], required=True, )
     name_officer_2 = fields.Char(string='Police officer 2')
     rank_officer_2 = fields.Char(string='Rank of officer 2')
-    tosc = fields.Char(string="Case submitting Time", required=False, )
+    tosc = fields.Float(string="Case submitting Time", required=True )
     receiving_party = fields.Many2one('receiving.party', string="Receiving Party",required=True,)
     receiving_party_rank = fields.Many2one('receiving.party.rank', string="Receiving Party Rank",required=True,)
     receiving_name = fields.Char(string="Receiving Party Name",required=True, )
@@ -41,6 +40,7 @@ class PoliceDetail(models.Model):
     def generate_preview(self):
         self.preview = self.env['report'].get_html(self, 'police_case_summary.module_report')
 
+
     @api.multi
     def open_menu(self):
         return {'name': 'Police Record', 'domain': [], 'res_model': 'police.detail',
@@ -50,15 +50,25 @@ class PoliceDetail(models.Model):
     @api.model
     def create(self, val):
         val['number'] = self.env['ir.sequence'].next_by_code('rec.number')
+        val['case_id'] = self.env['ir.sequence'].next_by_code('rec.case')
         new_record = super(PoliceDetail, self).create(val)
         return new_record
+
+    def create_model_color(self):
+      record = self.env['model.color'].create({
+          'name':"Colors and Models"
+      })
+
+    def create_id_type(self):
+      record1 = self.env['id.config'].create({
+            'name':"ID Type"
+        })
 
     @api.onchange('date')
     def _change_daytime(self):
         if self.date:
             self.day = datetime.datetime.strptime(self.date,'%Y-%m-%d').strftime('%A')
-            self.time = (datetime.datetime.now() + timedelta(hours=3)).strftime("%I:%M:%S %p")
-
+            self.time = (datetime.datetime.now() + timedelta(hours=5)).strftime("%I:%M:%S %p")
 
 class CaseType1(models.Model):
     _name = 'case.type1'
@@ -76,14 +86,46 @@ class CaseType(models.Model):
     _name = 'case.type'
     _rec_name = 'case_type'
     main_case = fields.Many2one(comodel_name="main.case", string="Case",required=True,)
-    case_type = fields.Many2one(comodel_name="type.case", string="Case Type",required=True, )
-    cate_case = fields.Many2one(comodel_name="cate.case", string="Case Category",required=True, )
-    sub_cate_case = fields.Many2one(comodel_name="case.sub.cate", string="Case Sub Category", required=True, )
-    # qty = fields.Char(string="Quantity",  required=False, )
-    vio_code = fields.Char(string="Case Code ",  required=False, )
-    vio_number = fields.Char(string="Case Number",  required=False, )
+    case_type = fields.Many2one(comodel_name="type.case", string="Case Type",required=False, )
+    cate_case = fields.Many2one(comodel_name="cate.case", string="Detail",required=False, )
+    sub_cate_case = fields.Many2one(comodel_name="case.sub.cate", string="More Detail", required=False, )
+    abc = fields.Boolean(string="",  )
+    xyz = fields.Boolean(string="",  )
+    test = fields.Boolean(string="",  )
+
+    @api.onchange('main_case')
+    def onchange_main_case(self):
+        if self.main_case:
+            rec = self.env['type.case'].search([('id','=',self.main_case.id)])
+            if rec:
+                self.abc = True
+            else:
+                self.abc = False
+                self.case_type = False
+
+    @api.onchange('case_type')
+    def onchange_case_type(self):
+        if self.case_type:
+            rec = self.env['cate.case'].search([('id', '=', self.case_type.id)])
+            if rec:
+                self.xyz = True
+            else:
+                self.xyz = False
+                self.cate_case = False
+
+    @api.onchange('cate_case')
+    def onchange_cate_case(self):
+        if self.cate_case:
+            rec = self.env['case.sub.cate'].search([('id', '=', self.cate_case.id)])
+            if rec:
+                self.test = True
+            else:
+                self.test = False
+                self.sub_cate_case = False
 
     main_class = fields.Many2one(comodel_name="police.detail", string="Case Type", required=False, )
+    companion_class = fields.Many2one('companion.detail')
+
 
 
 class HajjUmrah(models.Model):
@@ -91,10 +133,10 @@ class HajjUmrah(models.Model):
     _rec_name = 'case_id'
 
     # number = fields.Char(string="Report Number")
-    case_id = fields.Char(string="Case ID",required=True,)
+    case_id = fields.Char(string="Case ID",required=False,)
     date = fields.Date(default=datetime.date.today())
     day = fields.Char()
-    time = fields.Char()
+    time = fields.Char(required=True)
     road_name = fields.Many2one('road.name', string="Road Name",required=True,)
     center_name = fields.Many2one('center.name', string="Center Name",required=True,)
 
@@ -111,7 +153,7 @@ class HajjUmrah(models.Model):
     def _change_daytime(self):
         if self.date:
             self.day = datetime.datetime.strptime(self.date, '%Y-%m-%d').strftime('%A')
-            self.time = (datetime.datetime.now() + timedelta(hours=3)).strftime("%I:%M:%S %p")
+            self.time = (datetime.datetime.now() + timedelta(hours=5)).strftime("%I:%M:%S %p")
 
 
 class HajjUmrahViolation(models.Model):
@@ -130,34 +172,29 @@ class PartyDetail(models.Model):
     _name = 'party.detail'
 
     name = fields.Char("Driver Name",required=True,)
-    car_name = fields.Many2one(comodel_name="car.name",   string="Name of Car",required=True,)
-    car_color = fields.Many2one(comodel_name="car.color", string="Color of Car",required=True,)
-    car_model = fields.Many2one(comodel_name="car.model", string="Model of Car",required=True,)
-    car_maker = fields.Many2one(comodel_name="car.maker", string="Maker of Car",required=True,)
-    car_plate = fields.Char("Plate Number",required=True,)
+    car_name = fields.Many2one(comodel_name="car.name",   string="Name of Car",required=False,)
+    car_color = fields.Many2one(comodel_name="car.color", string="Color of Car",required=False,)
+    car_model = fields.Many2one(comodel_name="car.model", string="Model of Car",required=False,)
+    car_maker = fields.Many2one(comodel_name="car.maker", string="Maker of Car",required=False,)
+    car_plate = fields.Char("Plate Number",required=False,)
     driver_country = fields.Many2one('res.country', "Nationality",required=True,)
     id_num = fields.Char("ID number",required=True,)
-    sex = fields.Selection(string="Gender", selection=[('m', 'M'), ('f', 'F'), ],required=True,)
+    sex = fields.Selection(string="Gender", selection=[('m', 'الذكر'), ('f', 'إناثا'), ],required=True,)
     id_type = fields.Many2one('id.type', "ID Type",required=True,)
-    what_found = fields.Many2one('what.found', "What we found",required=True,)
-    qty = fields.Float(string="Quantity",required=True,)
-    accident_reason = fields.Char("Reason of accident ",required=True,)
-    result = fields.Char("Results",required=True,)
-    mean_trans = fields.Many2one('mean.trans', "Means of Transportation",required=True,)
-    hospital_name = fields.Many2one('hospital.name', "Name of Hospital",required=True,)
-    main_class = fields.Many2one('police.detail', "Party Detail",required=True,)
-    remark = fields.Text("Remarks",required=True,)
-    additional = fields.Text("Additional Details",required=True,)
+    what_found = fields.Many2one('what.found', "What we found",required=False,)
+    qty = fields.Float(string="Quantity",required=False,)
+    accident_reason = fields.Char("Reason of accident ",required=False,)
+    result = fields.Char("Results",required=False,)
+    mean_trans = fields.Many2one('mean.trans', "Means of Transportation",required=False,)
+    hospital_name = fields.Many2one('hospital.name', "Name of Hospital",required=False,)
+    main_class = fields.Many2one('police.detail', "Party Detail",required=False,)
+    remark = fields.Text("Remarks",required=False,)
+    additional = fields.Text("Additional Details",required=False,)
     previous_record = fields.Boolean("Previous Records")
     companion_detail = fields.Boolean("Companion Details")
 
     previous_record_link = fields.One2many('previous.record', "main_class", string="Previous Record")
     companion_detail_link = fields.One2many('companion.detail', "main_class", string="Companion Detail")
-
-    @api.onchange('car_name')
-    def onchange_car_name(self):
-        if self.car_name:
-            self.car_maker = self.car_name.model
 
 
 class CompanionDetail(models.Model):
@@ -167,17 +204,20 @@ class CompanionDetail(models.Model):
     country = fields.Many2one('res.country', "Nationality",required=True,)
     id_num = fields.Char("ID number",required=True,)
     id_type = fields.Many2one('id.type', "ID Type",required=True,)
-    relation = fields.Char("Relation",required=True,)
-    sex = fields.Selection(string="Gender", selection=[('m', 'M'), ('f', 'F'), ],required=True,)
-    what_found = fields.Char("What we found",required=True,)
-    qty = fields.Float(string="Qty",required=True, )
-    accident_reason = fields.Char("Reason of accident ",required=True,)
-    result = fields.Char("Results",required=True,)
-    mean_trans = fields.Many2one('mean.trans', "Means of Transportation",required=True,)
-    hospital_name = fields.Many2one('hospital.name', "Name of Hospital",required=True,)
+    relation = fields.Char("Relation",required=False,)
+    sex = fields.Selection(string="Gender", selection=[('m', 'الذكر'), ('f', 'إناثا'), ],required=True,)
+    what_found = fields.Char("What we found",required=False,)
+    qty = fields.Float(string="Qty",required=False, )
+    accident_reason = fields.Char("Reason of accident ",required=False,)
+    result = fields.Char("Results",required=False,)
+    mean_trans = fields.Many2one('mean.trans', "Means of Transportation",required=False,)
+    hospital_name = fields.Many2one('hospital.name', "Name of Hospital",required=False,)
+    previous_record = fields.Boolean("Previous Records")
+    case_detail = fields.Boolean("Case Details")
 
     main_class = fields.Many2one('party.detail')
-
+    previous_record_link = fields.One2many('previous.record', "companion_class", string="Previous Record")
+    case_type_link = fields.One2many('case.type', "companion_class", string="Case Type")
 
 class PreviousRecord(models.Model):
     _name = 'previous.record'
@@ -188,11 +228,13 @@ class PreviousRecord(models.Model):
     day = fields.Char(required=True,)
 
     main_class = fields.Many2one('party.detail')
+    companion_class = fields.Many2one('companion.detail')
 
     @api.onchange('date')
     def _change_daytime(self):
         if self.date:
             self.day = datetime.datetime.strptime(self.date,'%Y-%m-%d').strftime('%A')
+            self.time = (datetime.datetime.now() + timedelta(hours=5)).strftime("%I:%M:%S %p")
 
 
 class ViolationDetail(models.Model):
@@ -200,28 +242,26 @@ class ViolationDetail(models.Model):
     _rec_name = 'number'
 
     number = fields.Char(string="Report Number")
-    case_id = fields.Char(string="Case ID",required=True,)
+    case_id = fields.Char(string="Case ID",required=False,)
     date = fields.Date(default=datetime.date.today())
     day = fields.Char()
-    time = fields.Char()
+    time = fields.Char(required=True)
     road_name = fields.Many2one('road.name', string="Road Name",required=False,)
     center_name = fields.Many2one('center.name', string="Center Name",required=False,)
     location_name = fields.Many2one('location.name', string="Location Name",required=False,)
     digital_tag = fields.Many2one('digital.tag', string="Digital Tag",required=False,)
     direction_name = fields.Many2one('direction.name', string="Direction Name",required=False,)
-    violation = fields.Char(string='Time of Violation',required=False,)
-    code = fields.Char(string='Code of Police CAR')
+    violation = fields.Float(string='Time of Violation',required=True)
+    code = fields.Many2one(comodel_name="car.code",string='Code of Police CAR',required=True,)
     police_officer = fields.Char(string='Police Officer 1',required=False,)
     rank_officer = fields.Char(string='Rank of officer 1',required=False,)
     PID1 = fields.Char(string="Officer 1 ID",required=False,)
-    sex_of1 = fields.Selection(string="Gender", selection=[('m', 'M'), ('f', 'F'), ],
-                               required=False, )
-    sex_of2 = fields.Selection(string="Gender", selection=[('m', 'M'), ('f', 'F'), ],
-                               required=False, )
+    sex_of1 = fields.Selection(string="Gender", selection=[('m', 'الذكر'), ('f', 'إناثا'), ],required=True, )
+    sex_of2 = fields.Selection(string="Gender", selection=[('m', 'الذكر'), ('f', 'إناثا'), ],required=True, )
     name_officer_2 = fields.Char(string='Police officer 2')
     rank_officer_2 = fields.Char(string='Rank of officer 2')
     PID2 = fields.Char(string="Officer 2 ID", required=False, )
-    tosc = fields.Char(string="Violation submitting Time",required=False,)
+    tosc = fields.Float(string="Violation submitting Time",required=True)
 
     case_detail = fields.Text(string='Violation details ')
     case_type = fields.One2many('case.type1', "main_class", string="Violation Type")
@@ -231,6 +271,7 @@ class ViolationDetail(models.Model):
     @api.model
     def create(self, vals):
         vals['number'] = self.env['ir.sequence'].next_by_code('record.number')
+        vals['case_id'] = self.env['ir.sequence'].next_by_code('record.case')
         new_record = super(ViolationDetail, self).create(vals)
         return new_record
 
@@ -238,7 +279,8 @@ class ViolationDetail(models.Model):
     def _change_daytime(self):
         if self.date:
             self.day = datetime.datetime.strptime(self.date,'%Y-%m-%d').strftime('%A')
-            self.time = (datetime.datetime.now() + timedelta(hours=3)).strftime("%I:%M:%S %p")
+            self.time = (datetime.datetime.now() + timedelta(hours=5)).strftime("%I:%M:%S %p")
+
 
 
 class TrafficReceive(models.Model):
@@ -256,13 +298,13 @@ class trafficPartyDetail(models.Model):
     _name = 'traffic.party.detail'
 
     # party = fields.Text("Party")
-    car_name = fields.Char("Name of Car",required=False,)
+    car_name = fields.Many2one('car.name',"Name of Car",required=False,)
     car_plate = fields.Char("Plate Number",required=False,)
     name = fields.Char("Driver Name",required=False,)
     driver_country = fields.Many2one('res.country', "Nationality",required=False,)
     id_num = fields.Char("ID number",required=True,)
     id_type = fields.Many2one('id.type', "ID Type",required=False,)
-    sex = fields.Selection(string="Gender", selection=[('m', 'M'), ('f', 'F'), ], required=False, )
+    sex = fields.Selection(string="Gender", selection=[('m', 'الذكر'), ('f', 'إناثا'), ],required=True, )
     dln = fields.Char("Driving License Number",required=False,)
     oftc = fields.Char("Owner of the car",required=False,)
     car_maker = fields.Many2one(comodel_name="car.maker", string="Maker of Car", required=False, )
@@ -433,7 +475,7 @@ class TypeOfViolation(models.Model):
 class CategoryCase(models.Model):
     _name = 'cate.case'
 
-    name = fields.Char(string="Category of Case",required=True,)
+    name = fields.Char(string="Detail",required=True,)
     case_type = fields.Many2one(comodel_name="type.case", string="Case Type", required=False, )
 
 
@@ -447,20 +489,17 @@ class CarName(models.Model):
     _name = 'car.name'
 
     name = fields.Char(string="Name of Car",required=True,)
-    model = fields.Many2one(comodel_name="car.maker", string="Maker of Car", required=False, )
-
+    maker = fields.Many2one(comodel_name="car.maker", string="Car Maker", required=False, )
 
 class CarColor(models.Model):
     _name = 'car.color'
 
     name = fields.Char(string="Color of Car",required=True,)
 
-
 class CarModel(models.Model):
     _name = 'car.model'
 
     name = fields.Char(string="Model of Car",required=True,)
-
 
 class CaseLevel(models.Model):
     _name = 'case.level'
@@ -500,42 +539,42 @@ class CaseLevelTree(models.Model):
 
     level_link = fields.Many2one(comodel_name="case.level", string="Case Type",required=True,)
     case_type = fields.Many2one(comodel_name="type.case", string="Case Type",required=True, )
-    case_level_cate = fields.One2many(comodel_name="case.level.cate", inverse_name="case_level_link", string="Case Level Category", required=False, )
+    case_level_cate = fields.One2many(comodel_name="case.level.cate", inverse_name="case_level_link", string="Case Level Detail", required=False, )
 
 
 class CaseSubCate(models.Model):
     _name = 'case.sub.cate'
     _rec_name = 'name'
-    _description = 'Case Sub Category'
+    _description = 'More Detail'
 
-    name = fields.Char(string="Case Sub Category",required=True,)
-    case_cate = fields.Many2one(comodel_name="cate.case", string="Case Category", required=False, )
+    name = fields.Char(string="More Detail",required=True,)
+    case_cate = fields.Many2one(comodel_name="cate.case", string="Detail", required=False, )
 
 
 class CaseLevelCate(models.Model):
     _name = 'case.level.cate'
     _rec_name = 'case_cate'
 
-    case_cate = fields.Many2one(comodel_name="cate.case", string="Case Category",required=True,)
+    case_cate = fields.Many2one(comodel_name="cate.case", string="Detail",required=True,)
     case_type = fields.Many2one(comodel_name="type.case", string="Case Type",required=True,)
-    case_level_link = fields.Many2one(comodel_name="case.level.tree", string="Case Level Category", required=False, )
-    case_level_sub_cate_link = fields.One2many(comodel_name="case.level.cate.sub", inverse_name="case_cate_level_link", string="Case Level Sub Category", required=False, )
+    case_level_link = fields.Many2one(comodel_name="case.level.tree", string="Case Level Detail", required=False, )
+    case_level_sub_cate_link = fields.One2many(comodel_name="case.level.cate.sub", inverse_name="case_cate_level_link", string="Case Level More Detail", required=False, )
 
 
 class CaseLevelCateSub(models.Model):
     _name = 'case.level.cate.sub'
     _rec_name = 'case_sub_cate'
 
-    case_cate = fields.Many2one(comodel_name="cate.case", string="Case Category",required=True,)
-    case_sub_cate = fields.Many2one(comodel_name="case.sub.cate", string="Case Sub Category",required=True,)
-    case_cate_level_link = fields.Many2one(comodel_name="case.level.cate", string="Case Level Sub Category", required=False, )
+    case_cate = fields.Many2one(comodel_name="cate.case", string="Detail",required=True,)
+    case_sub_cate = fields.Many2one(comodel_name="case.sub.cate", string="More Detail",required=True,)
+    case_cate_level_link = fields.Many2one(comodel_name="case.level.cate", string="Case Level More Detail", required=False, )
 
 
 class MainCase(models.Model):
-        _name = 'main.case'
-        _rec_name = 'name'
+    _name = 'main.case'
+    _rec_name = 'name'
 
-        name = fields.Char(string="Case",required=True,)
+    name = fields.Char(string="Case",required=True,)
 
 
 
@@ -548,7 +587,72 @@ class CarCode(models.Model):
     road_link = fields.Many2one(comodel_name="road.tree", string="Road Tree Link", required=False, )
 
 
+class CarConfig(models.Model):
+    _name = 'car.config'
+    _rec_name = 'car_maker'
 
+    car_maker = fields.Many2one(comodel_name="car.maker", string="Car Maker", required=True, )
+    car_name_config = fields.One2many(comodel_name="car.name.config", inverse_name="car_config_link", string="Car Name Config", required=False, )
+
+    @api.model
+    def create(self, val):
+        record = super(CarConfig, self).create(val)
+        for x in record.car_name_config:
+            x.name.maker = record.id
+        return record
+
+    @api.multi
+    def write(self, val):
+        super(CarConfig, self).write(val)
+        for x in self.car_name_config:
+            x.name.maker = self.id
+        return True
+
+class CarNameConfig(models.Model):
+    _name = 'car.name.config'
+    _rec_name = 'name'
+
+    name = fields.Many2one(comodel_name="car.name", string="Car Name", required=True, )
+    car_config_link = fields.Many2one(comodel_name="car.config", string="Car Name Config", required=False, )
+
+class ModelColor(models.Model):
+    _name = 'model.color'
+
+    color = fields.One2many(comodel_name="color.conf", inverse_name="model_color", string="Color", required=False, )
+    model = fields.One2many(comodel_name="model.conf", inverse_name="model_color", string="Model", required=False, )
+    name = fields.Char(string="Colors And Model", default="Colors And Models", required=False, )
+
+class ColorConf(models.Model):
+    _name = 'color.conf'
+    _rec_name = 'name'
+
+    name = fields.Many2one(comodel_name="car.color", string="Color", required=False, )
+    model_color = fields.Many2one(comodel_name="model.color", string="Color", required=False, )
+
+
+class ModelConf(models.Model):
+    _name = 'model.conf'
+    _rec_name = 'name'
+
+    name = fields.Many2one(comodel_name="car.model", string="Model", required=False, )
+    model_color = fields.Many2one(comodel_name="model.color", string="Model", required=False, )
+
+
+class IDTypeConfig(models.Model):
+    _name = 'id.config'
+    _rec_name = 'name'
+
+    name = fields.Char(string="ID Type", default="ID Type", required=False, )
+    id_type = fields.One2many(comodel_name="idtype.conf", inverse_name="id_config", string="ID Type", required=False, )
+
+
+class IDConf(models.Model):
+    _name = 'idtype.conf'
+    _rec_name = 'name'
+
+    id_type = fields.Many2one(comodel_name="id.type", string="ID Type", required=False, )
+    id_config = fields.Many2one(comodel_name="id.config", string="Id config", required=False, )
+    name = fields.Char(string="ID Type", default="ID Type", required=False, )
 
 #
 # class NewPage(http.Controller):

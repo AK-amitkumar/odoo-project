@@ -487,7 +487,7 @@
                   <field class="attach_3" name="bill_attach"  attrs="{'invisible':[('state','in','draft')]}"/>
                   <field class="bill_4" name="bayan_no"  attrs="{'invisible':[('state','in','draft')]}"/>
                   <field class="attach_4" name="bayan_attach"  attrs="{'invisible':[('state','in','draft')]}"/>
-                  <field name="pre_bayan"  attrs="{'invisible':[('state','not in','done')]}"/>
+                  <field name="pre_bayan"  attrs="{'invisible':[('state','in','draft')]}"/>
                   <field name="bayan_date"  attrs="{'invisible':['|',('state','in','pre'),('state','in','draft')]}"/>
                   <field name="shutl_start_date" attrs="{'invisible':['|',('state','in','pre'),('state','in','draft')]}"/>
                   <field name="shutl_end_date" attrs="{'invisible':['|','|',('state','in','pre'),('state','in','draft'),('state','in','initial')]}"/>
@@ -556,6 +556,58 @@
         </form> 
       </field> 
     </record>
+
+    <record id="InvLineExt" model="ir.ui.view">
+          <field name="name">InvLineExt</field>
+          <field name="model">account.invoice</field>
+          <field name="inherit_id" ref="account.invoice_form"/>
+          <field name="arch" type="xml">
+              <xpath expr="//field[@name='invoice_line_ids']/tree/field[@name= 'price_subtotal']" position="after">
+                <field name="afterTaxAmt"/>
+              </xpath>
+              <xpath expr="//field[@name='team_id']" position="after">
+                <field name="our_job" invisible="1"/>
+                <field name="sr_no" invisible="1"/>
+                <field name="customer_ref" invisible="1"/>
+                <field name="custom_dec" invisible="1"/>
+                <field name="bayan_no" invisible="1"/>
+                <field name="final_date" invisible="1"/>
+              </xpath>
+          </field>
+      </record>
+
+
+    <!-- Inherit Form View to Modify it sale order line-->
+
+      <!-- Inherit Form View to Modify it -->
+      <record id="ResPartnerExtFrom" model="ir.ui.view">
+          <field name="name">ResPartnerExtFrom</field>
+          <field name="model">res.partner</field>
+          <field name="inherit_id" ref="base.view_partner_form"/>
+          <field name="arch" type="xml">
+
+              <xpath expr="//field[@name='category_id']" position="after">
+                  <!-- Add your fields or attributes here -->
+                  <field name="vat"/>
+              </xpath>
+
+          </field>
+      </record>
+
+
+       <!--Inherit Form View to Modify it-->
+      <record id="ResCompanyExtFrom" model="ir.ui.view">
+          <field name="name">ResCompanyExtFrom</field>
+          <field name="model">res.company</field>
+          <field name="inherit_id" ref="base.view_company_form"/>
+          <field name="arch" type="xml">
+
+              <xpath expr="//field[@name='vat']" position="attributes">
+                <attribute name="string">VAT</attribute>
+            </xpath>
+
+          </field>
+      </record>
 
     <act_window id="action_export_logic" 
     name="Export" 

@@ -130,6 +130,12 @@ class AccountExtend(models.Model):
     by_customer   = fields.Many2one('by.customer', string="By Customer")
     bill_num = fields.Char(string="B/L Number")
     acount_link = fields.Many2one('freight.forward', string='link')
+    our_job = fields.Char(string="Our Job No", required=False, )
+    sr_no = fields.Char(string="Sr No", required=False, )
+    customer_ref = fields.Char(string="Customer Ref", required=False, )
+    custom_dec = fields.Char(string="Custom Dec", required=False, )
+    bayan_no = fields.Char(string="Bayan No", required=False, )
+    final_date = fields.Date(string="Final Date", required=False, )
 
 
 class AccountTreeExtend(models.Model):
