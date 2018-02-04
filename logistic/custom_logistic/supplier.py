@@ -247,6 +247,7 @@ class FreightForwarding(models.Model):
 
     @api.multi
     def create_invoice(self):
+        account = self.env['account_journal.configuration'].search([])
         self.btn_stage = 'done'
         self.inv_chk = True
         prev_rec = self.env['account.invoice'].search([('acount_link', '=', self.id)])
@@ -256,6 +257,7 @@ class FreightForwarding(models.Model):
             'partner_id': self.customer.id,
             'date_invoice': self.book_date,
             'type': "out_invoice",
+            'journal_id':account.p_invoice_journal.id,
             'acount_link': self.id,
         })
 
@@ -266,7 +268,7 @@ class FreightForwarding(models.Model):
                 records.invoice_line_ids.create({
                     'name': 'Freight Charges',
                     'qunatity': 1,
-                    'account_id': 3,
+                    'account_id': account.freight_invoice_account.id ,
                     'price_unit': data.frt_charg,
                     'crt_no': data.cont_no,
                     'service_type': data.cont_type,
@@ -278,7 +280,7 @@ class FreightForwarding(models.Model):
                 records.invoice_line_ids.create({
                     'name': 'Storage Charges',
                     'qunatity': 1,
-                    'account_id': 3,
+                    'account_id': account.storage_invoice_account.id,
                     'price_unit': line.str_charg,
                     'crt_no': line.cont_no,
                     'service_type': line.cont_type,
@@ -293,7 +295,7 @@ class FreightForwarding(models.Model):
                         'name': 'Custom Clearance Import Charges',
                         'quantity': 1,
                         'price_unit': line.charge_serv,
-                        'account_id': 3,
+                        'account_id': account.i_custom_invoice_account.id,
                         'service_type': line.type_serv.name,
                         'invoice_id': records.id,
                     })
@@ -306,7 +308,7 @@ class FreightForwarding(models.Model):
                         'name': 'Custom Clearance Export Charges',
                         'quantity': 1,
                         'price_unit': line.sevr_charge,
-                        'account_id': 3,
+                        'account_id': account.e_custom_invoice_account.id,
                         'service_type': line.sevr_type.name,
                         'invoice_id': records.id,
                     })
@@ -315,7 +317,7 @@ class FreightForwarding(models.Model):
                         'name': 'Custom Examination Export Charges',
                         'quantity': 1,
                         'price_unit': data.amt_paid,
-                        'account_id': 3,
+                        'account_id': account.e_custom_exm_invoice_account.id,
                         'crt_no': data.container_no,
                         'invoice_id': records.id,
                     })
@@ -328,7 +330,7 @@ class FreightForwarding(models.Model):
                     'name': 'Transport Order Charges',
                     'quantity': 1,
                     'price_unit': y.price_unit,
-                    'account_id': 3,
+                    'account_id': account.transport_invoice_account.id,
                     'crt_no': y.crt_no,
                     'invoice_id': records.id,
                 })

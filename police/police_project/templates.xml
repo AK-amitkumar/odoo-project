@@ -35,17 +35,17 @@
 
 								<group name="group_right">
 									<field name="police_officer"/>
-									<field name="rank_officer"/>
+									<field name="rank_officer" options="{'no_quick_create': True, 'no_create_edit' : True}" />
 									<field name="PID1"/>
 									<field name="sex_of1"/>
 									<field name="name_officer_2"/>
-									<field name="rank_officer_2"/>
+									<field name="rank_officer_2" options="{'no_quick_create': True, 'no_create_edit' : True}" />
 									<field name="PID2"/>
 									<field name="sex_of2"/>
 									<field name="tosc" widget="timepicker" class="no_icon" options="{'step': 5}"/>
 									<field name="receiving_party" domain="[('road_name','=',road_name)]" options="{'no_quick_create': True, 'no_create_edit' : True}"/>
 									<field name="receiving_name"/>
-									<field name="receiving_party_rank"/>
+									<field name="receiving_party_rank" options="{'no_quick_create': True, 'no_create_edit' : True}" />
 								</group>
 							</group>
 
@@ -67,9 +67,9 @@
 									<field name="car_name"/>
 									<field name="driver_country"/>
 									<field name="id_type" options="{'no_quick_create': True, 'no_create_edit' : True}"/>
-									<field name="what_found"/>
+									<field name="what_found" options="{'no_quick_create': True, 'no_create_edit' : True}"/>
 									<field name="qty"/>
-									<field name="accident_reason"/>
+									<field name="accident_reason" options="{'no_quick_create': True, 'no_create_edit' : True}"/>
 								</tree>
 							</field>
 						</div>
@@ -332,10 +332,10 @@
 								<group name="group_right">
 									<field name="car_model" options="{'no_quick_create': True, 'no_create_edit' : True}"/>
 									<field name="car_plate"/>
-									<field name="what_found"/>
+									<field name="what_found" options="{'no_quick_create': True, 'no_create_edit' : True}"/>
 									<field name="qty"/>
-									<field name="accident_reason"/>
-									<field name="result"/>
+									<field name="accident_reason" options="{'no_quick_create': True, 'no_create_edit' : True}"/>
+									<field name="result" options="{'no_quick_create': True, 'no_create_edit' : True}"/>
 									<field name="mean_trans"/>
 									<field name="hospital_name"/>
 								</group>
@@ -397,10 +397,10 @@
 								</group>
 
 								<group name="group_right">
-									<field name="what_found"/>
+									<field name="what_found" options="{'no_quick_create': True, 'no_create_edit' : True}"/>
 									<field name="qty"/>
-									<field name="accident_reason"/>
-									<field name="result"/>
+									<field name="accident_reason" options="{'no_quick_create': True, 'no_create_edit' : True}"/>
+									<field name="result" options="{'no_quick_create': True, 'no_create_edit' : True}"/>
 									<field name="mean_trans"/>
 									<field name="hospital_name"/>
 								</group>
@@ -489,11 +489,11 @@
 								<group name="group_right">
 									<field name="code" domain="[('car_center','=',center_name)]" options="{'no_quick_create': True, 'no_create_edit' : True}"/>
 									<field name="police_officer"/>
-									<field name="rank_officer"/>
+									<field name="rank_officer" options="{'no_quick_create': True, 'no_create_edit' : True}" />
 									<field name="PID1"/>
 									<field name="sex_of1"/>
 									<field name="name_officer_2"/>
-									<field name="rank_officer_2"/>
+									<field name="rank_officer_2" options="{'no_quick_create': True, 'no_create_edit' : True}" />
 									<field name="PID2"/>
 									<field name="sex_of2"/>
 									<field name="tosc" widget="timepicker" class="no_icon" options="{'step': 5}"/>
@@ -547,7 +547,7 @@
 							<group>
 								<field name="receiving_party" domain="[('road_name','=',road_name)]" options="{'no_quick_create': True, 'no_create_edit' : True}"/>
 								<field name="receiving_name"/>
-								<field name="receiving_party_rank"/>
+								<field name="receiving_party_rank" options="{'no_quick_create': True, 'no_create_edit' : True}" />
 							</group>
 						</div>
 					</sheet>
@@ -1180,9 +1180,62 @@
 							<field name="id_type"/>
 						</tree>
 					</field>
+					<h3>What We Found</h3>
+					<field name="what_found">
+						<tree editable="bottom">
+							<field name="what_found"/>
+						</tree>
+					</field>
+					<h3>Accident Reason</h3>
+					<field name="reason">
+						<tree editable="bottom">
+							<field name="reason"/>
+						</tree>
+					</field>
+					<h3>Accident Result</h3>
+					<field name="result">
+						<tree editable="bottom">
+							<field name="result"/>
+						</tree>
+					</field>
+					<h3>Relation</h3>
+					<field name="result">
+						<tree editable="bottom">
+							<field name="result"/>
+						</tree>
+					</field>
 				</form>
 			</field>
 		</record>
+
+		<record id="rank_config_id" model="ir.ui.view">
+			<field name="name">rank_config_id</field>
+			<field name="model">rank.config</field>
+			<field name="arch" type="xml">
+				<form string="Ranks Configuration" create="false" delete="false">
+				<h3>Officer One Rank</h3>
+					<field name="of1_rank">
+						<tree editable="bottom">
+							<field name="of1_rank"/>
+						</tree>
+					</field>
+					<h3>Officer Two Rank</h3>
+					<field name="of2_rank">
+						<tree editable="bottom">
+							<field name="of2_rank"/>
+						</tree>
+					</field>
+					<h3>Receiving Part Rank</h3>
+					<field name="rec_rank">
+						<tree editable="bottom">
+							<field name="rec_rank"/>
+						</tree>
+					</field>
+
+				</form>
+			</field>
+		</record>
+
 		<record id="id_tree_view" model="ir.ui.view">
 			<field name="name">id_tree_view</field>
 			<field name="model">id.config</field>
@@ -1192,6 +1245,25 @@
 					<field name="name"/>
 				</tree>
 			</field>
+		</record>
+
+			<record id="rank_tree_view" model="ir.ui.view">
+			<field name="name">rank_tree_view</field>
+			<field name="model">rank.config</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree string="Ranks Configuration" create="false" delete="false">
+					<field name="name"/>
+				</tree>
+			</field>
+		</record>
+
+		<record id="rank_act_id" model="ir.actions.act_window">
+			<field name="name">Ranks Configuration</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">rank.config</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
 		</record>
 
 		<record id="violation_act_id" model="ir.actions.act_window">
@@ -1243,7 +1315,7 @@
 		</record>
 
 		<record id="it_type_act_id" model="ir.actions.act_window">
-			<field name="name">ID Types</field>
+			<field name="name">ID What Found and Other Configurations</field>
 			<field name="type">ir.actions.act_window</field>
 			<field name="res_model">id.config</field>
 			<field name="view_type">form</field>
@@ -1299,10 +1371,15 @@
 				  sequence="104"/>
 
 		<menuitem id="id_type_menu_id"
-				  name="ID Type"
+				  name="ID What Found Other Config"
 				  action="it_type_act_id"
 				  parent="config_id"
 				  sequence="105"/>
+		<menuitem id="rank_menu_id"
+				  name="Ranks Configuration"
+				  action="rank_act_id"
+				  parent="config_id"
+				  sequence="106"/>
 
 		<!--<template id="index">-->
 		<!--<t t-name="police_project.index">-->

@@ -354,352 +354,12 @@
       <change beforePath="" afterPath="$PROJECT_DIR$/champion/working_161_champion/views.xml" />
       <change beforePath="$PROJECT_DIR$/.idea/dictionaries/muhammad.xml" afterPath="$PROJECT_DIR$/.idea/dictionaries/muhammad.xml" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/Other/dashboard-10.0.1.0.zip" afterPath="$PROJECT_DIR$/Other/dashboard-10.0.1.0.zip" />
-      <change beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
-      <change beforePath="$PROJECT_DIR$/logistic data/2dashboard.png" afterPath="$PROJECT_DIR$/logistic data/2dashboard.png" />
-      <change beforePath="$PROJECT_DIR$/logistic data/Daily Shipment Status Report NATPET Dated 9th Jan 2018.xlsx" afterPath="$PROJECT_DIR$/logistic data/Daily Shipment Status Report NATPET Dated 9th Jan 2018.xlsx" />
       <change beforePath="$PROJECT_DIR$/logistic/custom_logistic/models.py" afterPath="$PROJECT_DIR$/logistic/custom_logistic/models.py" />
       <change beforePath="$PROJECT_DIR$/logistic/custom_logistic/quote.py" afterPath="$PROJECT_DIR$/logistic/custom_logistic/quote.py" />
-      <change beforePath="$PROJECT_DIR$/logistic/custom_logistic/quote.xml" afterPath="$PROJECT_DIR$/logistic/custom_logistic/quote.xml" />
-      <change beforePath="$PROJECT_DIR$/logistic/custom_logistic/report.py" afterPath="$PROJECT_DIR$/logistic/custom_logistic/report.py" />
       <change beforePath="$PROJECT_DIR$/logistic/custom_logistic/supplier.py" afterPath="$PROJECT_DIR$/logistic/custom_logistic/supplier.py" />
       <change beforePath="$PROJECT_DIR$/logistic/custom_logistic/views.xml" afterPath="$PROJECT_DIR$/logistic/custom_logistic/views.xml" />
-      <change beforePath="$PROJECT_DIR$/logistic/dashboard/__init__.py" afterPath="$PROJECT_DIR$/logistic/dashboard/__init__.py" />
-      <change beforePath="$PROJECT_DIR$/logistic/dashboard/__openerp__.py" afterPath="$PROJECT_DIR$/logistic/dashboard/__openerp__.py" />
-      <change beforePath="$PROJECT_DIR$/logistic/dashboard/controllers/__init__.py" afterPath="$PROJECT_DIR$/logistic/dashboard/controllers/__init__.py" />
-      <change beforePath="$PROJECT_DIR$/logistic/dashboard/controllers/main.py" afterPath="$PROJECT_DIR$/logistic/dashboard/controllers/main.py" />
-      <change beforePath="$PROJECT_DIR$/logistic/dashboard/data/dashboard_data.xml" afterPath="$PROJECT_DIR$/logistic/dashboard/data/dashboard_data.xml" />
-      <change beforePath="$PROJECT_DIR$/logistic/dashboard/i18n/zh_CN.po" afterPath="$PROJECT_DIR$/logistic/dashboard/i18n/zh_CN.po" />
-      <change beforePath="$PROJECT_DIR$/logistic/dashboard/models/__init__.py" afterPath="$PROJECT_DIR$/logistic/dashboard/models/__init__.py" />
-      <change beforePath="$PROJECT_DIR$/logistic/dashboard/models/dashboard.py" afterPath="$PROJECT_DIR$/logistic/dashboard/models/dashboard.py" />
-      <change beforePath="$PROJECT_DIR$/logistic/dashboard/models/settings.py" afterPath="$PROJECT_DIR$/logistic/dashboard/models/settings.py" />
-      <change beforePath="$PROJECT_DIR$/logistic/dashboard/security/dashboard_security.xml" afterPath="$PROJECT_DIR$/logistic/dashboard/security/dashboard_security.xml" />
-      <change beforePath="$PROJECT_DIR$/logistic/dashboard/security/ir.model.access.csv" afterPath="$PROJECT_DIR$/logistic/dashboard/security/ir.model.access.csv" />
-      <change beforePath="$PROJECT_DIR$/logistic/dashboard/static/description/1.png" afterPath="$PROJECT_DIR$/logistic/dashboard/static/description/1.png" />
-      <change beforePath="$PROJECT_DIR$/logistic/dashboard/static/description/2.png" afterPath="$PROJECT_DIR$/logistic/dashboard/static/description/2.png" />
-      <change beforePath="$PROJECT_DIR$/logistic/dashboard/static/description/4.png" afterPath="$PROJECT_DIR$/logistic/dashboard/static/description/4.png" />
-      <change beforePath="$PROJECT_DIR$/logistic/dashboard/static/description/5.png" afterPath="$PROJECT_DIR$/logistic/dashboard/static/description/5.png" />
-      <change beforePath="$PROJECT_DIR$/logistic/dashboard/static/description/6.png" afterPath="$PROJECT_DIR$/logistic/dashboard/static/description/6.png" />
-      <change beforePath="$PROJECT_DIR$/logistic/dashboard/static/description/8.png" afterPath="$PROJECT_DIR$/logistic/dashboard/static/description/8.png" />
-      <change beforePath="$PROJECT_DIR$/logistic/dashboard/static/description/9.png" afterPath="$PROJECT_DIR$/logistic/dashboard/static/description/9.png" />
-      <change beforePath="$PROJECT_DIR$/logistic/dashboard/static/description/icon.png" afterPath="$PROJECT_DIR$/logistic/dashboard/static/description/icon.png" />
-      <change beforePath="$PROJECT_DIR$/logistic/dashboard/static/description/index.html" afterPath="$PROJECT_DIR$/logistic/dashboard/static/description/index.html" />
-      <change beforePath="$PROJECT_DIR$/logistic/dashboard/static/description/logo.png" afterPath="$PROJECT_DIR$/logistic/dashboard/static/description/logo.png" />
-      <change beforePath="$PROJECT_DIR$/logistic/dashboard/static/src/css/dashboard.css" afterPath="$PROJECT_DIR$/logistic/dashboard/static/src/css/dashboard.css" />
-      <change beforePath="$PROJECT_DIR$/logistic/dashboard/static/src/css/font-awesome.css" afterPath="$PROJECT_DIR$/logistic/dashboard/static/src/css/font-awesome.css" />
-      <change beforePath="$PROJECT_DIR$/logistic/dashboard/static/src/css/report.css" afterPath="$PROJECT_DIR$/logistic/dashboard/static/src/css/report.css" />
-      <change beforePath="$PROJECT_DIR$/logistic/dashboard/static/src/css/simple-iconpicker.css" afterPath="$PROJECT_DIR$/logistic/dashboard/static/src/css/simple-iconpicker.css" />
-      <change beforePath="$PROJECT_DIR$/logistic/dashboard/static/src/css/simple-iconpicker.min.css" afterPath="$PROJECT_DIR$/logistic/dashboard/static/src/css/simple-iconpicker.min.css" />
-      <change beforePath="$PROJECT_DIR$/logistic/dashboard/static/src/fonts/fontawesome-webfont (1).woff2" afterPath="$PROJECT_DIR$/logistic/dashboard/static/src/fonts/fontawesome-webfont (1).woff2" />
-      <change beforePath="$PROJECT_DIR$/logistic/dashboard/static/src/fonts/fontawesome-webfont.eot" afterPath="$PROJECT_DIR$/logistic/dashboard/static/src/fonts/fontawesome-webfont.eot" />
-      <change beforePath="$PROJECT_DIR$/logistic/dashboard/static/src/fonts/fontawesome-webfont.svg" afterPath="$PROJECT_DIR$/logistic/dashboard/static/src/fonts/fontawesome-webfont.svg" />
-      <change beforePath="$PROJECT_DIR$/logistic/dashboard/static/src/fonts/fontawesome-webfont.ttf" afterPath="$PROJECT_DIR$/logistic/dashboard/static/src/fonts/fontawesome-webfont.ttf" />
-      <change beforePath="$PROJECT_DIR$/logistic/dashboard/static/src/fonts/fontawesome-webfont.woff" afterPath="$PROJECT_DIR$/logistic/dashboard/static/src/fonts/fontawesome-webfont.woff" />
-      <change beforePath="$PROJECT_DIR$/logistic/dashboard/static/src/fonts/fontawesome-webfont.woff2" afterPath="$PROJECT_DIR$/logistic/dashboard/static/src/fonts/fontawesome-webfont.woff2" />
-      <change beforePath="$PROJECT_DIR$/logistic/dashboard/static/src/img/logo.jpg" afterPath="$PROJECT_DIR$/logistic/dashboard/static/src/img/logo.jpg" />
-      <change beforePath="$PROJECT_DIR$/logistic/dashboard/static/src/js/custom.js" afterPath="$PROJECT_DIR$/logistic/dashboard/static/src/js/custom.js" />
-      <change beforePath="$PROJECT_DIR$/logistic/dashboard/static/src/js/morris.js" afterPath="$PROJECT_DIR$/logistic/dashboard/static/src/js/morris.js" />
-      <change beforePath="$PROJECT_DIR$/logistic/dashboard/static/src/js/morrisdata.js" afterPath="$PROJECT_DIR$/logistic/dashboard/static/src/js/morrisdata.js" />
-      <change beforePath="$PROJECT_DIR$/logistic/dashboard/static/src/js/raphael.js" afterPath="$PROJECT_DIR$/logistic/dashboard/static/src/js/raphael.js" />
-      <change beforePath="$PROJECT_DIR$/logistic/dashboard/static/src/js/raphael.min.js" afterPath="$PROJECT_DIR$/logistic/dashboard/static/src/js/raphael.min.js" />
-      <change beforePath="$PROJECT_DIR$/logistic/dashboard/static/src/js/simple-iconpicker.js" afterPath="$PROJECT_DIR$/logistic/dashboard/static/src/js/simple-iconpicker.js" />
-      <change beforePath="$PROJECT_DIR$/logistic/dashboard/static/src/js/simple-iconpicker.min.js" afterPath="$PROJECT_DIR$/logistic/dashboard/static/src/js/simple-iconpicker.min.js" />
-      <change beforePath="$PROJECT_DIR$/logistic/dashboard/views/assets.xml" afterPath="$PROJECT_DIR$/logistic/dashboard/views/assets.xml" />
-      <change beforePath="$PROJECT_DIR$/logistic/dashboard/views/dashboard_view.xml" afterPath="$PROJECT_DIR$/logistic/dashboard/views/dashboard_view.xml" />
-      <change beforePath="$PROJECT_DIR$/logistic/dashboard/views/res_config_view.xml" afterPath="$PROJECT_DIR$/logistic/dashboard/views/res_config_view.xml" />
-      <change beforePath="$PROJECT_DIR$/logistic/havelock_backend_theme/__init__.py" afterPath="$PROJECT_DIR$/logistic/havelock_backend_theme/__init__.py" />
-      <change beforePath="$PROJECT_DIR$/logistic/havelock_backend_theme/__manifest__.py" afterPath="$PROJECT_DIR$/logistic/havelock_backend_theme/__manifest__.py" />
-      <change beforePath="$PROJECT_DIR$/logistic/havelock_backend_theme/static/description/foldable-menu.png" afterPath="$PROJECT_DIR$/logistic/havelock_backend_theme/static/description/foldable-menu.png" />
-      <change beforePath="$PROJECT_DIR$/logistic/havelock_backend_theme/static/description/icon.png" afterPath="$PROJECT_DIR$/logistic/havelock_backend_theme/static/description/icon.png" />
-      <change beforePath="$PROJECT_DIR$/logistic/havelock_backend_theme/static/description/index.html" afterPath="$PROJECT_DIR$/logistic/havelock_backend_theme/static/description/index.html" />
-      <change beforePath="$PROJECT_DIR$/logistic/havelock_backend_theme/static/description/main_screenshot.png" afterPath="$PROJECT_DIR$/logistic/havelock_backend_theme/static/description/main_screenshot.png" />
-      <change beforePath="$PROJECT_DIR$/logistic/havelock_backend_theme/static/description/screen-2.png" afterPath="$PROJECT_DIR$/logistic/havelock_backend_theme/static/description/screen-2.png" />
-      <change beforePath="$PROJECT_DIR$/logistic/havelock_backend_theme/static/description/screen.png" afterPath="$PROJECT_DIR$/logistic/havelock_backend_theme/static/description/screen.png" />
-      <change beforePath="$PROJECT_DIR$/logistic/havelock_backend_theme/static/description/unfold-menu.png" afterPath="$PROJECT_DIR$/logistic/havelock_backend_theme/static/description/unfold-menu.png" />
-      <change beforePath="$PROJECT_DIR$/logistic/havelock_backend_theme/static/src/js/toggle_leftbar.js" afterPath="$PROJECT_DIR$/logistic/havelock_backend_theme/static/src/js/toggle_leftbar.js" />
-      <change beforePath="$PROJECT_DIR$/logistic/havelock_backend_theme/static/src/less/bootswatch.css" afterPath="$PROJECT_DIR$/logistic/havelock_backend_theme/static/src/less/bootswatch.css" />
-      <change beforePath="$PROJECT_DIR$/logistic/havelock_backend_theme/static/src/less/bootswatch.less" afterPath="$PROJECT_DIR$/logistic/havelock_backend_theme/static/src/less/bootswatch.less" />
-      <change beforePath="$PROJECT_DIR$/logistic/havelock_backend_theme/static/src/less/style.css" afterPath="$PROJECT_DIR$/logistic/havelock_backend_theme/static/src/less/style.css" />
-      <change beforePath="$PROJECT_DIR$/logistic/havelock_backend_theme/static/src/less/style.less" afterPath="$PROJECT_DIR$/logistic/havelock_backend_theme/static/src/less/style.less" />
-      <change beforePath="$PROJECT_DIR$/logistic/havelock_backend_theme/static/src/less/variables.css" afterPath="$PROJECT_DIR$/logistic/havelock_backend_theme/static/src/less/variables.css" />
-      <change beforePath="$PROJECT_DIR$/logistic/havelock_backend_theme/static/src/less/variables.less" afterPath="$PROJECT_DIR$/logistic/havelock_backend_theme/static/src/less/variables.less" />
-      <change beforePath="$PROJECT_DIR$/logistic/havelock_backend_theme/views.xml" afterPath="$PROJECT_DIR$/logistic/havelock_backend_theme/views.xml" />
-      <change beforePath="$PROJECT_DIR$/logistic/rowno_in_tree/static/description/not-approved.png" afterPath="$PROJECT_DIR$/logistic/rowno_in_tree/static/description/not-approved.png" />
-      <change beforePath="$PROJECT_DIR$/logistic/rowno_in_tree/static/description/pos_payment_demo.gif" afterPath="$PROJECT_DIR$/logistic/rowno_in_tree/static/description/pos_payment_demo.gif" />
-      <change beforePath="$PROJECT_DIR$/police project data/Cases type.xlsx" afterPath="$PROJECT_DIR$/police project data/Cases type.xlsx" />
-      <change beforePath="$PROJECT_DIR$/police project data/Screenshot from 2018-01-05 12-04-08.png" afterPath="$PROJECT_DIR$/police project data/Screenshot from 2018-01-05 12-04-08.png" />
-      <change beforePath="$PROJECT_DIR$/police project data/The mandatory fields in police record.docx" afterPath="$PROJECT_DIR$/police project data/The mandatory fields in police record.docx" />
-      <change beforePath="$PROJECT_DIR$/police/google_api_integreation/.idea/OK_purchase_extension.iml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/police/google_api_integreation/.idea/misc.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/police/google_api_integreation/.idea/modules.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/police/google_api_integreation/.idea/vcs.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/police/google_api_integreation/.idea/workspace.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/police/google_api_integreation/__init__.py" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/police/google_api_integreation/__manifest__.py" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/police/google_api_integreation/__openerp__.py" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/police/google_api_integreation/client_id.json" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/police/google_api_integreation/config.py" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/police/google_api_integreation/data.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/police/google_api_integreation/model.py" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/police/google_api_integreation/security/ir.model.access.csv" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/police/google_api_integreation/security/security.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/police/google_api_integreation/static/description/1.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/police/google_api_integreation/static/description/1.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/police/google_api_integreation/static/description/icon.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/police/google_api_integreation/static/description/index.html" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/police/google_api_integreation/static/src/css/custom.css" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/police/google_api_integreation/storage.json" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/police/google_api_integreation/views/template.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/police/max_base_multi_attachment/__init__.py" afterPath="$PROJECT_DIR$/police/max_base_multi_attachment/__init__.py" />
-      <change beforePath="$PROJECT_DIR$/police/max_base_multi_attachment/__manifest__.py" afterPath="$PROJECT_DIR$/police/max_base_multi_attachment/__manifest__.py" />
-      <change beforePath="$PROJECT_DIR$/police/max_base_multi_attachment/i18n/zh_CN.po" afterPath="$PROJECT_DIR$/police/max_base_multi_attachment/i18n/zh_CN.po" />
-      <change beforePath="$PROJECT_DIR$/police/max_base_multi_attachment/models/__init__.py" afterPath="$PROJECT_DIR$/police/max_base_multi_attachment/models/__init__.py" />
-      <change beforePath="$PROJECT_DIR$/police/max_base_multi_attachment/models/models.py" afterPath="$PROJECT_DIR$/police/max_base_multi_attachment/models/models.py" />
-      <change beforePath="$PROJECT_DIR$/police/max_base_multi_attachment/security/ir.model.access.csv" afterPath="$PROJECT_DIR$/police/max_base_multi_attachment/security/ir.model.access.csv" />
-      <change beforePath="$PROJECT_DIR$/police/max_base_multi_attachment/static/description/icon.png" afterPath="$PROJECT_DIR$/police/max_base_multi_attachment/static/description/icon.png" />
-      <change beforePath="$PROJECT_DIR$/police/max_base_multi_attachment/views/max_base_multi_attachment.xml" afterPath="$PROJECT_DIR$/police/max_base_multi_attachment/views/max_base_multi_attachment.xml" />
-      <change beforePath="$PROJECT_DIR$/police/police_case_summary/__manifest__.py" afterPath="$PROJECT_DIR$/police/police_case_summary/__manifest__.py" />
-      <change beforePath="$PROJECT_DIR$/police/police_case_summary/model.py" afterPath="$PROJECT_DIR$/police/police_case_summary/model.py" />
-      <change beforePath="$PROJECT_DIR$/police/police_case_summary/views/module_report.xml" afterPath="$PROJECT_DIR$/police/police_case_summary/views/module_report.xml" />
       <change beforePath="$PROJECT_DIR$/police/police_project/model.py" afterPath="$PROJECT_DIR$/police/police_project/model.py" />
-      <change beforePath="$PROJECT_DIR$/police/police_project/static/src/css/style.css" afterPath="$PROJECT_DIR$/police/police_project/static/src/css/style.css" />
       <change beforePath="$PROJECT_DIR$/police/police_project/templates.xml" afterPath="$PROJECT_DIR$/police/police_project/templates.xml" />
-      <change beforePath="$PROJECT_DIR$/saif/backend_theme_v10-10.0.1.0.23.zip" afterPath="$PROJECT_DIR$/saif/backend_theme_v10-10.0.1.0.23.zip" />
-      <change beforePath="$PROJECT_DIR$/saif/backend_theme_v10/__init__.py" afterPath="$PROJECT_DIR$/saif/backend_theme_v10/__init__.py" />
-      <change beforePath="$PROJECT_DIR$/saif/backend_theme_v10/__manifest__.py" afterPath="$PROJECT_DIR$/saif/backend_theme_v10/__manifest__.py" />
-      <change beforePath="$PROJECT_DIR$/saif/backend_theme_v10/controllers/__init__.py" afterPath="$PROJECT_DIR$/saif/backend_theme_v10/controllers/__init__.py" />
-      <change beforePath="$PROJECT_DIR$/saif/backend_theme_v10/controllers/main.py" afterPath="$PROJECT_DIR$/saif/backend_theme_v10/controllers/main.py" />
-      <change beforePath="$PROJECT_DIR$/saif/backend_theme_v10/images/screen.png" afterPath="$PROJECT_DIR$/saif/backend_theme_v10/images/screen.png" />
-      <change beforePath="$PROJECT_DIR$/saif/backend_theme_v10/models/__init__.py" afterPath="$PROJECT_DIR$/saif/backend_theme_v10/models/__init__.py" />
-      <change beforePath="$PROJECT_DIR$/saif/backend_theme_v10/models/res_company.py" afterPath="$PROJECT_DIR$/saif/backend_theme_v10/models/res_company.py" />
-      <change beforePath="$PROJECT_DIR$/saif/backend_theme_v10/models/res_users.py" afterPath="$PROJECT_DIR$/saif/backend_theme_v10/models/res_users.py" />
-      <change beforePath="$PROJECT_DIR$/saif/backend_theme_v10/static/description/contact.png" afterPath="$PROJECT_DIR$/saif/backend_theme_v10/static/description/contact.png" />
-      <change beforePath="$PROJECT_DIR$/saif/backend_theme_v10/static/description/icon.png" afterPath="$PROJECT_DIR$/saif/backend_theme_v10/static/description/icon.png" />
-      <change beforePath="$PROJECT_DIR$/saif/backend_theme_v10/static/description/index.html" afterPath="$PROJECT_DIR$/saif/backend_theme_v10/static/description/index.html" />
-      <change beforePath="$PROJECT_DIR$/saif/backend_theme_v10/static/description/project.png" afterPath="$PROJECT_DIR$/saif/backend_theme_v10/static/description/project.png" />
-      <change beforePath="$PROJECT_DIR$/saif/backend_theme_v10/static/description/screen.png" afterPath="$PROJECT_DIR$/saif/backend_theme_v10/static/description/screen.png" />
-      <change beforePath="$PROJECT_DIR$/saif/backend_theme_v10/static/description/settings.png" afterPath="$PROJECT_DIR$/saif/backend_theme_v10/static/description/settings.png" />
-      <change beforePath="$PROJECT_DIR$/saif/backend_theme_v10/static/description/sidebar.png" afterPath="$PROJECT_DIR$/saif/backend_theme_v10/static/description/sidebar.png" />
-      <change beforePath="$PROJECT_DIR$/saif/backend_theme_v10/static/src/font/Roboto-Regular.ttf" afterPath="$PROJECT_DIR$/saif/backend_theme_v10/static/src/font/Roboto-Regular.ttf" />
-      <change beforePath="$PROJECT_DIR$/saif/backend_theme_v10/static/src/img/checked.svg" afterPath="$PROJECT_DIR$/saif/backend_theme_v10/static/src/img/checked.svg" />
-      <change beforePath="$PROJECT_DIR$/saif/backend_theme_v10/static/src/img/material-background.jpg" afterPath="$PROJECT_DIR$/saif/backend_theme_v10/static/src/img/material-background.jpg" />
-      <change beforePath="$PROJECT_DIR$/saif/backend_theme_v10/static/src/js/sidebar-toggle.js" afterPath="$PROJECT_DIR$/saif/backend_theme_v10/static/src/js/sidebar-toggle.js" />
-      <change beforePath="$PROJECT_DIR$/saif/backend_theme_v10/static/src/js/sidebar.js" afterPath="$PROJECT_DIR$/saif/backend_theme_v10/static/src/js/sidebar.js" />
-      <change beforePath="$PROJECT_DIR$/saif/backend_theme_v10/static/src/less/bootswatch.less" afterPath="$PROJECT_DIR$/saif/backend_theme_v10/static/src/less/bootswatch.less" />
-      <change beforePath="$PROJECT_DIR$/saif/backend_theme_v10/static/src/less/drawer.less" afterPath="$PROJECT_DIR$/saif/backend_theme_v10/static/src/less/drawer.less" />
-      <change beforePath="$PROJECT_DIR$/saif/backend_theme_v10/static/src/less/sidebar.less" afterPath="$PROJECT_DIR$/saif/backend_theme_v10/static/src/less/sidebar.less" />
-      <change beforePath="$PROJECT_DIR$/saif/backend_theme_v10/static/src/less/style.less" afterPath="$PROJECT_DIR$/saif/backend_theme_v10/static/src/less/style.less" />
-      <change beforePath="$PROJECT_DIR$/saif/backend_theme_v10/static/src/less/variables.less" afterPath="$PROJECT_DIR$/saif/backend_theme_v10/static/src/less/variables.less" />
-      <change beforePath="$PROJECT_DIR$/saif/backend_theme_v10/views/assets.xml" afterPath="$PROJECT_DIR$/saif/backend_theme_v10/views/assets.xml" />
-      <change beforePath="$PROJECT_DIR$/saif/backend_theme_v10/views/res_company_view.xml" afterPath="$PROJECT_DIR$/saif/backend_theme_v10/views/res_company_view.xml" />
-      <change beforePath="$PROJECT_DIR$/saif/backend_theme_v10/views/sidebar.xml" afterPath="$PROJECT_DIR$/saif/backend_theme_v10/views/sidebar.xml" />
-      <change beforePath="$PROJECT_DIR$/saif/backend_theme_v10/views/users.xml" afterPath="$PROJECT_DIR$/saif/backend_theme_v10/views/users.xml" />
-      <change beforePath="$PROJECT_DIR$/saif/bi_professional_reports_templates-10.0.1.0.zip" afterPath="$PROJECT_DIR$/saif/bi_professional_reports_templates-10.0.1.0.zip" />
-      <change beforePath="$PROJECT_DIR$/saif/custom_logistic/dash.py" afterPath="$PROJECT_DIR$/saif/custom_logistic/dash.py" />
-      <change beforePath="$PROJECT_DIR$/saif/custom_logistic/dash.xml" afterPath="$PROJECT_DIR$/saif/custom_logistic/dash.xml" />
-      <change beforePath="$PROJECT_DIR$/saif/custom_logistic/report.py" afterPath="$PROJECT_DIR$/saif/custom_logistic/report.py" />
-      <change beforePath="$PROJECT_DIR$/saif/custom_logistic/report.xml" afterPath="$PROJECT_DIR$/saif/custom_logistic/report.xml" />
-      <change beforePath="$PROJECT_DIR$/saif/gmail_API.py" afterPath="$PROJECT_DIR$/saif/gmail_API.py" />
-      <change beforePath="$PROJECT_DIR$/saif/google_api_integreation/data.xml" afterPath="$PROJECT_DIR$/saif/google_api_integreation/data.xml" />
-      <change beforePath="$PROJECT_DIR$/saif/google_api_integreation/static/description/1.jpg" afterPath="$PROJECT_DIR$/saif/google_api_integreation/static/description/1.jpg" />
-      <change beforePath="$PROJECT_DIR$/saif/google_api_integreation/static/description/1.png" afterPath="$PROJECT_DIR$/saif/google_api_integreation/static/description/1.png" />
-      <change beforePath="$PROJECT_DIR$/saif/google_api_integreation/static/description/icon.png" afterPath="$PROJECT_DIR$/saif/google_api_integreation/static/description/icon.png" />
-      <change beforePath="$PROJECT_DIR$/saif/google_api_integreation/static/description/index.html" afterPath="$PROJECT_DIR$/saif/google_api_integreation/static/description/index.html" />
-      <change beforePath="$PROJECT_DIR$/saif/mail-addons-10.0-new-api.zip" afterPath="$PROJECT_DIR$/saif/mail-addons-10.0-new-api.zip" />
-      <change beforePath="$PROJECT_DIR$/saif/misc-addons-10.0.zip" afterPath="$PROJECT_DIR$/saif/misc-addons-10.0.zip" />
-      <change beforePath="$PROJECT_DIR$/saif/muk_dms-10.0.1.2.0.zip" afterPath="$PROJECT_DIR$/saif/muk_dms-10.0.1.2.0.zip" />
-      <change beforePath="$PROJECT_DIR$/saif/muk_dms/LICENSE" afterPath="$PROJECT_DIR$/saif/muk_dms/LICENSE" />
-      <change beforePath="$PROJECT_DIR$/saif/muk_dms/README.md" afterPath="$PROJECT_DIR$/saif/muk_dms/README.md" />
-      <change beforePath="$PROJECT_DIR$/saif/muk_dms/__init__.py" afterPath="$PROJECT_DIR$/saif/muk_dms/__init__.py" />
-      <change beforePath="$PROJECT_DIR$/saif/muk_dms/__manifest__.py" afterPath="$PROJECT_DIR$/saif/muk_dms/__manifest__.py" />
-      <change beforePath="$PROJECT_DIR$/saif/muk_dms/controllers/__init__.py" afterPath="$PROJECT_DIR$/saif/muk_dms/controllers/__init__.py" />
-      <change beforePath="$PROJECT_DIR$/saif/muk_dms/controllers/main.py" afterPath="$PROJECT_DIR$/saif/muk_dms/controllers/main.py" />
-      <change beforePath="$PROJECT_DIR$/saif/muk_dms/doc/changelog.rst" afterPath="$PROJECT_DIR$/saif/muk_dms/doc/changelog.rst" />
-      <change beforePath="$PROJECT_DIR$/saif/muk_dms/i18n/de.po" afterPath="$PROJECT_DIR$/saif/muk_dms/i18n/de.po" />
-      <change beforePath="$PROJECT_DIR$/saif/muk_dms/migrations/10.0.1.2.0/post-migrate.py" afterPath="$PROJECT_DIR$/saif/muk_dms/migrations/10.0.1.2.0/post-migrate.py" />
-      <change beforePath="$PROJECT_DIR$/saif/muk_dms/migrations/10.0.1.2.0/pre-migrate.py" afterPath="$PROJECT_DIR$/saif/muk_dms/migrations/10.0.1.2.0/pre-migrate.py" />
-      <change beforePath="$PROJECT_DIR$/saif/muk_dms/migrations/10.0.1.2.0/sql/pre_delete_locks.sql" afterPath="$PROJECT_DIR$/saif/muk_dms/migrations/10.0.1.2.0/sql/pre_delete_locks.sql" />
-      <change beforePath="$PROJECT_DIR$/saif/muk_dms/migrations/10.0.1.2.0/sql/pre_drop_old_tables.sql" afterPath="$PROJECT_DIR$/saif/muk_dms/migrations/10.0.1.2.0/sql/pre_drop_old_tables.sql" />
-      <change beforePath="$PROJECT_DIR$/saif/muk_dms/migrations/10.0.1.2.0/sql/pre_fkey_for_muk_dms_settings.sql" afterPath="$PROJECT_DIR$/saif/muk_dms/migrations/10.0.1.2.0/sql/pre_fkey_for_muk_dms_settings.sql" />
-      <change beforePath="$PROJECT_DIR$/saif/muk_dms/migrations/10.0.1.2.0/sql/pre_muk_dms_data_database.sql" afterPath="$PROJECT_DIR$/saif/muk_dms/migrations/10.0.1.2.0/sql/pre_muk_dms_data_database.sql" />
-      <change beforePath="$PROJECT_DIR$/saif/muk_dms/migrations/10.0.1.2.0/sql/pre_muk_dms_directory.sql" afterPath="$PROJECT_DIR$/saif/muk_dms/migrations/10.0.1.2.0/sql/pre_muk_dms_directory.sql" />
-      <change beforePath="$PROJECT_DIR$/saif/muk_dms/migrations/10.0.1.2.0/sql/pre_muk_dms_file.sql" afterPath="$PROJECT_DIR$/saif/muk_dms/migrations/10.0.1.2.0/sql/pre_muk_dms_file.sql" />
-      <change beforePath="$PROJECT_DIR$/saif/muk_dms/migrations/10.0.1.2.0/sql/pre_muk_dms_lock.sql" afterPath="$PROJECT_DIR$/saif/muk_dms/migrations/10.0.1.2.0/sql/pre_muk_dms_lock.sql" />
-      <change beforePath="$PROJECT_DIR$/saif/muk_dms/migrations/10.0.1.2.0/sql/pre_muk_dms_settings.sql" afterPath="$PROJECT_DIR$/saif/muk_dms/migrations/10.0.1.2.0/sql/pre_muk_dms_settings.sql" />
-      <change beforePath="$PROJECT_DIR$/saif/muk_dms/models/__init__.py" afterPath="$PROJECT_DIR$/saif/muk_dms/models/__init__.py" />
-      <change beforePath="$PROJECT_DIR$/saif/muk_dms/models/dms_base.py" afterPath="$PROJECT_DIR$/saif/muk_dms/models/dms_base.py" />
-      <change beforePath="$PROJECT_DIR$/saif/muk_dms/models/dms_data.py" afterPath="$PROJECT_DIR$/saif/muk_dms/models/dms_data.py" />
-      <change beforePath="$PROJECT_DIR$/saif/muk_dms/models/dms_directory.py" afterPath="$PROJECT_DIR$/saif/muk_dms/models/dms_directory.py" />
-      <change beforePath="$PROJECT_DIR$/saif/muk_dms/models/dms_file.py" afterPath="$PROJECT_DIR$/saif/muk_dms/models/dms_file.py" />
-      <change beforePath="$PROJECT_DIR$/saif/muk_dms/models/dms_lock.py" afterPath="$PROJECT_DIR$/saif/muk_dms/models/dms_lock.py" />
-      <change beforePath="$PROJECT_DIR$/saif/muk_dms/models/dms_settings.py" afterPath="$PROJECT_DIR$/saif/muk_dms/models/dms_settings.py" />
-      <change beforePath="$PROJECT_DIR$/saif/muk_dms/security/dms_security.xml" afterPath="$PROJECT_DIR$/saif/muk_dms/security/dms_security.xml" />
-      <change beforePath="$PROJECT_DIR$/saif/muk_dms/security/ir.model.access.csv" afterPath="$PROJECT_DIR$/saif/muk_dms/security/ir.model.access.csv" />
-      <change beforePath="$PROJECT_DIR$/saif/muk_dms/static/description/banner.png" afterPath="$PROJECT_DIR$/saif/muk_dms/static/description/banner.png" />
-      <change beforePath="$PROJECT_DIR$/saif/muk_dms/static/description/icon.png" afterPath="$PROJECT_DIR$/saif/muk_dms/static/description/icon.png" />
-      <change beforePath="$PROJECT_DIR$/saif/muk_dms/static/description/index.html" afterPath="$PROJECT_DIR$/saif/muk_dms/static/description/index.html" />
-      <change beforePath="$PROJECT_DIR$/saif/muk_dms/static/description/logo.png" afterPath="$PROJECT_DIR$/saif/muk_dms/static/description/logo.png" />
-      <change beforePath="$PROJECT_DIR$/saif/muk_dms/static/description/screenshot.png" afterPath="$PROJECT_DIR$/saif/muk_dms/static/description/screenshot.png" />
-      <change beforePath="$PROJECT_DIR$/saif/muk_dms/static/src/img/arrow-right.png" afterPath="$PROJECT_DIR$/saif/muk_dms/static/src/img/arrow-right.png" />
-      <change beforePath="$PROJECT_DIR$/saif/muk_dms/static/src/img/eye.png" afterPath="$PROJECT_DIR$/saif/muk_dms/static/src/img/eye.png" />
-      <change beforePath="$PROJECT_DIR$/saif/muk_dms/static/src/img/file_ai.png" afterPath="$PROJECT_DIR$/saif/muk_dms/static/src/img/file_ai.png" />
-      <change beforePath="$PROJECT_DIR$/saif/muk_dms/static/src/img/file_avi.png" afterPath="$PROJECT_DIR$/saif/muk_dms/static/src/img/file_avi.png" />
-      <change beforePath="$PROJECT_DIR$/saif/muk_dms/static/src/img/file_css.png" afterPath="$PROJECT_DIR$/saif/muk_dms/static/src/img/file_css.png" />
-      <change beforePath="$PROJECT_DIR$/saif/muk_dms/static/src/img/file_csv.png" afterPath="$PROJECT_DIR$/saif/muk_dms/static/src/img/file_csv.png" />
-      <change beforePath="$PROJECT_DIR$/saif/muk_dms/static/src/img/file_doc.png" afterPath="$PROJECT_DIR$/saif/muk_dms/static/src/img/file_doc.png" />
-      <change beforePath="$PROJECT_DIR$/saif/muk_dms/static/src/img/file_dwg.png" afterPath="$PROJECT_DIR$/saif/muk_dms/static/src/img/file_dwg.png" />
-      <change beforePath="$PROJECT_DIR$/saif/muk_dms/static/src/img/file_html.png" afterPath="$PROJECT_DIR$/saif/muk_dms/static/src/img/file_html.png" />
-      <change beforePath="$PROJECT_DIR$/saif/muk_dms/static/src/img/file_iso.png" afterPath="$PROJECT_DIR$/saif/muk_dms/static/src/img/file_iso.png" />
-      <change beforePath="$PROJECT_DIR$/saif/muk_dms/static/src/img/file_js.png" afterPath="$PROJECT_DIR$/saif/muk_dms/static/src/img/file_js.png" />
-      <change beforePath="$PROJECT_DIR$/saif/muk_dms/static/src/img/file_json.png" afterPath="$PROJECT_DIR$/saif/muk_dms/static/src/img/file_json.png" />
-      <change beforePath="$PROJECT_DIR$/saif/muk_dms/static/src/img/file_mp3.png" afterPath="$PROJECT_DIR$/saif/muk_dms/static/src/img/file_mp3.png" />
-      <change beforePath="$PROJECT_DIR$/saif/muk_dms/static/src/img/file_mp4.png" afterPath="$PROJECT_DIR$/saif/muk_dms/static/src/img/file_mp4.png" />
-      <change beforePath="$PROJECT_DIR$/saif/muk_dms/static/src/img/file_pdf.png" afterPath="$PROJECT_DIR$/saif/muk_dms/static/src/img/file_pdf.png" />
-      <change beforePath="$PROJECT_DIR$/saif/muk_dms/static/src/img/file_png.png" afterPath="$PROJECT_DIR$/saif/muk_dms/static/src/img/file_png.png" />
-      <change beforePath="$PROJECT_DIR$/saif/muk_dms/static/src/img/file_ppt.png" afterPath="$PROJECT_DIR$/saif/muk_dms/static/src/img/file_ppt.png" />
-      <change beforePath="$PROJECT_DIR$/saif/muk_dms/static/src/img/file_psd.png" afterPath="$PROJECT_DIR$/saif/muk_dms/static/src/img/file_psd.png" />
-      <change beforePath="$PROJECT_DIR$/saif/muk_dms/static/src/img/file_rtf.png" afterPath="$PROJECT_DIR$/saif/muk_dms/static/src/img/file_rtf.png" />
-      <change beforePath="$PROJECT_DIR$/saif/muk_dms/static/src/img/file_svg.png" afterPath="$PROJECT_DIR$/saif/muk_dms/static/src/img/file_svg.png" />
-      <change beforePath="$PROJECT_DIR$/saif/muk_dms/static/src/img/file_txt.png" afterPath="$PROJECT_DIR$/saif/muk_dms/static/src/img/file_txt.png" />
-      <change beforePath="$PROJECT_DIR$/saif/muk_dms/static/src/img/file_unkown.png" afterPath="$PROJECT_DIR$/saif/muk_dms/static/src/img/file_unkown.png" />
-      <change beforePath="$PROJECT_DIR$/saif/muk_dms/static/src/img/file_xls.png" afterPath="$PROJECT_DIR$/saif/muk_dms/static/src/img/file_xls.png" />
-      <change beforePath="$PROJECT_DIR$/saif/muk_dms/static/src/img/file_zip.png" afterPath="$PROJECT_DIR$/saif/muk_dms/static/src/img/file_zip.png" />
-      <change beforePath="$PROJECT_DIR$/saif/muk_dms/static/src/img/folder.png" afterPath="$PROJECT_DIR$/saif/muk_dms/static/src/img/folder.png" />
-      <change beforePath="$PROJECT_DIR$/saif/muk_dms/static/src/js/client_refresh.js" afterPath="$PROJECT_DIR$/saif/muk_dms/static/src/js/client_refresh.js" />
-      <change beforePath="$PROJECT_DIR$/saif/muk_dms/static/src/js/dms_utils.js" afterPath="$PROJECT_DIR$/saif/muk_dms/static/src/js/dms_utils.js" />
-      <change beforePath="$PROJECT_DIR$/saif/muk_dms/static/src/js/dms_views_directory.js" afterPath="$PROJECT_DIR$/saif/muk_dms/static/src/js/dms_views_directory.js" />
-      <change beforePath="$PROJECT_DIR$/saif/muk_dms/static/src/js/dms_views_documents.js" afterPath="$PROJECT_DIR$/saif/muk_dms/static/src/js/dms_views_documents.js" />
-      <change beforePath="$PROJECT_DIR$/saif/muk_dms/static/src/js/dms_views_file.js" afterPath="$PROJECT_DIR$/saif/muk_dms/static/src/js/dms_views_file.js" />
-      <change beforePath="$PROJECT_DIR$/saif/muk_dms/static/src/js/dms_widgets_many2one.js" afterPath="$PROJECT_DIR$/saif/muk_dms/static/src/js/dms_widgets_many2one.js" />
-      <change beforePath="$PROJECT_DIR$/saif/muk_dms/static/src/js/dms_widgets_path.js" afterPath="$PROJECT_DIR$/saif/muk_dms/static/src/js/dms_widgets_path.js" />
-      <change beforePath="$PROJECT_DIR$/saif/muk_dms/static/src/js/dms_widgets_size.js" afterPath="$PROJECT_DIR$/saif/muk_dms/static/src/js/dms_widgets_size.js" />
-      <change beforePath="$PROJECT_DIR$/saif/muk_dms/static/src/js/preview_helper.js" afterPath="$PROJECT_DIR$/saif/muk_dms/static/src/js/preview_helper.js" />
-      <change beforePath="$PROJECT_DIR$/saif/muk_dms/static/src/less/dms_views_documents.less" afterPath="$PROJECT_DIR$/saif/muk_dms/static/src/less/dms_views_documents.less" />
-      <change beforePath="$PROJECT_DIR$/saif/muk_dms/static/src/less/dms_views_kanban.less" afterPath="$PROJECT_DIR$/saif/muk_dms/static/src/less/dms_views_kanban.less" />
-      <change beforePath="$PROJECT_DIR$/saif/muk_dms/static/src/less/dms_views_list.less" afterPath="$PROJECT_DIR$/saif/muk_dms/static/src/less/dms_views_list.less" />
-      <change beforePath="$PROJECT_DIR$/saif/muk_dms/static/src/less/dms_widgets_many2one.less" afterPath="$PROJECT_DIR$/saif/muk_dms/static/src/less/dms_widgets_many2one.less" />
-      <change beforePath="$PROJECT_DIR$/saif/muk_dms/static/src/xml/dms_views.xml" afterPath="$PROJECT_DIR$/saif/muk_dms/static/src/xml/dms_views.xml" />
-      <change beforePath="$PROJECT_DIR$/saif/muk_dms/static/src/xml/dms_widgets.xml" afterPath="$PROJECT_DIR$/saif/muk_dms/static/src/xml/dms_widgets.xml" />
-      <change beforePath="$PROJECT_DIR$/saif/muk_dms/template/assets.xml" afterPath="$PROJECT_DIR$/saif/muk_dms/template/assets.xml" />
-      <change beforePath="$PROJECT_DIR$/saif/muk_dms/tests/__init__.py" afterPath="$PROJECT_DIR$/saif/muk_dms/tests/__init__.py" />
-      <change beforePath="$PROJECT_DIR$/saif/muk_dms/tests/dms_case.py" afterPath="$PROJECT_DIR$/saif/muk_dms/tests/dms_case.py" />
-      <change beforePath="$PROJECT_DIR$/saif/muk_dms/views/dms_actions.xml" afterPath="$PROJECT_DIR$/saif/muk_dms/views/dms_actions.xml" />
-      <change beforePath="$PROJECT_DIR$/saif/muk_dms/views/dms_data_view.xml" afterPath="$PROJECT_DIR$/saif/muk_dms/views/dms_data_view.xml" />
-      <change beforePath="$PROJECT_DIR$/saif/muk_dms/views/dms_directory_view.xml" afterPath="$PROJECT_DIR$/saif/muk_dms/views/dms_directory_view.xml" />
-      <change beforePath="$PROJECT_DIR$/saif/muk_dms/views/dms_file_view.xml" afterPath="$PROJECT_DIR$/saif/muk_dms/views/dms_file_view.xml" />
-      <change beforePath="$PROJECT_DIR$/saif/muk_dms/views/dms_lock_view.xml" afterPath="$PROJECT_DIR$/saif/muk_dms/views/dms_lock_view.xml" />
-      <change beforePath="$PROJECT_DIR$/saif/muk_dms/views/dms_menu.xml" afterPath="$PROJECT_DIR$/saif/muk_dms/views/dms_menu.xml" />
-      <change beforePath="$PROJECT_DIR$/saif/muk_dms/views/dms_settings_view.xml" afterPath="$PROJECT_DIR$/saif/muk_dms/views/dms_settings_view.xml" />
-      <change beforePath="$PROJECT_DIR$/saif/muk_web_client/LICENSE" afterPath="$PROJECT_DIR$/saif/muk_web_client/LICENSE" />
-      <change beforePath="$PROJECT_DIR$/saif/muk_web_client/README.md" afterPath="$PROJECT_DIR$/saif/muk_web_client/README.md" />
-      <change beforePath="$PROJECT_DIR$/saif/muk_web_client/__init__.py" afterPath="$PROJECT_DIR$/saif/muk_web_client/__init__.py" />
-      <change beforePath="$PROJECT_DIR$/saif/muk_web_client/__manifest__.py" afterPath="$PROJECT_DIR$/saif/muk_web_client/__manifest__.py" />
-      <change beforePath="$PROJECT_DIR$/saif/muk_web_client/i18n/de.po" afterPath="$PROJECT_DIR$/saif/muk_web_client/i18n/de.po" />
-      <change beforePath="$PROJECT_DIR$/saif/muk_web_client/static/description/banner.png" afterPath="$PROJECT_DIR$/saif/muk_web_client/static/description/banner.png" />
-      <change beforePath="$PROJECT_DIR$/saif/muk_web_client/static/description/icon.png" afterPath="$PROJECT_DIR$/saif/muk_web_client/static/description/icon.png" />
-      <change beforePath="$PROJECT_DIR$/saif/muk_web_client/static/description/index.html" afterPath="$PROJECT_DIR$/saif/muk_web_client/static/description/index.html" />
-      <change beforePath="$PROJECT_DIR$/saif/muk_web_client/static/description/logo.png" afterPath="$PROJECT_DIR$/saif/muk_web_client/static/description/logo.png" />
-      <change beforePath="$PROJECT_DIR$/saif/muk_web_client/static/src/js/client_channels.js" afterPath="$PROJECT_DIR$/saif/muk_web_client/static/src/js/client_channels.js" />
-      <change beforePath="$PROJECT_DIR$/saif/muk_web_client/template/assets.xml" afterPath="$PROJECT_DIR$/saif/muk_web_client/template/assets.xml" />
-      <change beforePath="$PROJECT_DIR$/saif/muk_web_client_refresh/LICENSE" afterPath="$PROJECT_DIR$/saif/muk_web_client_refresh/LICENSE" />
-      <change beforePath="$PROJECT_DIR$/saif/muk_web_client_refresh/README.md" afterPath="$PROJECT_DIR$/saif/muk_web_client_refresh/README.md" />
-      <change beforePath="$PROJECT_DIR$/saif/muk_web_client_refresh/__init__.py" afterPath="$PROJECT_DIR$/saif/muk_web_client_refresh/__init__.py" />
-      <change beforePath="$PROJECT_DIR$/saif/muk_web_client_refresh/__manifest__.py" afterPath="$PROJECT_DIR$/saif/muk_web_client_refresh/__manifest__.py" />
-      <change beforePath="$PROJECT_DIR$/saif/muk_web_client_refresh/i18n/de.po" afterPath="$PROJECT_DIR$/saif/muk_web_client_refresh/i18n/de.po" />
-      <change beforePath="$PROJECT_DIR$/saif/muk_web_client_refresh/models/__init__.py" afterPath="$PROJECT_DIR$/saif/muk_web_client_refresh/models/__init__.py" />
-      <change beforePath="$PROJECT_DIR$/saif/muk_web_client_refresh/models/refresh_rule.py" afterPath="$PROJECT_DIR$/saif/muk_web_client_refresh/models/refresh_rule.py" />
-      <change beforePath="$PROJECT_DIR$/saif/muk_web_client_refresh/security/ir.model.access.csv" afterPath="$PROJECT_DIR$/saif/muk_web_client_refresh/security/ir.model.access.csv" />
-      <change beforePath="$PROJECT_DIR$/saif/muk_web_client_refresh/static/description/banner.png" afterPath="$PROJECT_DIR$/saif/muk_web_client_refresh/static/description/banner.png" />
-      <change beforePath="$PROJECT_DIR$/saif/muk_web_client_refresh/static/description/icon.png" afterPath="$PROJECT_DIR$/saif/muk_web_client_refresh/static/description/icon.png" />
-      <change beforePath="$PROJECT_DIR$/saif/muk_web_client_refresh/static/description/index.html" afterPath="$PROJECT_DIR$/saif/muk_web_client_refresh/static/description/index.html" />
-      <change beforePath="$PROJECT_DIR$/saif/muk_web_client_refresh/static/description/logo.png" afterPath="$PROJECT_DIR$/saif/muk_web_client_refresh/static/description/logo.png" />
-      <change beforePath="$PROJECT_DIR$/saif/muk_web_client_refresh/static/description/screenshot.png" afterPath="$PROJECT_DIR$/saif/muk_web_client_refresh/static/description/screenshot.png" />
-      <change beforePath="$PROJECT_DIR$/saif/muk_web_client_refresh/static/src/js/client_refresh.js" afterPath="$PROJECT_DIR$/saif/muk_web_client_refresh/static/src/js/client_refresh.js" />
-      <change beforePath="$PROJECT_DIR$/saif/muk_web_client_refresh/template/assets.xml" afterPath="$PROJECT_DIR$/saif/muk_web_client_refresh/template/assets.xml" />
-      <change beforePath="$PROJECT_DIR$/saif/muk_web_client_refresh/views/refresh_menu.xml" afterPath="$PROJECT_DIR$/saif/muk_web_client_refresh/views/refresh_menu.xml" />
-      <change beforePath="$PROJECT_DIR$/saif/muk_web_client_refresh/views/refresh_rule_view.xml" afterPath="$PROJECT_DIR$/saif/muk_web_client_refresh/views/refresh_rule_view.xml" />
-      <change beforePath="$PROJECT_DIR$/saif/muk_web_glyphicons-10.0.1.0.0.zip" afterPath="$PROJECT_DIR$/saif/muk_web_glyphicons-10.0.1.0.0.zip" />
-      <change beforePath="$PROJECT_DIR$/saif/muk_web_glyphicons/LICENSE" afterPath="$PROJECT_DIR$/saif/muk_web_glyphicons/LICENSE" />
-      <change beforePath="$PROJECT_DIR$/saif/muk_web_glyphicons/README.md" afterPath="$PROJECT_DIR$/saif/muk_web_glyphicons/README.md" />
-      <change beforePath="$PROJECT_DIR$/saif/muk_web_glyphicons/__init__.py" afterPath="$PROJECT_DIR$/saif/muk_web_glyphicons/__init__.py" />
-      <change beforePath="$PROJECT_DIR$/saif/muk_web_glyphicons/__manifest__.py" afterPath="$PROJECT_DIR$/saif/muk_web_glyphicons/__manifest__.py" />
-      <change beforePath="$PROJECT_DIR$/saif/muk_web_glyphicons/i18n/de.po" afterPath="$PROJECT_DIR$/saif/muk_web_glyphicons/i18n/de.po" />
-      <change beforePath="$PROJECT_DIR$/saif/muk_web_glyphicons/static/description/banner.png" afterPath="$PROJECT_DIR$/saif/muk_web_glyphicons/static/description/banner.png" />
-      <change beforePath="$PROJECT_DIR$/saif/muk_web_glyphicons/static/description/icon.png" afterPath="$PROJECT_DIR$/saif/muk_web_glyphicons/static/description/icon.png" />
-      <change beforePath="$PROJECT_DIR$/saif/muk_web_glyphicons/static/description/index.html" afterPath="$PROJECT_DIR$/saif/muk_web_glyphicons/static/description/index.html" />
-      <change beforePath="$PROJECT_DIR$/saif/muk_web_glyphicons/static/description/logo.png" afterPath="$PROJECT_DIR$/saif/muk_web_glyphicons/static/description/logo.png" />
-      <change beforePath="$PROJECT_DIR$/saif/muk_web_glyphicons/static/description/screenshot.png" afterPath="$PROJECT_DIR$/saif/muk_web_glyphicons/static/description/screenshot.png" />
-      <change beforePath="$PROJECT_DIR$/saif/muk_web_glyphicons/static/src/less/glyphicons.less" afterPath="$PROJECT_DIR$/saif/muk_web_glyphicons/static/src/less/glyphicons.less" />
-      <change beforePath="$PROJECT_DIR$/saif/muk_web_glyphicons/template/assets.xml" afterPath="$PROJECT_DIR$/saif/muk_web_glyphicons/template/assets.xml" />
-      <change beforePath="$PROJECT_DIR$/saif/muk_web_preview/LICENSE" afterPath="$PROJECT_DIR$/saif/muk_web_preview/LICENSE" />
-      <change beforePath="$PROJECT_DIR$/saif/muk_web_preview/README.md" afterPath="$PROJECT_DIR$/saif/muk_web_preview/README.md" />
-      <change beforePath="$PROJECT_DIR$/saif/muk_web_preview/__init__.py" afterPath="$PROJECT_DIR$/saif/muk_web_preview/__init__.py" />
-      <change beforePath="$PROJECT_DIR$/saif/muk_web_preview/__manifest__.py" afterPath="$PROJECT_DIR$/saif/muk_web_preview/__manifest__.py" />
-      <change beforePath="$PROJECT_DIR$/saif/muk_web_preview/i18n/de.po" afterPath="$PROJECT_DIR$/saif/muk_web_preview/i18n/de.po" />
-      <change beforePath="$PROJECT_DIR$/saif/muk_web_preview/static/description/banner.png" afterPath="$PROJECT_DIR$/saif/muk_web_preview/static/description/banner.png" />
-      <change beforePath="$PROJECT_DIR$/saif/muk_web_preview/static/description/icon.png" afterPath="$PROJECT_DIR$/saif/muk_web_preview/static/description/icon.png" />
-      <change beforePath="$PROJECT_DIR$/saif/muk_web_preview/static/description/index.html" afterPath="$PROJECT_DIR$/saif/muk_web_preview/static/description/index.html" />
-      <change beforePath="$PROJECT_DIR$/saif/muk_web_preview/static/description/logo.png" afterPath="$PROJECT_DIR$/saif/muk_web_preview/static/description/logo.png" />
-      <change beforePath="$PROJECT_DIR$/saif/muk_web_preview/static/description/screenshot.png" afterPath="$PROJECT_DIR$/saif/muk_web_preview/static/description/screenshot.png" />
-      <change beforePath="$PROJECT_DIR$/saif/muk_web_preview/static/src/js/preview_dialog.js" afterPath="$PROJECT_DIR$/saif/muk_web_preview/static/src/js/preview_dialog.js" />
-      <change beforePath="$PROJECT_DIR$/saif/muk_web_preview/static/src/js/preview_generator.js" afterPath="$PROJECT_DIR$/saif/muk_web_preview/static/src/js/preview_generator.js" />
-      <change beforePath="$PROJECT_DIR$/saif/muk_web_preview/static/src/js/preview_handler.js" afterPath="$PROJECT_DIR$/saif/muk_web_preview/static/src/js/preview_handler.js" />
-      <change beforePath="$PROJECT_DIR$/saif/muk_web_preview/static/src/js/preview_widgets.js" afterPath="$PROJECT_DIR$/saif/muk_web_preview/static/src/js/preview_widgets.js" />
-      <change beforePath="$PROJECT_DIR$/saif/muk_web_preview/static/src/less/preview_content.less" afterPath="$PROJECT_DIR$/saif/muk_web_preview/static/src/less/preview_content.less" />
-      <change beforePath="$PROJECT_DIR$/saif/muk_web_preview/static/src/less/preview_dialog.less" afterPath="$PROJECT_DIR$/saif/muk_web_preview/static/src/less/preview_dialog.less" />
-      <change beforePath="$PROJECT_DIR$/saif/muk_web_preview/static/src/less/preview_widgets.less" afterPath="$PROJECT_DIR$/saif/muk_web_preview/static/src/less/preview_widgets.less" />
-      <change beforePath="$PROJECT_DIR$/saif/muk_web_preview/static/src/xml/preview_content.xml" afterPath="$PROJECT_DIR$/saif/muk_web_preview/static/src/xml/preview_content.xml" />
-      <change beforePath="$PROJECT_DIR$/saif/muk_web_preview/static/src/xml/preview_dialog.xml" afterPath="$PROJECT_DIR$/saif/muk_web_preview/static/src/xml/preview_dialog.xml" />
-      <change beforePath="$PROJECT_DIR$/saif/muk_web_preview/template/assets.xml" afterPath="$PROJECT_DIR$/saif/muk_web_preview/template/assets.xml" />
-      <change beforePath="$PROJECT_DIR$/saif/odoo-saas-tools-10.0.zip" afterPath="$PROJECT_DIR$/saif/odoo-saas-tools-10.0.zip" />
-      <change beforePath="$PROJECT_DIR$/saif/odoo_asterisk-master.zip" afterPath="$PROJECT_DIR$/saif/odoo_asterisk-master.zip" />
-      <change beforePath="$PROJECT_DIR$/saif/odoorpc-master.zip" afterPath="$PROJECT_DIR$/saif/odoorpc-master.zip" />
-      <change beforePath="$PROJECT_DIR$/saif/pos-addons-10.0.zip" afterPath="$PROJECT_DIR$/saif/pos-addons-10.0.zip" />
-      <change beforePath="$PROJECT_DIR$/saif/rowno_in_tree-10.0.0.zip" afterPath="$PROJECT_DIR$/saif/rowno_in_tree-10.0.0.zip" />
-      <change beforePath="$PROJECT_DIR$/saif/site_magic3brothers-10.0.1.0.zip" afterPath="$PROJECT_DIR$/saif/site_magic3brothers-10.0.1.0.zip" />
-      <change beforePath="$PROJECT_DIR$/saif/site_magic3brothers/__init__.py" afterPath="$PROJECT_DIR$/saif/site_magic3brothers/__init__.py" />
-      <change beforePath="$PROJECT_DIR$/saif/site_magic3brothers/__openerp__.py" afterPath="$PROJECT_DIR$/saif/site_magic3brothers/__openerp__.py" />
-      <change beforePath="$PROJECT_DIR$/saif/site_magic3brothers/static/description/icon.png" afterPath="$PROJECT_DIR$/saif/site_magic3brothers/static/description/icon.png" />
-      <change beforePath="$PROJECT_DIR$/saif/site_magic3brothers/static/description/main_screenshot.jpg" afterPath="$PROJECT_DIR$/saif/site_magic3brothers/static/description/main_screenshot.jpg" />
-      <change beforePath="$PROJECT_DIR$/saif/site_magic3brothers/static/src/css/default-fix.css" afterPath="$PROJECT_DIR$/saif/site_magic3brothers/static/src/css/default-fix.css" />
-      <change beforePath="$PROJECT_DIR$/saif/site_magic3brothers/static/src/img/active.png" afterPath="$PROJECT_DIR$/saif/site_magic3brothers/static/src/img/active.png" />
-      <change beforePath="$PROJECT_DIR$/saif/site_magic3brothers/static/src/img/back.png" afterPath="$PROJECT_DIR$/saif/site_magic3brothers/static/src/img/back.png" />
-      <change beforePath="$PROJECT_DIR$/saif/site_magic3brothers/static/src/img/left.png" afterPath="$PROJECT_DIR$/saif/site_magic3brothers/static/src/img/left.png" />
-      <change beforePath="$PROJECT_DIR$/saif/site_magic3brothers/static/src/img/logo.png" afterPath="$PROJECT_DIR$/saif/site_magic3brothers/static/src/img/logo.png" />
-      <change beforePath="$PROJECT_DIR$/saif/site_magic3brothers/static/src/img/logo2.png" afterPath="$PROJECT_DIR$/saif/site_magic3brothers/static/src/img/logo2.png" />
-      <change beforePath="$PROJECT_DIR$/saif/site_magic3brothers/static/src/img/news-right.png" afterPath="$PROJECT_DIR$/saif/site_magic3brothers/static/src/img/news-right.png" />
-      <change beforePath="$PROJECT_DIR$/saif/site_magic3brothers/static/src/img/right.png" afterPath="$PROJECT_DIR$/saif/site_magic3brothers/static/src/img/right.png" />
-      <change beforePath="$PROJECT_DIR$/saif/site_magic3brothers/static/src/img/search.png" afterPath="$PROJECT_DIR$/saif/site_magic3brothers/static/src/img/search.png" />
-      <change beforePath="$PROJECT_DIR$/saif/site_magic3brothers/static/src/img/slide1.jpg" afterPath="$PROJECT_DIR$/saif/site_magic3brothers/static/src/img/slide1.jpg" />
-      <change beforePath="$PROJECT_DIR$/saif/site_magic3brothers/static/src/img/slide2.jpg" afterPath="$PROJECT_DIR$/saif/site_magic3brothers/static/src/img/slide2.jpg" />
-      <change beforePath="$PROJECT_DIR$/saif/site_magic3brothers/static/src/img/slide3.jpg" afterPath="$PROJECT_DIR$/saif/site_magic3brothers/static/src/img/slide3.jpg" />
-      <change beforePath="$PROJECT_DIR$/saif/site_magic3brothers/static/src/img/slide4.jpg" afterPath="$PROJECT_DIR$/saif/site_magic3brothers/static/src/img/slide4.jpg" />
-      <change beforePath="$PROJECT_DIR$/saif/site_magic3brothers/static/src/js/carousel.js" afterPath="$PROJECT_DIR$/saif/site_magic3brothers/static/src/js/carousel.js" />
-      <change beforePath="$PROJECT_DIR$/saif/site_magic3brothers/views/theme.xml" afterPath="$PROJECT_DIR$/saif/site_magic3brothers/views/theme.xml" />
-      <change beforePath="$PROJECT_DIR$/saif/table_fixed_header.zip" afterPath="$PROJECT_DIR$/saif/table_fixed_header.zip" />
-      <change beforePath="$PROJECT_DIR$/saif/vertical-medical-10.0.zip" afterPath="$PROJECT_DIR$/saif/vertical-medical-10.0.zip" />
-      <change beforePath="$PROJECT_DIR$/saif/web_responsive/README.rst" afterPath="$PROJECT_DIR$/saif/web_responsive/README.rst" />
-      <change beforePath="$PROJECT_DIR$/saif/web_responsive/__init__.py" afterPath="$PROJECT_DIR$/saif/web_responsive/__init__.py" />
-      <change beforePath="$PROJECT_DIR$/saif/web_responsive/__manifest__.py" afterPath="$PROJECT_DIR$/saif/web_responsive/__manifest__.py" />
-      <change beforePath="$PROJECT_DIR$/saif/web_responsive/i18n/de.po" afterPath="$PROJECT_DIR$/saif/web_responsive/i18n/de.po" />
-      <change beforePath="$PROJECT_DIR$/saif/web_responsive/i18n/es.po" afterPath="$PROJECT_DIR$/saif/web_responsive/i18n/es.po" />
-      <change beforePath="$PROJECT_DIR$/saif/web_responsive/i18n/hr.po" afterPath="$PROJECT_DIR$/saif/web_responsive/i18n/hr.po" />
-      <change beforePath="$PROJECT_DIR$/saif/web_responsive/i18n/pt_BR.po" afterPath="$PROJECT_DIR$/saif/web_responsive/i18n/pt_BR.po" />
-      <change beforePath="$PROJECT_DIR$/saif/web_responsive/static/description/icon.png" afterPath="$PROJECT_DIR$/saif/web_responsive/static/description/icon.png" />
-      <change beforePath="$PROJECT_DIR$/saif/web_responsive/static/src/js/web_responsive.js" afterPath="$PROJECT_DIR$/saif/web_responsive/static/src/js/web_responsive.js" />
-      <change beforePath="$PROJECT_DIR$/saif/web_responsive/static/src/less/app_drawer.less" afterPath="$PROJECT_DIR$/saif/web_responsive/static/src/less/app_drawer.less" />
-      <change beforePath="$PROJECT_DIR$/saif/web_responsive/static/src/less/form_view.less" afterPath="$PROJECT_DIR$/saif/web_responsive/static/src/less/form_view.less" />
-      <change beforePath="$PROJECT_DIR$/saif/web_responsive/static/src/less/main.less" afterPath="$PROJECT_DIR$/saif/web_responsive/static/src/less/main.less" />
-      <change beforePath="$PROJECT_DIR$/saif/web_responsive/static/src/less/navbar.less" afterPath="$PROJECT_DIR$/saif/web_responsive/static/src/less/navbar.less" />
-      <change beforePath="$PROJECT_DIR$/saif/web_responsive/static/src/less/variables.less" afterPath="$PROJECT_DIR$/saif/web_responsive/static/src/less/variables.less" />
-      <change beforePath="$PROJECT_DIR$/saif/web_responsive/static/src/xml/app_drawer_menu_search.xml" afterPath="$PROJECT_DIR$/saif/web_responsive/static/src/xml/app_drawer_menu_search.xml" />
-      <change beforePath="$PROJECT_DIR$/saif/web_responsive/static/src/xml/form_view.xml" afterPath="$PROJECT_DIR$/saif/web_responsive/static/src/xml/form_view.xml" />
-      <change beforePath="$PROJECT_DIR$/saif/web_responsive/static/src/xml/navbar.xml" afterPath="$PROJECT_DIR$/saif/web_responsive/static/src/xml/navbar.xml" />
-      <change beforePath="$PROJECT_DIR$/saif/web_responsive/static/tests/js/web_responsive.js" afterPath="$PROJECT_DIR$/saif/web_responsive/static/tests/js/web_responsive.js" />
-      <change beforePath="$PROJECT_DIR$/saif/web_responsive/tests/test_ui.py" afterPath="$PROJECT_DIR$/saif/web_responsive/tests/test_ui.py" />
-      <change beforePath="$PROJECT_DIR$/saif/web_responsive/views/assets.xml" afterPath="$PROJECT_DIR$/saif/web_responsive/views/assets.xml" />
-      <change beforePath="$PROJECT_DIR$/saif/web_responsive/views/web.xml" afterPath="$PROJECT_DIR$/saif/web_responsive/views/web.xml" />
-      <change beforePath="$PROJECT_DIR$/saif/website-10.0-new-api.zip" afterPath="$PROJECT_DIR$/saif/website-10.0-new-api.zip" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -713,23 +373,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="module_report.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/logistic/logistic_vision/views/module_report.xml">
+      <file leaf-file-name="model.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/police/police_project/model.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="383">
-              <caret line="226" column="71" lean-forward="false" selection-start-line="226" selection-start-column="71" selection-end-line="226" selection-end-column="71" />
-              <folding>
-                <element signature="n#style#0;n#div#0;n#t#0;n#t#0;n#t#0;n#template#0;n#data#0;n#openerp#0;n#!!top" expanded="false" />
-              </folding>
+            <state relative-caret-position="52">
+              <caret line="717" column="47" lean-forward="true" selection-start-line="717" selection-start-column="47" selection-end-line="717" selection-end-column="47" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="models.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/logistic/custom_logistic/models.py">
+      <file leaf-file-name="templates.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/police/police_project/templates.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="237">
-              <caret line="296" column="41" lean-forward="false" selection-start-line="296" selection-start-column="41" selection-end-line="296" selection-end-column="41" />
+            <state relative-caret-position="272">
+              <caret line="1222" column="41" lean-forward="false" selection-start-line="1222" selection-start-column="33" selection-end-line="1222" selection-end-column="41" />
               <folding />
             </state>
           </provider>
@@ -747,36 +405,36 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>res.par</find>
-      <find>account.invoice.line</find>
-      <find>_inherit = 'sale.order'</find>
-      <find>attribute</find>
-      <find>position</find>
-      <find>custom</find>
-      <find>billng_type</find>
-      <find>billing_type</find>
-      <find>journal_id</find>
-      <find>account_id</find>
-      <find>report.external_layout_header</find>
-      <find>external_layout_header</find>
-      <find>data</find>
-      <find>data.name</find>
-      <find>invoice_line_t</find>
-      <find>vat</find>
-      <find>account.invoice_form</find>
-      <find>create_custom</find>
+      <find>broke</find>
+      <find>custm</find>
+      <find>create</find>
+      <find>bok</find>
+      <find>create_custom_charges</find>
+      <find>create_in</find>
+      <find>invoice_line_tax_ids</find>
+      <find>idtype.conf</find>
+      <find>Gender</find>
+      <find>relatio</find>
+      <find>id.config</find>
+      <find>account_journal.configuration</find>
+      <find>create_cus</find>
+      <find>export_id</find>
+      <find>custom_c</find>
       <find>sale.order</find>
       <find>sale</find>
-      <find>account.in</find>
-      <find>create_cu</find>
-      <find>export.tree</find>
-      <find>crt_tree</find>
-      <find>create_sa</find>
+      <find>receiving.party.rank</find>
       <find>account.invoice</find>
-      <find>bo</find>
-      <find>account.invoice_supplier_form</find>
-      <find>boo</find>
-      <find>create_sale</find>
+      <find>product_id</find>
+      <find>journal_id</find>
+      <find>rank_act_id</find>
+      <find>export.tree</find>
+      <find>rank</find>
+      <find>false</find>
+      <find>receivin</find>
+      <find>of2_rank</find>
+      <find>what.found</find>
+      <find>id.type</find>
+      <find>id_config</find>
     </findStrings>
     <replaceStrings>
       <replace>traffic</replace>
@@ -834,19 +492,19 @@
         <option value="$PROJECT_DIR$/police/web_widget_timepicker/static/src/css/web_widget_timepicker.css" />
         <option value="$PROJECT_DIR$/police/police_project/static/src/css/style.css" />
         <option value="$PROJECT_DIR$/police/police_case_summary/views/module_report.xml" />
-        <option value="$PROJECT_DIR$/police/police_project/templates.xml" />
-        <option value="$PROJECT_DIR$/police/police_project/model.py" />
         <option value="$PROJECT_DIR$/logistic/logistic_vision/static/src/css/report.css" />
         <option value="$PROJECT_DIR$/turkina (copy)/turkina_invoice_extend/views/views.xml" />
-        <option value="$PROJECT_DIR$/logistic/custom_logistic/views.xml" />
-        <option value="$PROJECT_DIR$/logistic/custom_logistic/supplier.py" />
-        <option value="$PROJECT_DIR$/logistic/custom_logistic/quote.py" />
         <option value="$PROJECT_DIR$/logistic/custom_logistic/quote.xml" />
-        <option value="$PROJECT_DIR$/logistic/custom_logistic/models.py" />
         <option value="$PROJECT_DIR$/logistic/logistic_vision/template.xml" />
         <option value="$PROJECT_DIR$/logistic/logistic_vision/model.py" />
         <option value="$PROJECT_DIR$/logistic/logistic_vision/__manifest__.py" />
         <option value="$PROJECT_DIR$/logistic/logistic_vision/views/module_report.xml" />
+        <option value="$PROJECT_DIR$/logistic/custom_logistic/quote.py" />
+        <option value="$PROJECT_DIR$/logistic/custom_logistic/supplier.py" />
+        <option value="$PROJECT_DIR$/logistic/custom_logistic/views.xml" />
+        <option value="$PROJECT_DIR$/logistic/custom_logistic/models.py" />
+        <option value="$PROJECT_DIR$/police/police_project/templates.xml" />
+        <option value="$PROJECT_DIR$/police/police_project/model.py" />
       </list>
     </option>
   </component>
@@ -903,6 +561,28 @@
     </navigator>
     <panes>
       <pane id="Scratches" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="Projects" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Projects" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Projects" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Projects" type="462c0819:PsiDirectoryNode" />
+              <item name="police" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Projects" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Projects" type="462c0819:PsiDirectoryNode" />
+              <item name="police" type="462c0819:PsiDirectoryNode" />
+              <item name="police_project" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
       <pane id="Scope">
         <subPane subId="Project Files">
           <expand>
@@ -958,41 +638,6 @@
               <item name="lib" type="cbb8eebc:String" user="lib" />
               <item name="python2.7" type="cbb8eebc:String" user="python2.7" />
               <item name="dist-packages" type="cbb8eebc:String" user="dist-packages" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="Projects" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Projects" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Projects" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Projects" type="462c0819:PsiDirectoryNode" />
-              <item name="logistic" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Projects" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Projects" type="462c0819:PsiDirectoryNode" />
-              <item name="logistic" type="462c0819:PsiDirectoryNode" />
-              <item name="custom_logistic" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Projects" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Projects" type="462c0819:PsiDirectoryNode" />
-              <item name="logistic" type="462c0819:PsiDirectoryNode" />
-              <item name="logistic_vision" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Projects" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Projects" type="462c0819:PsiDirectoryNode" />
-              <item name="logistic" type="462c0819:PsiDirectoryNode" />
-              <item name="logistic_vision" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -1054,7 +699,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="67" y="25" width="1613" height="1025" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20314465" sideWeight="0.8635347" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32997763" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -1063,7 +707,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32885906" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20917226" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24968554" sideWeight="0.49552572" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.034675617" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32997763" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23207547" sideWeight="0.13646533" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -1178,13 +822,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/logistic/custom_logistic/__manifest__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="380">
-          <caret line="19" column="0" lean-forward="true" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/logistic/custom_logistic/security/ir.model.access.csv">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="528">
@@ -1207,20 +844,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/logistic/logistic_vision/__openerp__.py" />
-    <entry file="file://$PROJECT_DIR$/police/police_project/model.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="64" column="10" lean-forward="false" selection-start-line="64" selection-start-column="10" selection-end-line="64" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/police/police_project/templates.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="798">
-          <caret line="572" column="0" lean-forward="false" selection-start-line="572" selection-start-column="0" selection-end-line="572" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/turkina (copy)/vat_invoice/views/module_report.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="312">
@@ -1401,15 +1024,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/logistic/custom_logistic/supplier.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="661">
-          <caret line="134" column="23" lean-forward="false" selection-start-line="134" selection-start-column="23" selection-end-line="134" selection-end-column="23" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1429,14 +1043,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/logistic/custom_logistic/views.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
-          <caret line="578" column="0" lean-forward="true" selection-start-line="578" selection-start-column="0" selection-end-line="578" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/logistic/custom_logistic/quote.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="282">
@@ -1445,19 +1051,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/logistic/custom_logistic/quote.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="309">
-          <caret line="144" column="14" lean-forward="false" selection-start-line="144" selection-start-column="14" selection-end-line="144" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/logistic/logistic_vision/template.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="110">
           <caret line="5" column="38" lean-forward="false" selection-start-line="5" selection-start-column="38" selection-end-line="5" selection-end-column="38" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1465,7 +1062,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="642">
           <caret line="46" column="41" lean-forward="false" selection-start-line="46" selection-start-column="41" selection-end-line="46" selection-end-column="41" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1473,7 +1069,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="264">
           <caret line="12" column="31" lean-forward="false" selection-start-line="12" selection-start-column="31" selection-end-line="12" selection-end-column="31" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1481,16 +1076,63 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="383">
           <caret line="226" column="71" lean-forward="false" selection-start-line="226" selection-start-column="71" selection-end-line="226" selection-end-column="71" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#t#0;n#t#0;n#t#0;n#template#0;n#data#0;n#openerp#0;n#!!top" expanded="false" />
-          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/logistic/custom_logistic/__manifest__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="380">
+          <caret line="19" column="0" lean-forward="true" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/logistic/custom_logistic/quote.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="742">
+          <caret line="87" column="63" lean-forward="true" selection-start-line="87" selection-start-column="63" selection-end-line="87" selection-end-column="63" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/logistic/custom_logistic/supplier.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1121">
+          <caret line="331" column="37" lean-forward="false" selection-start-line="331" selection-start-column="37" selection-end-line="331" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/logistic/custom_logistic/views.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="433" column="0" lean-forward="false" selection-start-line="433" selection-start-column="0" selection-end-line="433" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/logistic/custom_logistic/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="237">
-          <caret line="296" column="41" lean-forward="false" selection-start-line="296" selection-start-column="41" selection-end-line="296" selection-end-column="41" />
+        <state relative-caret-position="193">
+          <caret line="445" column="0" lean-forward="true" selection-start-line="445" selection-start-column="0" selection-end-line="445" selection-end-column="0" />
+          <folding>
+            <element signature="e#9392#13468#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/police/police_project/templates.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="1222" column="41" lean-forward="false" selection-start-line="1222" selection-start-column="33" selection-end-line="1222" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/police/police_project/model.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="52">
+          <caret line="717" column="47" lean-forward="true" selection-start-line="717" selection-start-column="47" selection-end-line="717" selection-end-column="47" />
           <folding />
         </state>
       </provider>

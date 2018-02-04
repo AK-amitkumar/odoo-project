@@ -66,6 +66,12 @@ class ExportLogic(models.Model):
 		if self.custom_exam:
 			self.state='custom_exam'
 
+	def create_account_journal(self):
+		if not self.env['account_journal.configuration'].search([]):
+			record = self.env['account_journal.configuration'].create({
+				'name': "Accounts and Journals Configuration"
+			})
+
 
 	@api.onchange('bill_types')
 	def get_tree(self):
@@ -221,6 +227,7 @@ class ExportLogic(models.Model):
 
 	@api.multi
 	def booker(self):
+		account = self.env['account_journal.configuration'].search([])
 		lisst = []
 		for x in self.export_link:
 			if x.broker not in lisst:
@@ -229,7 +236,7 @@ class ExportLogic(models.Model):
 		if broker:
 
 			for x, y in map(None, broker, lisst):
-				x.journal_id = 3
+				x.journal_id = account.e_vendor_journal.id
 				x.partner_id = y.id
 				x.customer = self.customer.id
 				x.date_invoice = self.date
@@ -242,7 +249,7 @@ class ExportLogic(models.Model):
 							'product_id':1,
 							'quantity':1,
 							'price_unit':z.amt_paid,
-							'account_id': 1,
+							'account_id': account.e_vendor_account.id,
 							'name' :'Broker Amount',
 							'crt_no':z.container_no,
 							'invoice_id' : x.id
@@ -254,7 +261,7 @@ class ExportLogic(models.Model):
 			# / Creating the vendors bills/
 			for line in lisst:
 				create_invoice = invoice.create({
-					'journal_id': 3,
+					'journal_id': account.e_vendor_journal.id,
 					'partner_id':line.id,
 					'customer':self.customer.id,
 					'date_invoice' : self.date,
@@ -268,7 +275,7 @@ class ExportLogic(models.Model):
 							'product_id':1,
 							'quantity':1,
 							'price_unit':x.amt_paid,
-							'account_id': 1,
+							'account_id': account.e_vendor_account.id,
 							'name' :'Broker Amount',
 							'crt_no':x.container_no,
 							'invoice_id' : create_invoice.id
@@ -278,8 +285,9 @@ class ExportLogic(models.Model):
 	@api.multi
 	def create_custom_charges(self):
 		""" Creating the invoice as per billing type B/L or Container wise"""
+		account = self.env['account_journal.configuration'].search([])
 		if self.acc_link:
-			self.acc_link.journal_id = 4
+			self.acc_link.journal_id = account.e_invoice_journal.id
 			self.acc_link.partner_id = self.customer.id
 			self.acc_link.by_customer = self.by_customer.id
 			self.acc_link.date_invoice = self.date
@@ -298,7 +306,7 @@ class ExportLogic(models.Model):
 					create_invoice_lines = self.acc_link.invoice_line_ids.create({
 						'quantity': 1,
 						'price_unit': x.sevr_charge,
-						'account_id': 1,
+						'account_id': account.e_invoice_account.id,
 						'name': x.sevr_type.name,
 						'invoice_id': self.acc_link.id,
 						'invoice_line_tax_ids': [1],
@@ -324,7 +332,7 @@ class ExportLogic(models.Model):
 					create_invoice_lines = self.acc_link.invoice_line_ids.create({
 						'quantity': value,
 						'price_unit': get_unit,
-						'account_id': 1,
+						'account_id': account.e_invoice_account.id,
 						'name': line,
 						'service_type': get_type,
 						'invoice_id': self.acc_link.id,
@@ -338,7 +346,7 @@ class ExportLogic(models.Model):
 
 			if self.bill_types == "B/L Number":
 				create_invoice = invoice.create({
-					'journal_id': 4,
+					'journal_id': account.e_invoice_journal.id,
 					'partner_id':self.customer.id,
 					'by_customer':self.by_customer.id,
 					'date_invoice': self.date,
@@ -358,7 +366,7 @@ class ExportLogic(models.Model):
 					create_invoice_lines= invoice_lines.create({
 						'quantity':1,
 						'price_unit':x.sevr_charge,
-						'account_id':1,
+						'account_id':account.e_invoice_account.id,
 						'name' :x.sevr_type.name,
 						'invoice_id' : create_invoice.id,
 						'invoice_line_tax_ids': [1],
@@ -371,7 +379,7 @@ class ExportLogic(models.Model):
 						data.append(x.types)
 
 				create_invoice = invoice.create({
-					'journal_id': 4,
+					'journal_id': account.e_invoice_journal.id,
 					'partner_id':self.customer.id,
 					'by_customer':self.by_customer.id,
 					'date_invoice': self.date,
@@ -402,7 +410,7 @@ class ExportLogic(models.Model):
 					create_invoice_lines= invoice_lines.create({
 						'quantity':value,
 						'price_unit':get_unit,
-						'account_id': 1,
+						'account_id': account.e_invoice_account.id,
 						'name' :line,
 						'service_type':get_type,
 						'invoice_id' : create_invoice.id,
@@ -441,7 +449,7 @@ class export_tree(models.Model):
 	form             = fields.Many2one('from.qoute',string="From")
 	to               = fields.Many2one('to.quote',string="To")
 	fleet_type       = fields.Many2one('fleet',string="Fleet Type")
-	transporter      = fields.Many2one('res.partner',string="Transporter" ,required=True,)
+	transporter      = fields.Many2one('res.partner',string="Transporter" ,required=False,)
 	trans_charge     = fields.Char(string="Transporter Charges")
 	custm_charge     = fields.Char(string="Customer Charges")
 	types            = fields.Selection([
@@ -654,14 +662,14 @@ class ImportLogic(models.Model):
 
 	@api.multi
 	def create_custom_charges(self):
-
+		account = self.env['account_journal.configuration'].search([])
 		invoice = self.env['account.invoice'].search([])
 		invoice_lines = self.env['account.invoice.line'].search([])
 		# / B/L Wise invoice/
 		if self.bill_types == "B/L Number":
 
 			create_invoice = invoice.create({
-				'journal_id': 2,
+				'journal_id': account.i_invoice_journal.id,
 				'partner_id':self.customer.id,
 				'by_customer':self.by_customer.id,
 				'date_invoice': self.date,
@@ -675,10 +683,10 @@ class ImportLogic(models.Model):
 				create_invoice_lines= invoice_lines.create({
 					'quantity':1,
 					'price_unit':x.charge_serv,
-					'account_id': 1,
+					'account_id': account.i_invoice_account.id,
 					'name' :x.type_serv.name,
 					'invoice_id' : create_invoice.id,
-					'invoice_line_tax_ids':1,
+					'invoice_line_tax_ids':[1],
 				})
 		# / B/L Wise invoice/
 		if self.bill_types == "Container Wise":
@@ -688,7 +696,7 @@ class ImportLogic(models.Model):
 					entry.append(x.types)
 
 			create_invoice = invoice.create({
-				'journal_id': 2,
+				'journal_id': account.i_invoice_journal.id,
 				'partner_id':self.customer.id,
 				'by_customer':self.by_customer.id,
 				'date_invoice': self.date,
@@ -712,11 +720,11 @@ class ImportLogic(models.Model):
 				create_invoice_lines= invoice_lines.create({
 					'quantity':value,
 					'price_unit':get_unit,
-					'account_id': 1,
+					'account_id': account.i_invoice_account.id,
 					'name' :line,
 					'service_type':get_type,
 					'invoice_id' : create_invoice.id,
-					'invoice_line_tax_ids': 1,
+					'invoice_line_tax_ids': [1],
 				})
 
 class ImportTree(models.Model):
@@ -831,3 +839,30 @@ class ResCompanyExt(models.Model):
 	_inherit = 'res.company'
 
 	vat = fields.Char(string="VAT", required=False, )
+
+class AccountConfiguration(models.Model):
+	_name = 'account_journal.configuration'
+	_rec_name = 'name'
+
+	name = fields.Char(default="Accounts and Journals Configuration")
+
+	e_vendor_account = fields.Many2one(comodel_name="account.account", string="Broker Bills Account", required=False, )
+	e_vendor_journal = fields.Many2one(comodel_name="account.journal", string="Broker Bills Journal", required=False, )
+
+	e_invoice_account = fields.Many2one(comodel_name="account.account", string="Customer Invoice Account", required=False, )
+	e_custom_invoice_account = fields.Many2one(comodel_name="account.account", string="Export Custom Clearance Invoice Account", required=False, )
+	e_custom_exm_invoice_account = fields.Many2one(comodel_name="account.account", string="Export Custom Examination Invoice Account", required=False, )
+	e_invoice_journal = fields.Many2one(comodel_name="account.journal", string="Customer Invoice Journal", required=False, )
+
+	i_custom_invoice_account = fields.Many2one(comodel_name="account.account", string="Import Custom Clearance Invoice Account", required=False, )
+	i_invoice_account = fields.Many2one(comodel_name="account.account", string="Customer Invoice Account", required=False, )
+	i_invoice_journal = fields.Many2one(comodel_name="account.journal", string="Customer Invoice Journal", required=False, )
+
+	t_vendor_account = fields.Many2one(comodel_name="account.account", string="Broker Bills Account", required=False, )
+	t_vendor_journal = fields.Many2one(comodel_name="account.journal", string="Broker Bills Journal", required=False, )
+
+	freight_invoice_account = fields.Many2one(comodel_name="account.account", string="Freight Invoice Account", required=False, )
+	storage_invoice_account = fields.Many2one(comodel_name="account.account", string="Storage Invoice Account", required=False, )
+	transport_invoice_account = fields.Many2one(comodel_name="account.account", string="Transport Order Invoice Account", required=False, )
+	p_invoice_journal = fields.Many2one(comodel_name="account.journal", string="Customer Invoice Journal", required=False, )
+

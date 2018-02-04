@@ -78,13 +78,14 @@ class TransportInfo(models.Model):
 		if self.pod_chk == False:
 			self.state = "rec"
 			self.pod_chk = True
+			account = self.env['account_journal.configuration'].search([])
 			purchase_order = self.env['sale.order'].search([('name','=',self.name)])
 			invoice = self.env['account.invoice'].search([])
 			invoice_lines = self.env['account.invoice.line'].search([])
 
 			if purchase_order:
 				create_invoice = invoice.create({
-					'journal_id': 3,
+					'journal_id': account.t_invoice_journal.id,
 					'partner_id':self.suppl_name.id,
 					'date_invoice' : purchase_order.date_order,
 					'type':"in_invoice",
@@ -95,7 +96,7 @@ class TransportInfo(models.Model):
 						'quantity':x.product_uom_qty,
 						'price_unit':purchase_order.suppl_freight,
 						'crt_no':x.crt_no,
-						'account_id': 3,
+						'account_id': account.t_invoice_account.id,
 						'name' : x.name,
 						'invoice_id' : create_invoice.id
 						})

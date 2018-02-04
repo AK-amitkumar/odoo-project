@@ -19,13 +19,13 @@ class PoliceDetail(models.Model):
     violation = fields.Float(string='Time of Case' ,required=True,)
     code = fields.Many2one(comodel_name="car.code",string='Code of Police CAR',required=True,)
     police_officer = fields.Char(string='Police Officer 1',required=True,)
-    rank_officer = fields.Char(string='Rank of officer 1',required=True,)
+    rank_officer = fields.Many2one('rank.of1',string='Rank of officer 1',required=True,)
     PID1 = fields.Char(string="Officer 1 ID",required=True, )
     PID2 = fields.Char(string="Officer 2 ID", required=False, )
     sex_of1 = fields.Selection(string="Gender", selection=[('m', 'الذكر'), ('f', 'إناثا'), ], required=True, )
-    sex_of2 = fields.Selection(string="Gender", selection=[('m', 'الذكر'), ('f', 'إناثا'), ], required=True, )
+    sex_of2 = fields.Selection(string="Gender", selection=[('m', 'الذكر'), ('f', 'إناثا'), ], required=False, )
     name_officer_2 = fields.Char(string='Police officer 2')
-    rank_officer_2 = fields.Char(string='Rank of officer 2')
+    rank_officer_2 = fields.Many2one('rank.of2',string='Rank of officer 2')
     tosc = fields.Float(string="Case submitting Time", required=True )
     receiving_party = fields.Many2one('receiving.party', string="Receiving Party",required=True,)
     receiving_party_rank = fields.Many2one('receiving.party.rank', string="Receiving Party Rank",required=True,)
@@ -61,7 +61,12 @@ class PoliceDetail(models.Model):
 
     def create_id_type(self):
       record1 = self.env['id.config'].create({
-            'name':"ID Type"
+            'name':"ID What Found and Other Configurations"
+        })
+
+    def create_rank(self):
+      record1 = self.env['rank.config'].create({
+            'name':"Ranks Configuration"
         })
 
     @api.onchange('date')
@@ -183,8 +188,8 @@ class PartyDetail(models.Model):
     id_type = fields.Many2one('id.type', "ID Type",required=True,)
     what_found = fields.Many2one('what.found', "What we found",required=False,)
     qty = fields.Float(string="Quantity",required=False,)
-    accident_reason = fields.Char("Reason of accident ",required=False,)
-    result = fields.Char("Results",required=False,)
+    accident_reason = fields.Many2one('accident.reason',"Reason of accident ",required=False,)
+    result = fields.Many2one('accident.result',"Results",required=False,)
     mean_trans = fields.Many2one('mean.trans', "Means of Transportation",required=False,)
     hospital_name = fields.Many2one('hospital.name', "Name of Hospital",required=False,)
     main_class = fields.Many2one('police.detail', "Party Detail",required=False,)
@@ -204,12 +209,12 @@ class CompanionDetail(models.Model):
     country = fields.Many2one('res.country', "Nationality",required=True,)
     id_num = fields.Char("ID number",required=True,)
     id_type = fields.Many2one('id.type', "ID Type",required=True,)
-    relation = fields.Char("Relation",required=False,)
+    relation = fields.Many2one('accident.relation',"Relation",required=False,)
     sex = fields.Selection(string="Gender", selection=[('m', 'الذكر'), ('f', 'إناثا'), ],required=True,)
-    what_found = fields.Char("What we found",required=False,)
+    what_found = fields.Many2one('what.found',"What we found",required=False,)
     qty = fields.Float(string="Qty",required=False, )
-    accident_reason = fields.Char("Reason of accident ",required=False,)
-    result = fields.Char("Results",required=False,)
+    accident_reason = fields.Many2one('accident.reason',"Reason of accident ",required=False,)
+    result = fields.Many2one('accident.result',"Results",required=False,)
     mean_trans = fields.Many2one('mean.trans', "Means of Transportation",required=False,)
     hospital_name = fields.Many2one('hospital.name', "Name of Hospital",required=False,)
     previous_record = fields.Boolean("Previous Records")
@@ -254,12 +259,12 @@ class ViolationDetail(models.Model):
     violation = fields.Float(string='Time of Violation',required=True)
     code = fields.Many2one(comodel_name="car.code",string='Code of Police CAR',required=True,)
     police_officer = fields.Char(string='Police Officer 1',required=False,)
-    rank_officer = fields.Char(string='Rank of officer 1',required=False,)
+    rank_officer = fields.Many2one('rank.of1',string='Rank of officer 1',required=False,)
     PID1 = fields.Char(string="Officer 1 ID",required=False,)
     sex_of1 = fields.Selection(string="Gender", selection=[('m', 'الذكر'), ('f', 'إناثا'), ],required=True, )
-    sex_of2 = fields.Selection(string="Gender", selection=[('m', 'الذكر'), ('f', 'إناثا'), ],required=True, )
+    sex_of2 = fields.Selection(string="Gender", selection=[('m', 'الذكر'), ('f', 'إناثا'), ],required=False, )
     name_officer_2 = fields.Char(string='Police officer 2')
-    rank_officer_2 = fields.Char(string='Rank of officer 2')
+    rank_officer_2 = fields.Many2one('rank.of2',string='Rank of officer 2')
     PID2 = fields.Char(string="Officer 2 ID", required=False, )
     tosc = fields.Float(string="Violation submitting Time",required=True)
 
@@ -642,17 +647,117 @@ class IDTypeConfig(models.Model):
     _name = 'id.config'
     _rec_name = 'name'
 
-    name = fields.Char(string="ID Type", default="ID Type", required=False, )
+    name = fields.Char(string="ID Type", default="ID Type and Other Configurations", required=False, )
     id_type = fields.One2many(comodel_name="idtype.conf", inverse_name="id_config", string="ID Type", required=False, )
+    what_found = fields.One2many(comodel_name="what.conf", inverse_name="id_config", string="What We Found", required=False, )
+    reason = fields.One2many(comodel_name="reason.conf", inverse_name="id_config", string="Accident Reasons", required=False, )
+    result = fields.One2many(comodel_name="result.conf", inverse_name="id_config", string="Accident Results", required=False, )
+    relation = fields.One2many(comodel_name="relation.conf", inverse_name="id_config", string="Relation", required=False, )
 
 
 class IDConf(models.Model):
     _name = 'idtype.conf'
     _rec_name = 'name'
 
-    id_type = fields.Many2one(comodel_name="id.type", string="ID Type", required=False, )
+    name = fields.Char(string="ID Type", default="ID What Found and Other Configurations", required=False, )
+    id_type = fields.Many2one(comodel_name="id.type", string="ID Type", required=True, )
     id_config = fields.Many2one(comodel_name="id.config", string="Id config", required=False, )
-    name = fields.Char(string="ID Type", default="ID Type", required=False, )
+
+class WhatConf(models.Model):
+    _name = 'what.conf'
+    _rec_name = 'name'
+    name = fields.Char(string="What We Found", default="ID What Found and Other Configurations", required=False, )
+    what_found = fields.Many2one(comodel_name="what.found", string="What We Found", required=True, )
+    id_config = fields.Many2one(comodel_name="id.config", string="Id config", required=False, )
+
+class ReasonConf(models.Model):
+    _name = 'reason.conf'
+    _rec_name = 'name'
+    name = fields.Char(string="Accident Reasons", default="ID What Found and Other Configurations", required=False, )
+    reason = fields.Many2one(comodel_name="accident.reason", string="Accident Reasons", required=True, )
+    id_config = fields.Many2one(comodel_name="id.config", string="Id config", required=False, )
+
+class ResultConf(models.Model):
+    _name = 'result.conf'
+    _rec_name = 'name'
+    name = fields.Char(string="Accident Results", default="ID What Found and Other Configurations", required=False, )
+    result = fields.Many2one(comodel_name="accident.result", string="Accident Results", required=True, )
+    id_config = fields.Many2one(comodel_name="id.config", string="Id config", required=False, )
+
+class RelationConf(models.Model):
+    _name = 'relation.conf'
+    _rec_name = 'name'
+    name = fields.Char(string="Relation", default="ID What Found and Other Configurations",required=False, )
+    relation = fields.Many2one(comodel_name="accident.relation", string="Accident Relation", required=True, )
+    id_config = fields.Many2one(comodel_name="id.config", string="Id config", required=False, )
+
+
+class AccidentReason(models.Model):
+    _name = 'accident.reason'
+
+    name = fields.Char(string="Accident Reason" ,required=True, )
+
+class AccidentResult(models.Model):
+    _name = 'accident.result'
+
+    name = fields.Char(string="Accident Result" ,required=True,)
+
+class AccidentRelation(models.Model):
+    _name = 'accident.relation'
+
+    name = fields.Char(string="Relation" ,required=True,)
+
+
+class RankConfig(models.Model):
+    _name = 'rank.config'
+    _rec_name = 'name'
+
+    name = fields.Char(string="Ranks Configuration", default="Ranks Configuration", required=False, )
+    of1_rank = fields.One2many(comodel_name="rank1.conf", inverse_name="id_config", string="Rank of Police Officer 1", required=False, )
+    of2_rank = fields.One2many(comodel_name="rank2.conf", inverse_name="id_config", string="Rank of Police Officer 2", required=False, )
+    rec_rank = fields.One2many(comodel_name="rankr.conf", inverse_name="id_config", string="Rank of Receiving Party", required=False, )
+
+
+class RankOConf(models.Model):
+    _name = 'rank1.conf'
+    _rec_name = 'name'
+
+    name = fields.Char(string="Ranks Configuration", default="Ranks Configuration", required=False, )
+    of1_rank = fields.Many2one(comodel_name="rank.of1", string="Rank of Police Officer 1", required=True, )
+    id_config = fields.Many2one(comodel_name="rank.config", string="Id config", required=False, )
+
+class RankTConf(models.Model):
+    _name = 'rank2.conf'
+    _rec_name = 'name'
+
+    name = fields.Char(string="Ranks Configuration", default="Ranks Configuration", required=False, )
+    of2_rank = fields.Many2one(comodel_name="rank.of2", string="Rank of Police Officer 2", required=True, )
+    id_config = fields.Many2one(comodel_name="rank.config", string="Id config", required=False, )
+
+class RankRConf(models.Model):
+    _name = 'rankr.conf'
+    _rec_name = 'name'
+
+    name = fields.Char(string="Ranks Configuration", default="Ranks Configuration", required=False, )
+    rec_rank = fields.Many2one(comodel_name="receiving.party.rank", string="Rank of Receiving Party", required=True, )
+    id_config = fields.Many2one(comodel_name="rank.config", string="Id config", required=False, )
+
+
+
+
+
+
+
+
+class RankOf1(models.Model):
+    _name = 'rank.of1'
+
+    name = fields.Char(string="Rank of Police Officer 1" ,required=True,)
+
+class RankOf2(models.Model):
+    _name = 'rank.of2'
+
+    name = fields.Char(string="Rank of Police Officer 2" ,required=True,)
 
 #
 # class NewPage(http.Controller):
