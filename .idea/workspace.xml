@@ -352,45 +352,7 @@
       <change beforePath="" afterPath="$PROJECT_DIR$/champion/working_161_champion/static/src/Test_Pass.xlsx" />
       <change beforePath="" afterPath="$PROJECT_DIR$/champion/working_161_champion/static/src/css/styles.css" />
       <change beforePath="" afterPath="$PROJECT_DIR$/champion/working_161_champion/views.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/police/police_project/report.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/police/police_project/report.xml" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/logistic/customer_payments_bcube/__init__.py" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/logistic/customer_payments_bcube/__manifest__.py" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/logistic/customer_payments_bcube/__openerp__.py" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/logistic/customer_payments_bcube/customer.py" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/logistic/customer_payments_bcube/templates.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/logistic/logistic_vision/model.py" afterPath="$PROJECT_DIR$/logistic/logistic_vision/model.py" />
-      <change beforePath="$PROJECT_DIR$/logistic/logistic_vision/views/module_report.xml" afterPath="$PROJECT_DIR$/logistic/logistic_vision/views/module_report.xml" />
-      <change beforePath="$PROJECT_DIR$/police/custom_logistic/__init__.py" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/police/custom_logistic/__manifest__.py" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/police/custom_logistic/models.py" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/police/custom_logistic/quote.py" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/police/custom_logistic/quote.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/police/custom_logistic/report.py" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/police/custom_logistic/report.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/police/custom_logistic/security/ir.model.access.csv" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/police/custom_logistic/security/security.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/police/custom_logistic/static/src/css/styles.css" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/police/custom_logistic/supplier.py" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/police/custom_logistic/supplier.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/police/custom_logistic/views.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/police/max_base_multi_attachment/__init__.py" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/police/max_base_multi_attachment/__manifest__.py" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/police/max_base_multi_attachment/i18n/zh_CN.po" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/police/max_base_multi_attachment/models/__init__.py" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/police/max_base_multi_attachment/models/models.py" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/police/max_base_multi_attachment/security/ir.model.access.csv" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/police/max_base_multi_attachment/static/description/icon.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/police/max_base_multi_attachment/views/max_base_multi_attachment.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/police/police_case_summary/views/module_report.xml" afterPath="$PROJECT_DIR$/police/police_case_summary/views/module_report.xml" />
-      <change beforePath="$PROJECT_DIR$/police/police_project/__init__.py" afterPath="$PROJECT_DIR$/police/police_project/__init__.py" />
-      <change beforePath="$PROJECT_DIR$/police/police_project/__manifest__.py" afterPath="$PROJECT_DIR$/police/police_project/__manifest__.py" />
-      <change beforePath="$PROJECT_DIR$/police/police_project/i18n/ar_SY.po" afterPath="$PROJECT_DIR$/police/police_project/i18n/ar_SY.po" />
-      <change beforePath="$PROJECT_DIR$/police/police_project/model.py" afterPath="$PROJECT_DIR$/police/police_project/model.py" />
-      <change beforePath="$PROJECT_DIR$/police/police_project/static/src/css/style.css" afterPath="$PROJECT_DIR$/police/police_project/static/src/css/style.css" />
-      <change beforePath="$PROJECT_DIR$/police/police_project/templates.xml" afterPath="$PROJECT_DIR$/police/police_project/templates.xml" />
-      <change beforePath="$PROJECT_DIR$/saif/gmail_API.py" afterPath="$PROJECT_DIR$/saif/gmail_API.py" />
+      <change beforePath="$PROJECT_DIR$/BAFCO/islamic_datepicker_v9" afterPath="$PROJECT_DIR$/BAFCO/islamic_datepicker_v9" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
