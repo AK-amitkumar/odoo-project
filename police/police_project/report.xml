@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+<odoo>
+	<data>
+
+		<template id="assets_backend" name="custom assets" inherit_id="web.assets_backend">
+			<xpath expr="." position="inside">
+				<link rel="stylesheet" href="/police_project/static/src/css/style.css"/>
+			</xpath>
+		</template>
+
+		<record id="daily_report_form" model="ir.ui.view">
+		    <field name="name">daily_report</field>
+		    <field name="model">police.report</field>
+		    <field name="arch" type="xml">
+		        <form string="Daily Report">
+					<header>
+						<button name="Test_Report" type="object" string="Test Report" class="oe_highlight"/>
+					</header>
+					<sheet>
+						<group>
+							<field name="today"/>
+							<field name="today_date" invisible="1"/>
+							<field name="case" invisible=""/>
+						</group>
+						<group name="group_top">
+							<group name="group_left">
+								<field name="from_date" attrs="{'required': [('today','!=',True)],'invisible': [('today','=',True)]}"/>
+							</group>
+							<group name="group_right">
+								<field name="to_date" attrs="{'required': [('today','!=',True)],'invisible': [('today','=',True)]}"/>
+							</group>
+						</group>
+					</sheet>
+					<footer>
+						<button name="print_daily_report" type="object" string="Xlsx Report" class="oe_highlight"/>
+
+					</footer>
+
+		        </form>
+		    </field>
+		</record>
+
+		<record id="daily_report_act" model="ir.actions.act_window">
+		    <field name="name">Daily Report</field>
+		    <field name="type">ir.actions.act_window</field>
+		    <field name="res_model">police.report</field>
+		    <field name="view_mode">form</field>
+		    <field name="view_id" ref="daily_report_form"/>
+		    <field name="target">new</field>
+		</record>
+
+		<menuitem id="police_report_id"
+				  name="Reports"
+				  parent="police_main_menu_id"
+				  sequence="90"/>
+
+        <menuitem id="case_config_id1"
+				  name="Daily Report"
+				  action="daily_report_act"
+				  parent="police_report_id"
+				  sequence="91"/>
+
+	</data>
+</odoo>

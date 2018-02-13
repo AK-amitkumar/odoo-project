@@ -54,6 +54,7 @@ msgstr "نوع المخالفة"
 #. module: police_project
 #: model:ir.ui.view,arch_db:police_project.party_view_form
 #: model:ir.ui.view,arch_db:police_project.police_view_form
+#: model:ir.ui.view,arch_db:police_project.companion_detail_view_form
 #: model:ir.model.fields,field_description:police_project.field_police_detail_type_case
 msgid "Case Type"
 msgstr "بيانات الحالة"
@@ -82,7 +83,7 @@ msgstr " تفاصيل الحالة"
 #: model:ir.model.fields,field_description:police_project.field_violation_detail_center_name
 #: model:ir.model.fields,field_description:police_project.field_hajj_umrah_center_name
 msgid "Center Name"
-msgstr "اسم مركز"
+msgstr "اسم المركز"
 
 
 #. module: police_project
@@ -470,6 +471,11 @@ msgstr "بيانات الحالة"
 #. module: police_project
 #: model:ir.model.fields,field_description:police_project.field_case_type_case_type
 msgid "Case Type"
+msgstr "نوع الحالة"
+
+#. module: police_project
+#: model:ir.model.fields,field_description:police_project.field_case_type_main_case
+msgid "Case"
 msgstr "الحالة"
 
 
@@ -492,8 +498,13 @@ msgstr "المخالفة"
 
 #. module: police_project
 #: model:ir.model.fields,field_description:police_project.field_case_type_cate_case
-msgid "Case Category"
-msgstr "نوع الحالة"
+msgid "Detail"
+msgstr "تفاصيل"
+
+#. module: police_project
+#: model:ir.model.fields,field_description:police_project.field_case_type_sub_cate_case
+msgid "More Detail"
+msgstr "تفاصيل اضافية"
 
 #. module: police_project
 #: model:ir.model.fields,field_description:police_project.field_case_type1_cate_case
@@ -543,24 +554,31 @@ msgid "Case ID "
 msgstr "الرقم التسلسلي"
 
 #. module: police_project
-#: model:ir.model.fields,field_description:police_project.field_police_detail_tosc
 #: model:ir.model.fields,field_description:police_project.field_violation_detail_tosc
 msgid "Violation submitting Time"
 msgstr "وقت تسليم المخالفة"
 
 
 #. module: police_project
+#: model:ir.model.fields,field_description:police_project.field_police_detail_tosc
+msgid "Case submitting Time"
+msgstr "وقت تسليم الحالة"
+
+#. module: police_project
 #: model:ir.model.fields,field_description:police_project.field_police_detail_receiving_name
-#: model:ir.model.fields,field_description:police_project.field_violation_detail_receiving_name
 #: model:ir.model.fields,field_description:police_project.field_traffic_receive_receiving_name
-msgid "Hajj Umrah Violation Record"
+msgid "Receiving Party Name"
 msgstr "اسم الطرف المستلم"
 
 #. module: police_project
-#: model:ir.model.fields,field_description:police_project.field_police_detail_violation
 #: model:ir.model.fields,field_description:police_project.field_violation_detail_violation
 msgid "Time of Violation"
 msgstr "وقت وقوع المخالفة"
+
+#. module: police_project
+#: model:ir.model.fields,field_description:police_project.field_police_detail_violation
+msgid "Time of Case"
+msgstr "وقت وقوع الحالة"
 
 #. module: police_project
 #: model:ir.model.fields,field_description:police_project.field_companion_detail_country
@@ -684,6 +702,7 @@ msgstr "تعميم سابق"
 
 #. module: police_project
 #: model:ir.ui.view,arch_db:police_project.party_view_form
+#: model:ir.ui.view,arch_db:police_project.companion_detail_view_form
 msgid "Previous Records"
 msgstr "تعميم سابق"
 
@@ -765,6 +784,16 @@ msgid "Relation"
 msgstr "العلاقة"
 
 #. module: police_project
+#: model:ir.model.fields,field_description:police_project.field_companion_detail_previous_record
+msgid "Previous Record"
+msgstr "تعميم سابق"
+
+#. module: police_project
+#: model:ir.model.fields,field_description:police_project.field_companion_detail_case_detail
+msgid "Case Details"
+msgstr "أضافة الحالة"
+
+#. module: police_project
 #: model:ir.model.fields,field_description:police_project.field_companion_detail_remark
 #: model:ir.model.fields,field_description:police_project.field_owner_detail_remark
 #: model:ir.model.fields,field_description:police_project.field_party_detail_remark
@@ -832,7 +861,7 @@ msgstr "سجل المخالفات المرورية"
 
 #. module: police_project
 #: model:ir.ui.view,arch_db:police_project.traffic_violation_view_form
-msgid "Rraffic Violation Records"
+msgid "Traffic Violation Records"
 msgstr "سجلات المخالفات المرورية"
 
 #. module: police_project
@@ -842,12 +871,12 @@ msgstr "سجل المخالفات المرورية"
 
 #. module: police_project
 #: model:ir.actions.act_window,name:police_project.umrah_act_id
-msgid "Traffic Violation Record"
+msgid "Hajj Umrah Violation Record"
 msgstr "سجل مخالفة الحج والعمرة"
 
 #. module: police_project
 #: model:ir.ui.menu,name:police_project.umrah_violation_menu_id
-msgid "Traffic Violation Record"
+msgid "Hajj Umrah Violation Record"
 msgstr "سجل مخالفة الحج والعمرة"
 
 #. module: police_project

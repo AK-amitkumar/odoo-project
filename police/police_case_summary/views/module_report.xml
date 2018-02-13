@@ -40,9 +40,9 @@
 											<p><span class="solid">رقم اللوحة</span>
 												<span class="liquid" t-esc="data.car_plate"></span></p>
 											<p><span class="solid">سبب الحادث</span>
-												<span class="liquid" t-esc="data.accident_reason"></span></p>
+												<span class="liquid" t-esc="data.accident_reason.name"></span></p>
 											<p><span class="solid">نتائج</span>
-												<span class="liquid" t-esc="data.result"></span></p>
+												<span class="liquid" t-esc="data.result.name"></span></p>
 											<p><span class="solid">المضبوطات</span>
 												<span class="liquid" t-esc="data.what_found.name"></span></p>
 											<p><span class="solid">الكمية</span>
@@ -71,9 +71,9 @@
 													<p><span class="solid">الجنس</span>
 														<span class="liquid" t-as="cdata.sex"></span></p>
 													<p><span class="solid">علاقة</span>
-														<span class="liquid" t-esc="cdata.relation"></span></p>
+														<span class="liquid" t-esc="cdata.relation.name"></span></p>
 													<p><span class="solid">نتائج</span>
-														<span class="liquid" t-esc="cdata.result"></span></p>
+														<span class="liquid" t-esc="cdata.result.name"></span></p>
 													<p><span class="solid">وسيلة النقل</span>
 														<span class="liquid" t-esc="cdata.mean_trans.name"></span></p>
 													<p><span class="solid">المستشفى</span>

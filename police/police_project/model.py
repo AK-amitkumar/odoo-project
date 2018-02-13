@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+import imgkit
 import datetime
 from datetime import timedelta
 from openerp import models, fields, api, http
@@ -22,8 +23,8 @@ class PoliceDetail(models.Model):
     rank_officer = fields.Many2one('rank.of1',string='Rank of officer 1',required=True,)
     PID1 = fields.Char(string="Officer 1 ID",required=True, )
     PID2 = fields.Char(string="Officer 2 ID", required=False, )
-    sex_of1 = fields.Selection(string="Gender", selection=[('m', 'الذكر'), ('f', 'إناثا'), ], required=True, )
-    sex_of2 = fields.Selection(string="Gender", selection=[('m', 'الذكر'), ('f', 'إناثا'), ], required=False, )
+    sex_of1 = fields.Selection(string="Gender", selection=[('m', 'ذكر'), ('f', 'أنثى'), ], required=True, )
+    sex_of2 = fields.Selection(string="Gender", selection=[('m', 'ذكر'), ('f', 'أنثى'), ], required=False, )
     name_officer_2 = fields.Char(string='Police officer 2')
     rank_officer_2 = fields.Many2one('rank.of2',string='Rank of officer 2')
     tosc = fields.Float(string="Case submitting Time", required=True )
@@ -35,11 +36,23 @@ class PoliceDetail(models.Model):
     case_type = fields.One2many('case.type', "main_class", string="Case Type")
 
     preview = fields.Html('Report Preview',compute="generate_preview")
+    options = {
+        'format': 'png',
+        'encoding': "UTF-8",
+
+    }
+    css = '/home/muhammad/odoo-dev/Projects/police/police_project/static/src/css/style.css'
+    toc = {
+        'xsl-style-sheet': 'toc.xsl'
+    }
+
+    cover = 'cover.html'
 
     @api.one
-    def generate_preview(self):
+    def generate_preview(self, options=options, css=css, toc=toc,cover=cover):
         self.preview = self.env['report'].get_html(self, 'police_case_summary.module_report')
-
+        # imgkit.from_string(self.preview, 'out.png', options=options,css=css)
+        imgkit.from_string(self.preview,'out.png', options=options, css=css)
 
     @api.multi
     def open_menu(self):
@@ -55,17 +68,17 @@ class PoliceDetail(models.Model):
         return new_record
 
     def create_model_color(self):
-      record = self.env['model.color'].create({
-          'name':"Colors and Models"
-      })
+        record = self.env['model.color'].create({
+            'name':"Colors and Models"
+        })
 
     def create_id_type(self):
-      record1 = self.env['id.config'].create({
+        record1 = self.env['id.config'].create({
             'name':"ID What Found and Other Configurations"
         })
 
     def create_rank(self):
-      record1 = self.env['rank.config'].create({
+        record1 = self.env['rank.config'].create({
             'name':"Ranks Configuration"
         })
 
@@ -184,7 +197,7 @@ class PartyDetail(models.Model):
     car_plate = fields.Char("Plate Number",required=False,)
     driver_country = fields.Many2one('res.country', "Nationality",required=True,)
     id_num = fields.Char("ID number",required=True,)
-    sex = fields.Selection(string="Gender", selection=[('m', 'الذكر'), ('f', 'إناثا'), ],required=True,)
+    sex = fields.Selection(string="Gender", selection=[('m', 'ذكر'), ('f', 'أنثى'), ],required=True,)
     id_type = fields.Many2one('id.type', "ID Type",required=True,)
     what_found = fields.Many2one('what.found', "What we found",required=False,)
     qty = fields.Float(string="Quantity",required=False,)
@@ -210,7 +223,7 @@ class CompanionDetail(models.Model):
     id_num = fields.Char("ID number",required=True,)
     id_type = fields.Many2one('id.type', "ID Type",required=True,)
     relation = fields.Many2one('accident.relation',"Relation",required=False,)
-    sex = fields.Selection(string="Gender", selection=[('m', 'الذكر'), ('f', 'إناثا'), ],required=True,)
+    sex = fields.Selection(string="Gender", selection=[('m', 'ذكر'), ('f', 'أنثى'), ],required=True,)
     what_found = fields.Many2one('what.found',"What we found",required=False,)
     qty = fields.Float(string="Qty",required=False, )
     accident_reason = fields.Many2one('accident.reason',"Reason of accident ",required=False,)
@@ -250,23 +263,23 @@ class ViolationDetail(models.Model):
     case_id = fields.Char(string="Case ID",required=False,)
     date = fields.Date(default=datetime.date.today())
     day = fields.Char()
-    time = fields.Char(required=True)
+    time = fields.Char(required=False)
     road_name = fields.Many2one('road.name', string="Road Name",required=False,)
     center_name = fields.Many2one('center.name', string="Center Name",required=False,)
     location_name = fields.Many2one('location.name', string="Location Name",required=False,)
     digital_tag = fields.Many2one('digital.tag', string="Digital Tag",required=False,)
     direction_name = fields.Many2one('direction.name', string="Direction Name",required=False,)
-    violation = fields.Float(string='Time of Violation',required=True)
-    code = fields.Many2one(comodel_name="car.code",string='Code of Police CAR',required=True,)
+    violation = fields.Float(string='Time of Violation',required=False)
+    code = fields.Many2one(comodel_name="car.code",string='Code of Police CAR',required=False,)
     police_officer = fields.Char(string='Police Officer 1',required=False,)
     rank_officer = fields.Many2one('rank.of1',string='Rank of officer 1',required=False,)
     PID1 = fields.Char(string="Officer 1 ID",required=False,)
-    sex_of1 = fields.Selection(string="Gender", selection=[('m', 'الذكر'), ('f', 'إناثا'), ],required=True, )
-    sex_of2 = fields.Selection(string="Gender", selection=[('m', 'الذكر'), ('f', 'إناثا'), ],required=False, )
+    sex_of1 = fields.Selection(string="Gender", selection=[('m', 'ذكر'), ('f', 'أنثى'), ],required=False, )
+    sex_of2 = fields.Selection(string="Gender", selection=[('m', 'ذكر'), ('f', 'أنثى'), ],required=False, )
     name_officer_2 = fields.Char(string='Police officer 2')
     rank_officer_2 = fields.Many2one('rank.of2',string='Rank of officer 2')
     PID2 = fields.Char(string="Officer 2 ID", required=False, )
-    tosc = fields.Float(string="Violation submitting Time",required=True)
+    tosc = fields.Float(string="Violation submitting Time",required=False)
 
     case_detail = fields.Text(string='Violation details ')
     case_type = fields.One2many('case.type1', "main_class", string="Violation Type")
@@ -309,7 +322,7 @@ class trafficPartyDetail(models.Model):
     driver_country = fields.Many2one('res.country', "Nationality",required=False,)
     id_num = fields.Char("ID number",required=True,)
     id_type = fields.Many2one('id.type', "ID Type",required=False,)
-    sex = fields.Selection(string="Gender", selection=[('m', 'الذكر'), ('f', 'إناثا'), ],required=True, )
+    sex = fields.Selection(string="Gender", selection=[('m', 'ذكر'), ('f', 'أنثى'), ],required=True, )
     dln = fields.Char("Driving License Number",required=False,)
     oftc = fields.Char("Owner of the car",required=False,)
     car_maker = fields.Many2one(comodel_name="car.maker", string="Maker of Car", required=False, )
@@ -688,7 +701,7 @@ class RelationConf(models.Model):
     _name = 'relation.conf'
     _rec_name = 'name'
     name = fields.Char(string="Relation", default="ID What Found and Other Configurations",required=False, )
-    relation = fields.Many2one(comodel_name="accident.relation", string="Accident Relation", required=True, )
+    relation = fields.Many2one(comodel_name="accident.relation", string="Relation", required=True, )
     id_config = fields.Many2one(comodel_name="id.config", string="Id config", required=False, )
 
 
@@ -741,12 +754,6 @@ class RankRConf(models.Model):
     name = fields.Char(string="Ranks Configuration", default="Ranks Configuration", required=False, )
     rec_rank = fields.Many2one(comodel_name="receiving.party.rank", string="Rank of Receiving Party", required=True, )
     id_config = fields.Many2one(comodel_name="rank.config", string="Id config", required=False, )
-
-
-
-
-
-
 
 
 class RankOf1(models.Model):

@@ -365,7 +365,7 @@
 									<field name="country"/>
 									<field name="id_num"/>
 									<field name="id_type" options="{'no_quick_create': True, 'no_create_edit' : True}"/>
-									<field name="relation"/>
+									<field name="relation" options="{'no_quick_create': True, 'no_create_edit' : True}"/>
 								</tree>
 							</field>
 							<h3>Remarks</h3>
@@ -393,7 +393,7 @@
 									<field name="id_type" options="{'no_quick_create': True, 'no_create_edit' : True}"/>
 									<field name="sex"/>
 									<field name="country"/>
-									<field name="relation"/>
+									<field name="relation" options="{'no_quick_create': True, 'no_create_edit' : True}"/>
 								</group>
 
 								<group name="group_right">
@@ -413,8 +413,8 @@
 									<field name="previous_record"/>
 								</group>
 							</group>
-							<h3>Case Type</h3>
 							<field name="case_type_link" attrs="{'invisible': [('case_detail','=',False)]}">
+								<h3>Case Type</h3>
 								<tree>
 									<field name="main_case" options="{'no_quick_create': True, 'no_create_edit' : True}"/>
 									<field name="case_type" options="{'no_quick_create': True, 'no_create_edit' : True}"/>
@@ -1199,9 +1199,9 @@
 						</tree>
 					</field>
 					<h3>Relation</h3>
-					<field name="result">
+					<field name="relation">
 						<tree editable="bottom">
-							<field name="result"/>
+							<field name="relation"/>
 						</tree>
 					</field>
 				</form>

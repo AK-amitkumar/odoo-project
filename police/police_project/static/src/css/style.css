@@ -68,6 +68,6 @@ max-height:5px;
         clear: both;
         float: none;
     }
-    span.o_form_field.o_form_field_time.no_icon.o_form_required span {
+    span.no_icon span {
         display: none;
     }

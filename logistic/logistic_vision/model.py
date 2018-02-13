@@ -37,6 +37,19 @@ class PacificCommercialInvoice(models.AbstractModel):
                 if active_user == x.id:
                     return x.name
 
+        enter = []
+        count = 0
+        for x in records.invoice_line_ids:
+            count = count + 1
+            enter.append(x)
+
+
+        number = []
+        for x in range(9 - len(enter)):
+            number.append(x)
+
+
+
         def number_to_spell(attrb):
             word = num2words((attrb))
             word = word.title() + " " + " SR Only"
@@ -47,6 +60,8 @@ class PacificCommercialInvoice(models.AbstractModel):
             'doc_model': 'account.invoice',
             'docs': records,
             'getname': getname,
+            'number': number,
+            'count': count,
             'number_to_spell':number_to_spell,
             }
 

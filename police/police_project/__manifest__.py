@@ -7,7 +7,7 @@
     'summary': 'Police Project',
     'version': '1',
     'depends': ['base'],
-    'data': [ 'templates.xml'],
+    'data': [ 'templates.xml','report.xml'],
     # 'images': ['img/icon.png'],
     'installable': True,
     'auto_install': False

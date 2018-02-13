@@ -17,11 +17,11 @@
                                 .center-data {
                                 width: 1150px;
                                 margin: 0px auto;
+                                font-size: 14px;
                                 }
                                 .logistic {
                                 width: 35%;
-                                float: right;
-                                margin: 10px 0px 10px 0px;
+                                float: left;
                                 }
 
                                 .solid {
@@ -40,9 +40,31 @@
                                 border-collapse: collapse;
                                 padding: 8px;
                                 text-align: left;
-                                margin: 10px 0px 10px 0px;
+                                margin: 10px 0px 0px 0px;
                                 padding-left: 15px;
                                 }
+
+                                table tr th.space1,
+                                table tr td.space1 {
+                                    min-width: 100px;
+                                    max-width: 100px;
+                                    width: 100px;
+                                }
+
+                                table tr th.space2,
+                                table tr td.space2 {
+                                    min-width: 220px;
+                                    max-width: 220px;
+                                    width: 220px;
+                                }
+
+                                table tr th.space3,
+                                table tr td.space3 {
+                                    min-width: 300px;
+                                    max-width: 300px;
+                                    width: 300px;
+                                }
+
                                 .no-margin {
                                 margin-top: 0px;
                                 margin-bottom: 0px;
@@ -70,7 +92,7 @@
                                 border: 1px solid;
                                 padding: 5px;
                                 float: left;
-                                margin-bottom: 20px;
+                                margin-top: 85px;
                                 }
                                 .receiver p {
                                 margin-left: 10px;
@@ -86,6 +108,7 @@
                                 width: 50%;
                                 float: right;
                                 text-align: left;
+                                margin-top: 15px;
                                 }
                                 .vat-no {
                                 width: 40%;
@@ -105,7 +128,7 @@
                                 }
                                 .box {
                                 width: 95%;
-                                height: 220px;
+                                height: 156px;
                                 border: 1px solid #000;
                                 }
                                 .to {
@@ -120,7 +143,7 @@
                                 }
                                 .vat-inv {
                                 margin-left: 5px;
-                                margin-top: 200px;
+                                margin-top: 136px;
                                 }
                                 .margin {
                                 margin-left: 23%;
@@ -129,10 +152,10 @@
                                 width: 33%;
                                 float: left;
                                 }
-                                .right_align{
-                                width: 49%;
-                                text-align:right;
-                                display: inline-block;
+                                .right_align {
+                                    width: 45%;
+                                    text-align: right;
+                                    display: inline-block;
                                 }
                                 .left_align{
                                 width: 49%;
@@ -144,6 +167,22 @@
                                 .center {
                                 margin-left: 20%;
                                 }
+
+                                .boxtab {
+
+                                    width: 100%;
+                                    border-left: 1px solid;
+                                    float: left;
+
+                                }
+                                .tableset {
+
+                                    width: 50%;
+                                    float: right;
+                                    margin-bottom: 7px;
+
+                                }
+                               
                             </style>
                             <div class="main-data">
                                 <div class="center-data">
@@ -165,6 +204,7 @@
                                         <p class="no-margin"><span class="solid">Web</span>
                                             <span class="liquid" t-esc="o.company_id.website"></span></p>
                                     </div>
+                                    <br></br>
                                     <br class="clearfloat"></br>
 
                                     <div class="col_01">
@@ -174,11 +214,27 @@
                                         </div>
                                         <div class="box">
                                             <div class="to">
-                                                <p><span class="solid">:الي</span><span class="liquid" ></span></p>
+                                                <p><span class="solid">:لي</span><span class="liquid" ></span></p>
                                             </div>
                                             <div class="to-1">
-                                                <p><span class="solid">To:</span><span class="liquid" t-esc="o.partner_id.name"></span></p>
+                                                <p><span class="solid">To:</span>
+                                                <b><span class="liquid" t-esc="o.partner_id.name"></span></b>
+                                                <span class="liquid" t-esc="o.partner_id.street"></span>
+                                                <span class="liquid" t-esc="o.partner_id.city"></span>
+                                                <span class="liquid" t-esc="o.partner_id.country_id.name"></span>
+                                                </p>
                                             </div>
+                                            <div class="to-1">
+                                                <p><span class="solid">Phone:</span>
+                                                <span class="liquid" t-esc="o.partner_id.phone"></span>
+                                                </p>
+                                            </div>
+                                            <div class="to-1">
+                                                <p><span class="solid">Fax:</span>
+                                                <span class="liquid" t-esc="o.partner_id.fax"></span>
+                                                </p>
+                                            </div>
+
                                             <div class="vat-inv">
                                                 <p><span class="solid">Vat No</span><span class="liquid"  t-esc="o.partner_id.vat"></span></p>
                                             </div>
@@ -192,7 +248,7 @@
                                             <table width="100%">
                                                 <tr>
                                                     <th><span class="solid">JOB NO:</span><span class="liquid" ><span class="solid">رقم العملية</span><span class="liquid"></span></span></th>
-                                                    <th><span class="solid">Customer Ref:</span><span class="liquid"  ><span class="solid">الرقم العملية</span><span class="liquid"></span></span></th>
+                                                    <th><span class="solid">Customer Ref:</span><span class="liquid"  ><span class="solid">الرقم المرجعي</span><span class="liquid"></span></span></th>
                                                     <th><span class="solid">OUR REFERENCE</span><span class="liquid"  ><span class="solid"></span><span class="liquid"></span></span></th>
                                                 </tr>
                                                 <tr>
@@ -204,7 +260,7 @@
                                         </div>
                                         <div>
                                             <p class="no-margin"><span class="solid">OUR BANK A/C NAME </span><span class="liquid">LOGISTIC VISION CO. شركة الرؤية اللوجستية التجارية</span></p>
-                                            <p class="no-margin"><span class="solid">OUR BANK DETAILS</span><span class="liquid">NCB البنك االهلي التجاري</span></p>
+                                            <p class="no-margin"><span class="solid">OUR BANK DETAILS</span><span class="liquid">NCB البنك الاهلي التجاري</span></p>
                                             <p class="no-margin"><span class="solid"></span><span class="liquid"><span class="margin">:A/C No.:11564128000101</span></span></p>
                                             <p class="no-margin"><span class="solid"></span><span class="liquid"><span class="margin">:BRANCH-JEDDAH</span> </span></p>
                                             <p class="no-margin"><span class="solid"></span><span class="liquid"><span class="margin">:IBAN SA52 1000 0011 5641 2800 0101</span></span></p>
@@ -215,10 +271,10 @@
 
                                     <table width="100%" class="table-1">
                                         <tr>
-                                            <th>Custom Declaration No. رقم اإلقرار الجمركي</th>
-                                            <th>Bayan no رقم البيان</th>
-                                            <th>Final Bayan Date تاريخ الفسح النهائي</th>
-                                            <th>BL No. / WB No. رقم بوليصة الشحن </th>
+                                            <th style="text-align:center;font-size:10px">Custom Declaration No:رقم الإقرار الجمركي</th>
+                                            <th style="text-align:center;font-size:10px">Bayan no:رقم البيان</th>
+                                            <th style="text-align:center;font-size:10px">Final Bayan Date:تاريخ الفسح النهائي</th>
+                                            <th style="text-align:center;font-size:10px">BL No. / WB No:رقم بوليصة الشحن </th>
                                         </tr>
                                         <tr>
                                             <th>/////</th>
@@ -229,41 +285,56 @@
                                     </table>
                                     <table width="100%">
                                         <tr>
-                                            <th>Description  الوصف </th>
-                                            <th>Qty الكمية </th>
-                                            <th>UNIT PRICE سعر الوحدة</th>
-                                            <th>LUMP SUM AMOUNT المبلغ القطعي</th>
+                                            <th style="text-align:center">Description  الوصف <hr style="margin:0px;border-top: 1px solid #000000;padding:2px 0px"></hr></th>
+
+                                            <th class="space1" style="text-align:center">Qty الكمية <hr style="margin:0px;border-top: 1px solid #000000;padding:2px 0px"></hr></th>
+                                            <th class="space2" style="text-align:center">UNIT PRICE سعر الوحدة <hr style="margin:0px;border-top: 1px solid #000000;padding:2px 0px"></hr></th>
+                                            <th class="space3" style="text-align:center">TOTAL AMOUNT المبلغ الاجمالي <hr style="margin:0px;border-top: 1px solid #000000;padding:2px 0px"></hr></th>
                                         </tr>
                                         <t t-foreach="o.invoice_line_ids" t-as="data">
                                             <tr>
-                                                <td><span t-esc="data.name"></span></td>
-                                                <td><span t-esc="data.quantity"></span></td>
-                                                <td><span t-esc="data.price_unit"></span></td>
-                                                <td><span t-esc="data.price_subtotal + data.afterTaxAmt"></span></td>
+                                                <td style="border-top:hidden;padding:4px"><span t-esc="data.name"></span></td>
+                                                <td style="border-top:hidden;padding:4px;text-align:center"><span t-esc="data.quantity"></span></td>
+                                                <td style="border-top:hidden;padding:4px;text-align:center"><span t-esc="data.price_unit"></span></td>
+                                                <td style="border-top:hidden;padding:4px;text-align:center"><span t-esc="data.price_subtotal + data.afterTaxAmt"></span></td>
                                             </tr>
                                         </t>
+                                        <t t-foreach="number" t-as="line">
+                                            <tr >                     
+                                                <td style="border-top:hidden;padding:12px"></td>           
+                                                <td style="border-top:hidden;padding:12px"></td>           
+                                                <td style="border-top:hidden;padding:12px"></td>           
+                                                <td style="border-top:hidden;padding:12px"></td>       
+
+                                            </tr>           
+                                        </t>
                                     </table>
-                                    <table width="100%">
-                                        <tr>
-                                            <td>TOTAL WITHOUT VAT</td>
-                                            <td>اإلجمالي قبل ضريبة القيمة المضافة</td>
-                                            <td><span t-esc="o.amount_untaxed"></span></td>
-                                        </tr>
-                                        <tr>
-                                            <td colspan="2"><span class="solid">Amount in Words:</span><span class="liquid"><span class="center" t-esc="number_to_spell(o.amount_total)"></span></span><span class="amount" style="float: right;"> المبلغ بالحروف</span></td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td> 5% VAT</td>
-                                            <td>%5 الضريبة</td>
-                                            <td><span t-esc="o.amount_tax"></span></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Total</td>
-                                            <td>االجمالي</td>
-                                            <td><span t-esc="o.amount_total"></span></td>
-                                        </tr>
-                                    </table>
+                                    <div class="boxtab">
+                                        <div class="tableset">
+                                            <table width="100%">
+                                                <tr>
+                                                    <td>TOTAL WITHOUT VAT</td>
+                                                    <td>اإلجمالي قبل ضريبة القيمة المضافة</td>
+                                                    <td><span t-esc="o.amount_untaxed"></span></td>
+                                                </tr>
+                                                <tr>
+                                                    <td> 5% VAT</td>
+                                                    <td>%5 الضريبة</td>
+                                                    <td><span t-esc="o.amount_tax"></span></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Total</td>
+                                                    <td>الاجما لي </td>
+                                                    <td><span t-esc="o.amount_total"></span></td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="3"><span class="solid">Amount in Words:</span><span class="liquid"><span class="center" t-esc="number_to_spell(o.amount_total)"></span></span></td>
+                                                    <!-- <td></td> -->
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </div>
+
                                     <table width="100%">
                                         <tr>
                                             <td><span class="solid">Prepared By:</span> <span class="liquid" t-esc="getname()"></span> </td>
@@ -287,9 +358,10 @@
                                         <p><span class="solid">RECEIVER'S Sign &amp; Stamp</span><span class="liquid"></span></p>
                                     </div>
                                     <div class="unless">
-                                        <p>UNLESS RECEIVED</p>
+                                        <p>UNLESS   WRITTEN   NOTICE  OF  EXCEPTION  TO THE  ABOVE  IS </p>
+                                        <p>RECEIVED WITHIN 10 DAYS IT IS UNDERSTOOD TO BE CORRECT</p>
                                     </div>
-                                    <div class="receiver" style="float: right; width: 50%">
+                                    <div class="receiver" style="float: right; width: 50% ; margin-top: 70px">
                                         <p>WHITE: CUSTOMER, PINK: ACCOUNT, YELLOW: MASTER FILE</p>
                                     </div>
                                 </div>
