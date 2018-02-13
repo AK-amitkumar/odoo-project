@@ -56,7 +56,7 @@ class Police_Report(models.TransientModel):
                 'border': 1,
                 'align': 'center',
                 'valign': 'vcenter',
-                'font_size': '13',
+                'font_size': '15',
                 "font_color": 'black',
                 'fg_color': 'd0e5fc'})
             worksheet = workbook.add_worksheet('Testing')
@@ -67,8 +67,7 @@ class Police_Report(models.TransientModel):
             worksheet.set_column('I3:I3', 22,)
             worksheet.set_row(2, 40, main_heading)
             worksheet.right_to_left()
-            merge_format.set_shrink()
-            main_heading.set_text_justlast(1)
+
             main_data.set_border()
             if not today:
                 for row in range(1, 2):
@@ -123,12 +122,18 @@ class Police_Report(models.TransientModel):
         case_data = self.env['case.type'].search([('main_case','=', self.case.id)])
 
         with xlsxwriter.Workbook(
-                "/home/muhammad/odoo-dev/Projects/police/police_project/static/src/lib/Test Report.xlsx") as workbook:
+                "/home/muhammad/odoo-dev/Projects/police/police_project/static/src/lib/Case Report.xlsx") as workbook:
             main_heading = workbook.add_format({
                 "align": 'center',
                 "valign": 'vcenter',
                 "font_size": '15',
                 'fg_color': 'dbeef4'
+            })
+
+            main_heading1 = workbook.add_format({
+                "align": 'center',
+                "valign": 'vcenter',
+                "font_size": '15',
             })
             merge_format = workbook.add_format({
                 'bold': 1,
@@ -156,7 +161,7 @@ class Police_Report(models.TransientModel):
             add_data = workbook.add_format({
                 'align': 'center',
                 'valign': 'vcenter',
-                'font_size': '9',
+                'font_size': '12',
                 'fg_color': 'd0e5fc',
                 'bold': 1,
             })
@@ -165,41 +170,15 @@ class Police_Report(models.TransientModel):
             worksheet.set_column('B3:B3', 12, )
             worksheet.right_to_left()
             main_heading.set_border()
+            main_heading1.set_border()
             add_data.set_border()
+            worksheet.set_row(0, 30, merge_format1)
+
             def check_false(input_data):
                 if input_data:
                     return input_data
                 else:
                     return ' '
-
-            rRow = 5
-            rCol = 1
-            rLast = 6
-            row = 5
-            col = 2
-            center_list = []
-            for x in road:
-                for r in x.road_tree:
-                    worksheet.write_string(rRow, rCol, check_false(r.center.name), main_heading)
-                    rRow += 1
-                    case_data = self.env['police.detail'].search([('center_name', '=', r.center.id),])
-                    center_list.append(case_data)
-            # case_count = 0
-            # for xx in case_data:
-            #        for z in xx.case_type:
-            #             for y in rec.tree_link:
-            #                 if z.case_type == y.case_type:
-            #                     case_count += 1
-            # worksheet.write_string(row, col, check_false(str(case_count)), main_heading)
-            # col +=1
-            # print "11111111111111111111111111111111111111"
-            # print case_count
-                rRange = 'A' + str(rLast) + ':' + 'A' + str(rRow)
-                worksheet.merge_range(rRange, '{0}'.decode('utf-8').format(x.name),
-                                      merge_format)
-                rLast = rRow + 1
-            print "qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq"
-            print center_list
 
             row = 4
             col = 2
@@ -210,15 +189,9 @@ class Police_Report(models.TransientModel):
             for x in rec.tree_link:
                 for y in x.case_level_cate:
                     worksheet.write_string(row, col, check_false(y.case_cate.name), main_heading)
-                    # worksheet.write_string(row, col +1, check_false(y.case_cate.name), main_heading)
                     col += 1
-
-                    # for c_name in center_list[0]:
-                    #     count = 0
-                    #     for case_tree in c_name.case_type:
-                    #         if y.case_cate == case_tree.case_cate:
-                    #             count += 1
-
+                    rRange = string.ascii_uppercase[row] + '4:' + string.ascii_uppercase[col - 1] + '5'
+                    worksheet.set_column(rRange, 15)
 
                 for abc in range(1, 2):
                     worksheet.set_row(abc, 20)
@@ -231,7 +204,53 @@ class Police_Report(models.TransientModel):
                 rRange = 'A1:' + string.ascii_uppercase[col] + '2'
                 worksheet.merge_range(rRange, '{0}__________'.decode('utf-8').format(rec.case.name),main_data)
                 rRange = string.ascii_uppercase[last]+'3:' + string.ascii_uppercase[col] + '4'
-                worksheet.merge_range(rRange, rec.case.name+'إجمالي'.decode('utf-8'),add_data)
+                worksheet.set_column(rRange, 25)
+                worksheet.merge_range(rRange, rec.case.name+' إجمالي '.decode('utf-8'),add_data)
                 worksheet.write_string(4, col,'دوريات'.decode('utf-8'), add_data)
 
+            rRow = 5
+            rCol = 1
+            rLast = 6
+            row = 5
+            col = 2
+            sum_count = 0
+            for x in road:
+                for r in x.road_tree:
+                    worksheet.write_string(rRow, rCol, check_false(r.center.name), main_heading)
+                    rRow += 1
+                    rRange = string.ascii_uppercase[row] + '4:' + string.ascii_uppercase[col - 1] + '5'
+                    worksheet.set_column(rRange, 18)
+                    case_data = self.env['police.detail'].search([('center_name', '=', r.center.id)])
+                    for case_id in self.case.tree_link:
+                        for sub_id in case_id.case_level_cate:
+                            count = 0
+                            for line in case_data:
+                                for case_cate in line.case_type:
+                                    if sub_id.case_cate.id == case_cate.cate_case.id:
+                                        count += 1
+                            sum_count +=count
+                            if count == 0:
+                                worksheet.write_string(row, col, check_false(str(" ")), main_heading1)
+                            else:
+                                worksheet.write_string(row, col, check_false(str(count)), main_heading1)
+
+                            col +=1
+                            if sum_count == 0:
+                                worksheet.write_string(row, col, check_false(str(" ")), main_heading)
+                            else:
+                                worksheet.write_string(row, col, check_false(str(sum_count)), main_heading)
+                    row +=1
+                    col = 2
+                    sum_count = count =0
+
+                rRange = 'A' + str(rLast) + ':' + 'A' + str(rRow)
+                worksheet.merge_range(rRange, '{0}'.decode('utf-8').format(x.name),
+                                      merge_format)
+                rLast = rRow + 1
+        return {
+            'type': 'ir.actions.act_url',
+            'url': 'police_project/static/src/lib/Case Report.xlsx',
+            'target': 'blank', }
+
+            
 

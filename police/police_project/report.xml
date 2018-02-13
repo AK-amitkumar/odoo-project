@@ -14,13 +14,17 @@
 		    <field name="arch" type="xml">
 		        <form string="Daily Report">
 					<header>
-						<button name="Test_Report" type="object" string="Test Report" class="oe_highlight"/>
+						<button name="Test_Report" type="object" string="Case Report" class="oe_highlight"/>
 					</header>
 					<sheet>
-						<group>
-							<field name="today"/>
+						<group name="group_top">
+							<group name="group_left">
+								<field name="today"/>
 							<field name="today_date" invisible="1"/>
-							<field name="case" invisible=""/>
+							</group>
+							<group name="group_right">
+								<field name="case"/>
+							</group>
 						</group>
 						<group name="group_top">
 							<group name="group_left">
@@ -32,7 +36,7 @@
 						</group>
 					</sheet>
 					<footer>
-						<button name="print_daily_report" type="object" string="Xlsx Report" class="oe_highlight"/>
+						<button name="print_daily_report" type="object" string="Summary Report" class="oe_highlight"/>
 
 					</footer>
 
