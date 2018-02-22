@@ -1,3 +1,4 @@
+#-*- coding:utf-8 -*-
 from odoo import models, fields, api
 from datetime import datetime as dt
 from dateutil import relativedelta as rd
@@ -97,6 +98,40 @@ class Hr_Employee(models.Model):
 	emp_status = fields.Selection([(
 		'Active','Active'),
 		('Inactive','Inactive'),],'Employee Status',required=True)
+
+	# ----------------------------Nayyab------------------------19/02/2018---
+	ar_fn = fields.Char("الإسم الأول") 
+	ar_mn = fields.Char("الأسم الأوسط") 
+	ar_ln = fields.Char("الإسم الأخير") 
+	ar_gender = fields.Char("الجنس") 
+	ar_country_id = fields.Char("الجنسية") 
+	ar_religion = fields.Char("الديانة") 
+	ar_birthday = fields.Char("تاريخ الميلاد") 
+	ar_place_of_birth = fields.Char("مكان الميلاد")
+	ar_country_idd = fields.Char(string="البلد")
+	ar_state_id = fields.Char(string="الولاية")
+	ar_city = fields.Char(string="المدينة",)
+	ar_p_city = fields.Char(string="البلد")
+	ar_p_state_id = fields.Char(string="الولاية")
+	ar_p_country_id = fields.Char(string="المدينة")
+	ar_designation = fields.Char(string="المهنة")
+	ar_id_prof = fields.Char(string="رقم المهنة") 
+	ar_category = fields.Char(string="الفئة")
+	ar_department = fields.Char(string="لقسم")
+	ar_r_manager = fields.Char(string="المدير المباشر")
+	ar_division = fields.Char(string="الشعبة")
+	ar_mol_location = fields.Char(string="موقع وزارة العمل")
+	ar_sponsor = fields.Char(string="الكفيل")
+	ar_c_athu = fields.Char(string="نشط")
+	ar_fc_athu = fields.Char(string="الجهة المسئولة")
+	ar_reason = fields.Char(string="السبب")
+	ar_r_name = fields.Char(string="الإسم")
+	ar_rc_name = fields.Char(string="اسم الشركة")
+	ar_r_designation = fields.Char(string="المهنة")
+	ar_r_mobile = fields.Char(string="رقم الموبايل")
+	ar_r_phone = fields.Char(string="رقم الهاتف")
+	ar_r_mail = fields.Char(string="الإيميل")
+
 	# --------------------------------------------------
 
 	@api.onchange('same_add')
@@ -165,6 +200,11 @@ class Emergency(models.Model):
 	e_remark = fields.Char("Remarks")
 	relation = fields.Many2one('hr.employee')
 
+	# +-------------------------------nayyab----------------------
+
+	ar_e_name = fields.Char("الإسم")
+	ar_e_relationship = fields.Char("العلاقة")
+
 # Dependent
 class Dependent(models.Model):
 	_name = 'hr.dependent'
@@ -172,7 +212,7 @@ class Dependent(models.Model):
 	d_passport = fields.Many2one('hr.documents',"Passport No",required=True)
 	name = fields.Char('Name(As in Passport)' , required="True")
 	employee = fields.Char()
-	arabic_name = fields.Char()
+	arabic_name = fields.Char(string="الإسم")
 	dob = fields.Date('Date of Birth', required=True)
 	pob = fields.Char('Place of Birth')
 	date_issue = fields.Date('Date of Issue')
@@ -191,6 +231,12 @@ class Dependent(models.Model):
 		('male','Male'),
 		('female','Female'),
 		],string="Gender",required=True)
+
+	# +--------------------nayyab-------------------------
+	ar_d_gender = fields.Char(string="الجنس")
+	ar_dob = fields.Char(string="تاريخ الميلاد")
+	ar_pob = fields.Char(string="مكان الميلاد")
+	ar_relation = fields.Char(string="العلاقة")
 	# --------------------------------------------------
 
 	@api.onchange('name')

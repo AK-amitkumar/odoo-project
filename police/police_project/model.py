@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-import imgkit
 import datetime
 from datetime import timedelta
 from openerp import models, fields, api, http
@@ -34,25 +33,34 @@ class PoliceDetail(models.Model):
     case_detail = fields.Text(string='Case details ')
     party_link = fields.One2many('party.detail', "main_class", string="Party Detail")
     case_type = fields.One2many('case.type', "main_class", string="Case Type")
-
+    check_field = fields.Boolean(string="Check Fields",)
+    check_tree = fields.Boolean(string="Check Tree",)
     preview = fields.Html('Report Preview',compute="generate_preview")
-    options = {
-        'format': 'png',
-        'encoding': "UTF-8",
 
-    }
-    css = '/home/muhammad/odoo-dev/Projects/police/police_project/static/src/css/style.css'
-    toc = {
-        'xsl-style-sheet': 'toc.xsl'
-    }
 
-    cover = 'cover.html'
+
+    @api.onchange('road_name','center_name','location_name','digital_tag',
+                  'direction_name','violation','code','police_officer',
+                  'rank_officer','PID1','sex_of1','tosc','receiving_party',
+                  'receiving_party_rank','receiving_name')
+    def _onchange_check_filed(self):
+        if self.road_name and self.center_name and self.location_name and self.digital_tag and self.direction_name and \
+                self.violation and self.code and self.police_officer and self.rank_officer and self.PID1 and self.sex_of1\
+                and self.tosc and self.receiving_party and self.receiving_party_rank and self.receiving_name:
+            self.check_field = True
+        else:
+            self.check_field = False
+
+    @api.onchange('case_type')
+    def onchange_method(self):
+        if self.case_type:
+            self.check_tree =True
+        else:
+            self.check_tree =False
 
     @api.one
-    def generate_preview(self, options=options, css=css, toc=toc,cover=cover):
+    def generate_preview(self):
         self.preview = self.env['report'].get_html(self, 'police_case_summary.module_report')
-        # imgkit.from_string(self.preview, 'out.png', options=options,css=css)
-        imgkit.from_string(self.preview,'out.png', options=options, css=css)
 
     @api.multi
     def open_menu(self):
@@ -200,7 +208,8 @@ class PartyDetail(models.Model):
     sex = fields.Selection(string="Gender", selection=[('m', 'ذكر'), ('f', 'أنثى'), ],required=True,)
     id_type = fields.Many2one('id.type', "ID Type",required=True,)
     what_found = fields.Many2one('what.found', "What we found",required=False,)
-    qty = fields.Float(string="Quantity",required=False,)
+    qty_uom = fields.Selection(string="Unit of Measure", selection=[('g', 'Grams'), ('k', 'Kgs'), ('p', 'Pieces'), ], required=False, )
+    qty = fields.Integer(string="Quantity",required=False,)
     accident_reason = fields.Many2one('accident.reason',"Reason of accident ",required=False,)
     result = fields.Many2one('accident.result',"Results",required=False,)
     mean_trans = fields.Many2one('mean.trans', "Means of Transportation",required=False,)
@@ -225,7 +234,8 @@ class CompanionDetail(models.Model):
     relation = fields.Many2one('accident.relation',"Relation",required=False,)
     sex = fields.Selection(string="Gender", selection=[('m', 'ذكر'), ('f', 'أنثى'), ],required=True,)
     what_found = fields.Many2one('what.found',"What we found",required=False,)
-    qty = fields.Float(string="Qty",required=False, )
+    qty_uom = fields.Selection(string="Unit of Measure", selection=[('g', 'Grams'), ('k', 'Kgs'), ('p', 'Pieces'), ], required=False, )
+    qty = fields.Integer(string="Qty",required=False, )
     accident_reason = fields.Many2one('accident.reason',"Reason of accident ",required=False,)
     result = fields.Many2one('accident.result',"Results",required=False,)
     mean_trans = fields.Many2one('mean.trans', "Means of Transportation",required=False,)

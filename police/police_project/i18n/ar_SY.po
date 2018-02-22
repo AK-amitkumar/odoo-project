@@ -806,6 +806,14 @@ msgid "Remarks"
 msgstr "ملاحظات"
 
 #. module: police_project
+#: model:ir.model.fields,field_description:police_project.field_companion_detail_qty_uom
+#: model:ir.model.fields,field_description:police_project.field_party_detail_qty_uom
+
+msgid "Unit of Measure"
+msgstr "وحدة القياس"
+
+
+#. module: police_project
 #: model:ir.model.fields,field_description:police_project.field_police_detail_number
 #: model:ir.model.fields,field_description:police_project.field_violation_detail_number
 #: model:ir.model.fields,field_description:police_project.field_hajj_umrah_number

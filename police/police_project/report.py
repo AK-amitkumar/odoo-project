@@ -14,6 +14,7 @@ class Police_Report(models.TransientModel):
     to_date  = fields.Date(string="To Date", required=False, )
     today_date  = fields.Date(string="To Date", required=False,)
     case = fields.Many2one(comodel_name="case.level", string="Case", required=False, )
+    case1 = fields.Many2one(comodel_name="case.level", string="Case", required=False, )
     @api.onchange('today')
     def onchange_method(self):
         if self.today:
@@ -44,7 +45,6 @@ class Police_Report(models.TransientModel):
                 "valign": 'vcenter',
                 "font_size": '15',
                 # 'border':   6,
-
             })
             main_data = workbook.add_format({
                 "align": 'center',
@@ -165,7 +165,7 @@ class Police_Report(models.TransientModel):
                 'fg_color': 'd0e5fc',
                 'bold': 1,
             })
-            worksheet = workbook.add_worksheet('Testing')
+            worksheet = workbook.add_worksheet('تقرير الحالة الجنائية'.decode('utf-8'))
             worksheet.set_column('A3:A3', 12, )
             worksheet.set_column('B3:B3', 12, )
             worksheet.right_to_left()
@@ -203,10 +203,9 @@ class Police_Report(models.TransientModel):
                 worksheet.set_row(abc, 20)
                 rRange = 'A1:' + string.ascii_uppercase[col] + '2'
                 worksheet.merge_range(rRange, '{0}__________'.decode('utf-8').format(rec.case.name),main_data)
-                rRange = string.ascii_uppercase[last]+'3:' + string.ascii_uppercase[col] + '4'
+                rRange = string.ascii_uppercase[last]+'3:' + string.ascii_uppercase[col] + '5'
                 worksheet.set_column(rRange, 25)
                 worksheet.merge_range(rRange, rec.case.name+' إجمالي '.decode('utf-8'),add_data)
-                worksheet.write_string(4, col,'دوريات'.decode('utf-8'), add_data)
 
             rRow = 5
             rCol = 1
@@ -218,8 +217,6 @@ class Police_Report(models.TransientModel):
                 for r in x.road_tree:
                     worksheet.write_string(rRow, rCol, check_false(r.center.name), main_heading)
                     rRow += 1
-                    rRange = string.ascii_uppercase[row] + '4:' + string.ascii_uppercase[col - 1] + '5'
-                    worksheet.set_column(rRange, 18)
                     case_data = self.env['police.detail'].search([('center_name', '=', r.center.id)])
                     for case_id in self.case.tree_link:
                         for sub_id in case_id.case_level_cate:
@@ -228,6 +225,16 @@ class Police_Report(models.TransientModel):
                                 for case_cate in line.case_type:
                                     if sub_id.case_cate.id == case_cate.cate_case.id:
                                         count += 1
+
+                                for line1 in line:
+                                    for sub_line in line1.party_link:
+                                        if sub_line.companion_detail and sub_line.companion_detail_link:
+                                            for sub_party in sub_line.companion_detail_link:
+                                                if sub_party.case_detail and sub_party.case_type_link:
+                                                    for case_count in sub_party.case_type_link:
+                                                        if sub_id.case_cate.id == case_count.cate_case.id:
+                                                            count += 1
+
                             sum_count +=count
                             if count == 0:
                                 worksheet.write_string(row, col, check_false(str(" ")), main_heading1)
@@ -241,7 +248,7 @@ class Police_Report(models.TransientModel):
                                 worksheet.write_string(row, col, check_false(str(sum_count)), main_heading)
                     row +=1
                     col = 2
-                    sum_count = count =0
+                    sum_count = 0
 
                 rRange = 'A' + str(rLast) + ':' + 'A' + str(rRow)
                 worksheet.merge_range(rRange, '{0}'.decode('utf-8').format(x.name),
@@ -252,5 +259,391 @@ class Police_Report(models.TransientModel):
             'url': 'police_project/static/src/lib/Case Report.xlsx',
             'target': 'blank', }
 
-            
+    def Test1_Report(self):
+        rec = self.env['case.level'].search([('id', '=', self.case1.id)])
+        road = self.env['road.name'].search([])
 
+        with xlsxwriter.Workbook(
+                "/home/muhammad/odoo-dev/Projects/police/police_project/static/src/lib/Case1 Report.xlsx") as workbook:
+            main_heading = workbook.add_format({
+                "align": 'center',
+                "valign": 'vcenter',
+                "font_size": '15',
+                'fg_color': 'dbeef4'
+            })
+
+            main_heading1 = workbook.add_format({
+                "align": 'center',
+                "valign": 'vcenter',
+                "font_size": '15',
+            })
+            merge_format = workbook.add_format({
+                'bold': 1,
+                'border': 1,
+                'align': 'center',
+                'valign': 'vcenter',
+                'font_size': '13',
+                "font_color": 'black',
+                'fg_color': 'dbeef4'})
+            merge_format1 = workbook.add_format({
+                'bold': 1,
+                'border': 1,
+                'align': 'center',
+                'valign': 'vcenter',
+                'font_size': '13',
+                "font_color": 'black',
+                'fg_color': 'd0e5fc'})
+
+            main_data = workbook.add_format({
+                "align": 'right',
+                'font_size': '16',
+                'bold': 1,
+            })
+
+            add_data = workbook.add_format({
+                'align': 'center',
+                'valign': 'vcenter',
+                'font_size': '12',
+                'fg_color': 'd0e5fc',
+                'bold': 1,
+            })
+            worksheet = workbook.add_worksheet('تقرير عن مخالفات نظام الإقامة والعمل / وغيرها من المخالفات'.decode('utf-8'))
+            worksheet.set_column('A3:A3', 12, )
+            worksheet.set_column('B3:B3', 12, )
+            worksheet.right_to_left()
+            main_heading.set_border()
+            main_heading1.set_border()
+            add_data.set_border()
+            worksheet.set_row(0, 30, merge_format1)
+
+            def check_false(input_data):
+                if input_data:
+                    return input_data
+                else:
+                    return ' '
+
+            row = 5
+            col = 2
+            last = 2
+            l_last = 2
+
+            worksheet.merge_range('A3:A6', 'قيادات الطرق'.decode('utf-8'), merge_format1)
+            worksheet.merge_range('B3:B6', 'المراكز'.decode('utf-8'), merge_format1)
+            for x in rec.tree_link:
+                for y in x.case_level_cate:
+                    for z in range(2):
+                        if z == 0:
+                            worksheet.write_string(row, col, 'حالات'.decode('utf-8'), add_data)
+                        else:
+                            worksheet.write_string(row, col, 'اشخاص'.decode('utf-8'), add_data)
+                        col += 1
+                    for abc in range(1, 2):
+                        worksheet.set_row(abc, 20)
+                        if col > 25 and last > 25:
+                            rRange = "A"+string.ascii_uppercase[last-26] + '5:' + "A"+string.ascii_uppercase[((col-1)-26)]+ '5'
+                            worksheet.merge_range(rRange, '{0}'.decode('utf-8').format(y.case_cate.name),
+                                                  merge_format)
+                            last = col
+                        elif col > 25 > last:
+                            rRange = string.ascii_uppercase[last] + '5:' + string.ascii_uppercase[
+                                (col -1)] + '5'
+                            worksheet.merge_range(rRange, '{0}'.decode('utf-8').format(y.case_cate.name),
+                                                  merge_format)
+                            last = col
+
+                        elif col < 25 < last:
+                            rRange = "A"+string.ascii_uppercase[last-25] + '5:' + string.ascii_uppercase[
+                                (col -1)] + '5'
+                            worksheet.merge_range(rRange, '{0}'.decode('utf-8').format(y.case_cate.name),
+                                                  merge_format)
+                            last = col
+                        else:
+                            rRange = string.ascii_uppercase[last] + '5:' + string.ascii_uppercase[col - 1] + '5'
+                            worksheet.merge_range(rRange,'{0}'.decode('utf-8').format(y.case_cate.name),
+                                                  merge_format)
+                            last = col
+
+
+                for abc in range(1, 2):
+                    worksheet.set_row(abc, 20)
+                    if col >25:
+                        rRange = string.ascii_uppercase[l_last] + '3:' + "A"+string.ascii_uppercase[(col -2) -25] + '4'
+                        worksheet.merge_range(rRange,'{0}'.decode('utf-8').format(x.case_type.name),
+                                              merge_format)
+                        l_last = col
+                    else:
+                        rRange = string.ascii_uppercase[l_last] + '3:' + string.ascii_uppercase[col - 1] + '4'
+                        worksheet.merge_range(rRange, '{0}'.decode('utf-8').format(x.case_type.name),
+                                              merge_format)
+                        l_last = col
+
+            for abc in range(0, 1):
+                worksheet.set_row(abc, 20)
+                if col > 25:
+                    rRange = 'A1:' + "A"+string.ascii_uppercase[col-25] + '2'
+                    worksheet.merge_range(rRange, '{0}__________'.decode('utf-8').format(rec.case.name),main_data)
+                else:
+                    rRange = 'A1:' + string.ascii_uppercase[col] + '2'
+                    worksheet.merge_range(rRange, '{0}__________'.decode('utf-8').format(rec.case.name), main_data)
+
+                if col > 25:
+                    rRange = "A"+string.ascii_uppercase[last-25]+'3:' + "A"+string.ascii_uppercase[col-26] + '5'
+                    worksheet.set_column(rRange, 15)
+                    worksheet.merge_range(rRange, rec.case.name+' إجمالي '.decode('utf-8'),add_data)
+                    for z in range(2):
+                        if z == 0:
+                            worksheet.write_string(row, col, 'حالات'.decode('utf-8'), add_data)
+                        else:
+                            worksheet.write_string(row, col, 'اشخاص'.decode('utf-8'), add_data)
+                        col += 1
+                else:
+                    rRange = string.ascii_uppercase[last] + '3:' + string.ascii_uppercase[col] + '5'
+                    worksheet.set_column(rRange, 15)
+                    worksheet.merge_range(rRange, rec.case.name + ' إجمالي '.decode('utf-8'), add_data)
+                    for z in range(2):
+                        if z == 0:
+                            worksheet.write_string(row, col, 'حالات'.decode('utf-8'), add_data)
+                        else:
+                            worksheet.write_string(row, col, 'اشخاص'.decode('utf-8'), add_data)
+                        col += 1
+
+            rRow = 6
+            rCol = 1
+            rLast = 7
+            row = 6
+            col = 2
+            sum_count = 0
+            a_sum_count = 0
+            for x in road:
+                for r in x.road_tree:
+                    worksheet.write_string(rRow, rCol, check_false(r.center.name), main_heading)
+                    rRow += 1
+
+                    case_data = self.env['police.detail'].search([('center_name', '=', r.center.id)])
+                    for case_id in self.case1.tree_link:
+                        for sub_id in case_id.case_level_cate:
+                            count = 0
+                            a_count = 0
+                            for line in case_data:
+                                for case_cate in line.case_type:
+                                    if sub_id.case_cate.id == case_cate.cate_case.id:
+                                        count += 1
+
+                                for line1 in line:
+                                    for sub_line in line1.party_link:
+                                        if sub_line.companion_detail and sub_line.companion_detail_link:
+                                            for sub_party in sub_line.companion_detail_link:
+                                                if sub_party.case_detail and sub_party.case_type_link:
+                                                    for case_count in sub_party.case_type_link:
+                                                        if sub_id.case_cate.id == case_count.cate_case.id:
+                                                            a_count += 1
+                            
+                            if count == 0:
+                                worksheet.write_string(row, col, check_false(str(" ")), main_heading1)
+                            else:
+                                worksheet.write_string(row, col, check_false(str(count)), main_heading1)
+                            col += 1
+
+                            if a_count == 0:
+                                worksheet.write_string(row, col, check_false(str(" ")), main_heading1)
+                            else:
+                                worksheet.write_string(row, col, check_false(str(a_count)), main_heading1)
+                            col +=1
+                            sum_count +=count
+                            a_sum_count +=a_count
+                    if sum_count == 0:
+                        worksheet.write_string(row, col, check_false(str(" ")), main_heading)
+                    else:
+                        worksheet.write_string(row, col, check_false(str(sum_count)), main_heading)
+                    col +=1
+
+                    if a_sum_count == 0:
+                        worksheet.write_string(row, col, check_false(str(" ")), main_heading)
+                    else:
+                        worksheet.write_string(row, col, check_false(str(a_sum_count)), main_heading)
+
+                    row +=1
+                    col = 2
+                    sum_count = 0
+                    a_sum_count = 0
+
+                rRange = 'A' + str(rLast) + ':' + 'A' + str(rRow)
+                worksheet.merge_range(rRange, '{0}'.decode('utf-8').format(x.name),
+                                      merge_format)
+                rLast = rRow + 1
+        return {
+            'type': 'ir.actions.act_url',
+            'url': 'police_project/static/src/lib/Case1 Report.xlsx',
+            'target': 'blank', }
+
+    def Test2_Report(self):
+        rec = self.env['case.level'].search([('id', '=', 3)])
+        road = self.env['road.name'].search([])
+
+        with xlsxwriter.Workbook(
+                "/home/muhammad/odoo-dev/Projects/police/police_project/static/src/lib/Case3 Report.xlsx") as workbook:
+            main_heading = workbook.add_format({
+                "align": 'center',
+                "valign": 'vcenter',
+                "font_size": '15',
+                'fg_color': 'dbeef4'
+            })
+
+            main_heading1 = workbook.add_format({
+                "align": 'center',
+                "valign": 'vcenter',
+                "font_size": '15',
+            })
+            merge_format = workbook.add_format({
+                'bold': 1,
+                'border': 1,
+                'align': 'center',
+                'valign': 'vcenter',
+                'font_size': '13',
+                "font_color": 'black',
+                'fg_color': 'dcdcf8'})
+            merge_format1 = workbook.add_format({
+                'bold': 1,
+                'border': 1,
+                'align': 'center',
+                'valign': 'vcenter',
+                'font_size': '13',
+                "font_color": 'black',
+                'fg_color': 'dcdcf8'})
+
+            main_data = workbook.add_format({
+                "align": 'right',
+                'font_size': '16',
+                'bold': 1,
+            })
+
+            add_data = workbook.add_format({
+                'align': 'center',
+                'valign': 'vcenter',
+                'font_size': '12',
+                'fg_color': 'd0e5fc',
+                'bold': 1,
+            })
+            worksheet = workbook.add_worksheet('بيان يمثل حالات المخدرات المضبوطة وكمياتها'.decode('utf-8'))
+            worksheet.set_column('A3:A3', 12, )
+            worksheet.set_column('B3:B3', 12, )
+            worksheet.right_to_left()
+            main_heading.set_border()
+            main_heading1.set_border()
+            add_data.set_border()
+            worksheet.set_row(0, 30, merge_format1)
+
+            def check_false(input_data):
+                if input_data:
+                    return input_data
+                else:
+                    return ' '
+
+            row = 5
+            col = 2
+            last = 2
+
+            worksheet.merge_range('A3:A6', 'قيادات الطرق'.decode('utf-8'), merge_format1)
+            worksheet.merge_range('B3:B6', 'المراكز'.decode('utf-8'), merge_format1)
+            for x in rec.tree_link:
+                if 'حبوب'.decode('utf-8') not in x.case_type.name and 'اخرى'.decode('utf-8') not in x.case_type.name:
+                    for z in range(2):
+                        if z == 0:
+                            worksheet.write_string(row, col, 'جرام'.decode('utf-8'), add_data)
+                        else:
+                            worksheet.write_string(row, col, 'كيلو'.decode('utf-8'), add_data)
+                        col += 1
+                elif 'حبوب'.decode('utf-8') in x.case_type.name:
+                    for abc in range(0, 1):
+                        worksheet.write_string(row, col, 'بالعدد'.decode('utf-8'), add_data)
+                        col += 1
+                elif 'اخرى'.decode('utf-8') in x.case_type.name:
+                    for z in range(2):
+                        if z == 0:
+                            worksheet.write_string(row, col, 'بالجرام'.decode('utf-8'), add_data)
+                        else:
+                            worksheet.write_string(row, col, 'بالعدد'.decode('utf-8'), add_data)
+                        col += 1
+
+                for abc in range(1, 2):
+                    worksheet.set_row(abc, 20)
+                    rRange = string.ascii_uppercase[last] + '4:' + string.ascii_uppercase[col - 1] + '5'
+                    worksheet.merge_range(rRange, '{0}'.decode('utf-8').format(x.case_type.name),
+                                          merge_format)
+                    last = col
+
+            for abc in range(0, 1):
+                worksheet.set_row(abc, 20)
+                rRange = 'C3:' + string.ascii_uppercase[col - 1] + '3'
+                worksheet.merge_range(rRange, 'أنواع وكميات المخدرات المضبوطة'.decode('utf-8'),merge_format)
+
+            for abc in range(0, 1):
+                worksheet.set_row(abc, 20)
+                rRange = 'A1:' + string.ascii_uppercase[col -1] + '1'
+                worksheet.merge_range(rRange, '{0}__________'.decode('utf-8').format(rec.case.name), main_data)
+
+            for abc in range(0, 1):
+                worksheet.set_row(abc, 20)
+                rRange = 'A2:' + string.ascii_uppercase[col -1] + '2'
+                worksheet.merge_range(rRange, 'بيان يمثل حالات المخدرات المضبوطة وكمياتها'.decode('utf-8'), main_data)
+
+            rRow = 6
+            rCol = 1
+            rLast = 7
+            row = 5
+            col = 2
+            sum_count = 0
+            for x in road:
+                for r in x.road_tree:
+                    worksheet.write_string(rRow, rCol, check_false(r.center.name), main_heading)
+                    rRow += 1
+                    # case_data = self.env['police.detail'].search([('center_name', '=', r.center.id)])
+                    # for case_id in self.case.tree_link:
+                    #     for sub_id in case_id.case_level_cate:
+                    #         count = 0
+                    #         for line in case_data:
+                    #             for case_cate in line.case_type:
+                    #                 if sub_id.case_cate.id == case_cate.cate_case.id:
+                    #                     count += 1
+                    #
+                    #             for line1 in line:
+                    #                 for sub_line in line1.party_link:
+                    #                     if sub_line.companion_detail and sub_line.companion_detail_link:
+                    #                         for sub_party in sub_line.companion_detail_link:
+                    #                             if sub_party.case_detail and sub_party.case_type_link:
+                    #                                 for case_count in sub_party.case_type_link:
+                    #                                     if sub_id.case_cate.id == case_count.cate_case.id:
+                    #                                         count += 1
+                    #
+                    #         sum_count += count
+                    #         if count == 0:
+                    #             worksheet.write_string(row, col, check_false(str(" ")), main_heading1)
+                    #         else:
+                    #             worksheet.write_string(row, col, check_false(str(count)), main_heading1)
+                    #
+                    #         col += 1
+                    #         if sum_count == 0:
+                    #             worksheet.write_string(row, col, check_false(str(" ")), main_heading)
+                    #         else:
+                    #             worksheet.write_string(row, col, check_false(str(sum_count)), main_heading)
+                    # row += 1
+                    # col = 2
+                    # sum_count = 0
+
+                rRange = 'A' + str(rLast) + ':' + 'A' + str(rRow)
+                worksheet.merge_range(rRange, '{0}'.decode('utf-8').format(x.name),
+                                      merge_format)
+                rLast = rRow + 1
+            for abc in range(0, 1):
+                worksheet.set_row(abc, 20)
+                rRange = 'A'+ str(rLast) +':'  + 'B' + str(rLast)
+                worksheet.merge_range(rRange, 'الدوريات السرية'.decode('utf-8'),merge_format)
+
+            for abc in range(0, 1):
+                worksheet.set_row(abc, 20)
+                rRange = 'A' + str(rLast +1) + ':' + 'B' + str(rLast +1)
+                worksheet.merge_range(rRange, 'المجموع'.decode('utf-8'),merge_format)
+        # return {
+        #     'type': 'ir.actions.act_url',
+        #     'url': 'police_project/static/src/lib/Case Report.xlsx',
+        #     'target': 'blank', }

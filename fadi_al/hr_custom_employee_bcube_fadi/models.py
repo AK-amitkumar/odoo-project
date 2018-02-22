@@ -27,7 +27,7 @@ class Hr_Employee(models.Model):
     religion = fields.Selection(string="Religion", selection=[('m', 'Muslim'), ('n', 'Non-Muslim'), ], required=False, )
     gosi_no = fields.Many2one('employee.grops', 'GOSI NO')
     spouse_no = fields.Char('Spouse Phone No.')
-    joining_date = fields.Date('Joining Date', required=True)
+    joining_date = fields.Date('Joining Date', required=False)
     leaving_date = fields.Date()
     serv_year = fields.Char('Total Service Year')
     # vendor_no = fields.Char("Vendor No")
@@ -47,38 +47,38 @@ class Hr_Employee(models.Model):
     job_idd = fields.Many2one('designation.info', string="Job Id")
     passport_idd = fields.Many2one('hr.documents', string="Passport No")
     depend = fields.Boolean("Have Dependent")
-    fn = fields.Char("First Name", required=True)
+    fn = fields.Char("First Name", required=False)
     mn = fields.Char("Middle Name")
     ln = fields.Char("Last Name")
     bg = fields.Char("Blood Group")
     a_email = fields.Char("Alternate Email ID")
     airport = fields.Char("Nearest Airport")
-    street = fields.Char("Street", required=True)
+    street = fields.Char("Street", required=False)
     street2 = fields.Char("Street2")
     zip_code = fields.Char("Zip Code")
-    city = fields.Char("City", required=True)
+    city = fields.Char("City", required=False)
     state_id = fields.Many2one('res.country.state', string="Fed. State")
-    country_idd = fields.Many2one('res.country', string="Country", required=True)
+    country_idd = fields.Many2one('res.country', string="Country", required=False)
     contact_no = fields.Char("Contact No")
-    p_street = fields.Char("Street", required=True)
+    p_street = fields.Char("Street", required=False)
     p_street2 = fields.Char("Street2")
     p_zip_code = fields.Char("Zip Code")
-    p_city = fields.Char("City", required=True)
+    p_city = fields.Char("City", required=False)
     p_state_id = fields.Many2one('res.country.state', string="Fed. State")
-    p_country_id = fields.Many2one('res.country', string="Country", required=True)
-    p_contact_no = fields.Char("Contact No", required=True)
-    designation = fields.Many2one('designation.info', string="Designation Info", required=True)
-    id_prof = fields.Char("ID Profession", required=True)
+    p_country_id = fields.Many2one('res.country', string="Country", required=False)
+    p_contact_no = fields.Char("Contact No", required=False)
+    designation = fields.Many2one('designation.info', string="Designation Info", required=False)
+    id_prof = fields.Char("ID Profession", required=False)
     # category = fields.Many2one('category.info', string="Category", required=True)
-    department = fields.Many2one('hr.department', string="Department", required=True)
+    department = fields.Many2one('hr.department', string="Department", required=False)
     r_manager = fields.Many2one('hr.employee', string="Reporting Manager")
-    division = fields.Many2one('division.info', string="Division", required=True)
-    mol_location = fields.Char(string="MOL Location", required=True)
-    sponsor = fields.Many2one('res.sponsor', string="Sponsor", required=True)
-    e_name = fields.Char("Name", required=True)
-    e_relationship = fields.Char("Relationship", required=True)
-    e_mobile = fields.Char("Mobile No", required=True)
-    ea_mobile = fields.Char("Alternate No", required=True)
+    division = fields.Many2one('division.info', string="Division", required=False)
+    mol_location = fields.Char(string="MOL Location", required=False)
+    sponsor = fields.Many2one('res.sponsor', string="Sponsor", required=False)
+    e_name = fields.Char("Name", required=False)
+    e_relationship = fields.Char("Relationship", required=False)
+    e_mobile = fields.Char("Mobile No", required=False)
+    ea_mobile = fields.Char("Alternate No", required=False)
     e_phone = fields.Char("Phone No")
     e_mail = fields.Char("Email")
     e_remark = fields.Char("Remarks")
@@ -102,7 +102,7 @@ class Hr_Employee(models.Model):
 
     emp_status = fields.Selection([(
         'Active', 'Active'),
-        ('Inactive', 'Inactive'), ], 'Employee Status', required=True)
+        ('Inactive', 'Inactive'), ], 'Employee Status', required=False)
 
     # --------------------------------------------------
 
@@ -117,10 +117,15 @@ class Hr_Employee(models.Model):
             self.r_designation = self.job_idd
             self.id_prof = self.job_idd.profession
 
-    @api.onchange('department_id')
-    def onchange_department_id(self):
-        if self.department_id:
-            self.department = self.department_id
+    @api.onchange('department')
+    def onchange_department(self):
+        if self.department:
+            self.department_id = self.department
+
+    # def mo(self):
+    #     rec = self.env['hr.employee'].search([])
+    #     for x in rec:
+    #         x.department_id = x.department
 
     @api.onchange('line_man')
     def onchange_line_man(self):
@@ -146,12 +151,21 @@ class Hr_Employee(models.Model):
                     months = r.months
                     self.serv_year = "%s Months" % months
 
-    
-    # @api.model
-    # def create(self, values):
-    #     record = super(Hr_Employee, self).create(values)
-    #     return record
 
+
+    @api.model
+    def create(self, val):
+        record = super(Hr_Employee, self).create(val)
+        for x in record.documents_id:
+            x.emp_link = record.id
+        return record
+
+    @api.multi
+    def write(self, val):
+        super(Hr_Employee, self).write(val)
+        for x in self.documents_id:
+            x.emp_link = self.id
+        return True
 
 # Dependent
 class Dependent(models.Model):
@@ -661,7 +675,7 @@ class Documents(models.Model):
     remark = fields.Char("Remarks")
     status = fields.Char("Status")
     documents_relation = fields.Many2one('hr.employee')
-
+    emp_link = fields.Many2one('hr.employee')
     category = fields.Selection([(
         'gernal', 'Gernal'),
         ('positive', 'Positive'),
