@@ -15,6 +15,7 @@ class Police_Report(models.TransientModel):
     today_date  = fields.Date(string="To Date", required=False,)
     case = fields.Many2one(comodel_name="case.level", string="Case", required=False, )
     case1 = fields.Many2one(comodel_name="case.level", string="Case", required=False, )
+    case2 = fields.Many2one(comodel_name="case.level", string="Case", required=False, )
     @api.onchange('today')
     def onchange_method(self):
         if self.today:
@@ -540,11 +541,12 @@ class Police_Report(models.TransientModel):
                     return ' '
 
             row = 5
-            col = 2
-            last = 2
+            col = 3
+            last =3
 
             worksheet.merge_range('A3:A6', 'قيادات الطرق'.decode('utf-8'), merge_format1)
             worksheet.merge_range('B3:B6', 'المراكز'.decode('utf-8'), merge_format1)
+            worksheet.merge_range('C3:C6', 'عدد حالات المخدرات'.decode('utf-8'), merge_format1)
             for x in rec.tree_link:
                 if 'حبوب'.decode('utf-8') not in x.case_type.name and 'اخرى'.decode('utf-8') not in x.case_type.name:
                     for z in range(2):
@@ -574,7 +576,7 @@ class Police_Report(models.TransientModel):
 
             for abc in range(0, 1):
                 worksheet.set_row(abc, 20)
-                rRange = 'C3:' + string.ascii_uppercase[col - 1] + '3'
+                rRange = 'D3:' + string.ascii_uppercase[col - 1] + '3'
                 worksheet.merge_range(rRange, 'أنواع وكميات المخدرات المضبوطة'.decode('utf-8'),merge_format)
 
             for abc in range(0, 1):
@@ -590,58 +592,93 @@ class Police_Report(models.TransientModel):
             rRow = 6
             rCol = 1
             rLast = 7
-            row = 5
+            row = 6
             col = 2
             sum_count = 0
+
             for x in road:
                 for r in x.road_tree:
+                    count = 0
                     worksheet.write_string(rRow, rCol, check_false(r.center.name), main_heading)
                     rRow += 1
-                    # case_data = self.env['police.detail'].search([('center_name', '=', r.center.id)])
-                    # for case_id in self.case.tree_link:
-                    #     for sub_id in case_id.case_level_cate:
-                    #         count = 0
-                    #         for line in case_data:
-                    #             for case_cate in line.case_type:
-                    #                 if sub_id.case_cate.id == case_cate.cate_case.id:
-                    #                     count += 1
-                    #
-                    #             for line1 in line:
-                    #                 for sub_line in line1.party_link:
-                    #                     if sub_line.companion_detail and sub_line.companion_detail_link:
-                    #                         for sub_party in sub_line.companion_detail_link:
-                    #                             if sub_party.case_detail and sub_party.case_type_link:
-                    #                                 for case_count in sub_party.case_type_link:
-                    #                                     if sub_id.case_cate.id == case_count.cate_case.id:
-                    #                                         count += 1
-                    #
-                    #         sum_count += count
-                    #         if count == 0:
-                    #             worksheet.write_string(row, col, check_false(str(" ")), main_heading1)
-                    #         else:
-                    #             worksheet.write_string(row, col, check_false(str(count)), main_heading1)
-                    #
-                    #         col += 1
-                    #         if sum_count == 0:
-                    #             worksheet.write_string(row, col, check_false(str(" ")), main_heading)
-                    #         else:
-                    #             worksheet.write_string(row, col, check_false(str(sum_count)), main_heading)
-                    # row += 1
-                    # col = 2
-                    # sum_count = 0
+                    case_data = self.env['police.detail'].search([('center_name', '=', r.center.id)])
+                    for case_id in self.case2.tree_link:
+                        for line in case_data:
+                            for case_cate in line.case_type:
+                                if case_id.case_type.id == case_cate.main_case.id:
+                                    count += 1
+                            for line1 in line:
+                                for sub_line in line1.party_link:
+                                    if sub_line.companion_detail and sub_line.companion_detail_link:
+                                        for sub_party in sub_line.companion_detail_link:
+                                            if sub_party.case_detail and sub_party.case_type_link:
+                                                for case_count in sub_party.case_type_link:
+                                                    if case_id.case_type.id == case_count.main_case.id:
+                                                        count += 1
+
+
+                        # for line1 in line:
+                        #     for sub_line in line1.party_link:
+                        #         if sub_line.companion_detail and sub_line.companion_detail_link:
+                        #             for sub_party in sub_line.companion_detail_link:
+                        #                 if sub_party.case_detail and sub_party.case_type_link:
+                        #                     for case_count in sub_party.case_type_link:
+                        #                         if sub_id.case_cate.id == case_count.cate_case.id:
+                        #                             a_count += 1
+
+
+                    if count == 0:
+                        worksheet.write_string(rRow-1, rCol+1, check_false(str(" ")), main_heading1)
+                    else:
+                        worksheet.write_string(rRow-1, rCol+1, check_false(str(count)), main_heading1)
+                        sum_count += count
+
+                if sum_count == 0:
+                    worksheet.write_string(rRow, rCol+1, check_false(str(" ")), main_heading)
+                else:
+                    worksheet.write_string(rRow, rCol+1, check_false(str(sum_count)), main_heading)
+
+                # for case_id2 in self.case2.tree_link:
+                #     for line2 in case_data:
+                #         gram_count = 0
+                #         kg_count = 0
+                #         for rec in line2.police_rec:
+                #             for line1 in line2:
+                #                 for sub_line in line1.party_link:
+                #                     if sub_line.qty_uom == 'g':
+                #                         gram_count += gram_count
+                #                     if sub_line.qty_uom == 'k':
+                #                         kg_count += kg_count
+                #         print "GGGGGGGGGGGRRRRRRRRRRRMMMMMMMMMM" + str(gram_count)
+                #         print "KKKKKKKKKKKKKKKKKGGGGGGGGGGGGGGG" + str(gram_count)
+
+
+                                # if sub_line.companion_detail and sub_line.companion_detail_link:
+                                #     for sub_party in sub_line.companion_detail_link:
+                                #         if sub_party.case_detail and sub_party.case_type_link:
+                                #             for case_count in sub_party.case_type_link:
+                                #                 if case_id.case_type.id == case_count.main_case.id:
+                                #                     count += 1
+
+                # gram_count = 0
+                # for xx in rec_list:
+                #     for yy in  xx.party_link:
+                #         if yy.qty_uom == 'g':
+                #             gram_count += yy.qty
+                # print "GGGGGGGGGGGRRRRRRRRRRRMMMMMMMMMM" + str(gram_count)
 
                 rRange = 'A' + str(rLast) + ':' + 'A' + str(rRow)
                 worksheet.merge_range(rRange, '{0}'.decode('utf-8').format(x.name),
                                       merge_format)
                 rLast = rRow + 1
-            for abc in range(0, 1):
-                worksheet.set_row(abc, 20)
-                rRange = 'A'+ str(rLast) +':'  + 'B' + str(rLast)
-                worksheet.merge_range(rRange, 'الدوريات السرية'.decode('utf-8'),merge_format)
+            # for abc in range(0, 1):
+            #     worksheet.set_row(abc, 20)
+            #     rRange = 'A'+ str(rLast) +':'  + 'B' + str(rLast)
+            #     worksheet.merge_range(rRange, 'الدوريات السرية'.decode('utf-8'),merge_format)
 
             for abc in range(0, 1):
                 worksheet.set_row(abc, 20)
-                rRange = 'A' + str(rLast +1) + ':' + 'B' + str(rLast +1)
+                rRange = 'A' + str(rLast) + ':' + 'B' + str(rLast)
                 worksheet.merge_range(rRange, 'المجموع'.decode('utf-8'),merge_format)
         # return {
         #     'type': 'ir.actions.act_url',
