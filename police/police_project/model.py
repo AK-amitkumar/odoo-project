@@ -207,7 +207,7 @@ class PartyDetail(models.Model):
     id_num = fields.Char("ID number",required=True,)
     sex = fields.Selection(string="Gender", selection=[('m', 'ذكر'), ('f', 'أنثى'), ],required=True,)
     id_type = fields.Many2one('id.type', "ID Type",required=True,)
-    what_found = fields.Many2one('what.found', "What we found",required=False,)
+    what_found = fields.Many2one('type.case', "What we found",required=False,)
     qty_uom = fields.Selection(string="Unit of Measure", selection=[('g', 'Grams'), ('k', 'Kgs'), ('p', 'Pieces'), ], required=False, )
     qty = fields.Integer(string="Quantity",required=False,)
     accident_reason = fields.Many2one('accident.reason',"Reason of accident ",required=False,)
@@ -233,7 +233,7 @@ class CompanionDetail(models.Model):
     id_type = fields.Many2one('id.type', "ID Type",required=True,)
     relation = fields.Many2one('accident.relation',"Relation",required=False,)
     sex = fields.Selection(string="Gender", selection=[('m', 'ذكر'), ('f', 'أنثى'), ],required=True,)
-    what_found = fields.Many2one('what.found',"What we found",required=False,)
+    what_found = fields.Many2one('type.case',"What we found",required=False,)
     qty_uom = fields.Selection(string="Unit of Measure", selection=[('g', 'Grams'), ('k', 'Kgs'), ('p', 'Pieces'), ], required=False, )
     qty = fields.Integer(string="Qty",required=False, )
     accident_reason = fields.Many2one('accident.reason',"Reason of accident ",required=False,)
@@ -690,7 +690,7 @@ class WhatConf(models.Model):
     _name = 'what.conf'
     _rec_name = 'name'
     name = fields.Char(string="What We Found", default="ID What Found and Other Configurations", required=False, )
-    what_found = fields.Many2one(comodel_name="what.found", string="What We Found", required=True, )
+    what_found = fields.Many2one(comodel_name="type.case", string="What We Found", required=True, )
     id_config = fields.Many2one(comodel_name="id.config", string="Id config", required=False, )
 
 class ReasonConf(models.Model):
