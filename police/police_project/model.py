@@ -136,9 +136,8 @@ class CaseType(models.Model):
             if rec:
                 self.xyz = True
             else:
-                self.xyz = False
                 self.cate_case = False
-
+                self.xyz = False
     @api.onchange('cate_case')
     def onchange_cate_case(self):
         if self.cate_case:
@@ -149,10 +148,9 @@ class CaseType(models.Model):
                 self.test = False
                 self.sub_cate_case = False
 
+
     main_class = fields.Many2one(comodel_name="police.detail", string="Case Type", required=False, )
     companion_class = fields.Many2one('companion.detail')
-
-
 
 class HajjUmrah(models.Model):
     _name = 'hajj.umrah'

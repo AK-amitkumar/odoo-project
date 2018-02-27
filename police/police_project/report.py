@@ -487,7 +487,16 @@ class Police_Report(models.TransientModel):
                 "align": 'center',
                 "valign": 'vcenter',
                 "font_size": '15',
-                'fg_color': 'dbeef4'
+                'fg_color': 'dbeef4',
+
+            })
+
+            main_heading_invisible = workbook.add_format({
+                "align": 'center',
+                "valign": 'vcenter',
+                "font_size": '15',
+                'fg_color': 'dbeef4',
+                "font_color": 'dbeef4',
             })
 
             main_heading1 = workbook.add_format({
@@ -531,6 +540,7 @@ class Police_Report(models.TransientModel):
             worksheet.right_to_left()
             main_heading.set_border()
             main_heading1.set_border()
+            main_heading_invisible.set_border()
             add_data.set_border()
             worksheet.set_row(0, 30, merge_format1)
 
@@ -538,7 +548,7 @@ class Police_Report(models.TransientModel):
                 if input_data:
                     return input_data
                 else:
-                    return ' '
+                    return ''
 
             row = 5
             col = 3
@@ -603,7 +613,7 @@ class Police_Report(models.TransientModel):
                     for case_id in self.case2.tree_link:
                         for line in case_data:
                             for case_cate in line.case_type:
-                                if case_id.case_type.id == case_cate.main_case.id:
+                                if case_id.case_type.id == case_cate.case_type.id:
                                     count += 1
                             for line1 in line:
                                 for sub_line in line1.party_link:
@@ -611,7 +621,7 @@ class Police_Report(models.TransientModel):
                                         for sub_party in sub_line.companion_detail_link:
                                             if sub_party.case_detail and sub_party.case_type_link:
                                                 for case_count in sub_party.case_type_link:
-                                                    if case_id.case_type.id == case_count.main_case.id:
+                                                    if case_id.case_type.id == case_count.case_type.id:
                                                         count += 1
 
                     if count == 0:
@@ -634,7 +644,6 @@ class Police_Report(models.TransientModel):
                     worksheet.set_row(abc, 20)
                     rRange = 'A' + str(rLast) + ':' + 'B' + str(rLast)
                     worksheet.merge_range(rRange, 'المجموع'.decode('utf-8'), merge_format)
-
             row = 6
             col = 3
             for xx in road:
@@ -666,71 +675,48 @@ class Police_Report(models.TransientModel):
                                                     k_count += sub_party.qty
                                                 if sub_party.qty_uom == 'p':
                                                     p_count += sub_party.qty
-                        if g_count == 0:
-                            worksheet.write_string(row, col, check_false(str(" ")), main_heading)
-                        else:
-                            worksheet.write_string(row, col, check_false(str(g_count)), main_heading)
-                        col += 1
+                        if 'حبوب'.decode('utf-8') not in zz.case_type.name and 'اخرى'.decode(
+                                'utf-8') not in zz.case_type.name:
+                            if g_count == 0:
+                                worksheet.write_blank(row, col, None, main_heading)
+                            else:
+                                worksheet.write_number(row, col, check_false(int(g_count)), main_heading)
+                            col += 1
 
-                        if k_count == 0:
-                            worksheet.write_string(row, col, check_false(str(" ")), main_heading)
-                        else:
-                            worksheet.write_string(row, col, check_false(str(k_count)), main_heading)
-                        col += 1
+                            if k_count == 0:
+                                worksheet.write_blank(row, col, None, main_heading)
+                            else:
+                                worksheet.write_number(row, col, check_false(int(k_count)), main_heading)
+                            col += 1
+                        elif 'اخرى'.decode('utf-8') in zz.case_type.name:
+                            if g_count == 0:
+                                worksheet.write_blank(row, col, None, main_heading)
+                            else:
+                                worksheet.write_number(row, col, check_false(int(g_count)), main_heading)
+                            col += 1
 
-                        if g_count > 0:
-                            print "GGGGGGGGGGGGGGGGGGGGGGG" + str(g_count)
-                        if k_count > 0:
-                            print "KKKKKKKKKKKKKKKKKKKKKKK" + str(k_count)
-                        if p_count > 0:
-                            print "PPPPPPPPPPPPPPPPPPPPPPP" + str(p_count)
+                            if p_count == 0:
+                                worksheet.write_blank(row, col, None, main_heading)
+                            else:
+                                worksheet.write_number(row, col, check_false(int(p_count)), main_heading)
+                            col += 1
+                        elif 'حبوب'.decode('utf-8') in zz.case_type.name:
+                            if p_count == 0:
+                                worksheet.write_blank(row, col, None, main_heading)
+                            else:
+                                worksheet.write_number(row, col, check_false(int(p_count)), main_heading)
+                            col += 1
+
                     row += 1
-                    break
+                    col = 3
 
+            start = 3
 
-                # for case_id2 in self.case2.tree_link:
-                #     for line2 in case_data:
-                #         gram_count = 0
-                #         kg_count = 0
-                #         for rec in line2.police_rec:
-                #             for line1 in line2:
-                #                 for sub_line in line1.party_link:
-                #                     if sub_line.qty_uom == 'g':
-                #                         gram_count += gram_count
-                #                     if sub_line.qty_uom == 'k':
-                #                         kg_count += kg_count
-                #         print "GGGGGGGGGGGRRRRRRRRRRRMMMMMMMMMM" + str(gram_count)
-                #         print "KKKKKKKKKKKKKKKKKGGGGGGGGGGGGGGG" + str(gram_count)
-
-
-                                # if sub_line.companion_detail and sub_line.companion_detail_link:
-                                #     for sub_party in sub_line.companion_detail_link:
-                                #         if sub_party.case_detail and sub_party.case_type_link:
-                                #             for case_count in sub_party.case_type_link:
-                                #                 if case_id.case_type.id == case_count.main_case.id:
-                                #                     count += 1
-
-                # gram_count = 0
-                # for xx in rec_list:
-                #     for yy in  xx.party_link:
-                #         if yy.qty_uom == 'g':
-                #             gram_count += yy.qty
-                # print "GGGGGGGGGGGRRRRRRRRRRRMMMMMMMMMM" + str(gram_count)
-
-                # rRange = 'A' + str(rLast) + ':' + 'A' + str(rRow)
-                # worksheet.merge_range(rRange, '{0}'.decode('utf-8').format(x.name),
-                #                       merge_format)
-                # rLast = rRow + 1
-            # for abc in range(0, 1):
-            #     worksheet.set_row(abc, 20)
-            #     rRange = 'A'+ str(rLast) +':'  + 'B' + str(rLast)
-            #     worksheet.merge_range(rRange, 'الدوريات السرية'.decode('utf-8'),merge_format)
-
-            # for abc in range(0, 1):
-            #     worksheet.set_row(abc, 20)
-            #     rRange = 'A' + str(rLast) + ':' + 'B' + str(rLast)
-            #     worksheet.merge_range(rRange, 'المجموع'.decode('utf-8'),merge_format)
-        # return {
-        #     'type': 'ir.actions.act_url',
-        #     'url': 'police_project/static/src/lib/Case Report.xlsx',
-        #     'target': 'blank', }
+            for x in range(start,last):
+                rRange = string.ascii_uppercase[start] + '7:' + string.ascii_uppercase[start] + str(row)
+                worksheet.write_formula(string.ascii_uppercase[start]+str(row +1), '=SUM('+ rRange+ ')',main_heading)
+                start += 1
+        return {
+            'type': 'ir.actions.act_url',
+            'url': 'police_project/static/src/lib/Case3 Report.xlsx',
+            'target': 'blank', }
