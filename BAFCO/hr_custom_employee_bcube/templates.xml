@@ -71,6 +71,8 @@
 					</xpath>
 
 					<xpath expr="//field[@name='address_home_id']" position="replace">
+						<field name="e_name"/>
+						<field name="a_name"/>
 						<field name="fn"/>
 						<field name="ar_fn"/>
 						<field name="mn"/>
