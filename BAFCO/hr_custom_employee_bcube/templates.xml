@@ -71,8 +71,6 @@
 					</xpath>
 
 					<xpath expr="//field[@name='address_home_id']" position="replace">
-						<field name="e_name"/>
-						<field name="a_name"/>
 						<field name="fn"/>
 						<field name="ar_fn"/>
 						<field name="mn"/>
@@ -370,6 +368,17 @@
 
 			</field>
 		
+		</record>
+
+		<record model="ir.ui.view" id="emp_tree_ext">
+			<field name="name">emp_tree_ext</field>
+			<field name="model">hr.employee</field>
+			<field name="inherit_id" ref="hr.view_employee_tree"/>
+			<field name="arch" type="xml">
+				<xpath expr="//field[@name='job_id']" position="replace">
+					<field name="job_idd"/>
+				</xpath>
+			</field>
 		</record>
 
 		<!-- Dependent-->

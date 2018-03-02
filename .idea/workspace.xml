@@ -357,9 +357,6 @@
       <change beforePath="$PROJECT_DIR$/BAFCO/hr_custom_employee_bcube/models.py" afterPath="$PROJECT_DIR$/BAFCO/hr_custom_employee_bcube/models.py" />
       <change beforePath="$PROJECT_DIR$/BAFCO/hr_custom_employee_bcube/templates.xml" afterPath="$PROJECT_DIR$/BAFCO/hr_custom_employee_bcube/templates.xml" />
       <change beforePath="$PROJECT_DIR$/BAFCO/islamic_datepicker_v9" afterPath="$PROJECT_DIR$/BAFCO/islamic_datepicker_v9" />
-      <change beforePath="$PROJECT_DIR$/police project data/book1 (1).xlsx" afterPath="$PROJECT_DIR$/police project data/book1 (1).xlsx" />
-      <change beforePath="$PROJECT_DIR$/police/police_project/report.py" afterPath="$PROJECT_DIR$/police/police_project/report.py" />
-      <change beforePath="$PROJECT_DIR$/police/police_project/report.xml" afterPath="$PROJECT_DIR$/police/police_project/report.xml" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -376,8 +373,8 @@
       <file leaf-file-name="models.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/BAFCO/hr_custom_employee_bcube/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="27830">
-              <caret line="1265" column="10" lean-forward="true" selection-start-line="1265" selection-start-column="10" selection-end-line="1265" selection-end-column="10" />
+            <state relative-caret-position="216">
+              <caret line="17" column="61" lean-forward="false" selection-start-line="17" selection-start-column="61" selection-end-line="17" selection-end-column="61" />
               <folding>
                 <element signature="e#23#59#0" expanded="true" />
               </folding>
@@ -388,9 +385,13 @@
       <file leaf-file-name="templates.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/BAFCO/hr_custom_employee_bcube/templates.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="74" column="38" lean-forward="false" selection-start-line="74" selection-start-column="38" selection-end-line="74" selection-end-column="38" />
-              <folding />
+            <state relative-caret-position="367">
+              <caret line="1027" column="23" lean-forward="false" selection-start-line="1027" selection-start-column="23" selection-end-line="1027" selection-end-column="23" />
+              <folding>
+                <marker date="1519984787658" expanded="true" signature="30062:30075" ph="..." />
+                <marker date="1519984787658" expanded="true" signature="30062:30087" ph="..." />
+                <marker date="1519984787658" expanded="true" signature="30062:30099" ph="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -407,10 +408,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>add_data</find>
-      <find>department</find>
-      <find>department_id</find>
-      <find>Personal Information</find>
       <find>Public Information</find>
       <find>pass</find>
       <find>passport</find>
@@ -437,6 +434,10 @@
       <find>what_f</find>
       <find>res.com</find>
       <find>fn</find>
+      <find>name</find>
+      <find>arabic_name</find>
+      <find>fn_</find>
+      <find>company</find>
     </findStrings>
     <replaceStrings>
       <replace>traffic</replace>
@@ -529,7 +530,7 @@
         </expanded-state>
         <selected-state>
           <State>
-            <id>PyPep8NamingInspection</id>
+            <id>PyPep8Inspection</id>
           </State>
         </selected-state>
       </profile-state>
@@ -553,7 +554,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="Scope">
         <subPane subId="Project Files">
           <expand>
@@ -614,6 +614,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -693,17 +694,15 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="67" y="25" width="1613" height="1025" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1654088" sideWeight="0.8635347" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32997763" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22035794" sideWeight="0.5026375" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32885906" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20917226" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24968554" sideWeight="0.49552572" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22259508" sideWeight="0.49736246" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.40044743" sideWeight="0.49736246" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23207547" sideWeight="0.13646533" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -712,6 +711,7 @@
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection Results" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32997763" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
@@ -1086,7 +1086,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="22">
           <caret line="141" column="22" lean-forward="false" selection-start-line="141" selection-start-column="22" selection-end-line="141" selection-end-column="22" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1094,7 +1093,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="472">
           <caret line="229" column="23" lean-forward="true" selection-start-line="229" selection-start-column="23" selection-end-line="229" selection-end-column="23" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1102,7 +1100,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="516">
           <caret line="32" column="73" lean-forward="false" selection-start-line="32" selection-start-column="73" selection-end-line="32" selection-end-column="73" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1110,28 +1107,25 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="158">
           <caret line="734" column="27" lean-forward="true" selection-start-line="734" selection-start-column="27" selection-end-line="734" selection-end-column="27" />
-          <folding>
-            <element signature="e#1120#1836#0" expanded="false" />
-            <element signature="e#1914#5751#0" expanded="false" />
-            <element signature="e#5788#12196#0" expanded="false" />
-            <element signature="e#12234#22731#0" expanded="false" />
-            <element signature="e#22769#34652#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/BAFCO/hr_custom_employee_bcube/templates.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="74" column="38" lean-forward="false" selection-start-line="74" selection-start-column="38" selection-end-line="74" selection-end-column="38" />
-          <folding />
+        <state relative-caret-position="367">
+          <caret line="1027" column="23" lean-forward="false" selection-start-line="1027" selection-start-column="23" selection-end-line="1027" selection-end-column="23" />
+          <folding>
+            <marker date="1519984787658" expanded="true" signature="30062:30075" ph="..." />
+            <marker date="1519984787658" expanded="true" signature="30062:30087" ph="..." />
+            <marker date="1519984787658" expanded="true" signature="30062:30099" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/BAFCO/hr_custom_employee_bcube/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="27830">
-          <caret line="1265" column="10" lean-forward="true" selection-start-line="1265" selection-start-column="10" selection-end-line="1265" selection-end-column="10" />
+        <state relative-caret-position="216">
+          <caret line="17" column="61" lean-forward="false" selection-start-line="17" selection-start-column="61" selection-end-line="17" selection-end-column="61" />
           <folding>
             <element signature="e#23#59#0" expanded="true" />
           </folding>

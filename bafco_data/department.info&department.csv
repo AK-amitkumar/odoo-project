@@ -1,0 +1,22 @@
+department,manager/id
+ADMINISTRATION,hr.employee_root
+COMMERCIAL EXPORT,hr.employee_root
+COMMERCIAL IMPORT,hr.employee_root
+CUSTOM CLEARANCE,hr.employee_root
+CUSTOMER SERVICE,hr.employee_root
+DOCUMENTATIONS,hr.employee_root
+EXPORT OPERATIONS,hr.employee_root
+FINANCE,hr.employee_root
+HOUSE KEEPING,hr.employee_root
+IMPORT OPERATIONS,hr.employee_root
+INSURANCE,hr.employee_root
+IT,hr.employee_root
+JUBAIL ACCOMODATION,hr.employee_root
+MANAGEMENT,hr.employee_root
+MARKETING,hr.employee_root
+MD OFFICE,hr.employee_root
+MD VILLA,hr.employee_root
+OFFICE SERVICES,hr.employee_root
+TRANSPORT,hr.employee_root
+WORKSHOP,hr.employee_root
+SALES,hr.employee_root
