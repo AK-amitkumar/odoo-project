@@ -352,11 +352,11 @@
       <change beforePath="" afterPath="$PROJECT_DIR$/champion/working_161_champion/static/src/Test_Pass.xlsx" />
       <change beforePath="" afterPath="$PROJECT_DIR$/champion/working_161_champion/static/src/css/styles.css" />
       <change beforePath="" afterPath="$PROJECT_DIR$/champion/working_161_champion/views.xml" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/BAFCO/hr_custom_employee_bcube/models.py" afterPath="$PROJECT_DIR$/BAFCO/hr_custom_employee_bcube/models.py" />
-      <change beforePath="$PROJECT_DIR$/BAFCO/hr_custom_employee_bcube/templates.xml" afterPath="$PROJECT_DIR$/BAFCO/hr_custom_employee_bcube/templates.xml" />
       <change beforePath="$PROJECT_DIR$/BAFCO/islamic_datepicker_v9" afterPath="$PROJECT_DIR$/BAFCO/islamic_datepicker_v9" />
+      <change beforePath="$PROJECT_DIR$/police/police_project/report.py" afterPath="$PROJECT_DIR$/police/police_project/report.py" />
+      <change beforePath="$PROJECT_DIR$/police/police_project/report.xml" afterPath="$PROJECT_DIR$/police/police_project/report.xml" />
+      <change beforePath="$PROJECT_DIR$/police/police_project/templates.xml" afterPath="$PROJECT_DIR$/police/police_project/templates.xml" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -370,28 +370,22 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="models.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/BAFCO/hr_custom_employee_bcube/models.py">
+      <file leaf-file-name="report.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/police/police_project/report.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="216">
-              <caret line="17" column="61" lean-forward="false" selection-start-line="17" selection-start-column="61" selection-end-line="17" selection-end-column="61" />
-              <folding>
-                <element signature="e#23#59#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="233">
+              <caret line="843" column="25" lean-forward="true" selection-start-line="843" selection-start-column="25" selection-end-line="843" selection-end-column="25" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="templates.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/BAFCO/hr_custom_employee_bcube/templates.xml">
+      <file leaf-file-name="report.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/police/police_project/report.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="367">
-              <caret line="1027" column="23" lean-forward="false" selection-start-line="1027" selection-start-column="23" selection-end-line="1027" selection-end-column="23" />
-              <folding>
-                <marker date="1519984787658" expanded="true" signature="30062:30075" ph="..." />
-                <marker date="1519984787658" expanded="true" signature="30062:30087" ph="..." />
-                <marker date="1519984787658" expanded="true" signature="30062:30099" ph="..." />
-              </folding>
+            <state relative-caret-position="471">
+              <caret line="32" column="52" lean-forward="false" selection-start-line="32" selection-start-column="52" selection-end-line="32" selection-end-column="52" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -408,8 +402,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>Public Information</find>
-      <find>pass</find>
       <find>passport</find>
       <find>hr.documents</find>
       <find>hr.do</find>
@@ -438,6 +430,8 @@
       <find>arabic_name</find>
       <find>fn_</find>
       <find>company</find>
+      <find>main_heading1</find>
+      <find>Case Configuration</find>
     </findStrings>
     <replaceStrings>
       <replace>traffic</replace>
@@ -503,11 +497,11 @@
         <option value="$PROJECT_DIR$/fadi_al/hr_custom_employee_bcube_fadi/templates.xml" />
         <option value="$PROJECT_DIR$/police/police_project/i18n/ar_SY.po" />
         <option value="$PROJECT_DIR$/police/police_project/model.py" />
-        <option value="$PROJECT_DIR$/police/police_project/report.xml" />
-        <option value="$PROJECT_DIR$/police/police_project/templates.xml" />
-        <option value="$PROJECT_DIR$/police/police_project/report.py" />
         <option value="$PROJECT_DIR$/BAFCO/hr_custom_employee_bcube/templates.xml" />
         <option value="$PROJECT_DIR$/BAFCO/hr_custom_employee_bcube/models.py" />
+        <option value="$PROJECT_DIR$/police/police_project/templates.xml" />
+        <option value="$PROJECT_DIR$/police/police_project/report.xml" />
+        <option value="$PROJECT_DIR$/police/police_project/report.py" />
       </list>
     </option>
   </component>
@@ -554,6 +548,29 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="Projects" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Projects" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Projects" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Projects" type="462c0819:PsiDirectoryNode" />
+              <item name="police" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Projects" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Projects" type="462c0819:PsiDirectoryNode" />
+              <item name="police" type="462c0819:PsiDirectoryNode" />
+              <item name="police_project" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scratches" />
       <pane id="Scope">
         <subPane subId="Project Files">
           <expand>
@@ -609,29 +626,6 @@
               <item name="lib" type="cbb8eebc:String" user="lib" />
               <item name="python2.7" type="cbb8eebc:String" user="python2.7" />
               <item name="dist-packages" type="cbb8eebc:String" user="dist-packages" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-      <pane id="Scratches" />
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="Projects" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Projects" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Projects" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Projects" type="462c0819:PsiDirectoryNode" />
-              <item name="BAFCO" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Projects" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Projects" type="462c0819:PsiDirectoryNode" />
-              <item name="BAFCO" type="462c0819:PsiDirectoryNode" />
-              <item name="hr_custom_employee_bcube" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -702,7 +696,7 @@
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20917226" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24968554" sideWeight="0.49552572" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.40044743" sideWeight="0.49736246" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29865772" sideWeight="0.49736246" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23207547" sideWeight="0.13646533" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -1089,46 +1083,47 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/police/police_project/templates.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="472">
-          <caret line="229" column="23" lean-forward="true" selection-start-line="229" selection-start-column="23" selection-end-line="229" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/police/police_project/report.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="516">
-          <caret line="32" column="73" lean-forward="false" selection-start-line="32" selection-start-column="73" selection-end-line="32" selection-end-column="73" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/police/police_project/report.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="158">
-          <caret line="734" column="27" lean-forward="true" selection-start-line="734" selection-start-column="27" selection-end-line="734" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/BAFCO/hr_custom_employee_bcube/templates.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="367">
+        <state relative-caret-position="638">
           <caret line="1027" column="23" lean-forward="false" selection-start-line="1027" selection-start-column="23" selection-end-line="1027" selection-end-column="23" />
           <folding>
             <marker date="1519984787658" expanded="true" signature="30062:30075" ph="..." />
-            <marker date="1519984787658" expanded="true" signature="30062:30087" ph="..." />
-            <marker date="1519984787658" expanded="true" signature="30062:30099" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/BAFCO/hr_custom_employee_bcube/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="17" column="61" lean-forward="false" selection-start-line="17" selection-start-column="61" selection-end-line="17" selection-end-column="61" />
+        <state relative-caret-position="22">
+          <caret line="24" column="24" lean-forward="true" selection-start-line="24" selection-start-column="24" selection-end-line="24" selection-end-column="24" />
           <folding>
-            <element signature="e#23#59#0" expanded="true" />
+            <element signature="e#23#59#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/police/police_project/templates.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="219" column="24" lean-forward="true" selection-start-line="219" selection-start-column="24" selection-end-line="219" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/police/police_project/report.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="471">
+          <caret line="32" column="52" lean-forward="false" selection-start-line="32" selection-start-column="52" selection-end-line="32" selection-end-column="52" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/police/police_project/report.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="233">
+          <caret line="843" column="25" lean-forward="true" selection-start-line="843" selection-start-column="25" selection-end-line="843" selection-end-column="25" />
+          <folding />
         </state>
       </provider>
     </entry>
