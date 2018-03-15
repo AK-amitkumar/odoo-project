@@ -15,8 +15,8 @@ class Police_Report(models.TransientModel):
     today_date = fields.Date(string="To Date", required=False,)
     case = fields.Many2one(comodel_name="case.level", string="Case", required=False, )
     case1 = fields.Many2one(comodel_name="case.level", string="Case", required=False, )
-    case2 = fields.Many2one(comodel_name="case.level", string="Case", required=False, )
-    case3 = fields.Many2one(comodel_name="case.level", string="Case", required=False, )
+    # case2 = fields.Many2one(comodel_name="case.level", string="Case", required=False, )
+    # case3 = fields.Many2one(comodel_name="case.level", string="Case", required=False, )
     @api.onchange('today')
     def onchange_method(self):
         if self.today:
@@ -309,7 +309,7 @@ class Police_Report(models.TransientModel):
                 'fg_color': 'd0e5fc',
                 'bold': 1,
             })
-            worksheet = workbook.add_worksheet('تقرير عن مخالفات نظام الإقامة والعمل / وغيرها من المخالفات'.decode('utf-8'))
+            worksheet = workbook.add_worksheet('مخالفات نظام الإقامة والعمل / وغيرها'.decode('utf-8'))
             worksheet.set_column('A3:A3', 12, )
             worksheet.set_column('B3:B3', 12, )
             worksheet.right_to_left()
@@ -535,7 +535,7 @@ class Police_Report(models.TransientModel):
                 'fg_color': 'd0e5fc',
                 'bold': 1,
             })
-            worksheet = workbook.add_worksheet('بيان يمثل حالات المخدرات المضبوطة وكمياتها'.decode('utf-8'))
+            worksheet = workbook.add_worksheet('حالات المخدرات المضبوطة وكمياتها'.decode('utf-8'))
             worksheet.set_column('A3:A3', 12, )
             worksheet.set_column('B3:B3', 12, )
             worksheet.right_to_left()
@@ -611,7 +611,7 @@ class Police_Report(models.TransientModel):
                     worksheet.write_string(rRow, rCol, check_false(r.center.name), main_heading)
                     rRow += 1
                     case_data = self.env['police.detail'].search([('center_name', '=', r.center.id)])
-                    for case_id in self.case2.tree_link:
+                    for case_id in self.env['case.level'].search([('id', '=', 3)]).tree_link:
                         for line in case_data:
                             for case_cate in line.case_type:
                                 if case_id.case_type.id == case_cate.case_type.id:
@@ -802,7 +802,7 @@ class Police_Report(models.TransientModel):
             for abc in range(0, 1):
                 worksheet.set_row(abc, 20)
                 rRange = 'D3:' + string.ascii_uppercase[col - 1] + '3'
-                worksheet.merge_range(rRange, 'أنواع وكميات المخدرات المضبوطة'.decode('utf-8'),merge_format)
+                worksheet.merge_range(rRange, 'انواع واعداد الاسلحة المضبوطة'.decode('utf-8'),merge_format)
 
             for abc in range(0, 1):
                 worksheet.set_row(abc, 20)
@@ -825,7 +825,7 @@ class Police_Report(models.TransientModel):
                     worksheet.write_string(rRow, rCol, check_false(r.center.name), main_heading)
                     rRow += 1
                     case_data = self.env['police.detail'].search([('center_name', '=', r.center.id)])
-                    for case_id in self.case3.tree_link:
+                    for case_id in self.env['case.level'].search([('id', '=', 9)]).tree_link:
                         for line in case_data:
                             for case_cate in line.case_type:
                                 if case_id.case_type.id == case_cate.case_type.id:
@@ -900,3 +900,4 @@ class Police_Report(models.TransientModel):
         #     'type': 'ir.actions.act_url',
         #     'url': 'police_project/static/src/lib/Case4 Report.xlsx',
         #     'target': 'blank', }
+

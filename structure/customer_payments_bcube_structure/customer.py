@@ -18,7 +18,8 @@ class CustomerPayment(models.Model):
 	total               = fields.Float('Total Amount',readonly="1", compute='invoice_total' ,store=True)
 	t_total             = fields.Float('Total Tax',readonly="1", compute='tax_total' ,store=True)
 	period_id           = fields.Many2one('account.period', string="Period")
-	customer_tree       = fields.One2many( 'customer.payment.tree','customer_payment_link')
+	branch              = fields.Many2one('branch', string="Branch",readonly=True)
+	customer_tree       = fields.One2many('customer.payment.tree','customer_payment_link')
 	journal_id          = fields.Many2one('account.journal',string="Payment Method" , required=True)
 	tax_link            = fields.One2many('account.invoice.tax','payment_link')
 	partner_id          = fields.Many2one('res.partner',string="Customer / Supplier" ,required=True)
@@ -26,8 +27,10 @@ class CustomerPayment(models.Model):
 	# firm_partner 		= fields.Many2one('res.partner',"Firm Partner" , domain="[('cc_firm_partner','=',True)]")
 	# tagm_entity 		= fields.Many2one('tagm.entity',string='Entity')
 	taxes               = fields.Many2many('account.tax', string="Taxes")
+	membership_no       = fields.Char(string="Membership No.")
+	invoice_link        = fields.Many2one('account.invoice', string="Invoice")
 	receipts            = fields.Boolean(default=True)
-	branch              = fields.Many2one('reg.branch',string="Branch")
+	branch              = fields.Many2one('branch',string="Branch")
 	state               = fields.Selection([
 					('draft', 'Draft'),
 					('post', 'Posted'),
@@ -295,6 +298,11 @@ class CustomerPayment(models.Model):
 				})
 	@api.multi
 	def journal_entry_with_tax(self):
+		self.invoice_link.due_amt = self.invoice_link.due_amt - self.amount
+		if self.invoice_link.due_amt == 0.0:
+			self.invoice_link.stages = 'new'
+			
+
 		if self.receipts == True:
 			debit_account = self.journal_id.default_debit_account_id.id
 			credit_account = self.partner_id.property_account_receivable_id.id
@@ -329,6 +337,7 @@ class CustomerPayment(models.Model):
 					'cash_reg_id' : line.id,
 					'cus_pay_bc_id' : self.id,
 					})
+
 
 	@api.multi
 	def cancel_voucher_bcube(self):

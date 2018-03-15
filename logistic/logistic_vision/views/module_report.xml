@@ -21,7 +21,7 @@
                                 }
                                 .logistic {
                                 width: 35%;
-                                float: left;
+                                float: right;
                                 }
 
                                 .solid {

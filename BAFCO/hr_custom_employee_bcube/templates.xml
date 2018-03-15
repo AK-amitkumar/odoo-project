@@ -1,7 +1,13 @@
-<?xml version="1.0"?> 
-<odoo> 
+<?xml version="1.0"?>
+<odoo>
 	<data>
 		<!-- Employees -->
+		<record id="emp_code" model="ir.sequence">
+			<field name="name">emp_code</field>
+			<field name="code">hr.emp_code</field>
+			<field name="prefix">BE</field>
+			<field name="padding">4</field>
+		</record>
 
 		<record id="hr_extension_form_view" model="ir.ui.view">
 			<field name="name">hr.extension.form.inherit</field>
@@ -10,364 +16,364 @@
 			<field name="inherit_id" ref="hr.view_employee_form"/>
 			<field name="arch" type="xml">
 				<!-- Public Information -->
-					<field name="mobile_phone" position="after">
-						<field name="office"/>
-						<field name="work_fax"/>
-						<field name="serial_num"/>
-					</field>
-					<xpath expr="//notebook/page/group/group[1]" position="attributes">
-						<attribute name="string">General Details</attribute>
-					</xpath>
+				<field name="mobile_phone" position="after">
+					<field name="office"/>
+					<field name="work_fax"/>
+					<field name="serial_num"/>
+				</field>
+				<xpath expr="//notebook/page/group/group[1]" position="attributes">
+					<attribute name="string">General Details</attribute>
+				</xpath>
 
-					<xpath expr="//notebook/page[2]/group/group[2]" position="attributes">
-						<attribute name="string">Employee Details</attribute>
-					</xpath>
+				<xpath expr="//notebook/page[2]/group/group[2]" position="attributes">
+					<attribute name="string">Employee Details</attribute>
+				</xpath>
 
-					<xpath expr="//field[@name='job_id']" position="replace">
-						<field name="job_idd"/>
+				<xpath expr="//field[@name='job_id']" position="replace">
+					<field name="job_idd"/>
 
-					</xpath>
+				</xpath>
 
-					<xpath expr="//field[@name='passport_id']" position="replace">
-					</xpath>
+				<xpath expr="//field[@name='passport_id']" position="replace">
+				</xpath>
 
-					<xpath expr="//field[@name='bank_account_id']" position="after">
-						<field name="passport_idd" options="{'no_quick_create': True, 'no_create_edit' : True}"/>
-					</xpath>
+				<xpath expr="//field[@name='bank_account_id']" position="after">
+					<field name="passport_idd" options="{'no_quick_create': True, 'no_create_edit' : True}"/>
+				</xpath>
 
-					 <xpath expr="//field[@name='country_id']" position="attributes">
-						<attribute name="required">True</attribute>
-					</xpath>
-					
-					<xpath expr="//field[@name='birthday']" position="attributes">
-						<attribute name="required">True</attribute>
-					</xpath>
+				<xpath expr="//field[@name='country_id']" position="attributes">
+					<attribute name="required">True</attribute>
+				</xpath>
 
-					
+				<xpath expr="//field[@name='birthday']" position="attributes">
+					<attribute name="required">True</attribute>
+				</xpath>
 
-					<xpath expr="//field[@name='name']" position="attributes">
-						<attribute name="string">Display Name</attribute>
-					</xpath>
 
-					<field name="department_id" position="after">
 
-						<field name="grade"/>
-					</field>
-					<field name="job_idd" position="after">
-						<field name="head"/>
-						<field name="line_man"/>
-						<field name="is_head" attrs="{'invisible': [('is_head','=', True)]}"/>
-						<field name="performence_manager"/>
-						<field name="is_line_man"/>
-						<field name="a_email"/>
-					</field>
-					<xpath expr="//field[@name='parent_id']" position="attributes">
+				<xpath expr="//field[@name='name']" position="attributes">
+					<attribute name="string">Display Name</attribute>
+				</xpath>
 
-						<attribute name="invisible">True</attribute>
-					</xpath>
-					<xpath expr="//field[@name='coach_id']" position="attributes">
+				<field name="department_id" position="after">
 
-						<attribute name="invisible">True</attribute>
-					</xpath>
+					<field name="grade"/>
+				</field>
+				<field name="job_idd" position="after">
+					<field name="head"/>
+					<field name="line_man"/>
+					<field name="is_head" attrs="{'invisible': [('is_head','=', True)]}"/>
+					<field name="performence_manager"/>
+					<field name="is_line_man"/>
+					<field name="a_email"/>
+				</field>
+				<xpath expr="//field[@name='parent_id']" position="attributes">
 
-					<xpath expr="//field[@name='address_home_id']" position="replace">
-						<field name="fn"/>
-						<field name="ar_fn"/>
-						<field name="mn"/>
-						<field name="ar_mn"/>
-						<field name="ln"/>
-						<field name="ar_ln"/>
-						<field name="bg"/>
-						<field name="spouse_no"/>
-					</xpath>
+					<attribute name="invisible">True</attribute>
+				</xpath>
+				<xpath expr="//field[@name='coach_id']" position="attributes">
 
-					<xpath expr="//field[@name='gender']" position="after">
-						<field name="ar_gender"/>
-					</xpath>
+					<attribute name="invisible">True</attribute>
+				</xpath>
 
-					<xpath expr="//field[@name='country_id']" position="after">
-						<field name="ar_country_id"/>
-					</xpath>
+				<xpath expr="//field[@name='address_home_id']" position="replace">
+					<field name="fn"/>
+					<field name="ar_fn"/>
+					<field name="mn"/>
+					<field name="ar_mn"/>
+					<field name="ln"/>
+					<field name="ar_ln"/>
+					<field name="bg"/>
+					<field name="spouse_no"/>
+				</xpath>
 
-					<!-- <xpath expr="//field[@name='religion']" position="after">
-						<field name="ar_religion"/>
-					</xpath> -->
+				<xpath expr="//field[@name='gender']" position="after">
+					<field name="ar_gender"/>
+				</xpath>
 
-					
+				<xpath expr="//field[@name='country_id']" position="after">
+					<field name="ar_country_id"/>
+				</xpath>
 
-					
+				<!-- <xpath expr="//field[@name='religion']" position="after">
+                    <field name="ar_religion"/>
+                </xpath> -->
 
-					<xpath expr="//field[@name='country_id']" position="after">
-						<field name="employee_code"/>
-						<field name="iqama_num" context="{'default_employee': id}" domain= "[('employee.name','=',name)]"/>
-						<field name="name_as_pass"/>
-						<field name="airport"/>
-						<field name="religion"/>
-						<field name="ar_religion"/>
-						<field name="arabic_name"/>
-						<field name="gosi_no" context="{'default_employee': id}" domain= "[('employee.name','=',name)]"/>
-					</xpath>
 
-					<xpath expr="//field[@name='marital']" position="after">
-						<field name="depend"/>
-					</xpath>
 
-					
+
+
+				<xpath expr="//field[@name='country_id']" position="after">
+					<field name="employee_code" readonly="1"/>
+					<field name="iqama_num" context="{'default_employee': id}" domain= "[('employee.name','=',name)]"/>
+					<field name="name_as_pass"/>
+					<field name="airport"/>
+					<field name="religion"/>
+					<field name="ar_religion"/>
+					<field name="arabic_name"/>
+					<field name="gosi_no" context="{'default_employee': id}" domain= "[('employee.name','=',name)]"/>
+				</xpath>
+
+				<xpath expr="//field[@name='marital']" position="after">
+					<field name="depend"/>
+				</xpath>
+
+
 				<xpath expr="//page[2]" position="after">
 					<!-- Personal Information -->
-					
+
 					<page string="Deployment" name="deployment">
-							<group name="group_top">
+						<group name="group_top">
 
-								<group name="group_left">
-									<field name="designation"/>
-									<field name="ar_designation"/>
-									<field name="id_prof"/>
-									<field name="ar_id_prof"/>
-									<field name="category"/>
-									<field name="ar_category"/>
-									<field name="department"/>
-									<field name="ar_department"/>
-									<field name="r_manager"/>
-									<field name="ar_r_manager"/>
-									<field name="division"/>
-									<field name="ar_division"/>
-								</group>
-
-								<group name="group_right">
-									<field name="mol_location"/>
-									<field name="ar_mol_location"/>
-									<field name="mol_no"/>
-									<field name="sponsor"/>
-									<field name="ar_sponsor"/>
-									<field name="c_athu"/>
-									<field name="ar_c_athu"/>
-									<field name="fc_athu"/>
-									<field name="ar_fc_athu"/>
-									<field name="reason"/>
-									<field name="ar_reason"/>
-								</group>
+							<group name="group_left">
+								<field name="designation"/>
+								<field name="ar_designation"/>
+								<field name="id_prof"/>
+								<field name="ar_id_prof"/>
+								<field name="category"/>
+								<field name="ar_category"/>
+								<field name="department"/>
+								<field name="ar_department"/>
+								<field name="r_manager"/>
+								<field name="ar_r_manager"/>
+								<field name="division"/>
+								<field name="ar_division"/>
 							</group>
-						</page>
+
+							<group name="group_right">
+								<field name="mol_location"/>
+								<field name="ar_mol_location"/>
+								<field name="mol_no"/>
+								<field name="sponsor"/>
+								<field name="ar_sponsor"/>
+								<field name="c_athu"/>
+								<field name="ar_c_athu"/>
+								<field name="fc_athu"/>
+								<field name="ar_fc_athu"/>
+								<field name="reason"/>
+								<field name="ar_reason"/>
+							</group>
+						</group>
+					</page>
 					<!-- Dependent -->
-						<page string="Dependent" name="employee_dependent" attrs="{'invisible': [('depend','=', False)]}">
-							<field name="dependent_id">
-								<tree>
-									<field name="name"/>
-									<field name="arabic_name"/>
-									<field name="dob"/>
-									<field name="ar_dob"/>
-									<field name="pob"/>
-									<field name="ar_pob"/>
-									<field name="relation"/> 
-									<field name="ar_relation"/> 
-									<field name="nationality"/> 
-								</tree>
-							</field>
-						</page>
+					<page string="Dependent" name="employee_dependent" attrs="{'invisible': [('depend','=', False)]}">
+						<field name="dependent_id">
+							<tree>
+								<field name="name"/>
+								<field name="arabic_name"/>
+								<field name="dob"/>
+								<field name="ar_dob"/>
+								<field name="pob"/>
+								<field name="ar_pob"/>
+								<field name="relation"/>
+								<field name="ar_relation"/>
+								<field name="nationality"/>
+							</tree>
+						</field>
+					</page>
 
-						<page string="Address" name="permanent_address">
-							<group name="group_top" string = "Present Address">
+					<page string="Address" name="permanent_address">
+						<group name="group_top" string = "Present Address">
 
-								<group name="group_left">
-									<field name="street"/>
-									<field name="street2"/>
-									<field name="zip_code"/>
-									<field name="same_add" string="Same Permanent Address"/>
-								</group>
-
-								<group name="group_right">
-									<field name="city"/>
-									<field name="ar_city"/>
-									<field name="state_id"/>
-									<field name="ar_state_id"/>
-									<field name="country_idd" options="{'no_quick_create': True, 'no_create_edit' : True}"/>
-									<field name="ar_country_idd"/>
-									<field name="contact_no"/>
-								</group>
+							<group name="group_left">
+								<field name="street"/>
+								<field name="street2"/>
+								<field name="zip_code"/>
+								<field name="same_add" string="Same Permanent Address"/>
 							</group>
 
+							<group name="group_right">
+								<field name="city"/>
+								<field name="ar_city"/>
+								<field name="state_id"/>
+								<field name="ar_state_id"/>
+								<field name="country_idd" options="{'no_quick_create': True, 'no_create_edit' : True}"/>
+								<field name="ar_country_idd"/>
+								<field name="contact_no"/>
+							</group>
+						</group>
 
-							<group name="group_top" string = "Permanent Address">
 
-								<group name="group_left">
-									<field name="p_street"/>
-									<field name="p_street2"/>
-									<field name="p_zip_code"/>
-								</group>
+						<group name="group_top" string = "Permanent Address">
 
-								<group name="group_right">
-									<field name="p_city"/>
-									<field name="ar_p_city"/>
-									<field name="p_state_id"/>
-									<field name="ar_p_state_id"/>
-									<field name="p_country_id" options="{'no_quick_create': True, 'no_create_edit' : True}"/>
-									<field name="ar_p_country_id"/>
-									<field name="p_contact_no"/>
-								</group>
+							<group name="group_left">
+								<field name="p_street"/>
+								<field name="p_street2"/>
+								<field name="p_zip_code"/>
 							</group>
 
-						</page>
-						<page string="Emergency Contact" name="emergency">
-							<field name="emergency_id">
+							<group name="group_right">
+								<field name="p_city"/>
+								<field name="ar_p_city"/>
+								<field name="p_state_id"/>
+								<field name="ar_p_state_id"/>
+								<field name="p_country_id" options="{'no_quick_create': True, 'no_create_edit' : True}"/>
+								<field name="ar_p_country_id"/>
+								<field name="p_contact_no"/>
+							</group>
+						</group>
 
-								<tree string='Qualifications'>
-									<field name="e_name"/>
-									<field name="ar_e_name"/>
-									<field name="e_relationship"/>
-									<field name="ar_e_relationship"/>
-									<field name="e_mobile"/>
-									<field name="ea_mobile"/>
-									<field name="e_phone"/>	
-									<field name="e_mail"/>
-									<field name="e_remark"/>
-								</tree>
+					</page>
+					<page string="Emergency Contact" name="emergency">
+						<field name="emergency_id">
 
-							</field>
+							<tree string='Qualifications'>
+								<field name="e_name"/>
+								<field name="ar_e_name"/>
+								<field name="e_relationship"/>
+								<field name="ar_e_relationship"/>
+								<field name="e_mobile"/>
+								<field name="ea_mobile"/>
+								<field name="e_phone"/>
+								<field name="e_mail"/>
+								<field name="e_remark"/>
+							</tree>
 
-						</page>
+						</field>
+
+					</page>
 
 					<!-- Education and Experience -->
-						<page string="Education and Experience" name="employee_education">
-							<group name="qualifiction" string="Qualifications">
-							</group>
-							<field name="qualifiction_id">
-								<tree string='Qualifications'>
-									<field name="uni_name"/> 
-									<field name="prg_status"/>
-									<field name="comp_date"/> 
-									<field name="contact_name"/> 
-									<field name="contact_phn"/> 
-									<field name="contact_email"/> 
-								</tree>
-							</field>
-							<group name="certification" string="Certification">
-							</group>
-							<field name="certification_id">
-								<tree string='Certification'>
-									<field name="car_name"/>
-									<field name="issue_org"/>
-									<field name="issue_date"/> 
-									<field name="exp_date"/>
-									<field name="regis_no"/>
-									<field name="contact_name"/> 
-									<field name="contact_phn"/> 
-									<field name="contact_email"/> 
-								</tree>  
-							</field>
-						</page>
+					<page string="Education and Experience" name="employee_education">
+						<group name="qualifiction" string="Qualifications">
+						</group>
+						<field name="qualifiction_id">
+							<tree string='Qualifications'>
+								<field name="uni_name"/>
+								<field name="prg_status"/>
+								<field name="comp_date"/>
+								<field name="contact_name"/>
+								<field name="contact_phn"/>
+								<field name="contact_email"/>
+							</tree>
+						</field>
+						<group name="certification" string="Certification">
+						</group>
+						<field name="certification_id">
+							<tree string='Certification'>
+								<field name="car_name"/>
+								<field name="issue_org"/>
+								<field name="issue_date"/>
+								<field name="exp_date"/>
+								<field name="regis_no"/>
+								<field name="contact_name"/>
+								<field name="contact_phn"/>
+								<field name="contact_email"/>
+							</tree>
+						</field>
+					</page>
 
-						<!-- Training -->
-						<page string="Training" name="employee_training">
-							<field name="trainings_id">
-								<tree>
-									<field name="training_sum"/>
-									<field name="start_date"/>
-									<field name="end_date"/> 
-									<field name="type_training"/> 
-									<field name="training_company"/> 
-									<field name="training_place"/> 
-									<field name="status"/>  
-								</tree>  
-							</field>
-						</page>
+					<!-- Training -->
+					<page string="Training" name="employee_training">
+						<field name="trainings_id">
+							<tree>
+								<field name="training_sum"/>
+								<field name="start_date"/>
+								<field name="end_date"/>
+								<field name="type_training"/>
+								<field name="training_company"/>
+								<field name="training_place"/>
+								<field name="status"/>
+							</tree>
+						</field>
+					</page>
 					<!-- Insurance -->
-						<page string="Insurance" name="employee_insurance">
-							<field name="insurance_id">
-								<tree>
-									<field name="card_code"/>
-									<field name="member_name"/>
-									<field name="clas_n"/> 
-									<field name="gender"/> 
-									<field name="dob"/> 
-									<field name="pob"/>
-									<field name="relation"/> 
-									<field name="start_date"/> 
-									<field name="premium"/> 
-									<field name="expiry_date"/> 
-								</tree>  
-							</field>
-						</page>
-					
+					<page string="Insurance" name="employee_insurance">
+						<field name="insurance_id">
+							<tree>
+								<field name="card_code"/>
+								<field name="member_name"/>
+								<field name="clas_n"/>
+								<field name="gender"/>
+								<field name="dob"/>
+								<field name="pob"/>
+								<field name="relation"/>
+								<field name="start_date"/>
+								<field name="premium"/>
+								<field name="expiry_date"/>
+							</tree>
+						</field>
+					</page>
+
 					<!-- Documents -->
-						<page string="Documents" name="employee_documents">
-							<field name="documents_id" context="{'default_e_name':name}">
-								<tree>
-									<field name="name" />
-									<field name="number"/>
-									<field name="type_d"/> 
-									<field name="notes"/> 
-									<field name="place_issue"/>  
-									<field name="issue_date"/>
-									<field name="dor"/>
-									<field name="expiry_date"/>
-									<field name="holder"/> 
-								</tree>  
-							</field>
-						</page>
+					<page string="Documents" name="employee_documents">
+						<field name="documents_id" context="{'default_e_name':name}">
+							<tree>
+								<field name="name" />
+								<field name="number"/>
+								<field name="type_d"/>
+								<field name="notes"/>
+								<field name="place_issue"/>
+								<field name="issue_date"/>
+								<field name="dor"/>
+								<field name="expiry_date"/>
+								<field name="holder"/>
+							</tree>
+						</field>
+					</page>
 
-						<page string="References" name="references">
-							<group name="group_top">
+					<page string="References" name="references">
+						<group name="group_top">
 
-								<group name="group_left">
-									<field name="r_name"/>
-									<field name="ar_r_name"/>
-									<field name="rc_name"/>
-									<field name="ar_rc_name"/>
-									<field name="r_designation"/>
-									<field name="ar_r_designation"/>
-									<field name="r_mobile"/>
-									<field name="ar_r_mobile"/>
-									
-								</group>
+							<group name="group_left">
+								<field name="r_name"/>
+								<field name="ar_r_name"/>
+								<field name="rc_name"/>
+								<field name="ar_rc_name"/>
+								<field name="r_designation"/>
+								<field name="ar_r_designation"/>
+								<field name="r_mobile"/>
+								<field name="ar_r_mobile"/>
 
-								<group name="group_right">
-									<field name="r_phone"/>
-									<field name="ar_r_phone"/>
-									<field name="r_mail"/>
-									<field name="ar_r_mail"/>
-									<field name="r_remark"/>
-								</group>
 							</group>
-						</page>
-						<page string = "Company Asset" name="asset">
-							<group>
-								<group string= "Company Asset">
+
+							<group name="group_right">
+								<field name="r_phone"/>
+								<field name="ar_r_phone"/>
+								<field name="r_mail"/>
+								<field name="ar_r_mail"/>
+								<field name="r_remark"/>
+							</group>
+						</group>
+					</page>
+					<page string = "Company Asset" name="asset">
+						<group>
+							<group string= "Company Asset">
 								<field name="laptop_des" domain= "[('owner_user_id.name','=',name)]" options="{'no_quick_create': True, 'no_create_edit' : True}"/>
 								<field name="other_asset" widget="many2many_tags" domain= "[('owner_user_id.name','=',name)]" options="{'no_quick_create': True, 'no_create_edit' : True}"/>
-								</group>
-								<group></group>
 							</group>
-						</page>
+							<group></group>
+						</group>
+					</page>
 
-					</xpath>
-					<!-- <xpath expr="//field[@name='mol_location']" position="after">
-						<field name="mol_no"/>
-					</xpath> -->
+				</xpath>
+				<!-- <xpath expr="//field[@name='mol_location']" position="after">
+                    <field name="mol_no"/>
+                </xpath> -->
 				<!-- HR settings -->
-					<xpath expr="//field[@name='user_id']" position="after">
-						
-						<field name="joining_date"/>
-						<field name="leaving_date"/>
-						<field name="serv_year"/>
-						<field name="emp_status"/>
-						<field name="vendor_no"/>
-						<field name="project"/>
-						<field name="iban"/>
-						<field name="bank_code"/>
+				<xpath expr="//field[@name='user_id']" position="after">
 
-					</xpath>
+					<field name="joining_date"/>
+					<field name="leaving_date"/>
+					<field name="serv_year"/>
+					<field name="emp_status"/>
+					<field name="vendor_no"/>
+					<field name="project"/>
+					<field name="iban"/>
+					<field name="bank_code"/>
+
+				</xpath>
 				<xpath expr="//field[@name='notes']" position="before">
 					<field name="status_id" label="Status"/>
 				</xpath>
 				<!-- <xpath expr="//field[@name='ar_place_of_birth']" position="before">
 					<field name="ar_place_of_birth"/>
 				</xpath> -->
-				
-				
+
+
 
 			</field>
-		
+
 		</record>
 
 		<record model="ir.ui.view" id="emp_tree_ext">
@@ -442,7 +448,7 @@
 				</tree>
 			</field>
 		</record>
-		
+
 		<record id="emergency_form_view" model="ir.ui.view">
 			<field name="name">emergency_form_view</field>
 			<field name="model">hr.emergency</field>
@@ -457,7 +463,7 @@
 								<field name="ar_e_relationship"/>
 								<field name="e_mobile"/>
 								<field name="ea_mobile"/>
-								
+
 							</group>
 
 							<group name="group_right">
@@ -662,7 +668,7 @@
 								<field name="issue_date"/>
 								<field name="expiry_date"/>
 							</group>
-							
+
 							<group name="group_right">
 								<field name="iqama_position"/>
 								<field name="place_issue"/>
@@ -700,7 +706,7 @@
 								<field name="issue_date"/>
 								<field name="expiry_date"/>
 							</group>
-							
+
 							<group name="group_right">
 								<field name="iqama_position"/>
 								<field name="place_issue"/>
@@ -785,8 +791,8 @@
 				</form>
 			</field>
 		</record>
-		
-		
+
+
 		<!-- Employee Leaving -->
 		<record model="ir.ui.view" id="leaving_form_view">
 			<field name="name">hr.leaving.form.view</field>
@@ -798,33 +804,33 @@
 						<button name="create_emp_clearence" type="object" string="Create Clearence" class = "oe_highlight" />
 					</header>
 					<sheet>
-					<group>
-						<group string='Employee Information'>
-							<field name="employee"/>
-							<field name="employee_code"/>
-							<field name="department"/>
-							<field name="office"/>
-							<field name="employee_clearence_ref"/>
+						<group>
+							<group string='Employee Information'>
+								<field name="employee"/>
+								<field name="employee_code"/>
+								<field name="department"/>
+								<field name="office"/>
+								<field name="employee_clearence_ref"/>
+							</group>
+							<group string='Leaving Information'>
+								<field name="reason"/>
+								<field name="requested_date"/>
+								<field name="notice_date"/>
+								<field name="end_date"/>
+								<field name="interview_date"/>
+								<field name="contact_person"/>
+							</group>
 						</group>
-						<group string='Leaving Information'>
-							<field name="reason"/>
-							<field name="requested_date"/>
-							<field name="notice_date"/>
-							<field name="end_date"/>
-							<field name="interview_date"/>
-							<field name="contact_person"/>
+						<group>
+							<notebook>
+								<page string="Description" name="employee_leaving">
+									<field name="description"/>
+								</page>
+								<page string="Extra Information" name="employee_Leavingextra">
+								</page>
+							</notebook>
 						</group>
-					</group>
-					<group>
-						<notebook>
-							<page string="Description" name="employee_leaving">
-								<field name="description"/>
-							</page>  
-							<page string="Extra Information" name="employee_Leavingextra">
-							</page>
-						</notebook>
-					</group> 
-					</sheet> 
+					</sheet>
 				</form>
 			</field>
 		</record>
@@ -854,7 +860,7 @@
 						<notebook>
 							<page string="EOS Details" name="employee_eos">
 								<group>
-									 <group>
+									<group>
 										<field name="date"/>
 										<field name="type_d"/>
 										<field name="payslip"/>
@@ -871,13 +877,13 @@
 										<field name="total_amount"/>
 									</group>
 								</group>
-							</page>  
+							</page>
 							<page string="Accounting" name="employee_accounting">
 							</page>
 							<page string="Extra Information" name="employee_accounting">
 							</page>
 						</notebook>
-					</group>  
+					</group>
 				</form>
 			</field>
 		</record>
@@ -889,7 +895,7 @@
 			<field name="priority" eval="16"/>
 			<field name="inherit_id" ref="hr_contract.hr_contract_view_form"/>
 			<field name="arch" type="xml">
-				
+
 
 				<xpath expr="//field[@name='type_id']" position="after">
 					<field name="e_date"/>
@@ -907,9 +913,9 @@
 					<field name="c_vehicle"/>
 					<field name="c_vacation"/>
 					<field name="nod"/>
-					
+
 				</xpath>
-				
+
 
 
 				<xpath expr="//page" position="before">
@@ -961,7 +967,7 @@
 					<field name="vehicle_attendance"/>
 					<field name="system_attendance"/>
 					<field name="line_manager_attendance"/>
-				</field> 
+				</field>
 				<xpath expr="//field[@name='employee_code']" position="after">
 					<field name="fn"/>
 					<field name="ln"/>
@@ -973,7 +979,7 @@
 					<field name="probation"/>
 					<field name="n_period"/>
 				</xpath>
-				   
+
 				<xpath expr="//page[4]" position="after">
 					<page string="Travel Details" name="employee_travel">
 						<group>
@@ -1009,14 +1015,14 @@
 			<field name="inherit_id" ref="hr_contract.hr_hr_employee_view_form2"/>
 			<field name="arch" type="xml">
 				<xpath expr="//field[@name='place_of_birth']" position="after">
-				<field name="ar_place_of_birth"/> 
+					<field name="ar_place_of_birth"/>
 				</xpath>
 				<xpath expr="//field[@name='place_of_birth']" position="before">
 					<field name="ar_birthday"/>
 				</xpath>
 
 			</field>
-		</record> 
+		</record>
 
 		<record model="ir.ui.view" id="res_company_tree_ext">
 			<field name="name">res_company_tree_ext</field>
@@ -1037,17 +1043,17 @@
 				<xpath expr="//field[@name='name']" position="attributes">
 					<attribute name="string">Name</attribute>
 				</xpath>
-				
+
 				<xpath expr="//field[@name='website']" position="after">
 					<field name="po_no"/>
 					<field name="location"/>
 					<field name="flip" invisible="1"/>
 				</xpath>
 
-				
-				<xpath expr="//label[@for='name']" position="replace">  
+
+				<xpath expr="//label[@for='name']" position="replace">
 				</xpath>
-				<xpath expr="//label[@for='rml_header1']" position="replace">  
+				<xpath expr="//label[@for='rml_header1']" position="replace">
 				</xpath>
 
 				<xpath expr="//field[@name='name']" position="before">
@@ -1062,7 +1068,7 @@
 				<xpath expr="//field[@name='country_id']" position="attributes">
 					<attribute name="required">True</attribute>
 				</xpath>
-				
+
 				<xpath expr="//field[@name='state_id']" position="attributes">
 					<attribute name="required">True</attribute>
 				</xpath>
@@ -1078,36 +1084,36 @@
 				<xpath expr="//field[@name='city']" position="attributes">
 					<attribute name="required">True</attribute>
 				</xpath>
-				
+
 				<xpath expr="//page" position="after">
 					<page name="license" string="License">
 						<field name="company_link">
 							<tree>
 								<field name="doc_type"/>
 								<field name="issue_date"/>
-								<field name="latest_renewal_date"/> 
-								<field name="expiry_date"/> 
-								<field name="renewal"/> 
-							</tree>  
+								<field name="latest_renewal_date"/>
+								<field name="expiry_date"/>
+								<field name="renewal"/>
+							</tree>
 						</field>
 					</page>
 				</xpath>
-				 <xpath expr="//page[2]" position="after">
+				<xpath expr="//page[2]" position="after">
 					<page name="sponsor_id" string="Sponsors">
 						<field name="sponsor_link">
 							<tree>
 								<field name="name"/>
 								<field name="partner_id"/>
-								<field name="cr_no"/> 
-								<field name="email"/> 
-								<field name="mobile"/> 
-							</tree>  
+								<field name="cr_no"/>
+								<field name="email"/>
+								<field name="mobile"/>
+							</tree>
 						</field>
 					</page>
 				</xpath>
 
 			</field>
-		</record> 
+		</record>
 
 		<record model="ir.ui.view" id="company_tree_form_view">
 			<field name="name">company_tree_form_view</field>
@@ -1123,7 +1129,7 @@
 						</group>
 
 						<group name="group_right">
-						   <field name="expiry_date"/>
+							<field name="expiry_date"/>
 							<field name="renewal"/>
 						</group>
 
@@ -1168,7 +1174,7 @@
 				</form>
 			</field>
 		</record>
-		
+
 		<record model="ir.ui.view" id="division_form_view">
 			<field name="name">division_form_view</field>
 			<field name="model">division.info</field>
@@ -1193,8 +1199,8 @@
 			<field name="arch" type="xml">
 				<tree string="Division Details">
 					<field name="company_name"/>
-						<field name="branch_name"/>
-						<field name="division"/>
+					<field name="branch_name"/>
+					<field name="division"/>
 				</tree>
 			</field>
 		</record>
@@ -1339,7 +1345,7 @@
 					<group name="group_top">
 
 						<group name="group_left">
-							
+
 							<field name="name" />
 							<field name="alert" />
 						</group>
@@ -1378,7 +1384,7 @@
 					<group name="group_top">
 
 						<group name="group_left">
-							
+
 							<field name="comp_name" domain= "[('flip','=',False)]"/>
 							<field name="bran_name" domain= "[('flip','=',True)]"/>
 							<field name="bran_code" />
@@ -1419,10 +1425,10 @@
 			</field>
 		</record>
 		<record id="document_com_seq" model="ir.sequence">
-		  <field name="name">document_com_seq</field>
-		  <field name="code">document.com</field>
-		  <field name="prefix">Doc</field>
-		  <field name="padding">4</field>
+			<field name="name">document_com_seq</field>
+			<field name="code">document.com</field>
+			<field name="prefix">Doc</field>
+			<field name="padding">4</field>
 		</record>
 
 		<record model="ir.ui.view" id="document_asset_form_view">
@@ -1433,7 +1439,7 @@
 					<group name="group_top">
 
 						<group name="group_left">
-							
+
 							<field name="name"/>
 							<field name="doc_no" />
 							<field name="doc_type" />
@@ -1459,16 +1465,16 @@
 			<field name="model">maintenance.equipment</field>
 			<field name="inherit_id" ref="maintenance.hr_equipment_view_form"/>
 			<field name="arch" type="xml">
-				
+
 				<xpath expr="//field[@name='model']" position="replace">
 				</xpath>
 
 				<xpath expr="//field[@name='owner_user_id']" position="attributes">
-						<attribute name="string">Employee Name</attribute>
+					<attribute name="string">Employee Name</attribute>
 				</xpath>
 
 				<xpath expr="//field[@name='owner_user_id']" position="attributes">
-						<attribute name="relation">hr.employee</attribute>
+					<attribute name="relation">hr.employee</attribute>
 				</xpath>
 
 				<xpath expr="//page[3]" position="after">
@@ -1477,8 +1483,8 @@
 							<tree>
 								<field name="name"/>
 								<field name="doc_no"/>
-								<field name="doc_type"/> 
-							</tree>  
+								<field name="doc_type"/>
+							</tree>
 						</field>
 					</page>
 				</xpath>
@@ -1525,7 +1531,7 @@
 
 					</page>
 				</xpath>
-				
+
 			</field>
 		</record>
 
@@ -1537,12 +1543,12 @@
 					<sheet>
 						<separator/>
 						<h3>Ticketing Details</h3>
-						<separator/>                        
+						<separator/>
 
 						<group name="group_top">
 
 							<group name="group_left">
-								
+
 								<field name="name"/>
 								<field name="emp_no" />
 								<field name="leave_from" />
@@ -1595,13 +1601,13 @@
 										<field name="ticket_req" />
 										<field name="departure_date" />
 										<field name="return_date" />
-									</tree>  
+									</tree>
 								</field>
-							</page>  
+							</page>
 							<page string="Create Booking" name="create_booking" attrs="{'invisible': [('create_book','=', False)]}">
 								<separator/>
 								<h3>Create Booking Details</h3>
-								<separator/>     
+								<separator/>
 								<group name="group_top">
 
 									<group name="group_left">
@@ -1617,7 +1623,7 @@
 									</group>
 
 								</group>
-							</page>  
+							</page>
 
 							<page string="Confirm Booking" name="confirm_booking" attrs="{'invisible': [('conf_book','=', False)]}">
 
@@ -1651,7 +1657,7 @@
 										<field name="return_date"/>
 										<field name="change_sec"/>
 										<field name="reasons"/>
-									</tree>  
+									</tree>
 								</field>
 
 							</page>
@@ -1705,7 +1711,7 @@
 					<sheet>
 						<separator/>
 						<h3>Dependent Details</h3>
-						<separator/>                        
+						<separator/>
 
 						<group name="group_top">
 
@@ -1742,7 +1748,7 @@
 					<sheet>
 						<separator/>
 						<h3>Ticket ReIssue Details</h3>
-						<separator/>                        
+						<separator/>
 
 						<group name="group_top">
 
@@ -1781,7 +1787,7 @@
 					<sheet>
 						<separator/>
 						<h3>Exit Re-Entry Details</h3>
-						<separator/>                        
+						<separator/>
 
 						<group name="group_top">
 
@@ -1850,7 +1856,7 @@
 			<field name="arch" type="xml">
 
 				<xpath expr="//field[@name='manager_id']" position="attributes">
-						<attribute name="required">True</attribute>
+					<attribute name="required">True</attribute>
 				</xpath>
 
 				<xpath expr="//field[@name='manager_id']" position="after">
@@ -1862,8 +1868,8 @@
 		</record>
 
 		<!-- ACTIONS........................................................-->
-		
-		 <record model="ir.actions.act_window" id="hr_exit_reentry_act">
+
+		<record model="ir.actions.act_window" id="hr_exit_reentry_act">
 			<field name="name">Exit Re-Entry</field>
 			<field name="res_model">hr.exit.reentry</field>
 			<field name="view_type">form</field>
@@ -2024,97 +2030,97 @@
 
 		<!-- Dependent -->
 		<menuitem id="ddependent_menu" name="Dependent"
-			  parent="hr.menu_hr_main"
-			  action="dependent_list_action"/>
+				  parent="hr.menu_hr_main"
+				  action="dependent_list_action"/>
 		<!-- Employee Card -->
 		<menuitem id="cards_menu" name="Employee Cards"
-			  parent="hr.menu_hr_main"
-			  action="card_list_action"/>
+				  parent="hr.menu_hr_main"
+				  action="card_list_action"/>
 		<!-- Employee Amedment -->
 		<menuitem id="contract_amedment_menu" name="Employee Amendment"
-			  parent="hr.menu_hr_main"
-			  action="amedment_list_action"/>
+				  parent="hr.menu_hr_main"
+				  action="amedment_list_action"/>
 		<!-- Employee Iqama -->
 		<menuitem id="contract_iqama_menu" name="Employee Iqama / ID"
-			  parent="hr.menu_hr_main"
-			  action="iqama_list_action"/>
+				  parent="hr.menu_hr_main"
+				  action="iqama_list_action"/>
 		<!-- Employee Clearance -->
 		<menuitem id="employee_clearance_menu" name="Employee Clearance"
-			  parent="hr.menu_hr_main"
-			  action="it_department_list_action"/>
+				  parent="hr.menu_hr_main"
+				  action="it_department_list_action"/>
 		<!-- Employee GOSI -->
 		<menuitem id="employee_grops_menu" name="Employee GOSI"
-			  parent="hr.menu_hr_main"
-			  action="grops_list_action"/>
+				  parent="hr.menu_hr_main"
+				  action="grops_list_action"/>
 		<!-- Employee Leaving -->
 		<menuitem id="employee_leaving_menu" name="Employee Leaving"
-			  parent="hr.menu_hr_main"
-			  action="leaving_list_action"/>
+				  parent="hr.menu_hr_main"
+				  action="leaving_list_action"/>
 		<!-- EOS -->
 		<menuitem id="employee_eos_menu" name="EOS"
-			  parent="hr.menu_hr_main"
-			  action="eos_list_action"/>
+				  parent="hr.menu_hr_main"
+				  action="eos_list_action"/>
 
 		<menuitem id="hr_insurance_menu" name="Insurance"
-			  parent="hr.menu_hr_main"
-			  action="hr_insurance_act"/>
+				  parent="hr.menu_hr_main"
+				  action="hr_insurance_act"/>
 
 		<menuitem id="branch_ext_menu" name="Branch"
-			parent="hr.menu_hr_department_tree" sequence="-2" action="res_company_branch_act"/>
+				  parent="hr.menu_hr_department_tree" sequence="-2" action="res_company_branch_act"/>
 
 		<menuitem id="hr.menu_hr_department_tree" name="Departments"
-			  action="hr.open_module_tree_department"/>
+				  action="hr.open_module_tree_department"/>
 
 		<menuitem id="division_info_menu" name="Division Info"
-			  parent="hr.menu_hr_department_tree"
-			  action="division_info_act"
-			  sequence ="1"/>
+				  parent="hr.menu_hr_department_tree"
+				  action="division_info_act"
+				  sequence ="1"/>
 
 		<menuitem id="hr.menu_hr_department_tree1" name="Departments"
-			  parent="hr.menu_hr_department_tree"
-			  action="hr.open_module_tree_department"
-			  sequence ="2"/>
+				  parent="hr.menu_hr_department_tree"
+				  action="hr.open_module_tree_department"
+				  sequence ="2"/>
 
 		<menuitem id="department_info_menu" name="Department Info"
-			  parent="hr.menu_hr_department_tree"
-			  action="department_info_act"
-			  sequence ="3"/>
+				  parent="hr.menu_hr_department_tree"
+				  action="department_info_act"
+				  sequence ="3"/>
 
 		<menuitem id="category_info_menu" name="Category Info"
-			  parent="hr.menu_hr_department_tree"
-			  action="category_info_act"
-			  sequence ="4"/>
+				  parent="hr.menu_hr_department_tree"
+				  action="category_info_act"
+				  sequence ="4"/>
 
 		<menuitem id="designation_info_menu" name="Designation Info"
-			  parent="hr.menu_hr_department_tree"
-			  action="designation_info_act"
-			  sequence ="5"/>
+				  parent="hr.menu_hr_department_tree"
+				  action="designation_info_act"
+				  sequence ="5"/>
 
 		<menuitem id="document_list_menu" name="Document List"
-			  parent="hr.menu_hr_department_tree"
-			  action="document_list_act"
-			  sequence ="6"/>
+				  parent="hr.menu_hr_department_tree"
+				  action="document_list_act"
+				  sequence ="6"/>
 
 		<menuitem id="document_com_menu" name="Company Document"
-			  parent="hr.menu_hr_department_tree"
-			  action="document_com_act"
-			  sequence ="7"/>
+				  parent="hr.menu_hr_department_tree"
+				  action="document_com_act"
+				  sequence ="7"/>
 
 		<menuitem id="hr_ticket_menu" name="Ticket"
-			  parent="hr_holidays.menu_hr_holidays_root"
-			  sequence ="4"/>
+				  parent="hr_holidays.menu_hr_holidays_root"
+				  sequence ="4"/>
 
 		<menuitem id="hr_ticket_menu_child1" name="Ticket"
-			  parent="hr_ticket_menu" action="hr_ticket_act"
-			  sequence ="0"/>
+				  parent="hr_ticket_menu" action="hr_ticket_act"
+				  sequence ="0"/>
 
 		<menuitem id="hr_exit_reentry_menu" name="Exit Re-Entry"
-			  parent="hr_holidays.menu_hr_holidays_root"
-			  sequence ="5"/>
+				  parent="hr_holidays.menu_hr_holidays_root"
+				  sequence ="5"/>
 
 		<menuitem id="hr_exit_reentry_menu_child1" name="Exit Re-Entry"
-			  parent="hr_exit_reentry_menu" action="hr_exit_reentry_act"
-			  sequence ="0"/>
+				  parent="hr_exit_reentry_menu" action="hr_exit_reentry_act"
+				  sequence ="0"/>
 
 	</data>
 </odoo>

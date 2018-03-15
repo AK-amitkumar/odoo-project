@@ -25,28 +25,30 @@
                   <field name = "number" readonly = "True"/>
                     <field name = "partner_id" attrs="{'readonly':[('state','=','post')]}"/>
                     <field name = "amount" attrs="{'readonly':[('state','=','post')]}" />
-                    <field name = "e_amount"  readonly = "True"/>
-                    <field name = "t_amount" readonly = "True"  />
-                    <field name = "journal_id" attrs="{'readonly':[('state','=','post')]}"/>
-                    <field name="taxes" widget="many2many_tags" attrs="{'readonly':[('state','=','post')]}" domain="[('with_holding', '=', True)]" />
+                    <field name = "e_amount"  readonly = "True" invisible="1"/>
+                    <field name = "t_amount" readonly = "True"  invisible="1"/>
+                    <field name = "invoice_link" invisible="1"/>
+                    <field name = "membership_no"/>
+                    <field name = "journal_id" attrs="{'readonly':[('state','=','post')]}" domain="[('type', '=', ['bank','cash'])]"/>
+                    <field name="taxes" widget="many2many_tags" attrs="{'readonly':[('state','=','post')]}" domain="[('with_holding', '=', True)]" invisible="1"/>
 
                     
                 </group>
                 <group  name="group_right">
                     <field name="date" attrs="{'readonly':[('state','=','post')]}"/>
-                    <field name="period_id" attrs="{'readonly':[('state','=','post')]}"/> 
+                    <field name="period_id" attrs="{'readonly':[('state','=','post')]}" invisible="1"/> 
                     <field name="reference"  placeholder="e.g. 003/10" attrs="{'readonly':[('state','=','post')]}"/> 
                     <field name="name"  placeholder="e.g. invoice SAJ/0042" attrs="{'readonly':[('state','=','post')]}"/>
                     <field name="journal_entry_id"  readonly = "True"/>   
                     <field name="receipts" invisible='1'/> 
-                    <field name="branch"/> 
+                    <field name="branch" readonly="1"/> 
              <!--        <field name = "firm_partner" attrs="{'readonly':[('state','=','post')]}"/>
                     <field name = "tagm_entity" attrs="{'readonly':[('state','=','post')]}"/>  -->
                     
                 </group>
             </group>
 
-            <notebook>
+            <notebook invisible="1">
             <page string="Open Invoices">  
 
             <field name="customer_tree" attrs="{'readonly':[('state','=','post')]}">
@@ -199,11 +201,11 @@
 
 
 
-     <menuitem id="sub_menu_customer_payments" 
-     name="Customer Payments" 
-     action="new_action_customer_payments" 
-     parent="reg_form.reg_form_invoice"
-     sequence="2"/> 
+     <menuitem id="sub_menu_customer_payments"
+     name="Receipts"
+     action="new_action_customer_payments"
+     parent="account.menu_finance_payables"
+     sequence="2"/>
 
 
     <menuitem id="sub_menu_supplier_payments" 

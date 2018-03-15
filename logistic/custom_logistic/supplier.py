@@ -127,7 +127,7 @@ class AccountExtend(models.Model):
     _inherit = 'account.invoice'
 
     billng_type = fields.Char(string="Billing Type")
-    by_customer   = fields.Many2one('by.customer', string="By Customer")
+    by_customer = fields.Many2one('by.customer', string="By Customer")
     bill_num = fields.Char(string="B/L Number")
     acount_link = fields.Many2one('freight.forward', string='link')
     our_job = fields.Char(string="Our Job No", required=False, )

@@ -140,6 +140,14 @@ class Hr_Employee(models.Model):
 		for x in rec:
 			x.id_prof = x.job_idd.job
 
+	@api.model
+	def create(self, vals):
+		"""Emp Code Sequence"""
+		vals['employee_code'] = self.env['ir.sequence'].next_by_code('hr.emp_code')
+		new_record = super(Hr_Employee, self).create(vals)
+
+		return new_record
+
 	@api.onchange('same_add')
 	def _onchange_same_add(self):
 		if self.same_add:
