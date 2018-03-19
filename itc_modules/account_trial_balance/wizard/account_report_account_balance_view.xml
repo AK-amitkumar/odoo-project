@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<openerp>
+    <data>
+
+        <record id="account_report_balance_new_view" model="ir.ui.view">
+          <field name="name">Trial Balance New</field>
+          <field name="model">account.balance.report.new</field>
+          <field name="inherit_id" ref="account.account_common_report_view" />
+          <field name="arch" type="xml">
+            <data>
+            <xpath expr="//notebook/page[@string='Journals']" position="replace">
+            </xpath>
+            <xpath expr="//field[@name='target_move']" position="after">
+                <field name="display_account"/>
+                <newline/>
+            </xpath>
+            <xpath expr="//notebook/page[@string='Filters']" position="replace">
+            	<page string="Filters" name="filters">
+            		<group>
+	            		<group col="6" colspan="2">
+		                    <group>
+		                        <field name="filter" on_change="onchange_filter(filter, fiscalyear_id)"/>
+		                    </group>
+		                    <group>
+		                        <field name="date_from" attrs="{'invisible':[('filter', '!=', 'filter_date')], 'required':[('filter', '=', 'filter_date')]}"/>
+		                        <field name="period_from" domain="[('fiscalyear_id', '=', fiscalyear_id)]" attrs="{'invisible':[('filter','!=','filter_period')], 'required':[('filter', '=', 'filter_period')]}"/>
+		                    </group>
+		                    <group>
+		                    	<field name="date_to" attrs="{'invisible':[('filter', '!=', 'filter_date')], 'required':[('filter', '=', 'filter_date')]}"/>
+		                        <field name="period_to" domain="[('fiscalyear_id', '=', fiscalyear_id)]" attrs="{'invisible':[('filter','!=','filter_period')], 'required':[('filter', '=', 'filter_period')]}"/>
+		                    </group>
+	                    </group>
+	                    
+	                    
+	                    <group col="4" colspan="4">
+	                    	<newline/>
+		                    <group string="Level-To-Level">
+		                        <field name="filter_level"/>
+		                        <field name="level_from" attrs="{'invisible':[('filter_level', '!=', True)], 'required':[('filter_level', '=', True)]}"/>
+		                        <field name="level_to" attrs="{'invisible':[('filter_level', '!=', True)], 'required':[('filter_level', '=', True)]}"/>
+		                    </group>
+		                    
+		                    <group string="Account-To-Account">
+		                        <field name="filter_account" on_change="onchange_filter_account(filter_account, display_account)"/>
+		                        <field name="account_from" attrs="{'invisible':[('filter_account','!=',True)], 'required':[('filter_account', '=', True)]}"/>
+		                        <field name="account_to" attrs="{'invisible':[('filter_account','!=',True)], 'required':[('filter_account', '=', True)]}"/>
+		                    </group>
+	                    </group>
+                    </group>
+                </page>
+            </xpath>
+            </data>
+          </field>
+        </record>
+
+        <record id="action_account_balance_new_menu" model="ir.actions.act_window">
+            <field name="name">Trial Balance</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">account.balance.report.new</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="account_report_balance_new_view"/>
+            <field name="target">new</field>
+        </record>
+
+        <menuitem
+                icon="STOCK_PRINT"
+                name="Trial Balance Analysis"
+                parent="account.final_accounting_reports"
+                action="action_account_balance_new_menu"
+                id="menu_general_Balance_report_new2"
+               />
+
+        <record model="ir.values" id="action_account_balance_report_values1_new">
+            <field name="model_id" ref="account.model_account_account" />
+            <field name="name">Trial Balance</field>
+            <field name="key2">client_print_multi</field>
+            <field name="value" eval="'ir.actions.act_window,' +str(ref('action_account_balance_new_menu'))" />
+            <field name="key">action</field>
+            <field name="model">account.account</field>
+        </record>
+
+    </data>
+</openerp>

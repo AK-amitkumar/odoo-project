@@ -1,0 +1,106 @@
+<openerp>
+    <data>
+        <template id="report_account_voucher">
+            <t t-call="report.html_container">
+                <t t-foreach="doc_ids" t-as="doc_id">
+                    <t t-raw="translate_doc(doc_id, doc_model, 'partner_id.lang', 'account.report_account_voucher_report')"/>
+                </t>
+            </t>
+        </template>
+        <template id="report_account_voucher_report">
+            <t t-call="report.html_container">
+                <t t-foreach="docs" t-as="o">
+                    <t t-call="report.external_layout">
+                        <div class="page">
+                            <div>
+                                <div class="row">
+                                    <div class="col-xs-9"
+                                         style="width:300px;height:60px;text-align:center;padding: 20px;
+">
+                                        <p>
+                                            <span t-field="o.amount"/>
+                                            <strong >: مدفوعات عملاء</strong>
+                                        </p>
+                                    </div>
+                                    <div class="col-xs-9"
+                                         style="width:300px;height:60px;text-align:center;float:right;padding: 20px;
+">
+                                        <p>
+                                            <span t-field="o.date"/>
+                                            <strong >: التاريخ</strong>
+                                        </p>
+                                    </div>
+                                </div>
+                                <br/>
+                                <br/>
+
+                                <div class="row">
+                                    <div class="col-xs-9"
+                                         style="width:300px;height:60px;text-align:center;padding: 20px;
+">
+                                        <p>
+                                            <span t-field="o.partner_id"/>
+                                            <strong >: اسم العميل</strong>
+                                        </p>
+                                    </div>
+                                    <div class="col-xs-9"
+                                         style="width:300px;height:60px;text-align:center;float:right;padding: 20px;
+">
+                                        <p>
+                                            <span t-field="o.number"/>
+                                            <strong >: رقم حساب العميل</strong>
+                                        </p>
+                                    </div>
+                                </div>
+                                <br/>
+                                <br/>
+                                <div class="row">
+                                    <div class="col-xs-9"
+                                         style="width:300px;height:60px;text-align:center;padding: 20px;
+">
+                                        <p>
+                                            <span t-field="o.journal_id"/>
+                                            <strong >: طريقة الدفع</strong>
+                                        </p>
+                                    </div>
+                                    <div class="col-xs-9"
+                                         style="width:300px;height:60px;text-align:center;float:right;padding: 20px;
+">
+                                        <p>
+                                            <span/>
+                                            <strong >: رقم الضريبة المضافة للعميل</strong>
+                                        </p>
+                                    </div>
+                                </div>
+                                <br/>
+                                <br/>
+                                <div class="col-xs-9"
+                                     style="width:300px;height:60px;text-align:center;float:right;padding: 20px;
+">
+                                    <p>
+                                        <span/>
+                                        <strong >: اسم المندوب</strong>
+                                    </p>
+                                </div>
+                                <br/>
+                                <br/>
+                                <br/>
+                                <div style="width:900px;height:100px;text-align:center;float:right;border-color:#00BFFF;">
+                                    <p>
+                                         <span t-field="o.amount"/>
+                                        <strong >: المبلغ رقم</strong>
+                                    </p>
+                                    <br/>
+                                    <p>
+                                         <span t-esc="o.convertNumber(o.amount)"/>
+                                        <strong >: المبلغ كتابة</strong>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </t>
+            </t>
+        </template>
+    </data>
+</openerp>

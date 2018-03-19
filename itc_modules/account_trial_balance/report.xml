@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+	<report 
+		    id="action_report_trial_balance_new"
+		    model="account.balance.report.new"
+		    string="Trial Balance New"
+		    report_type="qweb-pdf"
+		    name="account_trial_balance.report_trialbalance_new" 
+		    file="account_trial_balance.report_trialbalance_new"
+		/>
+      </data>
+</openerp>

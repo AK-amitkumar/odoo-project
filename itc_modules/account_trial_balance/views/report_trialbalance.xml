@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+<data>
+<template id="report_trialbalance_new">
+    <t t-call="report.html_container">
+    	<t t-set="data_report_margin_top" t-value="12"/>
+        <t t-set="data_report_header_spacing" t-value="9"/>
+        <t t-set="data_report_dpi" t-value="110"/>
+        <t t-call="report.internal_layout">
+            <div class="page">
+                <h2><span t-esc="res_company.name"/>: Trial Balance</h2>
+
+                <div class="row mt32">
+                    <div class="col-xs-4">
+                        <strong>Chart of Accounts:</strong>
+                        <p t-esc="get_account(data)"/>
+                    </div>
+                    <div class="col-xs-4">
+                        <strong>Fiscal Year:</strong>
+                        <p t-esc="get_fiscalyear(data)"/>
+                    </div>
+                    <div class="col-xs-4">
+                        <strong>Display Account:</strong>
+                        <p>
+                            <span t-if="data['form']['display_account'] == 'all'">All accounts</span>
+                            <span t-if="data['form']['display_account'] == 'movement'">With movements</span>
+                            <span t-if="data['form']['display_account'] == 'not_zero'">With balance not equal to zero</span>
+                        </p>
+                    </div>
+                    
+                    
+                </div>
+                <div class="row mb32">
+                    <div class="col-xs-4">
+                        <strong>Target Moves:</strong>
+                        <p t-esc="get_target_move(data)"/>
+                    </div>
+                    <div class="col-xs-4">
+                        <strong>Filter By:</strong>
+                        <p>
+                            <span t-if="data['form']['filter'] == 'filter_no'">Not filtered</span>
+                            <span t-if="data['form']['filter'] == 'filter_period'">Filtered by period</span>
+                            <span t-if="data['form']['filter'] == 'filter_date'">Filtered by date</span>
+                            <p t-if="data['form']['filter'] == 'filter_period'">
+                                Start Period: <span t-esc="get_start_period(data)"/>
+                                End Period: <span t-esc="get_end_period(data)"/>
+                            </p>
+                            <p t-if="data['form']['filter'] == 'filter_date'">
+                                Date from : <span t-esc="formatLang(get_start_date(data), date=True)"/><br />
+                                Date to : <span t-esc="formatLang(get_end_date(data), date=True)"/>
+                            </p>
+                        </p>
+                    </div>
+                    <div class="col-xs-4">
+                     	<p>
+                        	<strong>Filtered by Level:</strong>
+                            <span t-if="data['form']['filter_level'] == True">YES</span>
+                            <span t-if="data['form']['filter_level'] != True">NO</span><br/>
+                            <span t-if="data['form']['filter_level'] == True">
+                                Level from: <span t-esc="data['form']['level_from']"/> To  
+                                Level : <span t-esc="data['form']['level_to']"/>
+                            </span>
+                            <p/>
+                        	<strong>Filtered by Account:</strong>
+                            <span t-if="data['form']['filter_account'] == True">YES</span>
+                            <span t-if="data['form']['filter_account'] != True">NO</span><br/>
+                            <span t-if="data['form']['filter_account'] == True">
+                                Account From : <span t-esc="get_code_from(data['form']['account_from'])"/> To  
+                                Account : <span t-esc="get_code_to(data['form']['account_to'])"/>
+                            </span>
+                        </p>
+                    </div>
+                </div>
+
+                <table  class="table table-condensed table-bordered">
+                    <thead>
+                    	<tr>
+                            <th style="border:3px solid #ddd; "></th>
+                            <th style="border:3px solid #ddd; "></th>
+                            <th class="text-center" style="border:3px solid #ddd; " colspan="2">Opening Balance</th>
+                            <th class="text-center" style="border:3px solid #ddd; " colspan="2">Transaction</th>
+                            <th class="text-center" style="border:3px solid #ddd; " colspan="2">Ending Balance</th>
+                        </tr>
+                        <tr>
+                            <th>Code</th>
+                            <th>Account</th>
+                            <th class="text-right">Debit</th>
+                            <th class="text-right">Credit</th>
+                            <th class="text-right">Debit</th>
+                            <th class="text-right">Credit</th>
+                            <th class="text-right">Debit</th>
+                            <th class="text-right">Credit</th>
+<!--                             <th class="text-right">Balance</th> -->
+                        </tr>
+                    </thead>
+                    <tbody>
+                    	<t t-set="lst_accs" t-value="[]"/>
+                    	
+                    	<t t-set="flag_1" t-value="False"/>
+                    	<t t-set="flag" t-value="True"/>
+                    	<t t-set="is_last" t-value="False"/>
+                        <tr t-foreach="lines(data['form'])" t-as="childrenaccount">
+                        
+                        
+                        	<t t-if="data['form']['filter_account'] == True">
+                        		<t t-if="flag_1 == False">
+                        			<t t-set="flag" t-value="False"/>
+                        		</t>
+                        		<t t-if="data['form']['account_from'][0] == childrenaccount['id']">
+                        			<t t-set="flag" t-value="True"/>
+                        			<t t-set="flag_1" t-value="True"/>
+                        			
+                        		</t>
+                        		<t t-if="data['form']['account_to'][0] == childrenaccount['id']">
+                        			<t t-set="flag" t-value="False"/>
+                        			<t t-set="flag_1" t-value="False"/>
+                        			<t t-set="is_last" t-value="True"/>
+                        		</t>
+                        		
+                        	</t>
+                        	<t t-if="flag == True or is_last == True">
+                        		<t t-if="is_last == True">
+                        			<t t-set="is_last" t-value="False"/>
+                        		</t>
+                        		<t t-if="childrenaccount['print'] == 'yes'">
+		                            <t t-if="childrenaccount['type'] == 'view'">
+		                                <t t-set="style" t-value="'font-weight:bold;'"/>
+		                            </t>
+		                            <t t-if="childrenaccount['type'] != 'view'">
+		                                <t t-set="style" t-value="'font-weight:normal;'"/>
+		                            </t>
+		                            
+		                            <t t-set="lst_accs" t-value="lst_accs + [childrenaccount]"/>
+		                            
+		
+		                            <td>
+		                                <span t-att-style="style" t-esc="childrenaccount['code']"/>                                     
+		                            </td>
+		                            <td>
+		                                <span style="color: white;" t-esc="'.' * (childrenaccount['level'] - 1)"/>
+		                                <span t-att-style="style" t-esc="childrenaccount['name']"/>
+		                            </td>
+		                            <td class="text-right">
+		                                 <span t-att-style="style" t-esc="formatLang(sum_init_debit_account(childrenaccount['id']), digits=get_digits(dp='Account'), currency_obj=res_company.currency_id)"/>
+		                            </td>
+		                            <td class="text-right">
+		                                 <span t-att-style="style" t-esc="formatLang(sum_init_credit_account(childrenaccount['id']), digits=get_digits(dp='Account'), currency_obj=res_company.currency_id)"/>
+		                            </td>
+		                            <td class="text-right">
+		                                 <span t-att-style="style" t-esc="formatLang(childrenaccount['debit'], digits=get_digits(dp='Account'), currency_obj=res_company.currency_id)"/>
+		                            </td>
+		                            <td class="text-right">
+		                                <span t-att-style="style" t-esc="formatLang(childrenaccount['credit'], digits=get_digits(dp='Account'), currency_obj=res_company.currency_id)"/>
+		                            </td>
+		                            <td class="text-right">
+		                                 <span t-att-style="style" t-esc="formatLang(sum_balance_debit_credit(childrenaccount['id'],childrenaccount['debit'],childrenaccount['credit'])['debit'], digits=get_digits(dp='Account'), currency_obj=res_company.currency_id)"/>
+		                            </td>
+		                            <td class="text-right">
+		                                 <span t-att-style="style" t-esc="formatLang(sum_balance_debit_credit(childrenaccount['id'],childrenaccount['debit'],childrenaccount['credit'])['credit'], digits=get_digits(dp='Account'), currency_obj=res_company.currency_id)"/>
+		                            </td>
+								</t>
+							</t>
+                        </tr>
+						
+                        
+						<tr t-foreach="cal_total_lines(data['form'],lst_accs)" t-as="acc_total">
+							<t t-set="style" t-value="'font-weight:bold;'"/>
+							<td></td>
+                            <td class="text-right">TOTAL</td>
+                            <td class="text-right">
+                            	<span t-att-style="style" t-esc="formatLang(acc_total['o_debit'], digits=get_digits(dp='Account'), currency_obj=res_company.currency_id)"/>
+                            </td>
+                            <td class="text-right">
+                            	<span t-att-style="style" t-esc="formatLang(acc_total['o_credit'], digits=get_digits(dp='Account'), currency_obj=res_company.currency_id)"/>
+                            </td>
+                            <td class="text-right">
+                                 <span t-att-style="style" t-esc="formatLang(acc_total['t_debit'], digits=get_digits(dp='Account'), currency_obj=res_company.currency_id)"/>
+                            </td>
+                            <td class="text-right">
+                                <span t-att-style="style" t-esc="formatLang(acc_total['t_credit'], digits=get_digits(dp='Account'), currency_obj=res_company.currency_id)"/>
+                            </td>
+                            <td class="text-right">
+                                 <span t-att-style="style" t-esc="formatLang(acc_total['b_debit'], digits=get_digits(dp='Account'), currency_obj=res_company.currency_id)"/>
+                            </td>
+                            <td class="text-right">
+                                 <span t-att-style="style" t-esc="formatLang(acc_total['b_credit'], digits=get_digits(dp='Account'), currency_obj=res_company.currency_id)"/>
+                            </td>
+						</tr>
+	                        
+                    </tbody>
+                </table>
+                
+            </div>
+        </t>
+    </t>
+</template>
+</data>
+</openerp>

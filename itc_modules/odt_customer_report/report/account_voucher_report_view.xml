@@ -1,0 +1,8 @@
+<openerp>
+    <data>
+
+        <!--# QWeb Report-->
+        <report id="account_voucher_view_form" model="account.voucher" string="Customer Payment" report_type="qweb-pdf"
+                name="odt_customer_report.report_account_voucher_report"/>
+    </data>
+</openerp>

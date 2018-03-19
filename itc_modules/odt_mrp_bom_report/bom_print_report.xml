@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <report
+            id="bom_report"
+            model="mrp.bom"
+            string="Print"
+            report_type="qweb-pdf"
+            name="odt_mrp_bom_report.report_bom"
+            attachment_use="False"
+            file="bom_print"
+        />
+
+        <record id="paperformat_bom" model="report.paperformat">
+            <field name="name">BOM</field>
+            <field name="format">A4</field>
+            <field name="page_height">0</field>
+            <field name="page_width">0</field>
+            <field name="orientation">Landscape</field>
+            <field name="margin_top">30</field>
+            <field name="margin_bottom">10</field>
+            <field name="margin_left">10</field>
+            <field name="margin_right">10</field>
+            <field name="header_line" eval="False" />
+            <field name="header_spacing">30</field>
+            <field name="dpi">100</field>
+        </record>
+
+        <record id="bom_report" model="ir.actions.report.xml">
+            <field name="paperformat_id" ref="odt_mrp_bom_report.paperformat_bom"/>
+        </record>
+
+    </data>
+
+
+
+
+
+</openerp>

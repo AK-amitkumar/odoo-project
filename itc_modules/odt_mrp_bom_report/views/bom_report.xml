@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+<data>
+<template id="report_bom">
+    <t t-call="report.html_container">
+        <t t-foreach="docs" t-as="o">
+            <t t-call="report.external_layout">
+                <div class="page" style="margin:10px; padding:22px; border:3px solid #ccc; border-radius:10px;">
+                    <div class="row">
+                        <center>
+                            <h1 class="p3 ft0">BOM Report</h1>
+                            <br/><br/>
+                                <table width="80%">
+                                    <tbody>
+                                        <tr>
+                                            <td >
+                                                <p class="text-left">
+                                                    <strong>Product:</strong>
+                                                    <span t-field="o.product_id" />
+                                                </p>
+                                            </td>
+                                            <td >
+                                                <p class="text-left">
+                                                    <strong>Quantity:</strong>
+                                                    <span t-field="o.product_qty" />
+                                                </p>
+                                            </td>
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <table width="100%" style="border: 1px solid black;table-layout:fixed">
+                                    <thead>
+                                        <tr>
+                                            <th width="10%" class="text-center td5">Sl No</th>
+                                            <th class="text-center td5">Product</th>
+                                            <th class="text-center td5">Quantity</th>
+                                            <th class="text-center td5">Cost</th>
+                                            <th class="text-center td5">Total</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="voucher_tbody">
+                                        <t t-set="total" t-value="0" />
+                                        <tr t-foreach="o.bom_line_ids" t-as="l">
+                                            <t t-set="total" t-value="total+l.total_cost"/>
+                                            <td style="word-wrap:break-word;border:1px solid black" class="text-center td2">
+                                                <span t-esc="l_index + 1"/>
+                                            </td>
+                                            <td style="word-wrap:break-word;border:1px solid black" class="text-center td2">
+                                                <span t-field="l.product_id"/>
+                                            </td>
+                                            <td style="word-wrap:break-word;border:1px solid black" class="text-center td2">
+                                                <span t-field="l.product_qty"/>
+                                            </td>
+
+                                             <td style="border:1px solid black; word-wrap:break-word" class="text-center td2">
+                                                 <span t-field="l.product_standard_price"/>
+                                            </td>
+
+                                             <td style="border:1px solid black; word-wrap:break-word" class="text-center td2">
+                                                 <span t-field="l.total_cost"/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="4" class="text-center td2" style="border:1px solid black; word-wrap:break-word">Total cost</td>
+                                            <td class="text-center td2" style="border:1px solid black; word-wrap:break-word"><span t-esc="total"/> </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                 <div class="row mt32 mb32" id="edit2">
+                                    <div class="col-xs-4">
+                                        <strong>Prepared By:</strong>
+                                    </div>
+                                    <div class="col-xs-4">
+                                        <strong>Reviewed By:</strong>
+                                    </div>
+                                    <div class="col-xs-4">
+                                       <strong>Approved By:</strong>
+                                    </div>
+                                </div>
+
+                        </center>
+                    </div>
+                </div>
+              </t>
+    </t>
+    </t>
+      
+</template>
+</data>
+</openerp>

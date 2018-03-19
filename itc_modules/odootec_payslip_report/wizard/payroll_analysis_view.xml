@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+  <data>
+
+    <!-- Wizard view -->
+    <record id="payroll_report_wiz_form" model="ir.ui.view">
+      <field name="name">hr.payroll.report.wiz.form</field>
+      <field name="model">hr.payroll.report.wiz</field>
+      <field name="arch" type="xml">
+        <form string="Model">
+          <group string="Payroll Analysis">
+            <!--<field name="method"/>-->
+            <!--<field name="company_ids"-->
+              <!--attrs="{'invisible': [('method', '!=', 'company')]}"-->
+            <!--/>-->
+            <field name="employee_ids"/>
+              <!--attrs="{'invisible': [('method', '!=', 'employee')]}"-->
+            <!--/>-->
+            <field name="salary_rule_ids"
+            />
+            <field name="period" />
+            <field name="start_date"/>
+            <field name="end_date"/>
+          </group>
+          <footer>
+            <button name="payroll_analysis_open_window" string="Generate the Report" type="object" class="oe_highlight"/>
+            or
+            <button string="Cancel" class="oe_link" special="cancel"/>
+          </footer>
+        </form>
+      </field>
+    </record>
+
+    <!-- Wizard action -->
+    <record id="action_hr_payroll_report_wiz_config" model="ir.actions.act_window">
+      <field name="name">Payroll Report</field>
+      <field name="type">ir.actions.act_window</field>
+      <field name="res_model">hr.payroll.report.wiz</field>
+      <field name="view_type">form</field>
+      <field name="view_mode">tree,form</field>
+      <field name="view_id" ref="payroll_report_wiz_form"/>
+      <field name="target">new</field>
+    </record>
+
+    <!-- Action placement -->
+    <menuitem action="action_hr_payroll_report_wiz_config"
+      id="menu_action_hr_payroll_report_wiz"
+      parent="hr.menu_hr_reporting" />
+
+  </data>
+</openerp>
